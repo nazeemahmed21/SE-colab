@@ -133,7 +133,6 @@ function Navbar() {
             </div>
             <div className='prof-role'>    
                   <p className='userInformation'>{userInfo.Role}</p>
-                  <p>yay</p>
             </div>
           </li>
           {SidebarData.map((item, index) => {
