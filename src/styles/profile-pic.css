@@ -1,0 +1,156 @@
+/* Main container styles */
+body {
+  background-color: #fbf9ed;
+  margin: 0;
+  display: flex; /* Add display flex to the body */
+  justify-content: flex-end; /* Align content to the right (flex-end) */
+  align-items: center;
+  min-height: 100vh; /* Set a minimum height to occupy the full vertical space */
+}
+
+.main-container {
+  flex: 0 0 50%; /* Take 50% of the available space on the right */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #d1f3ff;
+  max-width: 1000px;
+}
+
+.main-container input[type='file'],
+.main-container button {
+  width: 30%;
+  margin-bottom: 20px; /* Increase the margin-bottom for spacing */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: white;
+  background-color: #007bff;
+}
+
+/* Decrease the margin between "Choose File" and "Upload Image" */
+.main-container input[type='file'] {
+  margin-bottom: 10px; /* Adjust the margin-bottom to fine-tune spacing */
+  font-size: 20px;
+}
+
+.main-container button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin: 0;
+  font-size: 20px;
+}
+
+.main-container button:hover {
+  background-color: #0056b3;
+}
+
+/* User profile picture container styles */
+.user-pfp {
+  margin-top: 20px;
+}
+
+/* Profile picture styles */
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border: 5px solid grey;
+  border-radius: 50%;
+}
+
+/* User information styles */
+.main-container .user-info p {
+  position: relative;
+  top: -20px; /* Increase the top value for more spacing */
+  margin: 0;
+  margin-bottom: 20px; /* Increase the margin-bottom for spacing */
+  font-size: 25px;
+}
+.main-container .confirm-btn button{
+  width: 100px;
+}
+/* ProfileSetup.css */
+
+.profile-setup-container {
+  background-color: #fbf9ed;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.profile-setup-inner {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #d1f3ff;
+  max-width: 1000px;
+  height: 96vh;
+  justify-content: center;
+}
+
+.user-pfp .profile-pic {
+  width: 200px;
+  height: 200px;
+  border: 5px solid grey;
+  border-radius: 50%;
+}
+
+.profile-setup-file-input {
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+}
+
+.pfp-signup_button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin: 0;
+  font-size: 20px;
+  width: 52%;
+}
+
+.pfp-user-info {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.pfp-confirm-btn {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin: 0;
+  font-size: 30px;
+  width: 500px;
+  height: 50px;
+  border: 1px solid #ccc;
+}
+
+.pfp-image-container {
+  /* Determine the correct positioning for the logo */
+  position: absolute; /* Example - you can use fixed, absolute, relative based on your needs */
+  left: 50%; /* Adjust as needed */
+  transform: translateX(-50%); /* Adjust as needed */
+  bottom: 10px; /* Adjust as needed */
+}
+
+.pfp-image-container img {
+  /* You can add styles for the image here if needed */
+}
