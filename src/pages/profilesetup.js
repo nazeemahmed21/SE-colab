@@ -115,7 +115,7 @@ const ProfileSetup = () => {
           marginBottom: '20px',
           padding: '10px',
           border: '1px solid #ccc',
-          borderRadius: '3px',
+          borderRadius: '20px',
           fontSize: '20px',
           textAlign: 'center',
           backgroundColor: '#007bff',
@@ -127,7 +127,10 @@ const ProfileSetup = () => {
           cursor: 'pointer',
           margin: 0,
           fontSize: '20px',
-          width: '52%'
+          width: '20%',
+          height: '5%',
+          border: '1px solid #ccc',
+          borderRadius: '20px',
         }}>Upload Image</button>
         <div className='pfp-user-info' style={{
           fontSize: '30px',
@@ -144,9 +147,12 @@ const ProfileSetup = () => {
           cursor: 'pointer',
           margin: 0,
           fontSize: '30px',
-            width: '500px',
+          width: '10%',
           height: '50px',
           border: '1px solid #ccc',
+          borderRadius: '20px',
+          position: 'absolute',
+          left: '1420px'
         }} onClick={navigateToLogin}>Confirm</button>
         </div>  
         <div className='pfp-image-container' style={{
