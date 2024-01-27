@@ -1,0 +1,131 @@
+.interest-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fea059;
+}
+
+.interest-btn {
+  position: absolute;
+  flex-wrap: wrap;
+  padding: 20px;
+  display: flex;
+  background-color: #29ada0;
+  border-radius: 5px;
+  order: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  right: 0px;
+}
+
+.interest-btn h1 {
+  position: absolute;
+  top: 40px;
+}
+
+.interest-btn .btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.interest-btn .btn-container button {
+  padding: 20px;
+  width: 200px;
+  height: 65px;
+  border: 3px solid black;
+  border-radius: 100px;
+  font-size: 25px;
+  color: white;
+  background-color: #FFA07A; /* Default orange background */
+  transition: background-color 0.3s, background-image 0.3s;
+}
+
+.interest-btn .btn-container .btn-1 button.active { 
+  background-image: url('../images/programming.png');
+  background-size: cover;
+  background-position:center;
+  transition: 1500ms;
+  color: white; 
+}
+.interest-btn .btn-container .btn-2 button.active { 
+  background-image: url('../images/art-bg.jpg');
+  background-size: cover;
+  background-position:center;
+  transition: 1500ms;
+}
+.interest-btn .btn-container .btn-3 button.active { 
+  background-image: url('../images/lib.jpg');
+  background-size: cover;
+  background-position:center;
+  transition: 1500ms;
+}
+.interest-btn .btn-container .btn-4 button.active { 
+  background-image: url('../images/business.jpg'); 
+  background-size: cover;
+  background-position:center;
+  transition: 1500ms;
+  color: orange;
+  font-weight: bold;
+}
+.interest-btn .btn-container .btn-5 button.active { 
+  background-image: url('../images/sci.jpg');
+  background-size: cover;
+  background-position:center;
+  transition: 1500ms;
+}
+.interest-btn .btn-container .btn-6 button.active { 
+  background-image: url('../images/num1.jpg');
+  background-size: cover;
+  background-position:center;
+  transition: 1500ms;
+  color: yellow;
+  font-weight: bold;
+}
+.interest-btn .btn-container .btn-7 button.active { 
+  background-image: url('../images/game.jpg');
+  background-size: cover;
+  background-position:center;
+  transition: 1500ms;
+}
+.interest-btn .btn-container .btn-8 button.active { 
+  background-image: url('../images/other.jpeg');
+  background-size: cover;
+  background-position:center;
+  transition: 1500ms;
+  color: black;
+  font-weight: bold;
+}
+
+.interest-btn .btn-container button:hover {
+  box-shadow: 0 0 50px white;
+}
+
+.interest-container .logo {
+  position: absolute;
+  left: 373px;
+  top: 350px;
+}
+.go-to-login button{
+  position: absolute;
+  bottom: 60px;
+  left: 485px;
+  padding: 20px;
+  height: 60px; /* Adjusted for better vertical spacing */
+  width: 100px;
+  text-align: center; /* Centers text horizontally */
+  line-height: 20px; /* Adjust line height for vertical centering */
+  color: white; /* Optional: Set your text color */
+  font-size: 16px; /* Optional: Adjust text size */
+  cursor: pointer;
+  border-radius: 100px;
+  border: 3px solid black;
+  background-color: #FFA07A;;
+}

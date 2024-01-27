@@ -43,17 +43,19 @@ body, html {
   position: absolute;
   top:525px;
   padding: 40px 40px;
-  left: 450px;
+  left: 550px;
   width: 200px;
   height: 200px;
   filter: none;
   border: 3px solid white;
+  background-position: center;
+  background-size: cover;
 }
 .wrapper .wb img{
   position: absolute;
   top:525px;
   padding: 40px 40px;
-  left: 800px;
+  left: 900px;
   width: 200px;
   height: 200px;
   filter: none;
@@ -63,7 +65,7 @@ body, html {
   position: absolute;
   top:525px;
   padding: 40px 40px;
-  left: 1150px;
+  left: 1250px;
   width: 200px;
   height: 200px;
   filter: none;
@@ -85,7 +87,7 @@ body, html {
   position: absolute;
   font-family: 'Kanit', sans-serif; 
   font-style: italic;  
-  top: 35%; /* Adjust the top position as needed */
+  top: 32%; /* Adjust the top position as needed */
   left: 50%; /* Adjust the left position as needed */
   transform: translate(-50%, -50%); /* Center the 'hello' tag */
   font-size: 30px; /* Set the font size as needed */
@@ -97,17 +99,17 @@ body, html {
   position: absolute;
   font-family: 'Kanit', sans-serif; 
   font-style: italic;  
-  top: 42%; /* Adjust the top position as needed */
+  top: 38%; /* Adjust the top position as needed */
   left: 50%; /* Adjust the left position as needed */
   transform: translate(-50%, -50%); /* Center the 'hello' tag */
-  font-size: 15px; /* Set the font size as needed */
+  font-size: 20px; /* Set the font size as needed */
   color: rgb(249, 249, 249); /* Set the text color */
   /* Add additional styling properties as needed */
 }
 .wrapper .register{
-  top: 7.5%; /* Adjust the top position as needed */
+  top: 5.5%; /* Adjust the top position as needed */
   left: 84%; /* Adjust the left position as needed */
-  padding: 7px 14px;
+  padding: 14px 28px;
   font-weight: bold;
   position: absolute;
   font-family: sans-serif; 
@@ -122,9 +124,9 @@ body, html {
   /* Add additional styling properties as needed */
 }
 .wrapper .login{
-  top: 7.5%; /* Adjust the top position as needed */
+  top: 5.5%; /* Adjust the top position as needed */
   left: 92%; /* Adjust the left position as needed */
-  padding: 7px 14px;
+  padding: 14px 28px;
   font-weight: bold;
   position: absolute;
   font-family: sans-serif; 
