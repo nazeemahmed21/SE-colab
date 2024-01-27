@@ -1,6 +1,10 @@
 // import * as React from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { ZegoSuperBoardManager } from "zego-superboard-web";
+import '../Style.scss';
+import Navbar from './Navbar';
 
 function randomID(len) {
   let result = '';
@@ -22,7 +26,9 @@ export function getUrlParams(
   return new URLSearchParams(urlStr);
 }
 
-export default function App() {
+export default function Video() {
+  const [isCallContainerVisible, setCallContainerVisible] = React.useState(true);
+ 
   const roomID = getUrlParams().get('roomID') || randomID(5);
 
   const myMeeting = async (element) => {
@@ -64,20 +70,50 @@ export default function App() {
     });
   };
 
-  const handleButtonClick = () => {
-    const container = document.querySelector('.myCallContainer');
-    if (container) {
-      myMeeting(container);
-    }
+  const handleDeclineClick = () => {
+    // Go back to the previous page
+    window.history.back();
   };
 
+  const handleButtonClick = () => {
+    const container = document.querySelector('.myCallContainer');
+    const callButtonContainer = document.querySelector('.call-container');
+    if (container) {
+      myMeeting(container);
+       }
+       if(callButtonContainer)
+       setCallContainerVisible(false); // Hide the call container
+  };
+
+
   return (
-    <div>
-      <button onClick={handleButtonClick}>meow</button>
-      <div
-        className="myCallContainer"
-        style={{ width: '100vw', height: '100vh' }}
-      ></div>
+
+    <div className="call-container">
+      <Navbar/>
+      <p>Do you want to start a call? </p>
+      <button onClick={handleButtonClick}>Call</button>
+      <button onClick={handleDeclineClick} className="decline">Decline</button>
+       
+      {/* {isCallContainerVisible && ( */}
+        <div
+          className="myCallContainer"
+          style={{ width: '100vw', height: '100vh' }}
+        ></div>
+      {/* //  )}  */}
     </div>
   );
 }
+
+// import React from 'react'
+// // import Navbar from '../components/Navbar'
+
+// const Video = () => {
+//   return (
+//     <div>
+//       {/* <Navbar/> */}
+//       <h1>Video</h1>
+//     </div>
+//   )
+// }
+
+// export default Video

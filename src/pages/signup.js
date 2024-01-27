@@ -2,9 +2,9 @@ import React, { useRef, useState } from 'react';
 import '../styles/signup.css'; // Adjust the CSS import path
 import logo from '../images/logo.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { setDoc, doc } from 'firebase/firestore';
-import { auth, db } from '../firebase';
+import { auth, db, storage } from '../firebase';
 
 
 function Signup() {
@@ -59,6 +59,10 @@ function Signup() {
         const user = userCredential.user;
         const uid = user.uid;
   
+        updateProfile(user, {
+          displayName: firstN,
+      });
+
         setDoc(doc(db, "Users", uid), {
           firstName: firstN,
           lastName: secondN,
@@ -68,6 +72,8 @@ function Signup() {
           profileSetup: false
         });
   
+        setDoc(doc(db,"userChats",uid),{});
+
         navigate("/profile-setup");
       })
       .catch((error) => {

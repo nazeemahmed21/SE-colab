@@ -88,7 +88,7 @@
         .logo {
             // color:#5d5b8d;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 14px;
             color: #5d5b8d;
 
             @include tablet {
@@ -215,7 +215,7 @@
                 .userChatInfo {
                     span {
                         font-weight: bold;
-                        font-size: 18px;
+                        font-size: 15px;
                     }
 
                     p {
@@ -322,7 +322,7 @@
                     border: none;
                     outline: none;
                     color: #181D27;
-                    font-size: 18px;
+                    font-size: 15x;
 
                     &::placeholder {
                         color: lightgray;
@@ -351,4 +351,26 @@
 
     }
 
+}
+
+.call-container{
+    padding-left: 380px;
+    margin: 20px;
+    margin-top: 10px;
+    font-size: 45px;
+    color: black;
+}
+
+.call-container button{
+    font-size:30px;
+    background-color:green;
+    color: white;
+    gap: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+.decline{
+    font-size:30px;
+    background-color: red;
+    color: white;
 }

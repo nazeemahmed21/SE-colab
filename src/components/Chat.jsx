@@ -41,6 +41,7 @@ import Input from "./Input";
 import { ChatContext } from '../Context/ChatContext'
 import Video from "./Video";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const Chat = () => {
   const { data } = useContext(ChatContext);
@@ -58,11 +59,12 @@ const handleCamClick = () => {
 };
   return (
     <div className="chat">
+      {/* <Navbar/> */}
       <div className="chatInfo">
         <span>{data.user?.displayName}</span>
         <div className="chatIcons">
         <Link to="/video"> 
-            <img src={Cam} alt="" />
+            <img src={Cam} alt="" onClick={handleCamClick} />
           </Link>
           <img src={Add} alt="" />
           <img src={More} alt="" />
@@ -77,7 +79,3 @@ const handleCamClick = () => {
 };
 
 export default Chat;
-
-
-
-

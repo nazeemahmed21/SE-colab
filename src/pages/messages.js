@@ -3,8 +3,8 @@ import Navbar from '../components/Navbar.js'
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar.jsx'
 import Chat from '../components/Chat.jsx'
-import Chats from '../components/Chats.jsx'
-import Search from '../components/Search.jsx'
+// import Chats from '../components/Chats.jsx'
+// import Search from '../components/Search.jsx'
 const Messages = () => {
 //   const navigate = useNavigate();
 
@@ -31,9 +31,9 @@ const Messages = () => {
     <div className='home'>
       <div className='container'>
         <Sidebar />
-        {/* <Search/> */}
+
          {/* <Navbar/> */}
-         {/* <Chats/> */}
+
         <Chat />
       </div>
     </div>
