@@ -24,7 +24,7 @@ const Search = () => {
   const handleSearch = async () => {
     const q = query(
       collection(db, "Users"),
-      where("displayName", "==", username)
+      where("firstName", "==", username)
     );
 
     try {
@@ -47,78 +47,81 @@ const Search = () => {
       currentUser.uid > user.uid
         ? currentUser.uid + user.uid
         : user.uid + currentUser.uid;
+        console.log(user.uid);
+        console.log(combinedId);
 
 
-    const currentUserChatData = {
-      [combinedId + ".userInfo"]: {
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        uid: user.uid,
-      },
-      [combinedId + ".date"]: serverTimestamp(),
-    };
+  //   const currentUserChatData = {
+  //     [combinedId + ".userInfo"]: {
+  //       displayName: user.displayName,
+  //       photoURL: user.photoURL,
+  //       uid: user.uid,
+  //     },
+  //     [combinedId + ".date"]: serverTimestamp(),
+  //   };
 
-    const userChatData = {
-      [combinedId + ".userInfo"]: {
-        displayName: currentUser.displayName,
-        photoURL: currentUser.photoURL,
-        uid: currentUser.uid,
-      },
-      [combinedId + ".date"]: serverTimestamp(),
-    };
+  //   const userChatData = {
+  //     [combinedId + ".userInfo"]: {
+  //       displayName: currentUser.displayName,
+  //       photoURL: currentUser.photoURL,
+  //       uid: currentUser.uid,
+  //     },
+  //     [combinedId + ".date"]: serverTimestamp(),
+  //   };
 
-    const currentUserChatRef = doc(db, "userChats", currentUser.uid);
-    const userChatRef = doc(db, "userChats", user.uid);
+  //   const currentUserChatRef = doc(db, "userChats", currentUser.uid);
+  //   const userChatRef = doc(db, "userChats", user.uid);
 
-    const currentUserChatSnapshot = await getDoc(currentUserChatRef);
-    const userChatSnapshot = await getDoc(userChatRef);
+  //   const currentUserChatSnapshot = await getDoc(currentUserChatRef);
+  //   const userChatSnapshot = await getDoc(userChatRef);
 
-    if (currentUserChatSnapshot.exists()) {
-      await updateDoc(currentUserChatRef, currentUserChatData);
-    } else {
-      await setDoc(currentUserChatRef, currentUserChatData);
-    }
+  //   if (currentUserChatSnapshot.exists()) {
+  //     await updateDoc(currentUserChatRef, currentUserChatData);
+  //   } else {
+  //     await setDoc(currentUserChatRef, currentUserChatData);
+  //   }
 
-    if (userChatSnapshot.exists()) {
-      await updateDoc(userChatRef, userChatData);
-    } else {
-      await setDoc(userChatRef, userChatData);
-    }
-
-    setUser(null);
-    setUsername("")
-  };
-  //   try {
-  //     const res = await getDoc(doc(db, "chats", combinedId));
-
-  //     if (!res.exists()) {
-  //       //create a chat in chats collection
-  //       await setDoc(doc(db, "chats", combinedId), { messages: [] });
-
-  //       //create user chats
-  //       await updateDoc(doc(db, "userChats", currentUser.uid), {
-  //         [combinedId + ".userInfo"]: {
-  //           uid: user.uid,
-  //           displayName: user.displayName,
-  //           photoURL: user.photoURL,
-  //         },
-  //         [combinedId + ".date"]: serverTimestamp(),
-  //       });
-
-  //       await updateDoc(doc(db, "userChats", user.uid), {
-  //         [combinedId + ".userInfo"]: {
-  //           uid: currentUser.uid,
-  //           displayName: currentUser.displayName,
-  //           photoURL: currentUser.photoURL,
-  //         },
-  //         [combinedId + ".date"]: serverTimestamp(),
-  //       });
-  //     }
-  //   } catch (err) { }
+  //   if (userChatSnapshot.exists()) {
+  //     await updateDoc(userChatRef, userChatData);
+  //   } else {
+  //     await setDoc(userChatRef, userChatData);
+  //   }
 
   //   setUser(null);
   //   setUsername("")
   // };
+    try {
+      const res = await getDoc(doc(db, "chats", combinedId));
+
+      if (!res.exists()) {
+        //create a chat in chats collection
+        await setDoc(doc(db, "chats", combinedId), { messages: [] });
+
+        console.log("gyat")
+        //create user chats
+        await updateDoc(doc(db, "userChats", currentUser.uid), {
+          [combinedId + ".userInfo"]: {
+            uid: user.uid,
+            displayName: user.firstName
+            // photoURL: user.pfpURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
+        console.log("gyat1")
+        await updateDoc(doc(db, "userChats", user.uid), {
+          [combinedId + ".userInfo"]: {
+            uid: currentUser.uid,
+            displayName: currentUser.displayName
+            // photoURL: currentUser.photoURL,
+          },
+          [combinedId + ".date"]: serverTimestamp(),
+        });
+      }
+    } catch (err) { }
+
+    setUser(null);
+    setUsername("")
+  };
   return (
     <div className="search">
       <div className="searchForm">
@@ -133,9 +136,9 @@ const Search = () => {
       {err && <span>User not found!</span>}
       {user && (
         <div className="userChat" onClick={handleSelect}>
-          <img src={user.photoURL} alt="" />
+          <img src={user.pfpURL} alt="" />
           <div className="userChatInfo">
-            <span>{user.displayName}</span>
+            <span>{user.firstName}</span>
           </div>
         </div>
       )}

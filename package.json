@@ -15,6 +15,7 @@
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "sass": "^1.70.0",
+    "scss": "^0.2.4",
     "uuid": "^9.0.1",
     "web-vitals": "^2.1.4",
     "zego-superboard-web": "^2.15.1"

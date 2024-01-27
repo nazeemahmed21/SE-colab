@@ -12,27 +12,32 @@ import { v4 as uuid } from 'uuid';
 const Input = () => {
   const[text, setText] = useState('');
   const[img, setImg] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
 
   const handleSend = async () => {
-    if (img) {
-      const storageRef = ref(storage, uuid());
+    try {
+      setIsLoading(true);
   
-      const uploadTask = uploadBytesResumable(storageRef, img);
+      if (img) {
+        const storageRef = ref(storage, uuid());
+        const uploadTask = uploadBytesResumable(storageRef, img);
   
-      uploadTask.on(
-        (error) => {
-          //TODO:Handle Error
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            const docRef = doc(db, "chats", data.chatId);
-            const docSnap = await getDoc(docRef);
-  
-            if (docSnap.exists()) {
-              await updateDoc(docRef, {
+        uploadTask.on(
+          (error) => {
+            console.error("Error uploading image:", error);
+            setIsLoading(false);
+          },
+          async () => {
+            try {
+              // Wait for a short duration to ensure that the download URL is available
+              await new Promise(resolve => setTimeout(resolve, 1000));
+        
+              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+        
+              await updateDoc(doc(db, "chats", data.chatId), {
                 messages: arrayUnion({
                   id: uuid(),
                   text,
@@ -41,28 +46,16 @@ const Input = () => {
                   img: downloadURL,
                 }),
               });
-            } else {
-              await setDoc(docRef, {
-                messages: [
-                  {
-                    id: uuid(),
-                    text,
-                    senderId: currentUser.uid,
-                    date: Timestamp.now(),
-                    img: downloadURL,
-                  },
-                ],
-              });
+            } catch (error) {
+              console.error("Error getting download URL:", error);
+            } finally {
+              setIsLoading(false);
             }
-          });
-        }
-      );
-    } else {
-      const docRef = doc(db, "chats", data.chatId);
-      const docSnap = await getDoc(docRef);
-  
-      if (docSnap.exists()) {
-        await updateDoc(docRef, {
+          }
+        );
+        
+      } else {
+        await updateDoc(doc(db, "chats", data.chatId), {
           messages: arrayUnion({
             id: uuid(),
             text,
@@ -70,37 +63,32 @@ const Input = () => {
             date: Timestamp.now(),
           }),
         });
-      } else {
-        await setDoc(docRef, {
-          messages: [
-            {
-              id: uuid(),
-              text,
-              senderId: currentUser.uid,
-              date: Timestamp.now(),
-            },
-          ],
-        });
       }
+      
+      await updateDoc(doc(db, "userChats", currentUser.uid), {
+        [data.chatId + ".lastMessage"]: {
+          text,
+        },
+        [data.chatId + ".date"]: serverTimestamp(),
+      });
+  
+      await updateDoc(doc(db, "userChats", data.user.uid), {
+        [data.chatId + ".lastMessage"]: {
+          text,
+        },
+        [data.chatId + ".date"]: serverTimestamp(),
+      });
+
+      setText("");
+      setImg(null);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      // TODO: Handle error, show error message to the user
+    } finally {
+      setIsLoading(false); // Ensure to set loading state to false in case of an error
     }
-  
-    await updateDoc(doc(db, "userChats", currentUser.uid), {
-      [data.chatId + ".lastMessage"]: {
-        text,
-      },
-      [data.chatId + ".date"]: serverTimestamp(),
-    });
-  
-    await updateDoc(doc(db, "userChats", data.user.uid), {
-      [data.chatId + ".lastMessage"]: {
-        text,
-      },
-      [data.chatId + ".date"]: serverTimestamp(),
-    });
-  
-    setText("");
-    setImg(null);
   };
+  
 
   return (
     <div className='input'>
