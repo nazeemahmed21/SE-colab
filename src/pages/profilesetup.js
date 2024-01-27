@@ -76,11 +76,11 @@ const ProfileSetup = () => {
   };
   const navigateToLogin = () => {
     // Use history.push to navigate to the login page
-    navigate('/login');
+    navigate('/interest');
   };
   return (
     <div style={{
-      backgroundColor: '#fbf9ed',
+      backgroundColor: '#fea059',
       margin: 0,
       display: 'flex',
       justifyContent: 'flex-end',
@@ -96,7 +96,7 @@ const ProfileSetup = () => {
         border: '1px solid #ccc',
         padding: '20px',
         // borderRadius: '5px',
-        backgroundColor: '#d1f3ff',
+        backgroundColor: '#29ada0',
         maxWidth: '1000px',
         height: '96vh',
         justifyContent: 'center'
@@ -150,25 +150,11 @@ const ProfileSetup = () => {
         }} onClick={navigateToLogin}>Confirm</button>
         </div>  
         <div className='pfp-image-container' style={{
-          marginLeft: '-2200px'
+          position: 'absolute',
+          right: '1400px',
+          top: '350px',
         }}>
         <img className= "pfp-image_container"src={logo} alt='logo' />
-        </div>
-        <div className='interests'>
-          <select
-            name="interests-names"
-            id="int-names"
-            // onChange={} // Use the handleRoleChange function
-          >
-            <option value="default">Please select your interests</option>
-            <option value="Student">Programming</option>
-            <option value="Educator">Art</option>
-            <option value="Educator">Business</option>
-            <option value="Educator">Education</option>
-            <option value="Educator">Maths</option>
-            <option value="Educator">Science</option>
-            <option value="Educator">Other</option>
-          </select>
         </div>
       </div>
     </div>

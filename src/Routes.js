@@ -9,6 +9,7 @@ import Labs from "./pages/labs.js";
 import Toolbox from "./pages/toolbox.js"
 import Messages from "./pages/messages.js";
 import Calendar from "./pages/calendar.js";
+import Interests from "./pages/interests.js";
 const Rout = () => {
   return (
     <Routes>
@@ -20,7 +21,8 @@ const Rout = () => {
       <Route path="/messages" element={<Messages/>}></Route>
       <Route path="/labs" element={<Labs />}></Route>
       <Route path="/toolbox" element={<Toolbox />}></Route>
-      <Route path ="/calendar" element={<Calendar/>}></Route>
+      <Route path="/calendar" element={<Calendar />}></Route>
+      <Route path="/interest" element={<Interests/>}></Route>
     </Routes>
   );
 };

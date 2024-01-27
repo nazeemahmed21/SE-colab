@@ -12,6 +12,7 @@ import { auth } from '../firebase';
 import { getDoc } from 'firebase/firestore';
 import { doc } from 'firebase/firestore';
 import { db } from '../firebase';
+import { IoNotificationsCircle } from "react-icons/io5";
 // import navbg from "../images/bg.gif"  
 // import { uploadBytes } from 'firebase/storage';
 // import { getDownloadURL } from 'firebase/storage';
@@ -132,8 +133,11 @@ function Navbar() {
               <p className='userInformation1'>{userInfo.firstname}</p>
             </div>
             <div className='prof-role'>    
-                  <p className='userInformation'>{userInfo.Role}</p>
+              <p className='userInformation'>{userInfo.Role}</p>
             </div>
+            <div className='prof-notif'>
+              <IoNotificationsCircle size={50} color='#29ada0'/>    
+            </div>    
           </li>
           {SidebarData.map((item, index) => {
             return (
