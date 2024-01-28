@@ -18,8 +18,11 @@ function Interests(){
     gaming: false,
     other: false
   });
-  const handleNavigation = () => {
+  const handleNavigationToLogin = () => {
     navigate('/login'); // Navigate to the login page
+  };
+  const handleNavigationToSignUp = () => {
+    navigate('/profile-setup'); // Navigate to the login page
   };
   const updateDatabase = async (interests) => {
     // Replace 'userId' with the actual user ID
@@ -89,7 +92,10 @@ function Interests(){
           </div>
         </div>
         <div className='go-to-login'>
-          <button onClick={handleNavigation}>Next</button>
+          <button onClick={handleNavigationToLogin}>Next</button>
+        </div>
+        <div className='go-to-signup'>
+          <button onClick={handleNavigationToSignUp}>Back</button>
         </div>
       </div>
     </div>
