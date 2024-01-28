@@ -22,7 +22,7 @@ body{
 /* Navbar CSS */
 .navbar {
   /* background-color: #159386; */
-  height: 100px;
+  /* height: 10px; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -58,16 +58,16 @@ body{
   align-items: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
-  height: 100px;
+  height: 70px;
   margin-top: 20px;
 }
 
 .nav-text a {
   text-decoration: none;
   color: white;
-  font-size: 28px;
+  font-size: 25px;
   width: 95%;
-  height: 100%;
+  height: 90%;
   display: flex;
   align-items: center;
   padding: 0 16px;
@@ -77,7 +77,7 @@ body{
 .nav-text a:hover {
   background-color: white;
   color: white;
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 .nav-menu-items {
@@ -87,7 +87,7 @@ body{
 .navbar-toggle {
   /* background-color: #F0F7EE; */
   width: 90%;
-  height: 80px;
+  height: 100px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -127,8 +127,8 @@ span {
   margin-right: 0.5rem; /* Space between the input and the button */
   border: 4px solid  #29ada0;
   border-radius: 20px;
-  width: 1200px;
-  height: 25px;
+  width: 50vw;
+  height: 45px;
 }
 
 .search-button {
@@ -153,11 +153,12 @@ span {
 }
 .pfp-logo img{
   width: 30%;
+  height: 13%;
   border-radius: 100%;
   position: absolute;
   border: 4px solid black;
-  left: 1880px;
-  top: 10px;
+  left: 91vw;
+  top: 20px;
 }
 .pfp-logo p{
   position: absolute;
@@ -166,22 +167,57 @@ span {
 }
 .prof-name{
   position: absolute;
-  left: 1640px;
+  left: 77vw;
   padding: 100px;
-  font-size: 30px;
-  top: -100px;
+  font-size: 25px;
+  top: -70px;
   color: black;
 }
 .prof-role{
   position: absolute;
-  left: 1640px;
+  left: 77vw;
   padding: 100px;
-  font-size: 30px;
-  top: -65px;
+  font-size: 25px;
+  top: -35px;
   color: black;
 }
-.prof-notif{
+.navbar-toggle .prof-notif{
   position: absolute;
-  left: 1645px;
-  top: 40px;
+  left: 78vw;
+  top: 5%;
 }
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    width: 250px; /* Adjust the width of the nav menu */
+  }
+
+  .nav-text a {
+    font-size: 20px; /* Adjust font size for readability */
+  }
+
+  .search-bar {
+    top: 20px;
+    left: 60%;
+    transform: translateX(-15%);
+    margin-right: 0;
+  }
+
+  .search-input {
+    width: 80%; /* Adjust the width of the search bar */
+    margin-right: 0;
+  }
+
+  .pfp-logo img {
+    width: 50%; /* Adjust logo size */
+    left: 25%; /* Center logos */
+  }
+
+
+  .pfp-logo,
+  .prof-name,
+  .prof-role {
+    left: 50%;
+    transform: translateX(-50%); /* Center profile texts and notification */
+  }
+}
+
