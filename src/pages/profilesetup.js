@@ -27,6 +27,7 @@ const ProfileSetup = () => {
   // Function to fetch and set user data
   const fetchUserData = async () => {
     const currentUser = auth.currentUser;
+    
     if (currentUser) {
       const userId = currentUser.uid;
       const userRef = doc(db, 'Users', userId);

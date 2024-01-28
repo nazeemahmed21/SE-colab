@@ -140,10 +140,10 @@
 }
 
 .ad-container {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  bottom: -70px;
   right: 30px;
-  width: 350px; /* Set the width of the ad container as per your design */
+  width: 250px; /* Set the width of the ad container as per your design */
   height: 100vh; /* Set the height of the ad container as per your design */
   display: flex;
   justify-content: center;
