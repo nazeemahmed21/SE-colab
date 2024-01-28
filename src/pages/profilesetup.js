@@ -11,6 +11,12 @@ const placeholderImageUrl = 'https://www.murrayglass.com/wp-content/uploads/2020
 const ProfileSetup = () => {
   const [imageUpload, setImageUpload] = useState(null);
   const navigate = useNavigate();
+  const handleNavigationToInterest = () => {
+    navigate('/interest'); // Navigate to the login page
+  };
+  const handleNavigationSignUp = () => {
+    navigate('/signup'); // Navigate to the login page
+  };
   const [userInfo, setUserInfo] = useState({
     firstname: '',
     secondname: '',
@@ -74,10 +80,10 @@ const ProfileSetup = () => {
       console.error("Error uploading image or updating document:", error);
     }
   };
-  const navigateToLogin = () => {
-    // Use history.push to navigate to the login page
-    navigate('/interest');
-  };
+  // const navigateToLogin = () => {
+  //   // Use history.push to navigate to the login page
+  //   navigate('/interest');
+  // };
   return (
     <div style={{
       backgroundColor: '#fea059',
@@ -157,23 +163,42 @@ const ProfileSetup = () => {
         <div>
           <button className='pfp-confirm-btn' style={{
           position: 'absolute',
-          backgroundColor: '#007bff',
+          backgroundColor: '#FFA07A',
           color: 'white',
           cursor: 'pointer',
           margin: 0,
-          fontSize: '25px',
-          width: '15%',
-          height: '40px',
-          border: '1px solid #ccc',
-          borderRadius: '20px',
-          top: '80%',
-          left: '68%'
-        }} onClick={navigateToLogin}>Confirm</button>
+          fontSize: '16px',
+          width: '100px',
+          height: '60px',
+          border: '3px solid black',
+          borderRadius: '100px',
+          bottom: '2%',
+          left: '90%'
+        }} onClick={handleNavigationToInterest}>Confirm</button>
         </div>  
+        <button style={{
+          position: 'fixed',
+          bottom: '2%',
+          left: '54%',
+          margin: '0',
+          padding: '20px',
+          height: '60px', /* Adjusted for better vertical spacing */
+          width: '100px',
+          textAlign: 'center', /* Centers text horizontally */
+          lineHeight: '20px', /* Centers text vertically */
+          color: 'white', /* Optional: Set your text color */
+          fontSize: '16px', /* Optional: Adjust text size */
+          cursor: 'pointer',
+          borderRadius: '100px',
+          border: '3px solid black',
+          backgroundColor: '#FFA07A' 
+        }} onClick={handleNavigationSignUp}>Back</button>
         <div className='pfp-image-container' style={{
           position: 'absolute',
           left: '15%',
           top: '30%',
+          width: '100px',
+          height: '60px'
         }}>
         <img className= "pfp-image_container"src={logo} alt='logo' />
         </div>

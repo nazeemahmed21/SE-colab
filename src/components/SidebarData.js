@@ -33,5 +33,5 @@ export const SidebarData = [
     path: '/calendar',
     icon: <FaIcons.FaCalendarAlt />,
     cName: 'nav-text'
-  }
+  },
 ]

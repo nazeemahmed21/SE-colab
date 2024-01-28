@@ -11,7 +11,7 @@
 .menu {
   margin: 0 auto;
   position: absolute;
-  top: 15%;
+  top: 12%;
   left: 30%;
   /* margin-left: -25px;
   margin-top: -25px; */
@@ -21,14 +21,14 @@
 .text1 {
   display: block;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 15px;
   text-align: center;
   z-index: 1;
 }
 
 .text2 {
   display: block;
-  font-size: 25px;
+  font-size:15px;
   text-align: center;
   z-index: 1;
 }
