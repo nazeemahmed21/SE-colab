@@ -60,7 +60,7 @@
 .form-container .role {
   margin-bottom: 10px;
   width: 100%;
-  margin-left: 275px;
+  margin-left: 230px;
 }
 
 .signup_button {
@@ -84,8 +84,8 @@
 }
 .image-container img{
   position: absolute;
-  margin-right: 1200px;
-  top: 350px;
+  left: 15%;
+  top: 30%;
 }
 .link-to-login {
   font-weight: bold;

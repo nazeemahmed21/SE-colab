@@ -26,24 +26,12 @@ body, html {
   width: 95px;
   height: 95px;
   filter: none;
-  /* -webkit-animation: spin 5s linear infinite;
-  -moz-animation: spin 3s linear infinite;
-  animation: spin 6s linear infinite; */
 }
-/* @-webkit-keyframes spin{
-  100%{-webkit-transform: rotate(360deg);}
-}
-@-moz-keyframes spin{
-  100%{-webkit-transform: rotate(360deg);}
-}
-@keyframes spin{
-  100%{-webkit-transform: rotate(360deg);}
-} */
 .wrapper .video img{
   position: absolute;
-  top:525px;
+  top: 50%;
   padding: 40px 40px;
-  left: 550px;
+  left: 25vw;
   width: 200px;
   height: 200px;
   filter: none;
@@ -53,9 +41,9 @@ body, html {
 }
 .wrapper .wb img{
   position: absolute;
-  top:525px;
+  top: 50%;
   padding: 40px 40px;
-  left: 900px;
+  left: 43vw;
   width: 200px;
   height: 200px;
   filter: none;
@@ -63,9 +51,9 @@ body, html {
 }
 .wrapper .teams img{
   position: absolute;
-  top:525px;
+  top: 50%;
   padding: 40px 40px;
-  left: 1250px;
+  left: 61vw;
   width: 200px;
   height: 200px;
   filter: none;
@@ -87,7 +75,7 @@ body, html {
   position: absolute;
   font-family: 'Kanit', sans-serif; 
   font-style: italic;  
-  top: 32%; /* Adjust the top position as needed */
+  top: 37%; /* Adjust the top position as needed */
   left: 50%; /* Adjust the left position as needed */
   transform: translate(-50%, -50%); /* Center the 'hello' tag */
   font-size: 30px; /* Set the font size as needed */
@@ -99,7 +87,7 @@ body, html {
   position: absolute;
   font-family: 'Kanit', sans-serif; 
   font-style: italic;  
-  top: 38%; /* Adjust the top position as needed */
+  top: 43%; /* Adjust the top position as needed */
   left: 50%; /* Adjust the left position as needed */
   transform: translate(-50%, -50%); /* Center the 'hello' tag */
   font-size: 20px; /* Set the font size as needed */
@@ -141,6 +129,6 @@ body, html {
   /* Add additional styling properties as needed */
 }
 .wrapper button:hover{
-  background-color: rgb(19, 138, 149);
+  background-color: rgb(101, 14, 14);
   color: rgb(255, 255, 255);
 }

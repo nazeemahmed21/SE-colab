@@ -130,7 +130,7 @@ function Navbar() {
               <img className='profile-pic' src={userInfo.ProfPic} alt='profile pic' /> 
             </div>
             <div className='prof-name'>      
-              <p className='userInformation1'>{userInfo.firstname}</p>
+              <p className='userInformation1'>{userInfo.firstname},</p>
             </div>
             <div className='prof-role'>    
               <p className='userInformation'>{userInfo.Role}</p>
