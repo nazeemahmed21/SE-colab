@@ -92,6 +92,12 @@
     justify-content: center;
 }
 
+.container{
+    top: 0px;
+    margin-left: 10%;
+}
+
+
 .home {
     /* background: #a7bcff; */
     /* max-height: 100vh; */
