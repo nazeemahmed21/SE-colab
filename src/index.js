@@ -7,7 +7,6 @@ import "@fontsource/poppins/700.css";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
-import reportWebVitals from "./reportWebVitals";
 import App from "./App.js";
 import reportWebVitals from "./reportWebVitals.js";
 import { AuthContextProvider } from './Context/AuthContext.jsx';
