@@ -46,6 +46,7 @@ import Navbar from "./Navbar";
 const Chat = () => {
   const { data } = useContext(ChatContext);
 console.log(data);
+// console.log(data.user?.userInfo?.displayName);
 
 const [isVideoVisible, setVideoVisible] = useState(false);
 // const history = useHistory(); // Initialize useHistory
@@ -61,9 +62,11 @@ const handleCamClick = () => {
     <div className="chat">
       {/* <Navbar/> */}
       <div className="chatInfo">
-        <span>{data.user?.displayName}</span>
+
+      <span>{data.user?.userInfo?.displayName}</span>
+        {/* <span>{data.user?.displayName}</span> */}
         <div className="chatIcons">
-        <Link to="/video"> 
+        <Link to="/video" target="_blank"> 
             <img src={Cam} alt="" onClick={handleCamClick} />
           </Link>
           <img src={Add} alt="" />

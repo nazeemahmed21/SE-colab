@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { ZegoSuperBoardManager } from "zego-superboard-web";
-import '../Style.scss';
+import '../Style.css';
 import Navbar from './Navbar';
 
 function randomID(len) {
@@ -91,13 +91,13 @@ export default function Video() {
     <div className="call-container">
       <Navbar/>
       <p>Do you want to start a call? </p>
-      <button onClick={handleButtonClick}>Call</button>
+      <button onClick={handleButtonClick} className="accept">Call</button>
       <button onClick={handleDeclineClick} className="decline">Decline</button>
        
       {/* {isCallContainerVisible && ( */}
         <div
           className="myCallContainer"
-          style={{ width: '100vw', height: '100vh' }}
+          style={{ width: '80vw', height: '65vh' }}
         ></div>
       {/* //  )}  */}
     </div>

@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { ChatContext } from "../Context/ChatContext";
 import { db } from '../firebase';
-import "../Style.scss";
+import "../Style.css";
 
 //new_user@gmail.com , new_user 
 const Chats = () => {
