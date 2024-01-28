@@ -1,9 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged } from "firebase/auth"
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { getStorage } from "firebase/storage";
-import { getFirestore } from "firebase/firestore";
-import { addDoc, collection } from "firebase/firestore"; // Import addDoc and collection
+import { getFirestore, addDoc, collection } from "firebase/firestore";
 import { useEffect, useState } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -16,15 +19,19 @@ const firebaseConfig = {
   projectId: "final-colab",
   storageBucket: "final-colab.appspot.com",
   messagingSenderId: "474778904282",
-  appId: "1:474778904282:web:4e6913ee24a5b7f214a7e3"
+  appId: "1:474778904282:web:4e6913ee24a5b7f214a7e3",
 };
-
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const storage = getStorage(app);
 const db = getFirestore(app);
+
+export const todosCollection = collection(
+  db,
+  "/Users/0tjsr3NU09RfRI7kBwdk2ckxX6n2/todo"
+);
 
 // export async function signup(email, password,firstName, lastName, gender, role) {
 //   const auth = getAuth(); // Get the auth instance
@@ -56,9 +63,9 @@ const db = getFirestore(app);
 export function useAuth() {
   const [currentUser, setCurrentUser] = useState();
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth,user => setCurrentUser(user) )
+    const unsub = onAuthStateChanged(auth, (user) => setCurrentUser(user));
     return unsub;
-  }, [])
+  }, []);
   return currentUser;
 }
-export { storage, auth,db }
+export { storage, auth, db };
