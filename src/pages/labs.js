@@ -9,6 +9,7 @@ const Labs = () => {
       <Navbar />
 
       <div className='LabsPage'>
+ 
       <h1>Labs</h1>
 
       <div className='LabsButtons'>

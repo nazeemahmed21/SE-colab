@@ -13,6 +13,7 @@ import Interests from "./pages/interests.js";
 import Video from "./components/Video.jsx";
 import UserProfile from "./pages/user-Profile.js";
 import LabDetails from "./pages/labDetails.js";
+import LabsAnnouncements from "./pages/labsAnnouncement.js";
 
 const Rout = () => {
   return (
@@ -25,6 +26,7 @@ const Rout = () => {
       <Route path="/messages" element={<Messages/>}></Route>
       <Route path="/labs" element={< Labs/>}></Route>
       <Route path="/labDetails" element={<LabDetails />}></Route>
+      <Route path="/labAnnouncements" element={<LabsAnnouncements />}></Route>
       <Route path="/toolbox" element={<Toolbox />}></Route>
       <Route path="/calendar" element={<Calendar />}></Route>
       <Route path="/interest" element={<Interests/>}></Route>

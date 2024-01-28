@@ -5,17 +5,18 @@ import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 import '../styles/labs.css';
 
-const LabDetails = () => {
+const LabAnnouncements= () => {
  
   return (
     <div>
       <Navbar />
 
-      <div className='LabsPage'>
+      <div className='LabsPageAnnouncement'>
       <Link to="/labs">
-         <span className='back-arrow'>← Back</span>
+          <span className='back-arrow'>← Back</span>
         </Link>
         <h1>Lab A</h1>
+        <h1>Announcements</h1>
 
             {/* Sidebar with lab members */}
             <div className="labSideBar">
@@ -23,9 +24,7 @@ const LabDetails = () => {
               <ul>
                 <p>Lab Files</p>
                 <p>Lab Members</p>
-                <Link to="/labAnnouncements">
                 <p>Announcements</p>
-                </Link>
                 <p>Leave Lab</p>
               </ul>
               </div>
@@ -38,8 +37,6 @@ const LabDetails = () => {
         </div>
 
         <div className='LabsContainer'>
-
-            {/* Link to navigate to Lab Details */}
             <Link to="/labDetails">
               <div className="lab" style={{ backgroundImage: 'url("lab_a_bg.jpg")' }}>
                 <p>Folder 1</p>
@@ -51,4 +48,4 @@ const LabDetails = () => {
   );
 };
 
-export default LabDetails;
+export default LabAnnouncements;
