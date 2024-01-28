@@ -22,7 +22,7 @@ const Message = ({ message }) => {
           src={
             message.senderId === currentUser.uid
               ? currentUser.photoURL
-              : data.user.pfpURL
+              : data.user.photoURL
           }
           alt=""
         />

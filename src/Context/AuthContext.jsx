@@ -15,8 +15,10 @@ export const AuthContextProvider = ({ children }) => {
         });
 
         // Clean up the listener when component unmounts
-        return () => unsubscribe();
+        return () => { unsubscribe() };
     }, []);
+
+    console.log(currentUser);
 
     return (
         <AuthContext.Provider value={{ currentUser }}>

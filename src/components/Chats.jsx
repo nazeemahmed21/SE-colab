@@ -2,8 +2,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { ChatContext } from "../Context/ChatContext";
-import { db } from '../firebase';
-import "../Style.css";
+import { db } from "../firebase";
 
 //new_user@gmail.com , new_user 
 const Chats = () => {
@@ -28,6 +27,7 @@ const Chats = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
 
+  console.log("gyat",chats);
   const handleSelect = (u) => {
     dispatch({ type: "CHANGE_USER", payload: u });
   };
@@ -36,27 +36,27 @@ const Chats = () => {
   // console.log(Object.entries(chats))
   return (
     <div className="chats">
-      {loading ? (
+       {loading ? (
         // Render a loading indicator, e.g., a spinner
         <div>Loading...</div>
       ) : (
-        Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
-          <div
-            className="userChat"
-            key={chat[0]}
-            onClick={() => handleSelect(chat[1])}
-          >
-            {chat[1]?.userInfo && (
-              <>
-                <img src={chat[1].userInfo.photoURL} alt="" />
-                <div className="userChatInfo">
-                  <span>{chat[1].userInfo.displayName}</span>
-                  <p>{chat[1].lastMessage?.text}</p>
-                </div>
-              </>
-            )}
+      Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
+        <div
+          className="userChat"
+          key={chat[0]}
+          onClick={() => handleSelect(chat[1].userInfo)}
+        >
+          {chat[1]?.userInfo && (
+            <>
+          <img src={chat[1].userInfo.pfpURL} alt="" />
+          <div className="userChatInfo">
+            <span>{chat[1].userInfo.displayName}</span>
+            <p>{chat[1].lastMessage?.text}</p>
           </div>
-        ))
+          </>
+          )}
+        </div>
+      ))
       )}
     </div>
   );
