@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import '../styles/toolbox.css'
 import { Icon } from '@iconify/react';
+import ad2 from '../images/ad2.gif';
 
 const Toolbox = () => {
   return (
@@ -54,7 +55,14 @@ const Toolbox = () => {
           Sheets
         </a>
 
-      </div></>
+      </div>
+      <div className="ad-container">
+      <div className="ad">
+        Advertisement
+         <img src={ad2} alt="Ad GIF" />
+      </div>
+    </div> 
+      </>
   )
 }
 

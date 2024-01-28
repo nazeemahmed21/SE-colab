@@ -138,3 +138,23 @@
     opacity: 1;
   }
 }
+
+.ad-container {
+  position: fixed;
+  top: 0;
+  right: 30px;
+  width: 350px; /* Set the width of the ad container as per your design */
+  height: 100vh; /* Set the height of the ad container as per your design */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ad {
+  text-align: center;
+}
+
+.ad img {
+  max-width: 100%; /* Make sure the image doesn't exceed the container width */
+  max-height: 100%; /* Make sure the image doesn't exceed the container height */
+}
