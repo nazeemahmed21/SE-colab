@@ -98,7 +98,7 @@ const ProfileSetup = () => {
         // borderRadius: '5px',
         backgroundColor: '#29ada0',
         maxWidth: '1000px',
-        height: '96vh',
+        height: '100vh',
         justifyContent: 'center'
       }}>
         <div className='user-pfp'>
@@ -107,11 +107,17 @@ const ProfileSetup = () => {
             height: '200px',
             border: '5px solid grey',
             borderRadius: '50%',
+            position: 'absolute',
+            left: '68%',
+            top: '5%'
           }} />
         </div>
-        <h1>Choose a Profile Picture for your Co-lab Account</h1>
+        <h1 style={{
+          position: 'absolute',
+          top: '33%',
+        }}>Choose a Profile Picture for your Co-lab Account</h1>
         <input type='file' onChange={(event) => setImageUpload(event.target.files[0])} style={{
-          width: '50%',
+          width: '15%',
           marginBottom: '20px',
           padding: '10px',
           border: '1px solid #ccc',
@@ -119,46 +125,55 @@ const ProfileSetup = () => {
           fontSize: '20px',
           textAlign: 'center',
           backgroundColor: '#007bff',
-          color: 'white'
+          color: 'white',
+          position: 'absolute',
+          top: '40%',
         }} />
         <button className='pfp-signup_button' onClick={uploadImage} style={{
+          position: 'absolute',
           backgroundColor: '#007bff',
           color: 'white',
           cursor: 'pointer',
           margin: 0,
           fontSize: '20px',
-          width: '20%',
+          width: '15%',
           height: '5%',
           border: '1px solid #ccc',
           borderRadius: '20px',
+          top: '50%',
         }}>Upload Image</button>
         <div className='pfp-user-info' style={{
+          position: 'absolute',
           fontSize: '30px',
-          fontWeight: 'bolder'
+          fontWeight: 'bolder',
+          color: 'white',
+          padding: '20px',
+          top: '55%',
         }}>
-          <p>First Name: {userInfo.firstname}</p>
-          <p>Last Name: {userInfo.secondname}</p>
-          <p>Role: {userInfo.Role}</p>
+          <p style={{marginBottom:'20px'}}>First Name: {userInfo.firstname}</p>
+          <p style={{marginBottom:'20px'}}>Last Name: {userInfo.secondname}</p>
+          <p style={{marginBottom:'20px'}}>Role: {userInfo.Role}</p>
         </div>
         <div>
-        <button className='pfp-confirm-btn' style={{
+          <button className='pfp-confirm-btn' style={{
+          position: 'absolute',
           backgroundColor: '#007bff',
           color: 'white',
           cursor: 'pointer',
           margin: 0,
-          fontSize: '30px',
-          width: '10%',
-          height: '50px',
+          fontSize: '25px',
+          width: '15%',
+          height: '40px',
           border: '1px solid #ccc',
           borderRadius: '20px',
-          position: 'absolute',
-          left: '1420px'
+          top: '80%',
+          left: '68%'
         }} onClick={navigateToLogin}>Confirm</button>
         </div>  
         <div className='pfp-image-container' style={{
           position: 'absolute',
-          right: '1400px',
-          top: '350px',
+          left: '15%',
+          top: '30%',
         }}>
         <img className= "pfp-image_container"src={logo} alt='logo' />
         </div>

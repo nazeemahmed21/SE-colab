@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../styles/login.css'; // Adjust the CSS import path
 import logo from '../images/logo.png'
 
@@ -32,6 +32,8 @@ function Login() {
         <input ref={emailRef} className='email' type='email' placeholder='Email...' />
         <h3>Enter your Password</h3>
         <input ref={passwordRef} className='password' type='password' placeholder='Password...' />
+        <br></br>
+        <Link to="/signup" className='link-to-signin'>Don't have an account? Sign Up Now.</Link>
         <br></br>
         <button className='login_button' onClick={handleLogin}>Login</button>
         <br></br>

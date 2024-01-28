@@ -62,6 +62,10 @@
 }
 .l-image-container img{
   position: absolute;
-  margin-right: 1200px;
-  top: 350px;
+  left: 15%;
+  top: 30%;
+}
+.link-to-signin{
+  color: black;
+  font-weight: bold;
 }
