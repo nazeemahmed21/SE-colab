@@ -1,5 +1,5 @@
 import React from 'react'
-import computer from "../images/giphy (1).gif"
+import computer from "../images/gif1.gif"
 import logo from "../images/logo.png"
 import video from "../images/video-call.jpg"
 import wb from "../images/wb.jpg"

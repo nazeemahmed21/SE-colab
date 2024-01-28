@@ -87,7 +87,7 @@ body, html {
   position: absolute;
   font-family: 'Kanit', sans-serif; 
   font-style: italic;  
-  top: 32%; /* Adjust the top position as needed */
+  top: 34%; /* Adjust the top position as needed */
   left: 50%; /* Adjust the left position as needed */
   transform: translate(-50%, -50%); /* Center the 'hello' tag */
   font-size: 30px; /* Set the font size as needed */
