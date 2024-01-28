@@ -12,6 +12,8 @@ import Calendar from "./pages/calendar.js";
 import Interests from "./pages/interests.js";
 import Video from "./components/Video.jsx";
 import UserProfile from "./pages/user-Profile.js";
+import LabDetails from "./pages/labDetails.js";
+
 const Rout = () => {
   return (
     <Routes>
@@ -21,7 +23,8 @@ const Rout = () => {
       <Route path="/profile-setup" element={<ProfileSetup />}></Route>
       <Route path="/home" element={<Home />}></Route>
       <Route path="/messages" element={<Messages/>}></Route>
-      <Route path="/labs" element={<Labs />}></Route>
+      <Route path="/labs" element={< Labs/>}></Route>
+      <Route path="/labDetails" element={<LabDetails />}></Route>
       <Route path="/toolbox" element={<Toolbox />}></Route>
       <Route path="/calendar" element={<Calendar />}></Route>
       <Route path="/interest" element={<Interests/>}></Route>
