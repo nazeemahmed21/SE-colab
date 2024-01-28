@@ -12,7 +12,7 @@ import { v4 as uuid } from 'uuid';
 const Input = () => {
   const[text, setText] = useState('');
   const[img, setImg] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [setIsLoading] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
@@ -55,6 +55,8 @@ const Input = () => {
         );
         
       } else {
+        console.log('GYAT GYAT GYAT OH MY GYAT');
+        console.log(data.chatId);
         await updateDoc(doc(db, "chats", data.chatId), {
           messages: arrayUnion({
             id: uuid(),
@@ -64,7 +66,7 @@ const Input = () => {
           }),
         });
       }
-      
+      console.log('Return of the GYAT');
       await updateDoc(doc(db, "userChats", currentUser.uid), {
         [data.chatId + ".lastMessage"]: {
           text,
