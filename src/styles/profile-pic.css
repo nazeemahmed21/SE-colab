@@ -61,6 +61,8 @@ body {
   height: 200px;
   border: 5px solid grey;
   border-radius: 50%;
+  position: absolute;
+  left: 20px;
 }
 
 /* User information styles */
@@ -151,6 +153,6 @@ body {
   bottom: 10px; /* Adjust as needed */
 }
 
-.pfp-image-container img {
+/* .pfp-image-container img {
   /* You can add styles for the image here if needed */
-}
+/* } */ 
