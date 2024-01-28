@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  top: 80px;
+}
+
+.menu {
+  margin: 0 auto;
+  position: absolute;
+  top: 12%;
+  left: 30%;
+  /* margin-left: -25px;
+  margin-top: -25px; */
+  text-align: center;
+}
+
+.text1 {
+  display: block;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  z-index: 1;
+}
+
+.text2 {
+  display: block;
+  font-size:15px;
+  text-align: center;
+  z-index: 1;
+}
+
+.box {
+  width: 65%;
+  animation: rotate 2s linear 1;
+  /* transform: rotate(90deg); */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(45deg);
+  }
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80px;
+  height: 95px;
+  border-radius: 80px;
+  position: absolute;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  opacity: 0;
+}
+
+#one {
+  position: absolute;
+  z-index: 1;
+  top: 18%;
+  left: 45.5%;
+  animation: fadein 3s ease 2s forwards;
+}
+
+#two {
+  position: absolute;
+  z-index: 1;
+  top: 26.5%;
+  left: 63%;
+  animation: fadein 3s ease 3s forwards;
+}
+
+#three {
+  position: absolute;
+  z-index: 1;
+  top: 51%;
+  left: 71%;
+  animation: fadein 3s ease 4s forwards;
+}
+
+#four {
+  position: absolute;
+  z-index: 1;
+  top: 28%;
+  left: 28.5%;
+  animation: fadein 3s ease 9s forwards;
+}
+
+#five {
+  position: absolute;
+  z-index: 1;
+  top: 51.5%;
+  left: 21.5%;
+  animation: fadein 3s ease 8s forwards;
+}
+
+#six {
+  position: absolute;
+  z-index: 1;
+  top: 75.5%;
+  left: 28%;
+  animation: fadein 3s ease 7s forwards;
+}
+
+#seven {
+  position: absolute;
+  z-index: 1;
+  top: 85%;
+  left: 45.5%;
+  animation: fadein 3s ease 6s forwards;
+}
+
+#eight {
+  position: absolute;
+  z-index: 1;
+  top: 75%;
+  left: 63.5%;
+  animation: fadein 3s ease 5s forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

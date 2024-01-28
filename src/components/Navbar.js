@@ -3,7 +3,9 @@ import React, {useState, useEffect} from 'react'
 // import * as AiIcons from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
-import '../styles/navbar.css'
+import '../styles/navbar.css';
+import { signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 // import './Navbar.css'
 import logo from "../images/logo.png";
 import { CiSearch } from "react-icons/ci";
@@ -12,6 +14,8 @@ import { auth } from '../firebase';
 import { getDoc } from 'firebase/firestore';
 import { doc } from 'firebase/firestore';
 import { db } from '../firebase';
+import { IoNotificationsCircle } from "react-icons/io5";
+import { FaSignOutAlt } from "react-icons/fa";
 // import navbg from "../images/bg.gif"  
 // import { uploadBytes } from 'firebase/storage';
 // import { getDownloadURL } from 'firebase/storage';
@@ -19,7 +23,8 @@ import { db } from '../firebase';
 // import { storage } from '../firebase';
 
 function Navbar() {
-  const [sidebar, setSidebar] = useState(false)
+  const [sidebar, setSidebar] = useState(false);
+  const navigate = useNavigate();
   // const [imageUpload] = useState(null);
   const [search, setSearch] = useState(''); // State for the search input
   const [userInfo, setUserInfo] = useState({
@@ -28,6 +33,15 @@ function Navbar() {
     ProfPic: '',
     Role: '',
   });
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      console.log('User signed out successfully');
+      navigate('/'); // Replace '/' with your landing page route
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
   const fetchUserData = async () => {
     const currentUser = auth.currentUser;
     if (currentUser) {
@@ -129,13 +143,21 @@ function Navbar() {
               <img className='profile-pic' src={userInfo.ProfPic} alt='profile pic' /> 
             </div>
             <div className='prof-name'>      
-              <p className='userInformation1'>{userInfo.firstname}</p>
+              <p className='userInformation1'>{userInfo.firstname},</p>
             </div>
             <div className='prof-role'>    
-                  <p className='userInformation'>{userInfo.Role}</p>
-                  <p>yay</p>
+              <p className='userInformation'>{userInfo.Role}</p>
             </div>
-          </li>
+            <div className='prof-notif'>
+              <IoNotificationsCircle size={50} color='#29ada0'/>    
+            </div>    
+              </li>
+            <div className='sign-out-box'>
+            <div className='sign-out-icon'>
+              <FaSignOutAlt size={25} color='white' />
+            </div>
+                <button className='sign-out-button' onClick={handleSignOut}>Sign Out</button>
+            </div>
           {SidebarData.map((item, index) => {
             return (
               <li key={index} className={item.cName}>

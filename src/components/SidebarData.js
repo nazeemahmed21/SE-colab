@@ -1,7 +1,7 @@
 import React from "react";
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import * as FiIcons from 'react-icons/fi';
+// import * as FiIcons from 'react-icons/fi';
 import * as BiIcons from "react-icons/bi";
 export const SidebarData = [
   {
@@ -33,5 +33,5 @@ export const SidebarData = [
     path: '/calendar',
     icon: <FaIcons.FaCalendarAlt />,
     cName: 'nav-text'
-  }
+  },
 ]
