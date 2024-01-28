@@ -1,0 +1,23 @@
+.user-profile-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  text-align: center;
+  padding: 20px;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.user-profile-container h2{
+  font-size: 40px;
+}
+.user-profile-container p{
+  font-size: 20px;
+}
+.user-profile-container img{
+  border: 5px solid black;
+}
