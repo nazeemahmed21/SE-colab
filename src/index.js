@@ -7,16 +7,23 @@ import "@fontsource/poppins/700.css";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import App from "./App.js";
+import reportWebVitals from "./reportWebVitals.js";
+import { AuthContextProvider } from './Context/AuthContext.jsx';
+import { ChatContextProvider } from './Context/ChatContext.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <AuthContextProvider>
+<ChatContextProvider>
   <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>
+  </ChatContextProvider>
+  </AuthContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -9,6 +9,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "date-fns": "^3.2.0",
+    "@zegocloud/zego-uikit-prebuilt": "^1.10.2",
     "firebase": "^10.7.2",
     "framer-motion": "^10.18.0",
     "react": "^18.2.0",
@@ -20,8 +21,11 @@
     "react-router": "^6.21.3",
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
+    "sass": "^1.70.0",
+    "scss": "^0.2.4",
     "uuid": "^9.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zego-superboard-web": "^2.15.1"
   },
   "scripts": {
     "start": "react-scripts start",
