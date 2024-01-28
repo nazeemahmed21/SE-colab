@@ -33,5 +33,11 @@ export const SidebarData = [
     path: '/calendar',
     icon: <FaIcons.FaCalendarAlt />,
     cName: 'nav-text'
+  }, 
+  {
+    title: 'User Profile',
+    path: '/user-prof',
+    icon: <FaIcons.FaRegUserCircle/>,
+    cName: 'nav-text'
   },
 ]

@@ -9,8 +9,9 @@ import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 
 const Input = () => {
-  const [text, setText] = useState('');
-  const [img, setImg] = useState(null);
+  const[text, setText] = useState('');
+  const[img, setImg] = useState(null);
+  const [setIsLoading] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
