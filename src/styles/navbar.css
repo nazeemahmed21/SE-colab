@@ -128,7 +128,7 @@ span {
   border: 4px solid  #29ada0;
   border-radius: 20px;
   width: 1200px;
-  height: 25px;
+  height: 45px;
 }
 
 .search-button {
@@ -152,12 +152,12 @@ span {
   border: 4px solid black;
 }
 .pfp-logo img{
-  width: 30%;
+  width: 25%;
   border-radius: 100%;
   position: absolute;
   border: 4px solid black;
   left: 1880px;
-  top: 10px;
+  top: 20px;
 }
 .pfp-logo p{
   position: absolute;
@@ -168,20 +168,55 @@ span {
   position: absolute;
   left: 1640px;
   padding: 100px;
-  font-size: 30px;
-  top: -100px;
+  font-size: 25px;
+  top: -70px;
   color: black;
 }
 .prof-role{
   position: absolute;
   left: 1640px;
   padding: 100px;
-  font-size: 30px;
-  top: -65px;
+  font-size: 25px;
+  top: -35px;
   color: black;
 }
 .prof-notif{
   position: absolute;
-  left: 1645px;
-  top: 40px;
+  left: 1630px;
+  top: 37px;
 }
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    width: 250px; /* Adjust the width of the nav menu */
+  }
+
+  .nav-text a {
+    font-size: 20px; /* Adjust font size for readability */
+  }
+
+  .search-bar {
+    top: 20px;
+    left: 60%;
+    transform: translateX(-15%);
+    margin-right: 0;
+  }
+
+  .search-input {
+    width: 80%; /* Adjust the width of the search bar */
+    margin-right: 0;
+  }
+
+  .pfp-logo img {
+    width: 50%; /* Adjust logo size */
+    left: 25%; /* Center logos */
+  }
+
+
+  .pfp-logo,
+  .prof-name,
+  .prof-role {
+    left: 50%;
+    transform: translateX(-50%); /* Center profile texts and notification */
+  }
+}
+
