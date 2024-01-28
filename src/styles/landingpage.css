@@ -129,6 +129,6 @@ body, html {
   /* Add additional styling properties as needed */
 }
 .wrapper button:hover{
-  background-color: rgb(101, 14, 14);
+  background-color: rgb(188,49,53);
   color: rgb(255, 255, 255);
 }

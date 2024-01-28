@@ -31,8 +31,9 @@ body {
 }
 
 .half {
-  width: 50%;
+  width: 63%;
   margin-left: 50%;
+  margin-top: 12rem;
 }
 
 .container {
