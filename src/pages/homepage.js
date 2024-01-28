@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import { Toaster } from "react-hot-toast";
 import { PageTitle, AppHeader, AppContent } from "../components/combinedTodo";
 import styles from "../styles/todo.module.css";
+import Reminder from "../components/reminder";
 
 const Home = () => {
   return (
@@ -28,6 +29,7 @@ const Home = () => {
             }}
           />
         </div>
+        <Reminder />
       </div>
     </>
   );
