@@ -3,6 +3,7 @@ import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { auth, db } from '../firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { updateProfile } from 'firebase/auth';
 import logo from '../images/logo.png'
 import { useNavigate } from 'react-router-dom';
 // Placeholder image URL
@@ -41,7 +42,9 @@ const ProfileSetup = () => {
             ProfPic: userData.pfpURL || placeholderImageUrl,
             Role: userData.role || '',
           });
+
         }
+       
       } catch (error) {
         console.error('Error fetching user data:', error);
       }

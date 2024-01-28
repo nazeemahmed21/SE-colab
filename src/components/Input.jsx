@@ -1,5 +1,4 @@
-
-import React,{useState,useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { AiOutlineFile } from 'react-icons/ai';
 import { IoAttachOutline } from 'react-icons/io5';
 import { ChatContext } from '../Context/ChatContext';
@@ -18,83 +17,76 @@ const Input = () => {
   const { data } = useContext(ChatContext);
 
   const handleSend = async () => {
-    try {
-      setIsLoading(true);
-  
-      if (img) {
-        const storageRef = ref(storage, uuid());
-        const uploadTask = uploadBytesResumable(storageRef, img);
-  
-        uploadTask.on(
-          (error) => {
-            console.error("Error uploading image:", error);
-            setIsLoading(false);
-          },
-          async () => {
-            try {
-              // Wait for a short duration to ensure that the download URL is available
-              await new Promise(resolve => setTimeout(resolve, 1000));
-        
-              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-        
-              await updateDoc(doc(db, "chats", data.chatId), {
-                messages: arrayUnion({
-                  id: uuid(),
-                  text,
-                  senderId: currentUser.uid,
-                  date: Timestamp.now(),
-                  img: downloadURL,
-                }),
-              });
-            } catch (error) {
-              console.error("Error getting download URL:", error);
-            } finally {
-              setIsLoading(false);
-            }
-          }
-        );
-        
-      } else {
-        console.log('GYAT GYAT GYAT OH MY GYAT');
-        console.log(data.chatId);
-        await updateDoc(doc(db, "chats", data.chatId), {
-          messages: arrayUnion({
-            id: uuid(),
-            text,
-            senderId: currentUser.uid,
-            date: Timestamp.now(),
-          }),
-        });
-      }
-      console.log('Return of the GYAT');
-      await updateDoc(doc(db, "userChats", currentUser.uid), {
-        [data.chatId + ".lastMessage"]: {
-          text,
-        },
-        [data.chatId + ".date"]: serverTimestamp(),
-      });
-  
-      await updateDoc(doc(db, "userChats", data.user.uid), {
-        [data.chatId + ".lastMessage"]: {
-          text,
-        },
-        [data.chatId + ".date"]: serverTimestamp(),
-      });
+    try{
+    if (img) {
+      const storageRef = ref(storage, uuid());
 
-      setText("");
-      setImg(null);
-    } catch (error) {
-      console.error("Error sending message:", error);
-      // TODO: Handle error, show error message to the user
-    } finally {
-      setIsLoading(false); // Ensure to set loading state to false in case of an error
+      const uploadTask = uploadBytesResumable(storageRef, img);
+
+      uploadTask.on(
+        (error) => {
+          console.error("Error uploading image:", error);
+          
+        },
+        async () => {
+          try {
+            // Wait for a short duration to ensure that the download URL is available
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+            await updateDoc(doc(db, "chats", data.chatId), {
+              messages: arrayUnion({
+                id: uuid(),
+                text,
+                senderId: currentUser.uid,
+                date: Timestamp.now(),
+                img: downloadURL,
+              }),
+            });
+          } catch (error) {
+            console.error("Error getting download URL:", error);
+          } finally {
+            
+          }
+        }
+      );
+    } else {
+      await updateDoc(doc(db, "chats", data.chatId), {
+        messages: arrayUnion({
+          id: uuid(),
+          text,
+          senderId: currentUser.uid,
+          date: Timestamp.now(),
+        }),
+      });
     }
-  };
-  
+
+    await updateDoc(doc(db, "userChats", currentUser.uid), {
+      [data.chatId + ".lastMessage"]: {
+        text,
+      },
+      [data.chatId + ".date"]: serverTimestamp(),
+    });
+
+    await updateDoc(doc(db, "userChats", data.user.uid), {
+      [data.chatId + ".lastMessage"]: {
+        text,
+      },
+      [data.chatId + ".date"]: serverTimestamp(),
+    });
+
+    setText("");
+    setImg(null);
+   }catch (error) {
+    console.error("Error sending message:", error);
+    // TODO: Handle error, show error message to the user
+  } 
+};
 
   return (
     <div className='input'>
-      <input type="text" placeholder='Type Something...' onChange={e => setText(e.target.value)} />
+      <input type="text" placeholder='Type Something...' onChange={e => setText(e.target.value)} value={text}/>
       <div className="send">
         <label htmlFor="file">
           <AiOutlineFile className='icons' size={24} />
