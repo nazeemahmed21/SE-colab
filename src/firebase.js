@@ -30,7 +30,9 @@ const db = getFirestore(app);
 
 export const todosCollection = collection(
   db,
-  "/Users/0tjsr3NU09RfRI7kBwdk2ckxX6n2/todo"
+  "Users",
+  "/0tjsr3NU09RfRI7kBwdk2ckxX6n2",
+  "todo"
 );
 
 // export async function signup(email, password,firstName, lastName, gender, role) {
