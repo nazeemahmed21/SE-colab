@@ -8,12 +8,17 @@ import '../Style.css'
 // import Search from '../components/Search.jsx'
 const Messages = () => {
   return (
-    <div className='home'>
+
+    <div className='homeContainer'>
+            <Navbar/>
+      <div className='home'>
+ 
+    
       <div className='container'>
-      <Navbar/> 
+      <Sidebar />
       {/* <div className='chatContainer'> */}
-        <Sidebar />
         <Chat />
+        </div>
         {/* </div> */}
       </div>
     </div>

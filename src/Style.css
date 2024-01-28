@@ -84,13 +84,14 @@
     color: #5d5b8d;
 } */
 
-/* .chatContainer {
-    background-color: #a7bcff;
+.chatContainer {
+    background-color: red;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-} */
+}
+
 .home {
     /* background: #a7bcff; */
     /* max-height: 100vh; */
