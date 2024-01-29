@@ -55,14 +55,16 @@ button{
 
 .folder-box {
     width: 150px;
-    height: 80px;
-    background-color: #3498db;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
+  height: 80px;
+  background-color: #3498db;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  user-select: none; /* Standard syntax */
   }
   
   .animate {
@@ -169,16 +171,16 @@ button{
   height: auto; /* Maintain aspect ratio */
 }
 
-.imageContainer {
+.labimageContainer {
   text-align: center; /* Center the content within the container */
 }
 
-.imageContainer img {
+.labimageContainer img {
   max-width: 100%; /* Ensure images don't exceed their container's width */
   height: auto; /* Maintain aspect ratio */
 }
 
-.imageContainer p {
+.labimageContainer p {
 font-size: 20px;
   margin-top: 5px; /* Adjust the value to set the space between image and description */
 }
@@ -212,7 +214,7 @@ a {
 }
 /* Add this to your labs.css */
 
-.imageContainer {
+.labimageContainer {
   position: relative;
   cursor: pointer;
   transition: transform 0.4s ease-in-out;

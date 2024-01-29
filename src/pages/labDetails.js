@@ -46,12 +46,12 @@ const LabDetails = () => {
             <button className='LabsButton'>Add a folder</button>
           </div>
           <div className='labFolderContainer'>
-            <div className="imageContainer" onClick={() => handleClick(folder)}>
+            <div className="labsimageContainer" onClick={() => handleClick(folder)}>
               <img src={folder} alt="folder" />
               <p>Folder</p>
             </div>
             {currentImage && (
-              <div className="imageContainer slideOutFromFolder" onClick={() => handleClick(null)}>
+              <div className="labsimageContainer slideOutFromFolder" onClick={() => handleClick(null)}>
                 <img src={ppt} alt="ppt" />
                 <p>PPT</p>
               </div>
