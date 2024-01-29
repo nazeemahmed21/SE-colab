@@ -15,6 +15,9 @@ import { Navigate } from "react-router";
 import Video from "./components/Video.jsx";
 import { AuthContext } from "./Context/AuthContext.jsx";
 import UserProfile from "./pages/user-Profile.js";
+import LabDetails from "./pages/labDetails.js";
+import LabsAnnouncements from "./pages/labsAnnouncement.js";
+
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
 
@@ -35,6 +38,8 @@ const Rout = () => {
       <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
       <Route path="/messages" element={<ProtectedRoute><Messages/></ProtectedRoute>}></Route>
       <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>}></Route>
+      <Route path="/labDetails" element={<LabDetails />}></Route>
+      <Route path="/labAnnouncements" element={<LabsAnnouncements />}></Route>
       <Route path="/toolbox" element={<ProtectedRoute><Toolbox /></ProtectedRoute>}></Route>
       <Route path="/calendar" element={<ProtectedRoute><CalendarApp /></ProtectedRoute>}></Route>
       <Route path="/interest" element={<ProtectedRoute><Interests/></ProtectedRoute>}></Route>
