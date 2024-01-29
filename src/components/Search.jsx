@@ -12,13 +12,11 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../Context/AuthContext";
-
-
 const Search = () => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
   const [err, setErr] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
   const { currentUser } = useContext(AuthContext);
 
   const handleSearch = async () => {
@@ -42,80 +40,43 @@ const Search = () => {
   };
 
   const handleSelect = async () => {
+    setIsLoading(true)
     //check whether the group(chats in firestore) exists, if not create
     const combinedId =
       currentUser.uid > user.uid
         ? currentUser.uid + user.uid
         : user.uid + currentUser.uid;
+
         console.log(user.uid);
-        console.log(combinedId);
-
-
-  //   const currentUserChatData = {
-  //     [combinedId + ".userInfo"]: {
-  //       displayName: user.displayName,
-  //       photoURL: user.photoURL,
-  //       uid: user.uid,
-  //     },
-  //     [combinedId + ".date"]: serverTimestamp(),
-  //   };
-
-  //   const userChatData = {
-  //     [combinedId + ".userInfo"]: {
-  //       displayName: currentUser.displayName,
-  //       photoURL: currentUser.photoURL,
-  //       uid: currentUser.uid,
-  //     },
-  //     [combinedId + ".date"]: serverTimestamp(),
-  //   };
-
-  //   const currentUserChatRef = doc(db, "userChats", currentUser.uid);
-  //   const userChatRef = doc(db, "userChats", user.uid);
-
-  //   const currentUserChatSnapshot = await getDoc(currentUserChatRef);
-  //   const userChatSnapshot = await getDoc(userChatRef);
-
-  //   if (currentUserChatSnapshot.exists()) {
-  //     await updateDoc(currentUserChatRef, currentUserChatData);
-  //   } else {
-  //     await setDoc(currentUserChatRef, currentUserChatData);
-  //   }
-
-  //   if (userChatSnapshot.exists()) {
-  //     await updateDoc(userChatRef, userChatData);
-  //   } else {
-  //     await setDoc(userChatRef, userChatData);
-  //   }
-
-  //   setUser(null);
-  //   setUsername("")
-  // };
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
 
       if (!res.exists()) {
-        //create a chat in chats collection
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
-
-        console.log("gyat")
-        //create user chats
+        console.log(currentUser.uid);
+        console.log(combinedId);
         await updateDoc(doc(db, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
             displayName: user.firstName
-            // photoURL: user.pfpURL,
-          },
-          [combinedId + ".date"]: serverTimestamp(),
+            
+            // photoURL: user.photoURL
+          }
+
         });
         console.log("gyat1")
         await updateDoc(doc(db, "userChats", user.uid), {
           [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
             displayName: currentUser.displayName
-            // photoURL: currentUser.photoURL,
-          },
-          [combinedId + ".date"]: serverTimestamp(),
+            // photoURL: currentUser.photoURL
+          }
+          
         });
+        console.log("gyat2")
+        setIsLoading(false);
+
+
       }
     } catch (err) { }
 
@@ -124,25 +85,33 @@ const Search = () => {
   };
   return (
     <div className="search">
-      <div className="searchForm">
-        <input
-          type="text"
-          placeholder="Find a user"
-          onKeyDown={handleKey}
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
-        />
-      </div>
+      {isLoading ? (
+        // Render a loading indicator, e.g., a spinner
+        <div>Loading...</div>
+      ) : (
+        <div className="searchForm">
+          <input
+            type="text"
+            placeholder="Find a user"
+            onKeyDown={handleKey}
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+          />
+        </div>
+      )}
+
       {err && <span>User not found!</span>}
+
       {user && (
         <div className="userChat" onClick={handleSelect}>
-          <img src={user.pfpURL} alt="" />
+          <img src={user.photoURL} alt="" />
           <div className="userChatInfo">
-            <span>{user.firstName}</span>
+            <span>{user.displayName}</span>
           </div>
         </div>
       )}
     </div>
+
   );
 };
 

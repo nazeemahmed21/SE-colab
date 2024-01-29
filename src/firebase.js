@@ -60,12 +60,12 @@ export const todosCollection = collection(
 //     throw error;
 //   }
 // }
-export function useAuth() {
-  const [currentUser, setCurrentUser] = useState();
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (user) => setCurrentUser(user));
-    return unsub;
-  }, []);
-  return currentUser;
-}
+// export function useAuth() {
+//   const [currentUser, setCurrentUser] = useState();
+//   useEffect(() => {
+//     const unsub = onAuthStateChanged(auth, (user) => setCurrentUser(user));
+//     return unsub;
+//   }, []);
+//   return currentUser;
+// }
 export { storage, auth, db };

@@ -58,6 +58,7 @@ function Navbar() {
             ProfPic: userData.pfpURL,
             Role: userData.role || '',
           });
+        
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
