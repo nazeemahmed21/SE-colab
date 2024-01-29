@@ -97,6 +97,7 @@ button{
 }
 
 .labSideBar {
+  border-radius: 8px;
   height: 60vh;
   margin-top: 100px;
   margin-left: 390px;
@@ -149,6 +150,7 @@ button{
 .labAnncMessage p {
   align-self: right;
   margin-top: 5px;
+  font-size: 16px;
 }
 
 .LabsContent span {
@@ -179,4 +181,32 @@ button{
 .imageContainer p {
 font-size: 20px;
   margin-top: 5px; /* Adjust the value to set the space between image and description */
+}
+
+.arrowContainer {
+  margin-top: 100px;
+  margin-left: 350px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.back-arrow {
+  color: #29ada0;
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.LabsContent h1{
+  margin-left: 30px;
+  font-size: 36px;
+}
+
+.LabsButtons{
+  align-items: center;
 }

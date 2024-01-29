@@ -11,6 +11,11 @@ const LabAnnouncements = () => {
       <Navbar />
 
       <div className='LabsPageAnnouncement'>
+      <div className="arrowContainer">
+          <Link to="/labs">
+            <span className='back-arrow'>←</span>
+          </Link>
+        </div>
         {/* Sidebar with lab members */}
         <div className="labSideBar">
           <div className="labSideBarText">
@@ -26,9 +31,7 @@ const LabAnnouncements = () => {
         </div>
 
         <div className="LabsContent">
-          <Link to="/labs">
-            <span className='back-arrow'>←</span>
-          </Link>
+          
           <h1>Lab A</h1>
        
           <h1>Announcements</h1>
