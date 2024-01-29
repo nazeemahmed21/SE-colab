@@ -97,7 +97,7 @@ export default function Video() {
       {/* {isCallContainerVisible && ( */}
         <div
           className="myCallContainer"
-          style={{ width: '80vw', height: '65vh' }}
+          style={{ width: '90vw', height: '65vh' }}
         ></div>
       {/* //  )}  */}
     </div>
