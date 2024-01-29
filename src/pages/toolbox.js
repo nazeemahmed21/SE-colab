@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import '../styles/toolbox.css'
 import { Icon } from '@iconify/react';
 import ad2 from '../images/ad2.gif';
 
 const Toolbox = () => {
+  const [adContainerVisible, setAdContainerVisible] = useState(true);
+  const handleCloseAdContainer = () => {
+    setAdContainerVisible(false);
+  }
+
   return (
     <><div>
       <Navbar />
@@ -15,27 +20,27 @@ const Toolbox = () => {
         <p><br></br></p>
         <img className="box" src={require("./box.png")} />
 
-        <a href="https://ansongeo.github.io/photoeditor" class="btn" id="one">
+        <a href="https://ansongeo.github.io/photoeditor" target="_blank" class="btn" id="one">
           <Icon icon="tabler:photo" height="40px" />
           Photo Editing
         </a>
 
-        <a href="https://www.kapwing.com/studio/editor" class="btn" id="two">
+        <a href="https://www.kapwing.com/studio/editor" target="_blank" class="btn" id="two">
           <Icon icon="gridicons:video" height="40px" />
           Video Editing
         </a>
 
-        <a href="https://www.blackbox.ai/agent/Co-LabChatbotJS0yczR" class="btn" id="three">
+        <a href="https://www.blackbox.ai/agent/Co-LabChatbotJS0yczR" target="_blank" class="btn" id="three">
           <Icon icon="eos-icons:ai" height="40px" />
           <p></p>AI Help
         </a>
 
-        <a href="https://imaadmmi.github.io/Diagram-Editor/" class="btn" id="four">
+        <a href="https://imaadmmi.github.io/Diagram-Editor/" target="_blank" class="btn" id="four">
           <Icon icon="octicon:graph-16" height="40px" />
           Diagrams
         </a>
 
-        <a href="https://whiteboard-host.onrender.com/" class="btn" id="five">
+        <a href="https://whiteboard-host.onrender.com/" target="_blank" class="btn" id="five">
           <Icon icon="fluent:draw-text-20-filled" height="40px" />
           Whiteboard
         </a>
@@ -56,13 +61,16 @@ const Toolbox = () => {
         </a>
 
       </div>
-      <div className="ad-container">
-      <div className="ad">
-        Advertisement
-         <img src={ad2} alt="Ad GIF" />
-      </div>
-    </div> 
-      </>
+      {adContainerVisible && (
+        <div className="ad-container">
+          <div className="ad">
+            Advertisement
+            <button className="closebutton" onClick={handleCloseAdContainer}>x</button>
+            <img src={ad2} alt="Ad GIF" />
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 

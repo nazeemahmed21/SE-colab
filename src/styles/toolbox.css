@@ -6,12 +6,13 @@
 
 .box {
   top: 80px;
+  width: 80%;
 }
 
 .menu {
   margin: 0 auto;
   position: absolute;
-  top: 12%;
+  top: 15%;
   left: 30%;
   /* margin-left: -25px;
   margin-top: -25px; */
@@ -21,14 +22,14 @@
 .text1 {
   display: block;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 32px;
   text-align: center;
   z-index: 1;
 }
 
 .text2 {
   display: block;
-  font-size:15px;
+  font-size: 17px;
   text-align: center;
   z-index: 1;
 }
@@ -54,7 +55,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 80px;
+  width: 85px;
   height: 95px;
   border-radius: 80px;
   position: absolute;
@@ -141,10 +142,12 @@
 
 .ad-container {
   position: absolute;
-  bottom: -70px;
+  top: 35%;
   right: 30px;
-  width: 250px; /* Set the width of the ad container as per your design */
-  height: 100vh; /* Set the height of the ad container as per your design */
+  width: 250px;
+  /* Set the width of the ad container as per your design */
+  height: 100vh;
+  /* Set the height of the ad container as per your design */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,6 +158,15 @@
 }
 
 .ad img {
-  max-width: 100%; /* Make sure the image doesn't exceed the container width */
-  max-height: 100%; /* Make sure the image doesn't exceed the container height */
+  max-width: 100%;
+  /* Make sure the image doesn't exceed the container width */
+  max-height: 100%;
+  /* Make sure the image doesn't exceed the container height */
+}
+
+.closebutton {
+  font-family: monospace;
+  position: absolute;
+  /* height: 1px; */
+  left: 100%;
 }
