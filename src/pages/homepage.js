@@ -8,6 +8,8 @@ import Reminder from "../components/reminder";
 import gitex from "../images/GG-show.jpg";
 import art from "../images/image00009.jpg";
 import Popup from "../components/Popup"; // Import Popup component
+import ad2 from '../images/ad2.gif';
+
 
 
 function Home() {
@@ -33,6 +35,11 @@ function Home() {
             <button className="bob" onClick={showPopup}>Register</button>
           </div>
           <br></br>
+          <div className="event3">
+            <img src={ad2} alt="GG-show" />
+            <div className="ad__details">Advertisement</div>
+          </div>
+          <br></br>
           <div className="event2">
             <div className="event__title">Dubai Art Season 2024</div>
             <img src={art} alt="GG-show" />
@@ -41,6 +48,7 @@ function Home() {
             <div className="event__details">Event Details: Dubai Art Season 2024  is planned to be a global and artistic phenomenon.</div>
             <button class="bob" >Register</button>
           </div>
+          <br></br>
         </div>
         <div>
           <Navbar />
@@ -72,3 +80,5 @@ function Home() {
 }
 
 export default Home;
+
+//ad added
