@@ -210,3 +210,26 @@ a {
 .LabsButtons{
   align-items: center;
 }
+/* Add this to your labs.css */
+
+.imageContainer {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out;
+}
+
+
+@keyframes slideOutFromFolder {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(90%);
+    opacity: 1;
+  }
+}
+
+.slideOutFromFolder {
+  animation: slideOutFromFolder 1s ease-in-out forwards; /* Adjust the animation duration as needed */
+}

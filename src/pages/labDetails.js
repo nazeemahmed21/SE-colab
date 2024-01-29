@@ -51,7 +51,7 @@ const LabDetails = () => {
               <p>Folder</p>
             </div>
             {currentImage && (
-              <div className="imageContainer" onClick={() => handleClick(ppt)}>
+              <div className="imageContainer slideOutFromFolder" onClick={() => handleClick(null)}>
                 <img src={ppt} alt="ppt" />
                 <p>PPT</p>
               </div>
