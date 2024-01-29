@@ -1,131 +1,152 @@
 .events {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    top: 50%;
-    margin-top: 100px;
-    left: 42%;
-    transform: translate(-50%, -50%);
-    background-color: #c0ffe7;
-    font-size: 55px;
-    color: black;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    font-weight: bold;
-    height: 100%; /* Adjust as needed */
-    width: 1000px;
-    padding: 20px; /* Add padding for spacing between events */
-    overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 100vh; /* Limit the maximum height */
-    padding-bottom: 200px;
-  }
-  
-  .event__date {
-    font-size: 25px;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  }
-  
-  .event__details {
-    padding-top: 10px;
-    font-size: 20px;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    font-style: italic;
-  }
-  
-  .event__venue {
-    padding-top: 10px;
-    font-size: 20px;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    font-style: bold italic;
-  }
-  
-  .event1 {
-    background-color: #57d7a5;
-    padding-left: 30px;
-    width: 700px;
-    align-content: center;
-    left: 50%;
-  }
-  
-  .event1 img {
-    width: 80%;
-    height: 45%;
-    padding-left: 5%;
-  }
-  
-  .event2 {
-    background-color: #57d7a5;
-    padding-left: 30px;
-    width: 700px;
-    align-content: center;
-    left: 50%;
-  }
-  
-  .event2 img {
-    width: 80%;
-    height: 45%;
-    padding-left: 5%;
-  }
-  
-  /* Add this style to your existing CSS file or create a new one */
-  .bob {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border: 2px solid #57d7a5;
-    color: #fff;
-    background-color: #82e7c0;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    left: 30%;
-    position: relative;
-  }
-  
-  .bob:hover {
-    background-color: #fff;
-    color: #57d7a5;
-  }
-  
-  /* Add these styles to your existing CSS file or create a new one */
-  .popup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Add these styles to your existing CSS file or create a new one */
-  .popup-content {
-    /* ... existing styles ... */
-    text-align: center;
-  }
-  
-  .close-button {
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border: 2px solid #57d7a5;
-    color: #fff;
-    background-color: #82e7c0;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .close-button:hover {
-    background-color: #fff;
-    color: #57d7a5;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 47%;
+  margin-top: 100px;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  font-size: 55px;
+  color: black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  height: 90%; /* Adjust as needed */
+  width: 1000px;
+  padding: 20px; /* Add padding for spacing between events */
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 90vh; /* Limit the maximum height */
+  padding-bottom: 200px;
+}
+
+.event__date {
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.event__details {
+  padding-top: 10px;
+  font-size: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+}
+
+.event__venue {
+  padding-top: 10px;
+  font-size: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: bold italic;
+}
+
+.event1 {
+  background-color: #57d7a5;
+  padding-left: 30px;
+  width: 700px;
+  align-content: center;
+  left: 50%;
+}
+
+.event1 img {
+  width: 80%;
+  height: 45%;
+  padding-left: 5%;
+}
+
+.event2 {
+  background-color: #57d7a5;
+  padding-left: 30px;
+  width: 700px;
+  align-content: center;
+  left: 50%;
+}
+
+.event2 img {
+  width: 80%;
+  height: 45%;
+  padding-left: 5%;
+}
+
+.event3 {
+  padding-left: 30px;
+  width: 700px;
+  align-content: center;
+  left: 50%;
+}
+
+.event3 img{
+  width: 80%;
+  height: 70%;
+  padding-left: 15%;
+  padding-top: 20px;
+}
+
+/* Add this style to your existing CSS file or create a new one */
+.bob {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #57d7a5;
+  color: #fff;
+  background-color: #82e7c0;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  left: 30%;
+  position: relative;
+}
+
+.bob:hover {
+  background-color: #fff;
+  color: #57d7a5;
+}
+
+/* Add these styles to your existing CSS file or create a new one */
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Add these styles to your existing CSS file or create a new one */
+.popup-content {
+  /* ... existing styles ... */
+  text-align: center;
+}
+
+.close-button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #57d7a5;
+  color: #fff;
+  background-color: #82e7c0;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #fff;
+  color: #57d7a5;
+}
+
+.ad__details {
+  padding-top: 10px;
+  font-size: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+  left: 39%;
+  position: relative;
+}

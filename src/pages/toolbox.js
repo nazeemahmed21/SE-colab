@@ -1,69 +1,82 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import '../styles/toolbox.css'
-import { Icon } from '@iconify/react';
+import React, { useState } from "react";
+import Navbar from "../components/Navbar";
+import { Toaster } from "react-hot-toast";
+import { PageTitle, AppHeader, AppContent } from "../components/combinedTodo";
+import styles from "../styles/todo.module.css";
+import "../styles/homepage.css";
+import Reminder from "../components/reminder";
+import gitex from "../images/GG-show.jpg";
+import art from "../images/image00009.jpg";
+import Popup from "../components/Popup"; // Import Popup component
 import ad2 from '../images/ad2.gif';
 
-const Toolbox = () => {
+
+
+function Home() {
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
+  const showPopup = () => {
+    setPopupVisible(true);
+  };
+
+  const hidePopup = () => {
+    setPopupVisible(false);
+  };
   return (
-    <><div>
-      <Navbar />
-      {/* <h1>Toolbox</h1> */}
-    </div><div className="menu">
-        <p className="text1">Tool Box</p>
-        <p className="text2">Please choose from our extensive tools gathered to meet your requirements</p>
-        <p><br></br></p>
-        <img className="box" src={require("./box.png")} />
-
-        <a href="https://ansongeo.github.io/photoeditor" class="btn" id="one">
-          <Icon icon="tabler:photo" height="40px" />
-          Photo Editing
-        </a>
-
-        <a href="https://www.kapwing.com/studio/editor" class="btn" id="two">
-          <Icon icon="gridicons:video" height="40px" />
-          Video Editing
-        </a>
-
-        <a href="https://www.blackbox.ai/agent/Co-LabChatbotJS0yczR" class="btn" id="three">
-          <Icon icon="eos-icons:ai" height="40px" />
-          <p></p>AI Help
-        </a>
-
-        <a href="https://imaadmmi.github.io/Diagram-Editor/" class="btn" id="four">
-          <Icon icon="octicon:graph-16" height="40px" />
-          Diagrams
-        </a>
-
-        <a href="https://whiteboard-host.onrender.com/" class="btn" id="five">
-          <Icon icon="fluent:draw-text-20-filled" height="40px" />
-          Whiteboard
-        </a>
-
-        <a href="https://docs.google.com/document/u/0/" target="_blank" class="btn" id="six">
-          <Icon icon="arcticons:google-docs" height="40px" />
-          Docs
-        </a>
-
-        <a href="https://docs.google.com/presentation/u/0/" target="_blank" class="btn" id="seven">
-          <Icon icon="arcticons:google-slides" height="40px" />
-          Slides
-        </a>
-
-        <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank" class="btn" id="eight">
-          <Icon icon="arcticons:google-sheets" height="40px" />
-          Sheets
-        </a>
-
+    <>
+      <div>
+        <div className="events">
+          <div className="event1">
+            <div className="event__title">Gitex 2024</div>
+            <img src={gitex} alt="GG-show" />
+            <div className="event__date">Event Date: 14th to 18th October 2024</div>
+            <div className="event__venue">Event Venue: Dubai World Trade Center</div>
+            <div className="event__details">Event Details: Gitex 2024 is planned to be a global and technological phenomenon.</div>
+            <button className="bob" onClick={showPopup}>Register</button>
+          </div>
+          <br></br>
+          <div className="event3">
+            <img src={ad2} alt="GG-show" />
+            <div className="ad__details">Advertisement</div>
+          </div>
+          <br></br>
+          <div className="event2">
+            <div className="event__title">Dubai Art Season 2024</div>
+            <img src={art} alt="GG-show" />
+            <div className="event__date">Event Date: 12 January – 7 March 2024</div>
+            <div className="event__venue">Event Venue: Madinat Jumeirah</div>
+            <div className="event__details">Event Details: Dubai Art Season 2024  is planned to be a global and artistic phenomenon.</div>
+            <button class="bob" >Register</button>
+          </div>
+          <br></br>
+        </div>
+        <div>
+          <Navbar />
+        </div>
+        <div className={styles.half}>
+          <div className="container">
+            <PageTitle>TO DO List</PageTitle>
+            <div className={styles.app__wrapper}>
+              <AppHeader />
+              <AppContent />
+            </div>
+          </div>
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                fontSize: "1.75rem",
+              },
+            }} />
+        </div>
+        <Reminder />
+        {/* Render Popup component conditionally */}
+        {isPopupVisible && (
+          <Popup onClose={hidePopup} />
+        )}
       </div>
-      <div className="ad-container">
-      <div className="ad">
-        Advertisement
-         <img src={ad2} alt="Ad GIF" />
-      </div>
-    </div> 
-      </>
-  )
+    </>
+  );
 }
 
-export default Toolbox
+export default Home;
