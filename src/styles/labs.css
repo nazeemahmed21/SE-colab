@@ -6,7 +6,7 @@
     margin-top: 80px;/* Adjust the left padding as needed */
   }
   
-  .lab {
+  .labBox {
 border-radius: 5px;
     color: black;
     width: 250px; /* Adjust the width of the rectangle boxes */
@@ -20,7 +20,7 @@ border-radius: 5px;
     color: #fff; /* Set text color to white, adjust as needed */
   }
   
-  .lab p {
+  .labBox p {
     color: black;
     margin: 0;
     font-size: 30px;
@@ -169,21 +169,21 @@ button{
   height: auto; /* Maintain aspect ratio */
 }
 
-.imageContainer {
+.labsImageContainer {
   text-align: center; /* Center the content within the container */
 }
 
-.imageContainer img {
+.labsImageContainer img {
   max-width: 100%; /* Ensure images don't exceed their container's width */
   height: auto; /* Maintain aspect ratio */
 }
 
-.imageContainer p {
+.labsImageContainer p {
 font-size: 20px;
   margin-top: 5px; /* Adjust the value to set the space between image and description */
 }
 
-.arrowContainer {
+.labsArrowContainer {
   margin-top: 100px;
   margin-left: 350px;
   position: absolute;
@@ -191,7 +191,7 @@ font-size: 20px;
   left: 20px;
 }
 
-.back-arrow {
+.labsBack-arrow {
   color: #29ada0;
   font-size: 30px;
 }
@@ -212,7 +212,7 @@ a {
 }
 /* Add this to your labs.css */
 
-.imageContainer {
+.labsImageContainer {
   position: relative;
   cursor: pointer;
   transition: transform 0.4s ease-in-out;
@@ -230,6 +230,6 @@ a {
   }
 }
 
-.slideOutFromFolder {
+.slideOutFromFolderAnimation {
   animation: slideOutFromFolder 1s ease-in-out forwards; /* Adjust the animation duration as needed */
 }

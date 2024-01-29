@@ -11,9 +11,9 @@ const LabAnnouncements = () => {
       <Navbar />
 
       <div className='LabsPageAnnouncement'>
-      <div className="arrowContainer">
+      <div className="labsArrowContainer">
           <Link to="/labs">
-            <span className='back-arrow'>←</span>
+            <span className='labsBack-arrow'>←</span>
           </Link>
         </div>
         {/* Sidebar with lab members */}
