@@ -1,27 +1,29 @@
 import React from 'react'
 import Navbar from '../components/Navbar.js'
-import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar.jsx'
 import Chat from '../components/Chat.jsx'
 import '../Style.css'
 import call_icon from '../images/call_icon.png'
-// import Chats from '../components/Chats.jsx'
-// import Search from '../components/Search.jsx'
+import { Link } from "react-router-dom";
+
 const Messages = () => {
   return (
 
     <div className='homeContainer'>
             <Navbar/>
-      <div className='home'>
+      <div className=' chatsHome'>
  
     
-      <div className='container'>
+      <div className='chatsContainer'>
       <Sidebar />
-      {/* <div className='chatContainer'> */}
+
         <Chat />
         </div>
-        <img src={call_icon} className='chatImage' alt='chatImage'/>
-        {/* </div> */}
+        <Link to="/video" target="_blank"> 
+        <img src={call_icon} className='chatImage' alt='chatImage' style={{ width: '60px', height: '60px', marginRight:'20px', marginLeft:'70px' }} />
+        </Link>
+
+
       </div>
     </div>
   )

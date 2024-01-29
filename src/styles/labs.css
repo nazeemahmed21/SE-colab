@@ -165,16 +165,16 @@ button{
 }
 
 .labFolderContainer img {
-  max-width: 100%; /* Ensure images don't exceed their container's width */
+  max-width: 100%; /* Ensure images don't exceed their chatsContainer's width */
   height: auto; /* Maintain aspect ratio */
 }
 
 .labsImageContainer {
-  text-align: center; /* Center the content within the container */
+  text-align: center; /* Center the content within the chatsContainer */
 }
 
 .labsImageContainer img {
-  max-width: 100%; /* Ensure images don't exceed their container's width */
+  max-width: 100%; /* Ensure images don't exceed their chatsContainer's width */
   height: auto; /* Maintain aspect ratio */
 }
 
