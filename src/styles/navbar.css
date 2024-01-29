@@ -40,7 +40,7 @@ body{
   width: 350px;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   position: fixed;
   top: 0;
   left: 0%;
@@ -58,7 +58,7 @@ body{
   align-items: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
-  height: 70px;
+  height: 50px;
   margin-top: 20px;
 }
 
@@ -67,7 +67,7 @@ body{
   color: white;
   font-size: 25px;
   width: 95%;
-  height: 90%;
+  height: 100%;
   display: flex;
   align-items: center;
   padding: 0 16px;
@@ -123,9 +123,9 @@ span {
 .sign-out-button{
   position: absolute;
   font-size: 25px;
-  left: 7.5vw;
-  top: 89.7%; 
-  padding: 10px;
+  left: 0vw;
+  top: 86%; 
+  padding: 5px;
   border-radius: 10px;
   background-color: #29ada0;
   color: white;
