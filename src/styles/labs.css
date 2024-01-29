@@ -40,7 +40,7 @@ border-radius: 5px;
 }
 
 button{
-    display: flex;
+    display: inline;
     color: white;
     font-size: 20px;
     margin-top: 30px;
@@ -88,49 +88,95 @@ button{
   }
   
   
-  .labSideBar{
-    margin-left: 550px;
-    font-size: 20px;
-    border-radius: 5px;
-    width: 400px; 
-    height: 300px; 
-    margin: 10px;
-    border: 1px solid #ccc; 
-    display: flex;
-    background-color: #29ada0  ;
-  }
+  /* labs.css */
 
-  .labSideBar ul{
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-    margin-left: 150px;
-    margin-top: 70px;
-    list-style-type: none;
-    padding: 20px 0;
-  } 
+.LabsPageAnnouncement {
+  /* align-items: center; */
+  margin-top: 100px;
+  display: flex;
+}
 
-  .labSideBar li {
-    font-size: 20px;
-    text-decoration: none;
-    margin-bottom: 10px; /* Adjust the margin-bottom as needed */
-  }
+.labSideBar {
+  height: 60vh;
+  margin-top: 100px;
+  margin-left: 390px;
+  width: 260px;
+  background-color: #29ada0 ; /* Add a background color for the sidebar */
+  color: white;
+}
 
-  .LabsPageAnnouncement h1{
-    margin-top: 50px;
-    padding-left: 400px;
-  }
+.labSideBarText {
 
- 
-  .back-arrow{
-    margin-top: 50px;
-    margin-left: 350px;
-    font-size: 20px;
-    border-radius: 5px;
-    width: 300px; 
-    height: 50px; 
-    margin: 10px;
-    border: 1px solid #ccc; 
-    display: flex;
-    background-color: #29ada0  ;
-  }
+  margin-top: 70px;
+  padding: 20px;
+}
+
+.labSideBar ul {
+  align-items: space-between;
+  list-style-type: none;
+  padding: 0;
+}
+
+.labSideBar p {
+  align-items: space-evenly;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.LabsContent {
+  flex: 1;
+  padding: 20px;
+  margin-left: 10px;
+}
+
+.labAnncMessage {
+  border-radius: 8px;
+  margin-top: 50px;
+  margin-left: 30px;
+  background-color: #29ada0 ;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+  border-radius: 5px;
+  width: 70%;
+}
+
+.labAnncMessage h1 {
+  
+  margin-bottom: 5px;
+}
+
+.labAnncMessage p {
+  align-self: right;
+  margin-top: 5px;
+}
+
+.LabsContent span {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.labFolderContainer {
+  margin-top: 70px;
+  display: flex;
+  gap: 120px; /* Adjust the value to set the desired space between images */
+}
+
+.labFolderContainer img {
+  max-width: 100%; /* Ensure images don't exceed their container's width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.imageContainer {
+  text-align: center; /* Center the content within the container */
+}
+
+.imageContainer img {
+  max-width: 100%; /* Ensure images don't exceed their container's width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.imageContainer p {
+font-size: 20px;
+  margin-top: 5px; /* Adjust the value to set the space between image and description */
+}
