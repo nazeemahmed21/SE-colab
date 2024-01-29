@@ -5,67 +5,66 @@ import { Icon } from '@iconify/react';
 import ad2 from '../images/ad2.gif';
 
 const Toolbox = () => {
-  const [adContainerVisible, setAdContainerVisible] = useState(true);
-  const handleCloseAdContainer = () => {
-    setAdContainerVisible(false);
+  const [ContainerVisible, setContainerVisible] = useState(true);
+  const handleCloseContainer = () => {
+    setContainerVisible(false);
   }
 
   return (
     <><div>
       <Navbar />
-      {/* <h1>Toolbox</h1> */}
-    </div><div className="menu">
-        <p className="text1">Tool Box</p>
-        <p className="text2">Please choose from our extensive tools gathered to meet your requirements</p>
+    </div><div className="tlbxmenu">
+        <p className="tlbxtext1">Tool Box</p>
+        <p className="tlbxtext2">Please choose from our extensive tools gathered to meet your requirements</p>
         <p><br></br></p>
-        <img className="box" src={require("./box.png")} />
+        <img className="tlbxbox" src={require("./box.png")} />
 
-        <a href="https://ansongeo.github.io/photoeditor" target="_blank" class="btn" id="one">
+        <a href="https://ansongeo.github.io/photoeditor" target="_blank" class="toolboxbtn" id="one">
           <Icon icon="tabler:photo" height="40px" />
           Photo Editing
         </a>
 
-        <a href="https://www.kapwing.com/studio/editor" target="_blank" class="btn" id="two">
-          <Icon icon="gridicons:video" height="40px" />
+        <a href="https://www.kapwing.com/studio/editor" target="_blank" class="toolboxbtn" id="two">
+          <Icon icon="gridicons:video" height="38px" />
           Video Editing
         </a>
 
-        <a href="https://www.blackbox.ai/agent/Co-LabChatbotJS0yczR" target="_blank" class="btn" id="three">
+        <a href="https://www.blackbox.ai/agent/Co-LabChatbotJS0yczR" target="_blank" class="toolboxbtn" id="three">
           <Icon icon="eos-icons:ai" height="40px" />
           <p></p>AI Help
         </a>
 
-        <a href="https://imaadmmi.github.io/Diagram-Editor/" target="_blank" class="btn" id="four">
-          <Icon icon="octicon:graph-16" height="40px" />
+        <a href="https://imaadmmi.github.io/Diagram-Editor/" target="_blank" class="toolboxbtn" id="four">
+          <Icon icon="octicon:graph-16" height="38px" />
           Diagrams
         </a>
 
-        <a href="https://whiteboard-host.onrender.com/" target="_blank" class="btn" id="five">
+        <a href="https://whiteboard-host.onrender.com/" target="_blank" class="toolboxbtn" id="five">
           <Icon icon="fluent:draw-text-20-filled" height="40px" />
           Whiteboard
         </a>
 
-        <a href="https://docs.google.com/document/u/0/" target="_blank" class="btn" id="six">
+        <a href="https://docs.google.com/document/u/0/" target="_blank" class="toolboxbtn" id="six">
           <Icon icon="arcticons:google-docs" height="40px" />
           Docs
         </a>
 
-        <a href="https://docs.google.com/presentation/u/0/" target="_blank" class="btn" id="seven">
+        <a href="https://docs.google.com/presentation/u/0/" target="_blank" class="toolboxbtn" id="seven">
           <Icon icon="arcticons:google-slides" height="40px" />
           Slides
         </a>
 
-        <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank" class="btn" id="eight">
+        <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank" class="toolboxbtn" id="eight">
           <Icon icon="arcticons:google-sheets" height="40px" />
           Sheets
         </a>
 
       </div>
-      {adContainerVisible && (
-        <div className="ad-container">
-          <div className="ad">
+      {ContainerVisible && (
+        <div className="tlbxad-container">
+          <div className="tlbxad">
             Advertisement
-            <button className="closebutton" onClick={handleCloseAdContainer}>x</button>
+            <button onClick={handleCloseContainer}>x</button>
             <img src={ad2} alt="Ad GIF" />
           </div>
         </div>
