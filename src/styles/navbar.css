@@ -40,7 +40,7 @@ body{
   width: 350px;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   position: fixed;
   top: 0;
   left: 0%;
