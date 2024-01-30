@@ -135,19 +135,19 @@ function Signup() {
   //       });
   return (
     
-    <div className='main-container'>
-      <div className='form-container'>
+    <div className='su-main-container'>
+      <div className='su-form-container'>
         <h1>Register</h1>
         <h3>Enter your First Name</h3>
-        <input onChange={handleFNChange} className='name1' type='text' placeholder='First Name...' />
+        <input onChange={handleFNChange} className='su-name1' type='text' placeholder='First Name...' />
         <h3>Enter your Second Name</h3>
-        <input onChange={handleSNChange} className='name2' type='text' placeholder='Second Name...' />
+        <input onChange={handleSNChange} className='su-name2' type='text' placeholder='Second Name...' />
         <h3>Enter your Email Address</h3>
-        <input ref={emailRef} className='email' type='email' placeholder='Email...' />
+        <input ref={emailRef} className='su-email' type='email' placeholder='Email...' />
         <h3>Enter your Password</h3>
-        <input ref={passwordRef} className='password' type='password' placeholder='Password...' />
+        <input ref={passwordRef} className='su-password' type='password' placeholder='Password...' />
         <h3>Select your gender</h3>
-        <div className='gender'>
+        <div className='su-gender'>
           <label>
             <input
               type="radio"
@@ -168,7 +168,7 @@ function Signup() {
           </label>
         </div>
         <h3>Choose your role</h3>
-        <div className='role'>
+        <div className='su-role'>
           <select
             name="role-names"
             id="role-names"
@@ -181,13 +181,13 @@ function Signup() {
             <option value="Artist">Artist</option>
           </select>
         </div>
-        <Link to="/login" className='link-to-login'>Already have an account? Login Now.</Link>
-        <button className='signup_button' onClick={handleSignUpWithEmail} >Sign up</button>
+        <Link to="/login" className='su-link-to-login'>Already have an account? Login Now.</Link>
+        <button className='su-signup_button' onClick={handleSignUpWithEmail} >Sign up</button>
       </div>
-      <div className='image-container'>
+      <div className='su-image-container'>
         <img src={logo} alt='logo' />
       </div>
-      <div className='text'>
+      <div className='su-text'>
       </div>
     </div>
   );
