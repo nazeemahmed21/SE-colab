@@ -2,10 +2,9 @@ import React, { useRef, useState } from 'react';
 import '../styles/signup.css'; // Adjust the CSS import path
 import logo from '../images/logo.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile,sendEmailVerification } from 'firebase/auth';
 import { setDoc, doc } from 'firebase/firestore';
 import { auth, db, storage } from '../firebase';
-
 
 function Signup() {
   const navigate = useNavigate(); 
@@ -42,45 +41,41 @@ function Signup() {
   const handleRoleChange = (event) => {
     setJob(event.target.value); // Set the selected role value
   }
-  const handleSignUpWithEmail = async (e) => {
+ const handleSignUpWithEmail = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-  
-    // Check if any of the required fields are empty
+
     if (firstN === '' || secondN === '' || sex === '' || job === '') {
       alert('Please fill in all required fields.');
       return;
     }
-  
-    // Perform user registration only if all required fields are filled
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        const uid = user.uid;
-  
-        updateProfile(user, {
-          displayName: firstN,
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Send email verification
+      await sendEmailVerification(user);
+      alert('A verification email has been sent. Please check your inbox.');
+
+      // Save user info in Firestore
+      await setDoc(doc(db, "Users", user.uid), {
+        firstName: firstN,
+        lastName: secondN,
+        gender: sex,
+        role: job,
+        uid: user.uid,
+        profileSetup: false
       });
 
-        setDoc(doc(db, "Users", uid), {
-          firstName: firstN,
-          lastName: secondN,
-          gender: sex,
-          role: job,
-          uid: uid,
-          profileSetup: false
-        });
-  
-        setDoc(doc(db,"userChats",uid),{});
-
-        navigate("/profile-setup");
-      })
-      .catch((error) => {
-        // Handle sign-up errors
-        console.log("Error creating user:", error);
-      });
+      navigate("/profile-setup");
+    } catch (error) {
+      alert("Error creating user: " + error.message);
+      console.error("Error creating user:", error);
+    }
   };
+
   // const handleSignUpWithEmail = async(e) => {
   //   e.preventDefault();
   //   const email = emailRef.current.value;
