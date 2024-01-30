@@ -14,10 +14,10 @@ const Reminder = () => {
     setRefresh(!refresh);
   }
 
-  const [strikeState, setStrikeState] = useState({});
+  const [strike, setStrike] = useState({});
 
   const handleStrike = (reminderID) => {
-    setStrikeState(prevState => ({
+    setStrike(prevState => ({
       ...prevState,
       [reminderID]: !prevState[reminderID]
     }));
@@ -27,12 +27,12 @@ const Reminder = () => {
     <>
       <div className='half'>
         <><PageTitle>Reminders</PageTitle></>
-        <button className='button' onClick={handleRefresh}>refresh</button>
+        <button className='refbutton' onClick={handleRefresh}>refresh</button>
         {reminders && reminders.length > 0 ? (
           <><div className='maindiv'>
             {reminders.map((r) => (
               <><div key={r.id} className='textdiv'>
-                <p style={{ textDecoration: strikeState[r.id] ? 'line-through' : 'none' }}>{r.title}</p>
+                <p style={{ textDecoration: strike[r.id] ? 'line-through' : 'none' }}>{r.title}</p>
                 <button className='done' onClick={() => { updateReminder(r.id); handleStrike(r.id) }}>&#x2713;</button>
               </div > <><br></br></></>
             ))}

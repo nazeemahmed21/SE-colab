@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../styles/login.css'; // Adjust the CSS import path
 import logo from '../images/logo.png'
+import { fetchid } from '../components/firebaseforreminder';
 
 function Login() {
   // const currentUser = useAuth();
@@ -63,7 +64,7 @@ function Login() {
       </div>
       <div className='l-image-container'>
         <img src={logo} alt='logo' />
-      </div>  
+      </div>
     </div>
   );
 }
