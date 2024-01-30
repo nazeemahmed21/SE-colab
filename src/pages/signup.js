@@ -68,7 +68,7 @@ function Signup() {
         uid: user.uid,
         profileSetup: false
       });
-
+      setDoc(doc(db, "userChats", user.uid), {});
       navigate("/profile-setup");
     } catch (error) {
       alert("Error creating user: " + error.message);
