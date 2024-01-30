@@ -42,6 +42,9 @@
   border-radius: 20px;
 }
 .login_button {
+  position: absolute;
+  left: 61.5%;
+  top: 60%;
   background-color: #ffa07a;
   color: white;
   padding: 10px 20px;

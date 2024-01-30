@@ -44,7 +44,7 @@ const Rout = () => {
       <Route path="/calendar" element={<ProtectedRoute><CalendarApp /></ProtectedRoute>}></Route>
       <Route path="/interest" element={<ProtectedRoute><Interests/></ProtectedRoute>}></Route>
       <Route path="/video" element={<Video />} />
-      <Route path="/user-prof"  />
+      <Route path="/user-prof" element={<ProtectedRoute><UserProfile/></ProtectedRoute>} />
     </Routes>
   );
 };

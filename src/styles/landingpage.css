@@ -95,35 +95,35 @@ body, html {
   /* Add additional styling properties as needed */
 }
 .wrapper .register{
-  top: 5.5%; /* Adjust the top position as needed */
-  left: 84%; /* Adjust the left position as needed */
+  top: 4.5%; /* Adjust the top position as needed */
+  left: 77%; /* Adjust the left position as needed */
   padding: 14px 28px;
   font-weight: bold;
-  position: absolute;
+  position: fixed;
   font-family: sans-serif; 
   text-transform: uppercase;
   border: 1px solid  rgba(109, 64, 2, 0);
   border-radius: 5px;
   background-color:inherit;
   transform: translate(-50%, -50%); /* Center the 'hello' tag */
-  font-size: 1.2rem; /* Set the font size as needed */
+  font-size: 1.7rem; /* Set the font size as needed */
   color: white; /* Set the text color */
   font-weight: 600;
   /* Add additional styling properties as needed */
 }
 .wrapper .login{
-  top: 5.5%; /* Adjust the top position as needed */
-  left: 92%; /* Adjust the left position as needed */
+  top: 4.5%; /* Adjust the top position as needed */
+  left: 85%; /* Adjust the left position as needed */
   padding: 14px 28px;
   font-weight: bold;
-  position: absolute;
+  position: fixed;
   font-family: sans-serif; 
   text-transform: uppercase;
   background-color: inherit;
   border: 1px solid  rgba(109, 64, 2, 0);
   border-radius: 4px;
   transform: translate(-50%, -50%); /* Center the 'hello' tag */
-  font-size: 1.2rem; /* Set the font size as needed */
+  font-size: 1.7rem; /* Set the font size as needed */
   color: white; /* Set the text color */
   font-weight: 600;
   /* Add additional styling properties as needed */

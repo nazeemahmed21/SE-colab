@@ -134,7 +134,6 @@ const ProfileSetup = () => {
           borderRadius: '20px',
           fontSize: '20px',
           textAlign: 'center',
-          backgroundColor: '#007bff',
           color: 'white',
           position: 'absolute',
           top: '40%',
@@ -148,10 +147,10 @@ const ProfileSetup = () => {
           margin: 0,
           fontSize: '20px',
           width: '15%',
-          height: '5%',
+          height: '7.6%',
           border: '3px solid black',
           borderRadius: '20px',
-          top: '50%',
+          top: '49%',
         }}>Upload Image</button>
         <div className='pfp-user-info' style={{
           position: 'absolute',
