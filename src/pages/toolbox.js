@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import '../styles/toolbox.css'
 import { Icon } from '@iconify/react';
 import ad2 from '../images/ad2.gif';
-
+import box from '../images/box.png';
 const Toolbox = () => {
   const [ContainerVisible, setContainerVisible] = useState(true);
   const handleCloseContainer = () => {
@@ -17,7 +17,7 @@ const Toolbox = () => {
         <p className="tlbxtext1">Tool Box</p>
         <p className="tlbxtext2">Please choose from our extensive tools gathered to meet your requirements</p>
         <p><br></br></p>
-        <img className="tlbxbox" src={require("./box.png")} />
+        <img className="tlbxbox" src={box} />
 
         <a href="https://ansongeo.github.io/photoeditor" target="_blank" class="toolboxbtn" id="one">
           <Icon icon="tabler:photo" height="40px" />
