@@ -14,7 +14,7 @@ const UserProfile = () => {
     ProfPic: '',
     Role: '',
   });
-  const [ setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [editedFirstName, setEditedFirstName] = useState('');
   const [editedSecondName, setEditedSecondName] = useState('');
   const [editedRole, setEditedRole] = useState('');
@@ -93,19 +93,19 @@ const UserProfile = () => {
       console.error("Error updating name:", error);
     }
   };
-  // const handleSaveRoleChange = async () => {
-  //   const userRef = doc(db, 'Users', auth.currentUser.uid);
-  //   try {
-  //     await updateDoc(userRef, {
-  //       role: editedRole,
-  //     });
-  //     setUserInfo({ ...userInfo, Role: editedRole });
-  //     setIsEditing(false);
-  //     alert("Role updated successfully");
-  //   } catch (error) {
-  //     console.error("Error updating role:", error);
-  //   }
-  // }
+  const handleSaveRoleChange = async () => {
+    const userRef = doc(db, 'Users', auth.currentUser.uid);
+    try {
+      await updateDoc(userRef, {
+        role: editedRole,
+      });
+      setUserInfo({ ...userInfo, Role: editedRole });
+      setIsEditing(false);
+      alert("Role updated successfully");
+    } catch (error) {
+      console.error("Error updating role:", error);
+    }
+  }
   return (
     <div>
       <Navbar />
