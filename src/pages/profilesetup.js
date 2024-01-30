@@ -28,7 +28,7 @@ const ProfileSetup = () => {
   // Function to fetch and set user data
   const fetchUserData = async () => {
     const currentUser = auth.currentUser;
-    
+    //sdklnverlfvc
     if (currentUser) {
       const userId = currentUser.uid;
       const userRef = doc(db, 'Users', userId);
@@ -119,7 +119,7 @@ const ProfileSetup = () => {
             borderRadius: '50%',
             position: 'absolute',
             left: '68%',
-            top: '5%'
+            top: '5%',
           }} />
         </div>
         <h1 style={{
@@ -130,27 +130,27 @@ const ProfileSetup = () => {
           width: '15%',
           marginBottom: '20px',
           padding: '10px',
-          border: '1px solid #ccc',
+          border: '3px solid black',
           borderRadius: '20px',
           fontSize: '20px',
           textAlign: 'center',
-          backgroundColor: '#007bff',
           color: 'white',
           position: 'absolute',
           top: '40%',
+          backgroundColor: '#FFA07A'
         }} />
         <button className='pfp-signup_button' onClick={uploadImage} style={{
           position: 'absolute',
-          backgroundColor: '#007bff',
+          backgroundColor: '#FFA07A',
           color: 'white',
           cursor: 'pointer',
           margin: 0,
           fontSize: '20px',
           width: '15%',
-          height: '5%',
-          border: '1px solid #ccc',
+          height: '7.6%',
+          border: '3px solid black',
           borderRadius: '20px',
-          top: '50%',
+          top: '49%',
         }}>Upload Image</button>
         <div className='pfp-user-info' style={{
           position: 'absolute',

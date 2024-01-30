@@ -4,11 +4,7 @@
   padding: 0;
 }
 
-.box {
-  top: 80px;
-}
-
-.menu {
+.tlbxmenu {
   margin: 0 auto;
   position: absolute;
   top: 12%;
@@ -18,23 +14,23 @@
   text-align: center;
 }
 
-.text1 {
+.tlbxtext1 {
   display: block;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 32px;
   text-align: center;
   z-index: 1;
 }
 
-.text2 {
+.tlbxtext2 {
   display: block;
-  font-size:15px;
+  font-size: 17px;
   text-align: center;
   z-index: 1;
 }
 
-.box {
-  width: 65%;
+.tlbxbox {
+  width: 68%;
   animation: rotate 2s linear 1;
   /* transform: rotate(90deg); */
 }
@@ -49,12 +45,12 @@
   }
 }
 
-.btn {
+.toolboxbtn {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 80px;
+  width: 90px;
   height: 95px;
   border-radius: 80px;
   position: absolute;
@@ -69,7 +65,7 @@
   position: absolute;
   z-index: 1;
   top: 18%;
-  left: 45.5%;
+  left: 45%;
   animation: fadein 3s ease 2s forwards;
 }
 
@@ -77,56 +73,56 @@
   position: absolute;
   z-index: 1;
   top: 26.5%;
-  left: 63%;
-  animation: fadein 3s ease 3s forwards;
+  left: 63.1%;
+  animation: fadein 3s ease 2s forwards;
 }
 
 #three {
   position: absolute;
   z-index: 1;
   top: 51%;
-  left: 71%;
-  animation: fadein 3s ease 4s forwards;
+  left: 71.5%;
+  animation: fadein 3s ease 2s forwards;
 }
 
 #four {
   position: absolute;
   z-index: 1;
   top: 28%;
-  left: 28.5%;
-  animation: fadein 3s ease 9s forwards;
+  left: 27.5%;
+  animation: fadein 3s ease 2s forwards;
 }
 
 #five {
   position: absolute;
   z-index: 1;
   top: 51.5%;
-  left: 21.5%;
-  animation: fadein 3s ease 8s forwards;
+  left: 20%;
+  animation: fadein 3s ease 2s forwards;
 }
 
 #six {
   position: absolute;
   z-index: 1;
   top: 75.5%;
-  left: 28%;
-  animation: fadein 3s ease 7s forwards;
+  left: 26.5%;
+  animation: fadein 3s ease 2s forwards;
 }
 
 #seven {
   position: absolute;
   z-index: 1;
   top: 85%;
-  left: 45.5%;
-  animation: fadein 3s ease 6s forwards;
+  left: 45.2%;
+  animation: fadein 3s ease 2s forwards;
 }
 
 #eight {
   position: absolute;
   z-index: 1;
   top: 75%;
-  left: 63.5%;
-  animation: fadein 3s ease 5s forwards;
+  left: 64%;
+  animation: fadein 3s ease 2s forwards;
 }
 
 @keyframes fadein {
@@ -139,22 +135,50 @@
   }
 }
 
-.ad-container {
+.tlbxad-container {
   position: absolute;
-  bottom: -70px;
+  top: 35%;
   right: 30px;
-  width: 250px; /* Set the width of the ad container as per your design */
-  height: 100vh; /* Set the height of the ad container as per your design */
+  width: 250px;
+  /* Set the width of the ad container as per your design */
+  height: 100vh;
+  /* Set the height of the ad container as per your design */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.ad {
+.tlbxad {
   text-align: center;
 }
 
-.ad img {
-  max-width: 100%; /* Make sure the image doesn't exceed the container width */
-  max-height: 100%; /* Make sure the image doesn't exceed the container height */
+.tlbxad img {
+  max-width: 100%;
+  /* Make sure the image doesn't exceed the container width */
+  max-height: 100%;
+  /* Make sure the image doesn't exceed the container height */
+}
+
+.tlbxad button {
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: black;
+  font-family: monospace;
+  font-size: 15px;
+  position: absolute;
+  text-align: center;
+  left: 100%;
+  padding-top: -3px;
+  margin-top: -0.5px;
+  margin-left: 0;
+  padding: 0;
+  border-radius: 1px;
+}
+
+.tlbxmenu a {
+  color: black;
+}
+
+.tlbxmenu a:hover {
+  color: #29ada0;
 }

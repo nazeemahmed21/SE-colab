@@ -25,8 +25,8 @@
 
 .interest-btn h1 {
   position: absolute;
-  top: 30px;
-  left: 30px;
+  top: 5%;
+  left: 15%;
 }
 
 .interest-btn .btn-container {
@@ -35,7 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: -5px;
 }
 
 .interest-btn .btn-container button {
@@ -44,7 +44,8 @@
   align-items: center; /* Centers content vertically */
   padding: 0; /* Remove or adjust padding as needed */
   width: 150px;
-  height: 60px;
+  height: 50px;
+  margin-left: 10px;
   border: 3px solid black;
   border-radius: 100px;
   font-size: 25px;
@@ -58,33 +59,38 @@
   background-size: cover;
   background-position:center;
   transition: 1500ms;
-  color: white; 
+  color: white;
+  text-shadow: black 2px 2px; 
 }
 .interest-btn .btn-container .btn-2 button.active { 
   background-image: url('../images/art-bg.jpg');
   background-size: cover;
   background-position:center;
   transition: 1500ms;
+  text-shadow: black 2px 2px;
 }
 .interest-btn .btn-container .btn-3 button.active { 
   background-image: url('../images/lib.jpg');
   background-size: cover;
   background-position:center;
   transition: 1500ms;
+  text-shadow: black 2px 2px;
 }
 .interest-btn .btn-container .btn-4 button.active { 
   background-image: url('../images/business.jpg'); 
   background-size: cover;
   background-position:center;
   transition: 1500ms;
-  color: orange;
+  color: rgb(34, 162, 221);
   font-weight: bold;
+  text-shadow: black 2px 2px;
 }
 .interest-btn .btn-container .btn-5 button.active { 
   background-image: url('../images/sci.jpg');
   background-size: cover;
   background-position:center;
   transition: 1500ms;
+  text-shadow: black 2px 2px;
 }
 .interest-btn .btn-container .btn-6 button.active { 
   background-image: url('../images/num1.jpg');
@@ -93,20 +99,24 @@
   transition: 1500ms;
   color: yellow;
   font-weight: bold;
+  text-shadow: black 2px 2px;
 }
 .interest-btn .btn-container .btn-7 button.active { 
   background-image: url('../images/game.jpg');
   background-size: cover;
   background-position:center;
   transition: 1500ms;
+  color: rgb(250, 192, 202);
+  text-shadow: black 2px 2px;
 }
 .interest-btn .btn-container .btn-8 button.active { 
   background-image: url('../images/other.jpeg');
   background-size: cover;
   background-position:center;
   transition: 1500ms;
-  color: black;
+  color: goldenrod;
   font-weight: bold;
+  text-shadow: black 2px 2px;
 }
 
 .interest-btn .btn-container button:hover {
@@ -121,7 +131,7 @@
 .go-to-login button{
   position: fixed;
   bottom: 2%;
-  left: 90%;
+  left: 83%;
   padding: 20px;
   height: 60px; /* Adjusted for better vertical spacing */
   width: 100px;
@@ -137,7 +147,7 @@
 .go-to-signup button{
   position: fixed;
   bottom: 2%;
-  left: 54%;
+  left: 46%;
   padding: 20px;
   height: 60px; /* Adjusted for better vertical spacing */
   width: 100px;

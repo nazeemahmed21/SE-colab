@@ -1,4 +1,4 @@
-.main-container {
+.su-main-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -9,7 +9,7 @@
 
 
 
-.form-container {
+.su-form-container {
   flex: 2;
   padding: 20px;
   background-color:  #29ada0;
@@ -22,72 +22,75 @@
   height: 100%;
 }
 
-.form-container h3 {
+.su-form-container h3 {
   margin-bottom: 5px;
 }
 
-.form-container input,
-.form-container select{
+.su-form-container input,
+.su-form-container select{
   width: 70%;
   margin-bottom: 10px;
   padding: 10px;
   border: 3px solid #ccc;
   border-radius: 20px;
 }
-.form-container button{
+.su-form-container button{
   width: 20%;
-  border: 2px solid #ccc;
+  border: 3px solid black;
   border-radius: 20px;
 }
-.form-container label {
+.su-form-container label {
   margin-right: 10px;
 }
 
-.form-container .gender {
+.su-form-container .su-gender {
   margin-bottom: 10px;
 }
 
-.form-container .gender label {
+.su-form-container .su-gender label {
   display: inline-flex;
   align-items: center;
   margin-right: 20px;
 }
 
-.form-container .gender input {
+.su-form-container .su-gender input {
   margin-right: 5px;
 }
 
-.form-container .role {
+.su-form-container .su-role {
   margin-bottom: 10px;
   width: 100%;
   margin-left: 230px;
 }
 
-.signup_button {
-  background-color: #007bff;
+.su-signup_button {
+  position: absolute;
+  bottom: 5%;
+  left: 56.7%;
+  background-color: #FFA07A;
   color: white;
   padding: 10px 20px;
-  border: none;
+  border: 2px solid black;
   border-radius: 3px;
   cursor: pointer;
 }
 
-.signup_button:hover {
+.su-signup_button:hover {
   background-color: #0056b3;
 }
-.main-container .image-container img{
+.su-main-container .su-image-container img{
   right: 200px;
 }
 
-.image-container{
+.su-image-container{
   flex: 2;
 }
-.image-container img{
+.su-image-container img{
   position: absolute;
   left: 15%;
   top: 30%;
 }
-.link-to-login {
+.su-link-to-login {
   font-weight: bold;
   color: black;
   text-decoration: underline;

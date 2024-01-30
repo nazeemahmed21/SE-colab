@@ -6,6 +6,7 @@ import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import '../styles/userProfile.css';
 
 const UserProfile = () => {
+  const roles = ['Student', 'Educator', 'Marketer', 'Artist']; // Add roles here
   const [newImage, setNewImage] = useState(null);
   const [userInfo, setUserInfo] = useState({
     firstname: '',
@@ -16,7 +17,7 @@ const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedFirstName, setEditedFirstName] = useState('');
   const [editedSecondName, setEditedSecondName] = useState('');
-
+  const [editedRole, setEditedRole] = useState('');
   const fetchUserData = async () => {
     const currentUser = auth.currentUser;
     if (currentUser) {
@@ -47,6 +48,7 @@ const UserProfile = () => {
   useEffect(() => {
     setEditedFirstName(userInfo.firstname);
     setEditedSecondName(userInfo.secondname);
+    setEditedRole(userInfo.Role);
   }, [userInfo]);
 
   const handleImageChange = (e) => {
@@ -82,6 +84,7 @@ const UserProfile = () => {
       await updateDoc(userRef, {
         firstName: editedFirstName,
         lastName: editedSecondName,
+        role: editedRole,
       });
       setUserInfo({ ...userInfo, firstname: editedFirstName, secondname: editedSecondName });
       setIsEditing(false);
@@ -90,7 +93,19 @@ const UserProfile = () => {
       console.error("Error updating name:", error);
     }
   };
-
+  const handleSaveRoleChange = async () => {
+    const userRef = doc(db, 'Users', auth.currentUser.uid);
+    try {
+      await updateDoc(userRef, {
+        role: editedRole,
+      });
+      setUserInfo({ ...userInfo, Role: editedRole });
+      setIsEditing(false);
+      alert("Role updated successfully");
+    } catch (error) {
+      console.error("Error updating role:", error);
+    }
+  }
   return (
     <div>
       <Navbar />
@@ -98,32 +113,45 @@ const UserProfile = () => {
         <img
           src={userInfo.ProfPic || 'default-profile-pic-url.jpg'}
           alt="Profile"
-          className="profile-pic"
+          className="up-profile-pic"
         />
 
-        {isEditing ? (
-          <>
-            <input
-              type="text"
-              value={editedFirstName}
-              onChange={(e) => setEditedFirstName(e.target.value)}
+        <>
+            <div className='up-name'>
+              <input
+                type="text"
+                value={editedFirstName}
+                onChange={(e) => setEditedFirstName(e.target.value)}
             />
-            <input
-              type="text"
-              value={editedSecondName}
-              onChange={(e) => setEditedSecondName(e.target.value)}
-            />
+            <br></br>
+            <br></br>
+              <input
+                type="text"
+                value={editedSecondName}
+                onChange={(e) => setEditedSecondName(e.target.value)}
+              />
+            </div>
+          <div className='up-save'>
             <button onClick={handleSaveNameChange}>Save Changes</button>
+          </div>
           </>
-        ) : (
           <>
             <h2>{userInfo.firstname} {userInfo.secondname}</h2>
-            <button onClick={handleNameChange}>Edit Name</button>
+            <div className='up-edit-name'>
+              <button onClick={handleNameChange}>Edit Name</button>
+            </div>
           </>
-        )}
-
-        <input type="file" onChange={handleImageChange} />
-        <button onClick={handleImageUpload}>Update Image</button>
+        <div className='up-file'>
+          <input type="file" onChange={handleImageChange} />
+        </div>
+        <div className='up-roles'>
+          <select value={editedRole} onChange={(e) => setEditedRole(e.target.value)}>
+            {roles.map(role => <option key={role} value={role}>{role}</option>)}
+          </select>
+        </div>
+        <div className='up-update-img'>
+          <button onClick={handleImageUpload}>Update Image</button>
+        </div>
       </div>
     </div>
   );

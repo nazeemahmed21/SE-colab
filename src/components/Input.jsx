@@ -93,7 +93,6 @@ const Input = () => {
         </label>
         <input type="file" style={{ display: "none" }} id='file' onChange={e => setImg(e.target.files[0])} />
         <IoAttachOutline className='icons' size={24} />
-
         <button onClick={handleSend}>Send</button>
       </div>
     </div>
