@@ -77,7 +77,7 @@ const fetchdata = () => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const q2 = query(colRef2, where("uid", "==", ids[0].id), where("Start Date", ">=", today), where("Start Date", "<", new Date(today.getTime() + 24 * 60 * 60 * 1000)))
+    const q2 = query(colRef2, where("uid", "==", ids[0].id), where("Start Date", ">=", today), where("Start Date", "<", new Date(today.getTime() + 3 * 24 * 60 * 60 * 1000)))
 
     onSnapshot(q2, (snapshot) => {
       snapshot.docs.forEach((doc) => {
