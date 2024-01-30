@@ -65,10 +65,10 @@ function Home() {
         <div>
           <Navbar />
         </div>
-        <div className={styles.half}>
+        <div className={styles.todo_half}>
           <div className="container">
             <PageTitle>TO DO List</PageTitle>
-            <div className={styles.app__wrapper}>
+            <div className={styles.todo_app__wrapper}>
               <AppHeader />
               <AppContent />
             </div>

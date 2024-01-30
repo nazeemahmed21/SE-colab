@@ -105,8 +105,8 @@ function Button({ children, type, variant, ...rest }) {
   return (
     <button
       className={getClasses([
-        styles.button,
-        styles[`button__${buttonType[variant]}`],
+        styles.todo_button,
+        styles[`todo_button__${buttonType[variant]}`],
       ])}
       type={type === "submit" ? "submit" : "button"}
       {...rest}
@@ -119,7 +119,7 @@ function Button({ children, type, variant, ...rest }) {
 function SelectButton({ children, value, ...rest }) {
   return (
     <select
-      className={getClasses([styles.button, styles.button__select])}
+      className={getClasses([styles.todo_button, styles.todo_button__select])}
       value={value}
       {...rest}
     >
@@ -134,7 +134,7 @@ function CheckButton({ checked, handleCheck }) {
 
   return (
     <motion.div
-      className={styles.svgBox}
+      className={styles.todo_svgBox}
       variants={boxVariant}
       animate={checked ? "checked" : "unchecked"}
       onClick={() => {
@@ -142,7 +142,7 @@ function CheckButton({ checked, handleCheck }) {
       }}
     >
       <motion.svg
-        className={styles.svg}
+        className={styles.todo_svg}
         viewBox="0 0 53 38"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -238,20 +238,20 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
     <AnimatePresence>
       {modalOpen && (
         <motion.div
-          className={styles.wrapper}
+          className={styles.todo_wrapper}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className={styles.containerr}
+            className={styles.todo_containerr}
             variants={dropIn}
             initial="hidden"
             animate="visible"
             exit="exit"
           >
             <motion.div
-              className={styles.closeButton}
+              className={styles.todo_closeButton}
               onClick={() => setModalOpen(false)}
               onKeyDown={() => setModalOpen(false)}
               tabIndex={0}
@@ -262,8 +262,11 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
             >
               <MdOutlineClose />
             </motion.div>
-            <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
-              <h1 className={styles.formTitle}>
+            <form
+              className={styles.todo_form}
+              onSubmit={(e) => handleSubmit(e)}
+            >
+              <h1 className={styles.todo_formTitle}>
                 {type === "update" ? "Update " : "Add "}
                 Task
               </h1>
@@ -298,7 +301,7 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
                   id="dueDate"
                 />
               </label>
-              <div className={styles.buttonContainer}>
+              <div className={styles.todo_buttonContainer}>
                 <Button type="submit" variant="primary">
                   {type === "update" ? "Update " : "Add "}
                   Task
@@ -322,7 +325,7 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
 
 function PageTitle({ children, ...rest }) {
   return (
-    <p className={styles.title} {...rest}>
+    <p className={styles.todo_title} {...rest}>
       {children}
     </p>
   );
@@ -355,7 +358,7 @@ function AppContent() {
 
   return (
     <motion.div
-      className={styles.content__wrapper}
+      className={styles.todo_content__wrapper}
       variants={container}
       initial="hidden"
       animate="visible"
@@ -364,7 +367,7 @@ function AppContent() {
         {filterTodoList && filterTodoList.length > 0 ? (
           filterTodoList.map((todo) => <TodoItem key={todo.id} todo={todo} />)
         ) : (
-          <motion.p className={styles.emptyText} variants={child}>
+          <motion.p className={styles.todo_emptyText} variants={child}>
             No Todos Made
           </motion.p>
         )}
@@ -409,24 +412,25 @@ function TodoItem({ todo }) {
   };
   return (
     <>
-      <motion.div className={styles.item} variants={child2}>
-        <div className={styles.todoDetails}>
+      <motion.div className={styles.todo_item} variants={child2}>
+        <div className={styles.todo_todoDetails}>
           <CheckButton checked={checked} handleCheck={handleCheck} />
-          <div className={styles.texts}>
+          <div className={styles.todo_texts}>
             <p
               className={getClasses([
-                styles.todoText,
-                todo.status === "complete" && styles["todoText--completed"],
+                styles.todo_todoText,
+                todo.status === "complete" &&
+                  styles["todo_todoText--completed"],
               ])}
             >
               {todo.title}
             </p>
-            <p className={styles.time}>{formattedDate}</p>
+            <p className={styles.todo_time}>{formattedDate}</p>
           </div>
         </div>
-        <div className={styles.Actions}>
+        <div className={styles.todo_Actions}>
           <div
-            className={styles.icon}
+            className={styles.todo_icon}
             onClick={handleDelete}
             onKeyDown={handleDelete}
             role="button"
@@ -435,7 +439,7 @@ function TodoItem({ todo }) {
             <MdDelete />
           </div>
           <div
-            className={styles.icon}
+            className={styles.todo_icon}
             onClick={handleUpdate}
             onKeyDown={handleUpdate}
             role="button"
@@ -465,7 +469,7 @@ function AppHeader() {
   };
 
   return (
-    <div className={styles.appHeader}>
+    <div className={styles.todo_appHeader}>
       <Button variant="primary" onClick={() => setModalOpen(true)}>
         Add Task
       </Button>
