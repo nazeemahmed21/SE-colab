@@ -36,7 +36,7 @@ const Rout = () => {
       <Route path="/login" element={<Login />}></Route>
       <Route path="/profile-setup" element={<ProfileSetup />}></Route>
       <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
-      <Route path="/messages" element={<ProtectedRoute><Messages/></ProtectedRoute>}></Route>
+      <Route path="/messages" element={<Messages/>}></Route>
       <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>}></Route>
       <Route path="/labDetails" element={<LabDetails />}></Route>
       <Route path="/labAnnouncements" element={<LabsAnnouncements />}></Route>
