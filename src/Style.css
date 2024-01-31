@@ -197,6 +197,9 @@
     padding: 10px;
     border-radius: 0px 10px 10px 10px;
 }
+.messageContent p{
+    font-size: 19px;
+}
 
  .chatsHome .chatsContainer .chat .messages .message .messageContent img {
     width: 50%;
