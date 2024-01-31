@@ -17,7 +17,9 @@ const initialValue = {
 };
 
 const todosCollectionPath = "todo";
+
 const getTodosCollection = (user) => {
+  user = auth.currentUser;
   if (user) {
     const userDocRef = doc(db, "Users", user.uid);
     return collection(userDocRef, todosCollectionPath);
