@@ -8,7 +8,7 @@ import {
   collection,
   setDoc,
 } from "firebase/firestore";
-import { db, auth } from "../firebase";
+import { db } from "../firebase";
 import { getAuth } from "firebase/auth";
 
 const initialValue = {
@@ -18,13 +18,19 @@ const initialValue = {
 
 const todosCollectionPath = "todo";
 
-const getTodosCollection = (user) => {
-  user = auth.currentUser;
-  if (user) {
-    const userDocRef = doc(db, "Users", user.uid);
-    return collection(userDocRef, todosCollectionPath);
-  } else {
-    return null;
+const getTodosCollection = async (user) => {
+  try {
+    if (user) {
+      const userDocRef = doc(db, "Users", user.uid);
+      const todosCollection = collection(userDocRef, todosCollectionPath);
+      return todosCollection;
+    } else {
+      console.log("No user");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error getting todos collection:", error);
+    throw error;
   }
 };
 
@@ -32,17 +38,24 @@ const fetchTodosAsync = createAsyncThunk("todo/fetchTodos", async () => {
   try {
     const auth = getAuth();
     const user = auth.currentUser;
-    const todosCollection = getTodosCollection(user);
-
-    if (user && todosCollection) {
-      const querySnapshot = await getDocs(todosCollection);
-      const todos = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      return todos;
+    // const todosCollection = getTodosCollection(user);
+    if (user) {
+      const todosCollectionRef = await getTodosCollection(user);
+      if (todosCollectionRef) {
+        const querySnapshot = await getDocs(todosCollectionRef);
+        console.log("Query snapshot:", querySnapshot);
+        const todos = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        console.log("Fetched todos:", todos);
+        return todos;
+      } else {
+        console.log("No todos collection");
+        return [];
+      }
     } else {
-      console.log("No user or todos collection");
+      console.log("No user");
       return [];
     }
   } catch (error) {
@@ -90,7 +103,14 @@ const updateTodoAsync = createAsyncThunk(
     try {
       const auth = getAuth();
       const user = auth.currentUser;
-      const todosCollection = getTodosCollection(user);
+      if (!user) {
+        throw new Error("User is not authenticated");
+      }
+      const todosCollection = await getTodosCollection(user);
+      if (!todosCollection) {
+        console.log("No todos collection");
+        return updatedTodo; // Return the original todo if no collection
+      }
       console.log("Updating todo:", updatedTodo);
       const { id, ...updatedTodoData } = updatedTodo;
       console.log("Updated data:", updatedTodoData);
@@ -114,7 +134,7 @@ const deleteTodoAsync = createAsyncThunk(
     try {
       const auth = getAuth();
       const user = auth.currentUser;
-      const todosCollection = getTodosCollection(user);
+      const todosCollection = await getTodosCollection(user);
 
       await deleteDoc(doc(todosCollection, todoId));
       return todoId;
