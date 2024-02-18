@@ -65,18 +65,6 @@ const Messages = ({ message }) => {
       console.error("Error forwarding message:", error);
     }
 
-    // Implement your forward functionality here
-    // console.log("Forwarding message:", messageId);
-    // try {
-    //   // Retrieve the message to forward
-    //   const messageToForward = messages.find((msg) => msg.id === messageId);
-  
-    //   // Implement your logic to forward the message to other users
-    //   // For example, you can add the message to the chats of other users using Firestore
-    //   console.log("Message forwarded successfully:", messageToForward);
-    // } catch (error) {
-    //   console.error("Error forwarding message:", error);
-    // }
   };
 
 
@@ -110,52 +98,10 @@ const Messages = ({ message }) => {
   };
   
 
-  // const handleLike = async (messageId) => {
-  //   try {
-  //     // Assuming you have access to the 'messages' state
-  //     const updatedMessages = messages.map((msg) => {
-  //       if (msg.id === messageId) {
-  //         return {
-  //           ...msg,
-  //           likes: (msg.likes || 0) + 1,
-  //         };
-  //       }
-  //       return msg;
-  //     });
-  
-  //     // Update the message in the state
-  //     setMessages(updatedMessages);
-  
-  //     // Update the message in the database (if needed)
-  //     const messageRef = doc(db, "chats", data.chatId, "messages", messageId);
-  //     await updateDoc(messageRef, {
-  //       likes: updatedMessages.find((msg) => msg.id === messageId).likes,
-  //     });
-  
-  //     console.log("Message liked successfully");
-  //   } catch (error) {
-  //     console.error("Error liking message:", error);
-  //   }
-  // };
-  
-  // const handleLike = async (messageId) => {
-  //   try {
-  //     // Update the message to increment the like count
-  //     const messageRef = doc(db, "chats", data.chatId, "messages", messageId);
-  //     await updateDoc(messageRef, {
-  //       likes: (messages.find((msg) => msg.id === messageId).likes || 0) + 1,
-  //     });
-  //     console.log("Message liked successfully");
-  //   } catch (error) {
-  //     console.error("Error liking message:", error);
-  //   }
-  // };
-
-  const handleDoubleClick = (messageId) => {
-    // Implement logic to toggle like on double-click
+  const handleDoubleClick = async (messageId) => {
     handleLike(messageId);
-  };
-
+   };
+  
 
   useEffect(() => {
     const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
