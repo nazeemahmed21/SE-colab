@@ -100,7 +100,34 @@ const Messages = ({ message }) => {
 
   const handleDoubleClick = async (messageId) => {
     handleLike(messageId);
-   };
+    try {
+      // Retrieve the message to update
+      const messageToUpdate = messages.find((msg) => msg.id === messageId);
+  
+      // Update the likes property of the message
+      const updatedMessage = {
+        ...messageToUpdate,
+        likes: (messageToUpdate.likes || 0) + 1,
+      };
+  
+      // Update the message in the state
+      const updatedMessages = messages.map((msg) =>
+        msg.id === messageId ? updatedMessage : msg
+      );
+      setMessages(updatedMessages);
+  
+      // Update the message in the database (if needed)
+      const messageRef = doc(db, "chats", data.chatId, "messages", messageId);
+      await updateDoc(messageRef, {
+        likes: updatedMessage.likes,
+      });
+  
+      console.log("Message liked successfully");
+    } catch (error) {
+      console.error("Error liking message:", error);
+      // Handle the error (e.g., show a notification to the user)
+    }
+  };
   
 
   useEffect(() => {
