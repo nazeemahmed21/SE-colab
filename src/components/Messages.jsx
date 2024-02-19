@@ -1,14 +1,17 @@
-import { doc, onSnapshot, deleteDoc, updateDoc } from "firebase/firestore";
-import React, { useContext, useEffect, useState } from "react";
-import { ChatContext } from "../Context/ChatContext";
-import { db } from "../firebase";
-import Message from "./Message";
-
+// Messages.js
+import React, { useContext, useEffect, useState } from 'react';
+import { ChatContext } from '../Context/ChatContext';
+import { db } from '../firebase';
+import { doc, onSnapshot, deleteDoc, updateDoc } from 'firebase/firestore';
+import Message from './Message';
+import ForwardDialog from './ForwardDialog';
 
 const Messages = ({ message }) => {
   const [messages, setMessages] = useState([]);
   const { data } = useContext(ChatContext);
   const [messageOptions, setMessageOptions] = useState({});
+  const [showForwardDialog, setShowForwardDialog] = useState(false);
+  const [selectedMessageId, setSelectedMessageId] = useState(null);
 
   const handleToggleOptions = (messageId) => {
     setMessageOptions((prevOptions) => ({
@@ -17,18 +20,17 @@ const Messages = ({ message }) => {
     }));
   };
 
-
   const handleDelete = async (messageId) => {
     try {
       // Delete the message from the Firestore database
-      await deleteDoc(doc(db, "chats", data.chatId, "messages", messageId));
-      console.log("Message deleted successfully");
+      await deleteDoc(doc(db, 'chats', data.chatId, 'messages', messageId));
+      console.log('Message deleted successfully');
 
       setMessages((prevMessages) =>
-      prevMessages.map((msg) =>
-        msg.id === messageId ? { ...msg, text: "This message was deleted" } : msg
-      )
-    );
+        prevMessages.map((msg) =>
+          msg.id === messageId ? { ...msg, text: 'This message was deleted' } : msg
+        )
+      );
 
       // Set a flag to indicate that the message was deleted
       setMessageOptions((prevOptions) => ({
@@ -38,35 +40,15 @@ const Messages = ({ message }) => {
       // setShowOptions(false);
       handleToggleOptions(messageId);
     } catch (error) {
-      console.error("Error deleting message:", error);
+      console.error('Error deleting message:', error);
     }
   };
-
 
   const handleForward = (messageId) => {
-    try {
-      // Retrieve the message to forward
-      const messageToForward = messages.find((msg) => msg.id === messageId);
-  
-      // Implement your logic to forward the message to other users
-      // For example, you can add the message to the chats of other users using Firestore
-  
-      // Assuming you have a collection called "users" in your Firestore database
-      // You can add the message to the "chats" subcollection of the desired user
-      db.collection("users").doc("desiredUserId").collection("chats").add({
-        // Assuming each message has a structure like { text: "", sender: "", timestamp: "" }
-        text: messageToForward.text,
-        sender: messageToForward.sender,
-        timestamp: new Date().toISOString(),
-      });
-  
-      console.log("Message forwarded successfully:", messageToForward);
-    } catch (error) {
-      console.error("Error forwarding message:", error);
-    }
-
+    setSelectedMessageId(messageId);
+    setShowForwardDialog(true);
+    handleToggleOptions(messageId);
   };
-
 
   const handleLike = async (messageId) => {
     try {
@@ -80,58 +62,56 @@ const Messages = ({ message }) => {
         }
         return msg;
       });
-  
+
       // Update the message in the state
       setMessages(updatedMessages);
-  
+
       // Update the message in the database (if needed)
-      const messageRef = doc(db, "chats", data.chatId, "messages", messageId);
+      const messageRef = doc(db, 'chats', data.chatId, 'messages', messageId);
       await updateDoc(messageRef, {
         likes: updatedMessages.find((msg) => msg.id === messageId).likes,
       });
-  
-      console.log("Message liked successfully");
+
+      console.log('Message liked successfully');
     } catch (error) {
-      console.error("Error liking message:", error);
+      console.error('Error liking message:', error);
       // Handle the error (e.g., show a notification to the user)
     }
   };
-  
 
   const handleDoubleClick = async (messageId) => {
     handleLike(messageId);
     try {
       // Retrieve the message to update
       const messageToUpdate = messages.find((msg) => msg.id === messageId);
-  
+
       // Update the likes property of the message
       const updatedMessage = {
         ...messageToUpdate,
         likes: (messageToUpdate.likes || 0) + 1,
       };
-  
+
       // Update the message in the state
       const updatedMessages = messages.map((msg) =>
         msg.id === messageId ? updatedMessage : msg
       );
       setMessages(updatedMessages);
-  
+
       // Update the message in the database (if needed)
-      const messageRef = doc(db, "chats", data.chatId, "messages", messageId);
+      const messageRef = doc(db, 'chats', data.chatId, 'messages', messageId);
       await updateDoc(messageRef, {
         likes: updatedMessage.likes,
       });
-  
-      console.log("Message liked successfully");
+
+      console.log('Message liked successfully');
     } catch (error) {
-      console.error("Error liking message:", error);
+      console.error('Error liking message:', error);
       // Handle the error (e.g., show a notification to the user)
     }
   };
-  
 
   useEffect(() => {
-    const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
+    const unSub = onSnapshot(doc(db, 'chats', data.chatId), (doc) => {
       doc.exists() && setMessages(doc.data().messages);
     });
 
@@ -143,20 +123,13 @@ const Messages = ({ message }) => {
   return (
     <div className="messages">
       {messages.map((m) => (
-         <div key={m.id} className="message" onDoubleClick={() => handleDoubleClick(m.id)}>
-         {/* <div key={m.id} className="message"> */}
+        <div key={m.id} className="message" onDoubleClick={() => handleDoubleClick(m.id)}>
           <React.Fragment>
             <div>{m.text}</div>
-            <span
-              className="like-icon"
-              onClick={() => handleLike(m.id)} // Click to like
-            >
+            <span className="like-icon" onClick={() => handleLike(m.id)}>
               {m.likes > 0 && <i className="fas fa-heart"></i>}
             </span>
-            <span
-              className="three-dots"
-              onClick={() => handleToggleOptions(m.id)}
-            >
+            <span className="three-dots" onClick={() => handleToggleOptions(m.id)}>
               ...
             </span>
             {messageOptions[m.id] && (
@@ -172,8 +145,20 @@ const Messages = ({ message }) => {
           </React.Fragment>
         </div>
       ))}
+      {showForwardDialog && (
+        <ForwardDialog
+          messageId={selectedMessageId}
+          messageText={messages.find((msg) => msg.id === selectedMessageId)?.text}
+          onClose={() => setShowForwardDialog(false)}
+          onForward={(messageId) => {
+            // Implement your logic to forward the message here
+            console.log('Forwarding message:', messageId);
+            setShowForwardDialog(false);
+          }}
+        />
+      )}
     </div>
   );
-            }
+};
 
-  export default Messages;
+export default Messages;
