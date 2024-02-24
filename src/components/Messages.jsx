@@ -6,6 +6,7 @@ import Message from './Message';
 import ForwardDialog from './ForwardDialog';
 import heart from '../images/heart_like.png';
 import { firestore } from '../firebase';
+import '../Style.css';
 
 
 const Messages = ({ message }) => {
@@ -109,7 +110,7 @@ const Messages = ({ message }) => {
               ...
             </span>
             {messageOptions[m.id] && (
-              <div className="options-menu">
+              <div className="options-menu" m>
                 <div className="option" onClick={() => handleDelete(m.id)}>
                   Delete
                 </div>
