@@ -34,7 +34,7 @@ const Rout = () => {
       <Route path="/" element={<LandingPage />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>
-      <Route path="/profile-setup" element={<ProfileSetup />}></Route>
+      <Route path="/profile-setup"  ></Route>
       <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
       <Route path="/messages" element={<ProtectedRoute><Messages/></ProtectedRoute>}></Route>
       <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>}></Route>

@@ -11,28 +11,28 @@ const Landingpage = () => {
   const navigate = useNavigate(); 
   return (
     <section>
-      <div className='wrapper'>
+      <div className='landing-p-wrapper'>
         <img src={computer} alt="" />
-        <div className='logo'>
+        <div className='landing-p-logo'>
           <img src={logo} alt="" />
         </div>
-        <div className='video'>
+        <div className='landing-p-video'>
           <img src={video} alt="" />
         </div>
-        <div className='wb'>
+        <div className='landing-p-wb'>
           <img src={wb} alt="" />
         </div>
-        <div className='teams'>
+        <div className='landing-p-teams'>
           <img src={teams} alt="" />
         </div>
-        <div className='container'>
-          <div className='header'>Co-lab</div>
-          <p className='slogan'>Learn to Connect. Connect to Colab</p>
-          <p className='desc'>Bridging innovations, unleashing possibilities</p>
+        <div className='landing-p-container'>
+          <div className='landing-p-header'>Co-lab</div>
+          <p className='landing-p-slogan'>Learn to Connect. Connect to Colab</p>
+          <p className='landing-p-desc'>Bridging innovations, unleashing possibilities</p>
         </div>
         <div>
-          <button className='login' onClick={() =>navigate('/login')}>Login</button>
-          <button className='register' onClick={() =>navigate('/signup')}>Sign-Up</button>
+          <button className='landing-p-login' onClick={() =>navigate('/login')}>Login</button>
+          <button className='landing-p-register' onClick={() =>navigate('/signup')}>Sign-Up</button>
         </div>
       </div>
     </section>

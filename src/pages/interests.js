@@ -51,50 +51,50 @@ function Interests(){
   };
 
   return (
-    <div className='interest-container'>
-      <div className="logo">
-        <img src={logo} alt="colab-logo"/>
+    <div className='int-interest-container'>
+      <div className="int-logo">
+        <img src={logo} alt="int-colab-logo"/>
       </div>
-      <div className='interest-btn'>
-        <div className='btn-container'>
+      <div className='int-interest-btn'>
+        <div className='int-btn-container'>
         <h1>Please choose your interests amongst the following</h1>
-          <div className='btn-1' >
+          <div className='int-btn-1' >
             <button className={isActive.coding ? 'active' : ''} onClick={()=>
             toggleButton('coding')}>Coding</button>
           </div>
-          <div className='btn-2'>
+          <div className='int-btn-2'>
             <button className={isActive.art ? 'active' : ''} onClick={()=>
             toggleButton('art')}>Art</button>
           </div>
-          <div className='btn-3'>
+          <div className='int-btn-3'>
             <button className={isActive.education ? 'active' : ''} onClick={()=>
             toggleButton('education')}>Education</button>
           </div>
-          <div className='btn-4'>
+          <div className='int-btn-4'>
             <button className={isActive.business ? 'active' : ''} onClick={()=>
             toggleButton('business')}>Business</button>
           </div>
-          <div className='btn-5'>
+          <div className='int-btn-5'>
             <button className={isActive.science ? 'active' : ''} onClick={()=>
             toggleButton('science')}>Science</button>
           </div>
-          <div className='btn-6'>
+          <div className='int-btn-6'>
             <button className={isActive.maths ? 'active' : ''} onClick={()=>
             toggleButton('maths')}>Maths</button>
           </div>
-          <div className='btn-7'>
+          <div className='int-btn-7'>
             <button className={isActive.gaming ? 'active' : ''} onClick={()=>
             toggleButton('gaming')}>Gaming</button>
           </div>
-          <div className='btn-8'>
+          <div className='int-btn-8'>
             <button className={isActive.other ? 'active' : ''} onClick={()=>
             toggleButton('other')}>Other</button>
           </div>
         </div>
-        <div className='go-to-login'>
+        <div className='int-go-to-login'>
           <button onClick={handleNavigationToLogin}>Next</button>
         </div>
-        <div className='go-to-signup'>
+        <div className='int-go-to-signup'>
           <button onClick={handleNavigationToSignUp}>Back</button>
         </div>
       </div>

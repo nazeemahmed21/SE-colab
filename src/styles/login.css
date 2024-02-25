@@ -35,17 +35,19 @@
   border-radius: 20px;
 }
 .l-form-container button{
-  width: 10%;
+  width: 9%;
   margin-bottom: 10px;
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 3px solid black	;
   border-radius: 20px;
 }
 .login_button {
+  position: absolute;
+  top: 60%;
+  left: 61.9%;
   background-color: #ffa07a;
   color: white;
   padding: 10px 20px;
-  border: none;
   border-radius: 3px;
   cursor: pointer;
 }

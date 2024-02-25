@@ -1,4 +1,4 @@
-.user-profile-container {
+.up-user-profile-container {
   position: absolute;
   top: 20%;
   left: 50%;
@@ -6,18 +6,23 @@
   padding: 20px;
 }
 
-.profile-pic {
-  width: 200px;
-  height: 200px;
+.up-profile-pic {
+  position: absolute;
+  left: 10%;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-bottom: 20px;
 }
-.user-profile-container h2{
+.up-user-profile-container h2{
+  position: absolute;
+  left: 6%;
+  top: 80%;
   font-size: 40px;
 }
 .user-profile-container p{
-  font-size: 20px;
+  font-size: 60px;
 }
-.user-profile-container img{
+.up-user-profile-container img{
   border: 5px solid black;
 }

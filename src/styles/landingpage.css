@@ -8,26 +8,26 @@ body, html {
   position: relative; /* Ensures that the wrapper is positioned relative to the section */
 }
 
-.wrapper {
+.landing-p-wrapper {
   position: relative; /* Required for absolute positioning of the 'hello' tag */
 }
 
-.wrapper img {
+.landing-p-wrapper img {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
   /* filter: blur(5px); */
 }
-.wrapper .logo img{
+.landing-p-wrapper .landing-p-logo img{
   position: absolute;
-  top: 35px;  
-  left: 65px;
+  top: 5%;  
+  left: 5%;
   width: 95px;
   height: 95px;
   filter: none;
 }
-.wrapper .video img{
+.landing-p-wrapper .landing-p-video img{
   position: absolute;
   top: 50%;
   padding: 40px 40px;
@@ -39,7 +39,7 @@ body, html {
   background-position: center;
   background-size: cover;
 }
-.wrapper .wb img{
+.landing-p-wrapper .landing-p-wb img{
   position: absolute;
   top: 50%;
   padding: 40px 40px;
@@ -49,7 +49,7 @@ body, html {
   filter: none;
   border: 3px solid white;
 }
-.wrapper .teams img{
+.landing-p-wrapper .landing-p-teams img{
   position: absolute;
   top: 50%;
   padding: 40px 40px;
@@ -59,7 +59,7 @@ body, html {
   filter: none;
   border: 3px solid white;
 }
-.wrapper .header {
+.landing-p-wrapper .landing-p-header {
   font-weight: bold;
   position: absolute;
   font-family: 'Kanit', sans-serif;   
@@ -70,7 +70,7 @@ body, html {
   color: rgb(253, 254, 255); /* Set the text color */
   /* Add additional styling properties as needed */
 }
-.wrapper .slogan{
+.landing-p-wrapper .landing-p-slogan{
   font-weight: bold;
   position: absolute;
   font-family: 'Kanit', sans-serif; 
@@ -82,7 +82,7 @@ body, html {
   color: rgb(249, 249, 249); /* Set the text color */
   /* Add additional styling properties as needed */
 }
-.wrapper .desc{
+.landing-p-wrapper .landing-p-desc{
   font-weight: bold;
   position: absolute;
   font-family: 'Kanit', sans-serif; 
@@ -94,9 +94,9 @@ body, html {
   color: rgb(249, 249, 249); /* Set the text color */
   /* Add additional styling properties as needed */
 }
-.wrapper .register{
+.landing-p-wrapper .landing-p-register{
   top: 5.5%; /* Adjust the top position as needed */
-  left: 84%; /* Adjust the left position as needed */
+  left: 75%; /* Adjust the left position as needed */
   padding: 14px 28px;
   font-weight: bold;
   position: absolute;
@@ -106,14 +106,14 @@ body, html {
   border-radius: 5px;
   background-color:inherit;
   transform: translate(-50%, -50%); /* Center the 'hello' tag */
-  font-size: 1.2rem; /* Set the font size as needed */
+  font-size: 1.8rem; /* Set the font size as needed */
   color: white; /* Set the text color */
   font-weight: 600;
   /* Add additional styling properties as needed */
 }
-.wrapper .login{
+.landing-p-wrapper .landing-p-login{
   top: 5.5%; /* Adjust the top position as needed */
-  left: 92%; /* Adjust the left position as needed */
+  left: 85%; /* Adjust the left position as needed */
   padding: 14px 28px;
   font-weight: bold;
   position: absolute;
@@ -123,12 +123,12 @@ body, html {
   border: 1px solid  rgba(109, 64, 2, 0);
   border-radius: 4px;
   transform: translate(-50%, -50%); /* Center the 'hello' tag */
-  font-size: 1.2rem; /* Set the font size as needed */
+  font-size: 1.8rem; /* Set the font size as needed */
   color: white; /* Set the text color */
   font-weight: 600;
   /* Add additional styling properties as needed */
 }
-.wrapper button:hover{
+.landing-p-wrapper button:hover{
   background-color: rgb(188,49,53);
   color: rgb(255, 255, 255);
 }
