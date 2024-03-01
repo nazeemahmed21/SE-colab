@@ -8,7 +8,6 @@ import heart from '../images/heart_like.png';
 import { firestore } from '../firebase';
 import '../Style.css';
 
-
 const Messages = ({ message }) => {
   const [messages, setMessages] = useState([]);
   const { data } = useContext(ChatContext);
@@ -91,11 +90,11 @@ const Messages = ({ message }) => {
   }, [data.chatId]);
 
   return (
-    <div className="messages">
+    <div className="messages" style={{ maxHeight: 'calc(100vh - 250px)'}}>
       {messages.map((m) => (
-        <div key={m.id} className="message">
+        <div message={m} key={m.id} className={`message ${m.owner ? 'owner' : ''}`}>
           <React.Fragment>
-            <div>{m.text}</div>
+          <div style={{ color: m.owner ? 'green' : 'black' }}>{m.text}</div>          
             <span className="like-icon" onClick={() => handleLike(m.id)}>
               {m.likes > 0 && likedMessages.includes(m.id) && (
                 <img src={heart} alt="Like" />
