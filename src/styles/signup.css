@@ -36,11 +36,16 @@
 }
 .su-form-container button{
   width: 20%;
+  padding: 10px;
   border: 3px solid black;
   border-radius: 20px;
-}
-.su-form-container label {
-  margin-right: 10px;
+  margin: auto;
+  position: absolute;
+  bottom: 5%;
+  /* left: 55%; */
+  background-color: #fea059;
+  color: white;
+  cursor: pointer;
 }
 
 .su-form-container .su-gender {
@@ -60,39 +65,51 @@
 .su-form-container .su-role {
   margin-bottom: 10px;
   width: 100%;
-  margin-left: 230px;
-}
-
-.su-signup_button {
-  position: absolute;
-  bottom: 5%;
-  left: 56.7%;
-  background-color: #FFA07A;
-  color: white;
-  padding: 10px 20px;
-  border: 2px solid black;
-  border-radius: 3px;
-  cursor: pointer;
+  margin-left: 30%;
 }
 
 .su-signup_button:hover {
   background-color: #0056b3;
 }
 .su-main-container .su-image-container img{
-  right: 200px;
+  position: absolute;
+  top: 30%;
+  margin-left: 15%;
 }
 
 .su-image-container{
   flex: 2;
 }
-.su-image-container img{
-  position: absolute;
-  left: 15%;
-  top: 30%;
-}
+
 .su-link-to-login {
   font-weight: bold;
   color: black;
   text-decoration: underline;
   margin-bottom: 12px;
+}
+
+@media (max-width: 1100px) {
+  .su-main-container {
+    display: block;
+    justify-content: center;
+    background-color: #fea059;
+  }
+  .su-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    /* width: 20%; */
+
+  }
+  .su-main-container .su-image-container img {
+    /* background-color: #fea059; */
+    margin: auto; 
+    top: 5%;
+    position: absolute;
+    /* padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 0%;
+    padding-bottom: 2%; */
+    /* width: 20%; */
+  }
 }
