@@ -8,9 +8,13 @@
     font-family: Arial, sans-serif; /* Use a suitable font family */
   }
   
+  .message .m.owner{
+    text-align: right;
+    font-weight: 500;
+  }
   /* Style for the main container */
   .chatsContainer {
-    z-index: 99;
+    /* z-index: 99; */
     bottom: 0;
     position: fixed;
     position: fixed;
@@ -158,6 +162,7 @@
     justify-content: flex-end;
   }
 
+
   /* .message{
     font-size: 24px; 
     text-align: right;
@@ -220,7 +225,7 @@
   }
 
   .options-menu {
-    position: fixed;
+    position:relative;
     background-color: #ffffff;
     border: 1px solid #ccc;
     padding: 1px;

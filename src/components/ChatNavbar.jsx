@@ -13,7 +13,7 @@ const Navbar = () => {
     <div className='ChatNavbar'>
       <span className='logo'>Co-Lab Chats</span>
       <div className='user'>
-        <img src={currentUser.photoURL} alt="" />
+        {/* <img src={currentUser.photoURL} alt="" /> */}
         <span className='userChatName'> {currentUser.displayName } </span>
         {/* <button onClick={() => signOut(auth)}>Log Out </button> */}
         {/* <ForwardDialog currentUser={currentUser} /> */}

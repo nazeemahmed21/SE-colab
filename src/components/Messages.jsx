@@ -92,9 +92,16 @@ const Messages = ({ message }) => {
   return (
     <div className="messages" style={{ maxHeight: 'calc(100vh - 250px)'}}>
       {messages.map((m) => (
-        <div message={m} key={m.id} className={`message ${m.owner ? 'owner' : ''}`}>
+        //  <Message message={m} key={m.id} />
+        // <div message={m} key={m.id} className={`message ${m.owner ? 'owner' : ''}`}>
+        <div message={m} key={m.id} className={`message ${m.owner ? 'owner' : ''}`} style={{ backgroundColor: (m.owner==m.id) ? 'green' : 'white' }}>
+        {/* names */}
           <React.Fragment>
-          <div style={{ color: m.owner ? 'green' : 'black' }}>{m.text}</div>          
+          <div style={
+            { backgroundColor: m.owner ? 'lightgreen' : 'white' }
+            }>
+              {m.text}
+              </div>          
             <span className="like-icon" onClick={() => handleLike(m.id)}>
               {m.likes > 0 && likedMessages.includes(m.id) && (
                 <img src={heart} alt="Like" />

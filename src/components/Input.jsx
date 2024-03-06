@@ -19,6 +19,15 @@ const Input = () => {
 
   const handleSend = async () => {
     try{
+
+      let messagePayload = {
+        id: uuid(),
+        text,
+        senderId: currentUser.uid,
+        date: Timestamp.now(),
+        owner: true, // Set the owner flag to true for the messages you send
+      };
+
     if (img) {
       const storageRef = ref(storage, uuid());
 
@@ -35,6 +44,7 @@ const Input = () => {
             await new Promise(resolve => setTimeout(resolve, 1000));
 
             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
 
             await updateDoc(doc(db, "chats", data.chatId), {
               messages: arrayUnion({
@@ -68,6 +78,7 @@ const Input = () => {
           text,
           senderId: currentUser.uid,
           date: Timestamp.now(),
+          owner: true,
         }),
       });
     }
