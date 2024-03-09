@@ -27,9 +27,6 @@ const handleCamClick = () => {
       <div className="chatInfo">
         <span>{data.user?.displayName}</span>
         <div className="chatIcons">
-        <Link to="/video"> 
-            <img src={Cam} alt="" />
-          </Link>
           <img src={Add} alt="" />
           <img src={More} alt="" />
         </div>

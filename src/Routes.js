@@ -17,6 +17,7 @@ import { AuthContext } from "./Context/AuthContext.jsx";
 import UserProfile from "./pages/user-Profile.js";
 import LabDetails from "./pages/labDetails.js";
 import LabsAnnouncements from "./pages/labsAnnouncement.js";
+import VerifyEmail from "./pages/verifyEmail.js";
 
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
@@ -34,17 +35,18 @@ const Rout = () => {
       <Route path="/" element={<LandingPage />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>
-      <Route path="/profile-setup"  ></Route>
+      <Route path="/profile-setup" element={<ProfileSetup/>}  ></Route>
       <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
-      <Route path="/messages" element={<ProtectedRoute><Messages/></ProtectedRoute>}></Route>
+      <Route path="/messages" element={<Messages/>}></Route>
       <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>}></Route>
       <Route path="/labDetails" element={<LabDetails />}></Route>
       <Route path="/labAnnouncements" element={<LabsAnnouncements />}></Route>
       <Route path="/toolbox" element={<ProtectedRoute><Toolbox /></ProtectedRoute>}></Route>
       <Route path="/calendar" element={<ProtectedRoute><CalendarApp /></ProtectedRoute>}></Route>
       <Route path="/interest" element={<ProtectedRoute><Interests/></ProtectedRoute>}></Route>
-      <Route path="/video" element={<ProtectedRoute><Video /></ProtectedRoute>} />
-      <Route path="/user-prof" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+      <Route path="/video" element={<Video />} />
+      <Route path="/verify-email" element={<VerifyEmail/>} />
+      <Route path="/user-prof" element={<ProtectedRoute><UserProfile/></ProtectedRoute>} />
     </Routes>
   );
 };

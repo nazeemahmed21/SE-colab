@@ -1,42 +1,50 @@
-import React from 'react'
-import computer from "../images/gif1.gif"
-import logo from "../images/logo.png"
-import video from "../images/video-call.jpg"
-import wb from "../images/wb.jpg"
-import teams from "../images/tems.jpg"
-import '../styles/landingpage.css'
-import { useNavigate } from 'react-router-dom'
-
+import React, { useState, useEffect } from 'react';
+import '../styles/landingpage.css';
+import { useNavigate } from 'react-router-dom';
+import blob from "../images/blob.svg";
+import lp1 from "../images/lp-img-1.jpg";
+import lp2 from "../images/lp-img-2.png";
+import lplogo from "../images/logo.png";
 const Landingpage = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const words = ["Learn to Connect", "Connect to Co-lab"];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+        setVisible(true);
+      }, 3000); // This timeout should match the fade-out animation duration
+    }, 6000); // Adjust total interval time as needed
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
-    <section>
-      <div className='landing-p-wrapper'>
-        <img src={computer} alt="" />
-        <div className='landing-p-logo'>
-          <img src={logo} alt="" />
-        </div>
-        <div className='landing-p-video'>
-          <img src={video} alt="" />
-        </div>
-        <div className='landing-p-wb'>
-          <img src={wb} alt="" />
-        </div>
-        <div className='landing-p-teams'>
-          <img src={teams} alt="" />
-        </div>
-        <div className='landing-p-container'>
-          <div className='landing-p-header'>Co-lab</div>
-          <p className='landing-p-slogan'>Learn to Connect. Connect to Colab</p>
-          <p className='landing-p-desc'>Bridging innovations, unleashing possibilities</p>
-        </div>
+    <div className='landing-p-wrapper'>
+      <div>
         <div>
-          <button className='landing-p-login' onClick={() =>navigate('/login')}>Login</button>
-          <button className='landing-p-register' onClick={() =>navigate('/signup')}>Sign-Up</button>
+          <h1 className='lp-main-h'>Co-lab</h1>
+          <h1 className={`lp-sh-1 ${visible ? 'fade-in' : 'fade-out'}`}>
+            {words[wordIndex]}
+          </h1>
+          <p className='lp-desc'>Co-lab is your virtual collaborative tool that helps you <br></br>
+            empower yourself in order to learn and connect with others.<br></br>
+            Learn to use a different set of features that will <br></br>
+          help you professionally.</p>
         </div>
+        <img src={lplogo} alt="lplogo" className='lp-logo' />
+        <img src={blob} alt="blob" className='lp-blob' />
+        {wordIndex === 0 && <img src={lp2} alt="lp2" className={`lp-img-2 ${visible ? 'fade-in' : 'fade-out'}`} />}
+        {wordIndex === 1 && <img src={lp1} alt="lp1" className={`lp-img-1 ${visible ? 'fade-in' : 'fade-out'}`} />}
+        <button className='landing-p-login' onClick={() => navigate('/login')}>Login</button>
+        <button className='landing-p-register' onClick={() => navigate('/signup')}>Sign-Up</button>
       </div>
-    </section>
-  )
+    </div>
+  );
 }
 
-export default Landingpage
+export default Landingpage;

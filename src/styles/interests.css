@@ -34,6 +34,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: -5px;
 }
 
 .int-interest-btn .int-btn-container button {
@@ -41,8 +42,9 @@
   justify-content: center; /* Centers content horizontally */
   align-items: center; /* Centers content vertically */
   padding: 0; /* Remove or adjust padding as needed */
-  width: 135px;
+  width: 150px;
   height: 50px;
+  margin-left: 10px;
   border: 3px solid black;
   border-radius: 100px;
   font-size: 20px;
@@ -129,7 +131,7 @@
 .int-go-to-login button{
   position: fixed;
   bottom: 2%;
-  left: 81vw;
+  left: 83%;
   padding: 20px;
   height: 60px; /* Adjusted for better vertical spacing */
   width: 100px;
@@ -145,7 +147,7 @@
 .int-go-to-signup button{
   position: fixed;
   bottom: 2%;
-  left: 49vw;
+  left: 46%;
   padding: 20px;
   height: 60px; /* Adjusted for better vertical spacing */
   width: 100px;

@@ -18,16 +18,16 @@ const Labs = () => {
         </div>
       <div className='LabsContainer'>
         <Link to="/labDetails">
-        <div className="lab" style={{ backgroundImage: 'url("lab_a_bg.jpg")' }}>
+        <div className="labBox" style={{ backgroundImage: 'url("lab_a_bg.jpg")' }}>
           <p>Lab A</p>
         </div>
         </Link>
 
-        <div className="lab" style={{ backgroundImage: 'url("lab_b_bg.jpg")' }}>
+        <div className="labBox" style={{ backgroundImage: 'url("lab_b_bg.jpg")' }}>
           <p>Lab B</p>
         </div>
 
-        <div className="lab" style={{ backgroundImage: 'url("lab_c_bg.jpg")' }}>
+        <div className="labBox" style={{ backgroundImage: 'url("lab_c_bg.jpg")' }}>
           <p>Lab C</p>
         </div>
 

@@ -69,13 +69,15 @@ const populateritemids = () => {
 
 const fetchdata = () => {
   try {
-    const colRef2 = collection(db, 'Users', ids[0].id, 'calendar');
+    const colRef2 = collection(db, 'CalendarEvents');
 
     const date = new Date();
     let curDate = date.toLocaleDateString('en-US');
-    console.log(curDate)
 
-    const q2 = query(colRef2, where("startDate", "==", curDate))
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const q2 = query(colRef2, where("uid", "==", ids[0].id), where("Start Date", ">=", today), where("Start Date", "<", new Date(today.getTime() + 3 * 24 * 60 * 60 * 1000)))
 
     onSnapshot(q2, (snapshot) => {
       snapshot.docs.forEach((doc) => {
@@ -84,6 +86,8 @@ const fetchdata = () => {
       console.log(events);
       addevents()
     });
+
+    console.log(curDate)
 
     const colRef3 = collection(db, 'Users', ids[0].id, 'todo');
 
@@ -106,7 +110,7 @@ const addevents = async () => {
     for (const event of events) {
       itemids.push(event.id);
       const res = await addDoc(collection(db, 'Users', ids[0].id, 'reminder'), {
-        title: event.title,
+        title: event.Title,
         status: 'unread',
         itemid: event.id
       });
@@ -175,6 +179,4 @@ const updateReminder = async (id) => {
   }
 }
 
-fetchid()
-
-export { reminders, updateReminder }
+export { fetchid, reminders, updateReminder }

@@ -19,9 +19,9 @@ const LabDetails = () => {
       <Navbar />
 
       <div className='LabsPageAnnouncement'>
-        <div className="arrowContainer">
+        <div className="labsArrowContainer">
           <Link to="/labs">
-            <span className='back-arrow'>←</span>
+            <span className='labsBack-arrow'>←</span>
           </Link>
         </div>
 
@@ -46,12 +46,12 @@ const LabDetails = () => {
             <button className='LabsButton'>Add a folder</button>
           </div>
           <div className='labFolderContainer'>
-            <div className="labsimageContainer" onClick={() => handleClick(folder)}>
+            <div className="labsImageContainer" onClick={() => handleClick(folder)}>
               <img src={folder} alt="folder" />
               <p>Folder</p>
             </div>
             {currentImage && (
-              <div className="labsimageContainer slideOutFromFolder" onClick={() => handleClick(null)}>
+              <div className="labsImageContainer slideOutFromFolder" onClick={() => handleClick(null)}>
                 <img src={ppt} alt="ppt" />
                 <p>PPT</p>
               </div>
