@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ChatContext } from '../Context/ChatContext';
-import { db } from '../firebase';
+import { db, getFirestore } from '../firebase';
 import { doc, onSnapshot, deleteDoc, updateDoc, getDoc } from 'firebase/firestore';
+import { getDatabase, ref, remove } from 'firebase/database';
 import Message from './Message';
 import ForwardDialog from './ForwardDialog';
 import heart from '../images/heart_like.png';
@@ -22,7 +23,71 @@ const Messages = ({ message }) => {
       [messageId]: !prevOptions[messageId],
     }));
   };
+  // const handleDelete = async (messageId) => {
+  //   try {
+  //     // Delete the message from the Firestore database
+  //     await deleteDoc(doc(db, 'chats', data.chatId, 'messages', messageId));
+  //     console.log('Message deleted successfully from Firestore');
+  
+  //     // Remove the message from the Realtime Database
+  //     const database = getDatabase();
+  //     const messageRef = ref(database, `chats/${data.chatId}/messages/${messageId}`);
+  //     await remove(messageRef);
+  //     console.log('Message deleted successfully from Realtime Database');
+  
+  //     // Remove the message from the userChats collection
+  //     await updateDoc(doc(db, 'userChats', data.uid), {
+  //       messages: getFirestore.FieldValue.arrayRemove(messageId)
+  //     });
+  //     console.log('Message deleted successfully from userChats collection');
+  
+  //     // Remove the deleted message from the local state
+  //     setMessages((prevMessages) =>
+  //       prevMessages.filter((msg) => msg.id !== messageId)
+  //     );
+  
+  //     // Set a flag to indicate that the message was deleted
+  //     setMessageOptions((prevOptions) => ({
+  //       ...prevOptions,
+  //       [messageId]: true,
+  //     }));
+  //     handleToggleOptions(messageId);
+  //   } catch (error) {
+  //     console.error('Error deleting message:', error);
+  //   }
+  // };
+  
+  
 
+
+  // const handleDelete = async (messageId) => {
+  //   try {
+  //     // Delete the message from the Firestore database
+  //     await deleteDoc(doc(db, 'chats', data.chatId, 'messages', messageId));
+  //     console.log('Message deleted successfully from Firestore');
+  
+  //     // Remove the message from the Realtime Database
+  //     const database = getDatabase();
+  //     const messageRef = ref(database, `chats/${data.chatId}/messages/${messageId}`);
+  //     await remove(messageRef);
+  //     console.log('Message deleted successfully from Realtime Database');
+  
+  //     // Remove the deleted message from the local state
+  //     setMessages((prevMessages) =>
+  //       prevMessages.filter((msg) => msg.id !== messageId)
+  //     );
+  
+  //     // Set a flag to indicate that the message was deleted
+  //     setMessageOptions((prevOptions) => ({
+  //       ...prevOptions,
+  //       [messageId]: true,
+  //     }));
+  //     handleToggleOptions(messageId);
+  //   } catch (error) {
+  //     console.error('Error deleting message:', error);
+  //   }
+  // };
+  
   const handleDelete = async (messageId) => {
     try {
       // Delete the message from the Firestore database
