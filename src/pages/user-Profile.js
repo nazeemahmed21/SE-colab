@@ -109,7 +109,7 @@ const UserProfile = () => {
   return (
     <div>
       <Navbar />
-      <div className="user-profile-container">
+      <div className="up-user-profile-container">
         <img
           src={userInfo.ProfPic || 'default-profile-pic-url.jpg'}
           alt="Profile"

@@ -140,12 +140,6 @@ const ProfileSetup = () => {
           backgroundColor: '#FFA07A'
         }} />
         <button className='pfp-signup_button' onClick={uploadImage} style={{
-          position: 'absolute',
-          backgroundColor: '#FFA07A',
-          color: 'white',
-          cursor: 'pointer',
-          margin: 0,
-          fontSize: '20px',
           width: '15%',
           height: '7.6%',
           border: '3px solid black',

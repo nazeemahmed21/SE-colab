@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-
+ 
 body{
   background-color: #dfe8dd;
   box-sizing: border-box;
@@ -7,7 +7,7 @@ body{
   padding: 0;
   font-family: "Lato", sans-serif;
 }
-
+ 
 .home,
 .reports,
 .products {
@@ -18,40 +18,38 @@ body{
   font-size: 3rem;
   color: #fff;
 }
-
+ 
 /* Navbar CSS */
 .navbar {
-  /* background-color: #159386; */
-  /* height: 10px; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-
+ 
 .menu-bars {
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
   color: #000;
 }
-
+ 
 .nav-menu {
   background-color: #29ada0;
   width: 350px;
   height: 100vh;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0%;
   transition: 850ms;
 }
-
+ 
 .nav-menu.active {
   left: 0;
   transition: 450ms;
 }
-
+ 
 .nav-text {
   display: flex;
   justify-content: flex-start;
@@ -61,7 +59,7 @@ body{
   height: 50px;
   margin-top: 20px;
 }
-
+ 
 .nav-text a {
   text-decoration: none;
   color: white;
@@ -73,16 +71,16 @@ body{
   padding: 0 16px;
   border-radius: 4px;
 }
-
+ 
 .nav-text a:hover {
   background-color: white;
   font-size: 2em;
 }
-
+ 
 .nav-menu-items {
   width: 80%;
 }
-
+ 
 .navbar-toggle {
   /* background-color: #F0F7EE; */
   width: 90%;
@@ -103,11 +101,11 @@ span {
   fill: white; /* Set the default icon color to black */
   transition: fill 0.2s; /* Add a transition for a smooth color change */
 }
-
+ 
 .icon-items:hover .icon-wrapper svg {
   fill: black; /* Change the icon color to white when hovering over the whole item */
 }
-
+ 
 .icon-items:hover span {
   color: black; /* Change the text color to white when hovering over the whole item */
 }
@@ -132,7 +130,7 @@ span {
   border: none;
   cursor: pointer;
 }
-
+ 
 .sign-out-button:hover{
   color: black;
   background-color: white;
@@ -140,12 +138,12 @@ span {
 .sign-out-icon svg {
   transition: fill 0.2s; /* Add a transition for a smooth color change */
 }
-
+ 
 /* .sign-out-icon:hover svg {
   background-color: white;
   fill: black; /* Change the icon color to black when hovering */
 /* } */
-
+ 
 .sign-out-icon{
   position: absolute;
   left: 5vw;
@@ -164,7 +162,7 @@ span {
   width: 50vw;
   height: 45px;
 }
-
+ 
 .search-button {
   padding: 0.5rem 1rem;
   /* background-color: #007bff; Example blue color */
@@ -224,29 +222,29 @@ span {
   .nav-menu {
     width: 250px; /* Adjust the width of the nav menu */
   }
-
+ 
   .nav-text a {
     font-size: 20px; /* Adjust font size for readability */
   }
-
+ 
   .search-bar {
     top: 20px;
     left: 60%;
     transform: translateX(-15%);
     margin-right: 0;
   }
-
+ 
   .search-input {
     width: 80%; /* Adjust the width of the search bar */
     margin-right: 0;
   }
-
+ 
   .pfp-logo img {
     width: 50%; /* Adjust logo size */
     left: 25%; /* Center logos */
   }
-
-
+ 
+ 
   .pfp-logo,
   .prof-name,
   .prof-role {
@@ -254,4 +252,4 @@ span {
     transform: translateX(-50%); /* Center profile texts and notification */
   }
 }
-
+ 
