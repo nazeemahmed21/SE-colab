@@ -273,10 +273,10 @@
 }
 
 .call-container p {
-    padding-left: 380px;
+    padding-left: 26%;
     /* margin: 20px; */
-    margin-top: 10px;
-    font-size: 45px;
+    margin-top: 5vh;
+    font-size: 30px;
     color: black;
 }
 
@@ -286,7 +286,7 @@
     background-color:#29ada0;
     color: white;
     gap: 10px;
-    margin-right: 10px;
+    /* margin-right: 5px; */
     border-radius: 10px;
 }
 
@@ -296,16 +296,16 @@
 
 .decline {
     /* padding-left: 380px; */
-    font-size: 30px;
+    /* font-size: 30px;
     background-color: red;
     color: white;
-    border-radius: 10px;
+    border-radius: 10px; */
 }
 
 .myCallContainer{
-    padding-left: 360px;
+    padding-left: 60px;
     /* margin: 20px; */
-    margin-top: 10px;
+    margin-top: -3%;
     font-size: 45px;
     color: black;
 }
