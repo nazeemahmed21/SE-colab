@@ -89,7 +89,7 @@ export default function Video() {
   return (
 
     <div className="call-container">
-      <Navbar/>
+      {/* <Navbar/> */}
       <p>To start a call please click the button below</p>
       <button onClick={handleButtonClick} className="accept">Call</button>
       {/* <button onClick={handleDeclineClick} className="decline">Decline</button> */}

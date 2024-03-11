@@ -50,7 +50,7 @@ body{
   transition: 450ms;
 }
  
-.nav-text {
+.nb-nav-text {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -60,7 +60,7 @@ body{
   margin-top: 20px;
 }
  
-.nav-text a {
+.nb-nav-text a {
   text-decoration: none;
   color: white;
   font-size: 25px;
@@ -72,9 +72,10 @@ body{
   border-radius: 4px;
 }
  
-.nav-text a:hover {
+.nb-nav-text a:hover {
   background-color: white;
-  font-size: 2em;
+  height: 9vh;
+  /* font-size: 2em; */
 }
  
 .nav-menu-items {
