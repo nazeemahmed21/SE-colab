@@ -66,7 +66,7 @@ function Home() {
           <Navbar />
         </div>
         <div className={styles.todo_half}>
-          <div className={styles.todo_container}>
+          <div className="container">
             <PageTitle>TO DO List</PageTitle>
             <div className={styles.todo_app__wrapper}>
               <AppHeader />

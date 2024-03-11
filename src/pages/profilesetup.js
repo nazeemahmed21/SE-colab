@@ -256,14 +256,118 @@ const ProfileSetup = () => {
             </div>
           </div>
         </div>
-        {/* WHY THE FUCK IS THIS NOT SHOWING UP */}
-        <div style={{ position: "absolute", right: 0 }}>
-          <p> wtf</p>
-          <input type="checkbox" id="darkmode-toggle" />
-          <label for="darkmode-toggle">
-            <Sun />
-            <Moon />
-          </label>
+        <h1
+          style={{
+            position: "absolute",
+            top: "33%",
+          }}
+        >
+          Choose a Profile Picture for your Co-lab Account
+        </h1>
+        <input
+          type="file"
+          onChange={(event) => setImageUpload(event.target.files[0])}
+          style={{
+            width: "15%",
+            marginBottom: "20px",
+            padding: "10px",
+            border: "3px solid black",
+            borderRadius: "20px",
+            fontSize: "20px",
+            textAlign: "center",
+            color: "white",
+            position: "absolute",
+            top: "40%",
+            backgroundColor: "#FFA07A",
+          }}
+        />
+        <button
+          className="pfp-signup_button"
+          onClick={uploadImage}
+          style={{
+            width: "15%",
+            height: "7.6%",
+            border: "3px solid black",
+            borderRadius: "20px",
+            top: "49%",
+          }}
+        >
+          Upload Image
+        </button>
+        <div
+          className="pfp-user-info"
+          style={{
+            position: "absolute",
+            fontSize: "30px",
+            fontWeight: "bolder",
+            color: "white",
+            padding: "20px",
+            top: "55%",
+          }}
+        >
+          <p style={{ marginBottom: "20px" }}>
+            First Name: {userInfo.firstname}
+          </p>
+          <p style={{ marginBottom: "20px" }}>
+            Last Name: {userInfo.secondname}
+          </p>
+          <p style={{ marginBottom: "20px" }}>Role: {userInfo.Role}</p>
+        </div>
+        <div>
+          <button
+            className="pfp-confirm-btn"
+            style={{
+              position: "absolute",
+              backgroundColor: "#FFA07A",
+              color: "white",
+              cursor: "pointer",
+              margin: 0,
+              fontSize: "16px",
+              width: "100px",
+              height: "60px",
+              border: "3px solid black",
+              borderRadius: "100px",
+              bottom: "2%",
+              left: "90%",
+            }}
+            onClick={handleNavigationToInterest}
+          >
+            Confirm
+          </button>
+        </div>
+        <button
+          style={{
+            position: "fixed",
+            bottom: "2%",
+            left: "54%",
+            margin: "0",
+            padding: "20px",
+            height: "60px" /* Adjusted for better vertical spacing */,
+            width: "100px",
+            textAlign: "center" /* Centers text horizontally */,
+            lineHeight: "20px" /* Centers text vertically */,
+            color: "white" /* Optional: Set your text color */,
+            fontSize: "16px" /* Optional: Adjust text size */,
+            cursor: "pointer",
+            borderRadius: "100px",
+            border: "3px solid black",
+            backgroundColor: "#FFA07A",
+          }}
+          onClick={handleNavigationSignUp}
+        >
+          Back
+        </button>
+        <div
+          className="pfp-image-container"
+          style={{
+            position: "absolute",
+            left: "15%",
+            top: "30%",
+            width: "100px",
+            height: "60px",
+          }}
+        >
+          <img className="pfp-image_container" src={logo} alt="logo" />
         </div>
         {/* WHY THE FUCK IS THIS NOT SHOWING UP */}
       </div>

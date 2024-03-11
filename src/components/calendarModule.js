@@ -62,29 +62,44 @@ function CalendarApp() {
 
   const handleAddEvent = async () => {
     // Ensure that newEvent.start and newEvent.end are valid Date objects
-    if (newEvent.start instanceof Date && newEvent.end instanceof Date) {
-      // Add the new event to Firestore
-      const docRef = await addDoc(collection(getFirestore(), "CalendarEvents"), {
-        Title: newEvent.title,
-        "Start Date": newEvent.start, // Use the user-entered start date
-        "End Date": newEvent.end,     // Use the user-entered end date
-        "uid": currentUser.uid,
-      });
-
-      // Update the local state with the new event including the document ID
-      setAllEvents([...allEvents, {
-        title: newEvent.title,
-        start: newEvent.start,
-        end: newEvent.end,
-        id: docRef.id,
-      }]);
-
-      // Clear the input fields after adding an event
-      setNewEvent({ title: "", start: "", end: "" });
-    } else {
+    if (!(newEvent.start instanceof Date) || !(newEvent.end instanceof Date)) {
       // Handle invalid date format (optional)
       console.error("Invalid date format");
+      return;
     }
+  
+    // Check if start date is before the current date
+    if (newEvent.start < new Date()) {
+      console.error("Start date must be equal to or after the current date");
+      // Display an error message (you can use a toast library or other UI notification)
+      return;
+    }
+  
+    // Check if end date is before the start date
+    if (newEvent.end < newEvent.start) {
+      console.error("End date must be equal to or after the start date");
+      // Display an error message (you can use a toast library or other UI notification)
+      return;
+    }
+  
+    // Add the new event to Firestore
+    const docRef = await addDoc(collection(getFirestore(), "CalendarEvents"), {
+      Title: newEvent.title,
+      "Start Date": newEvent.start, // Use the user-entered start date
+      "End Date": newEvent.end,     // Use the user-entered end date
+      "uid": currentUser.uid,
+    });
+  
+    // Update the local state with the new event including the document ID
+    setAllEvents([...allEvents, {
+      title: newEvent.title,
+      start: newEvent.start,
+      end: newEvent.end,
+      id: docRef.id,
+    }]);
+  
+    // Clear the input fields after adding an event
+    setNewEvent({ title: "", start: "", end: "" });
   };
 
   const handleDeleteSelectedEvent = async () => {
@@ -114,7 +129,7 @@ function CalendarApp() {
             placeholder="Add Title"
             style={{
               width: "20%",
-              marginLeft: "400px",
+              marginLeft: "700px",
               marginTop: "100px",
               marginRight: "5px",
             }}
@@ -140,7 +155,7 @@ function CalendarApp() {
           <button
             className={`${styles.button} ${styles.button__primary}`}
             onClick={handleAddEvent}
-            style={{ position: "absolute", left: "730px", marginTop: "130px" }}
+            style={{ position: "absolute", left: "750px", marginTop: "130px" }}
           >
             Add Event
           </button>
@@ -148,7 +163,7 @@ function CalendarApp() {
             <button
               className={`${styles.button} ${styles.button__secondary}`}
               onClick={handleDeleteSelectedEvent}
-              style={{ position: "absolute", left: "695px", marginTop: "170px" }}
+              style={{ position: "absolute", left: "695px", marginTop: "200px" }}
             >
               Delete Selected Event
             </button>
@@ -160,7 +175,7 @@ function CalendarApp() {
         events={allEvents}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 400, width: 1000, margin: "100px", position: "absolute", marginLeft: "35px", left: "360px", bottom: "50 px", marginTop: "150px" }}
+        style={{ height: 650, width: 1300, margin: "100px", position: "absolute", marginLeft: "35px", left: "360px", bottom: "50 px", marginTop: "150px" }}
         onSelectEvent={handleSelectEvent}
       />
     </div> 
