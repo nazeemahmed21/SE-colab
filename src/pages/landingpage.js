@@ -5,6 +5,7 @@ import blob from "../images/blob.svg";
 import lp1 from "../images/lp-img-1.jpg";
 import lp2 from "../images/lp-img-2.png";
 import lplogo from "../images/logo.png";
+
 const Landingpage = () => {
   const navigate = useNavigate();
   const words = ["Learn to Connect", "Connect to Co-lab"];
@@ -18,7 +19,7 @@ const Landingpage = () => {
         setWordIndex((prevIndex) => (prevIndex + 1) % words.length);
         setVisible(true);
       }, 3000); // This timeout should match the fade-out animation duration
-    }, 6000); // Adjust total interval time as needed
+    }, 6000); // Adjust total interval time as needed.
 
     return () => clearInterval(intervalId);
   }, []);
