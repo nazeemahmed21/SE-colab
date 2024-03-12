@@ -115,7 +115,7 @@ const UserProfile = () => {
           alt="Profile"
           className="up-profile-pic"
         />
-
+        <div></div>
         <>
             <div className='up-name'>
               <input
@@ -131,19 +131,27 @@ const UserProfile = () => {
                 onChange={(e) => setEditedSecondName(e.target.value)}
               />
             </div>
-          <div className='up-save'>
+          {/* <div className='up-save'>
             <button onClick={handleSaveNameChange}>Save Changes</button>
-          </div>
+          </div> */}
           </>
-          <>
-            <h2>{userInfo.firstname} {userInfo.secondname}</h2>
+        <>
+          <div className='up-currentname'>
+            <p>Firstname:<span></span>{userInfo.firstname}</p>
+            <p>Secondname:<span></span>{userInfo.secondname}</p>
+            <p>Role:<span></span>{userInfo.Role}</p>
+          </div>
+           
             <div className='up-edit-name'>
-              <button onClick={handleNameChange}>Edit Name</button>
+              <button onClick={handleSaveNameChange}>Edit Name</button>
             </div>
           </>
         <div className='up-file'>
           <input type="file" onChange={handleImageChange} />
         </div>
+        <div className='up-edit-role'>
+              <button onClick={handleSaveNameChange}>Edit Role</button>
+            </div>
         <div className='up-roles'>
           <select value={editedRole} onChange={(e) => setEditedRole(e.target.value)}>
             {roles.map(role => <option key={role} value={role}>{role}</option>)}

@@ -182,14 +182,14 @@ span {
   width: 30%;
   left: 100px;
   top: 20px;
-  border: 4px solid black;
+  border: 4px solid #fea059;
 }
 .pfp-logo img{
   width: 30%;
-  height: 13%;
+  height: 14%;
   border-radius: 100%;
   position: absolute;
-  border: 4px solid black;
+  border: 4px solid #fea059;
   left: 91vw;
   top: 20px;
 }

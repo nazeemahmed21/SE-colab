@@ -256,62 +256,48 @@ const ProfileSetup = () => {
             </div>
           </div>
         </div>
-        <h1
-          style={{
-            position: "absolute",
-            top: "33%",
-          }}
-        >
-          Choose a Profile Picture for your Co-lab Account
-        </h1>
-        <input
-          type="file"
-          onChange={(event) => setImageUpload(event.target.files[0])}
-          style={{
-            width: "15%",
-            marginBottom: "20px",
-            padding: "10px",
-            border: "3px solid black",
-            borderRadius: "20px",
-            fontSize: "20px",
-            textAlign: "center",
-            color: "white",
-            position: "absolute",
-            top: "40%",
-            backgroundColor: "#FFA07A",
-          }}
-        />
-        <button
-          className="pfp-signup_button"
-          onClick={uploadImage}
-          style={{
-            width: "15%",
-            height: "7.6%",
-            border: "3px solid black",
-            borderRadius: "20px",
-            top: "49%",
-          }}
-        >
-          Upload Image
-        </button>
-        <div
-          className="pfp-user-info"
-          style={{
-            position: "absolute",
-            fontSize: "30px",
-            fontWeight: "bolder",
-            color: "white",
-            padding: "20px",
-            top: "55%",
-          }}
-        >
-          <p style={{ marginBottom: "20px" }}>
-            First Name: {userInfo.firstname}
-          </p>
-          <p style={{ marginBottom: "20px" }}>
-            Last Name: {userInfo.secondname}
-          </p>
-          <p style={{ marginBottom: "20px" }}>Role: {userInfo.Role}</p>
+        <h1 style={{
+          position: 'absolute',
+          top: '33%',
+        }}>Choose a Profile Picture for your Co-lab Account</h1>
+        <input type='file' onChange={(event) => setImageUpload(event.target.files[0])} style={{
+          width: '15%',
+          marginBottom: '20px',
+          padding: '10px',
+          border: '3px solid black',
+          borderRadius: '20px',
+          fontSize: '20px',
+          textAlign: 'center',
+          color: 'white',
+          position: 'absolute',
+          top: '40%',
+          backgroundColor: '#FFA07A'
+        }} />
+        <button className='pfp-signup_button' onClick={uploadImage} style={{
+          width: '15%',
+          marginBottom: '20px',
+          padding: '10px',
+          border: '3px solid black',
+          borderRadius: '20px',
+          fontSize: '20px',
+          textAlign: 'center',
+          color: 'white',
+          position: 'absolute',
+          top: '45%',
+          left: '59.75%',
+          backgroundColor: '#FFA07A'
+        }}>Upload Image</button>
+        <div className='pfp-user-info' style={{
+          position: 'absolute',
+          fontSize: '30px',
+          fontWeight: 'bolder',
+          color: 'white',
+          padding: '20px',
+          top: '55%',
+        }}>
+          <p style={{marginBottom:'20px'}}>First Name: {userInfo.firstname}</p>
+          <p style={{marginBottom:'20px'}}>Last Name: {userInfo.secondname}</p>
+          <p style={{marginBottom:'20px'}}>Role: {userInfo.Role}</p>
         </div>
         <div>
           <button
