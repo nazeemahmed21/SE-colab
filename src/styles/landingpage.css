@@ -248,7 +248,7 @@ body, html {
 
   .lp-img-1, .lp-img-2 {
     width: 30%; /* Adjust image size */
-    top: 15%; /* Adjust image positioning */
+    top: 15%; /* Adjust image positioning*/
   }
 
   .lp-blob {

@@ -19,7 +19,7 @@ const Landingpage = () => {
         setWordIndex((prevIndex) => (prevIndex + 1) % words.length);
         setVisible(true);
       }, 3000); // This timeout should match the fade-out animation duration
-    }, 6000); // Adjust total interval time as needed
+    }, 6000); // Adjust total interval time as needed.
 
     return () => clearInterval(intervalId);
   }, []);
