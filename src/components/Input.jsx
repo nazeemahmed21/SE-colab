@@ -35,8 +35,7 @@ const Input = () => {
 
       uploadTask.on(
         (error) => {
-          console.error("Error uploading image:", error);
-          
+          console.error("Error uploading image:", error); 
         },
         async () => {
           try {

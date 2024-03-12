@@ -3,7 +3,10 @@ import { db } from '../firebase';
 import { doc, onSnapshot } from "firebase/firestore";
 import { AuthContext } from "../Context/AuthContext";
 import { ChatContext } from "../Context/ChatContext";
-
+import { storage } from '../firebase';
+import { updateDoc, arrayUnion, serverTimestamp, Timestamp } from 'firebase/firestore';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { v4 as uuid } from 'uuid';
 const ForwardDialog = ({ messageId, messageText, onClose, onForward }) => {
   const [recipientId, setRecipientId] = useState('');
   const [users, setUsers] = useState([]);
@@ -12,6 +15,11 @@ const ForwardDialog = ({ messageId, messageText, onClose, onForward }) => {
   const [loading, setLoading] = useState(true);
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
+  const [text, setText] = useState('');
+  const [img, setImg] = useState(null);
+  const [gif, setGif] = useState(null);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false); // State to manage emoji picker visibility
+  const { data } = useContext(ChatContext);
 
   useEffect(() => {
     // Fetch users from Firebase
@@ -47,7 +55,8 @@ const ForwardDialog = ({ messageId, messageText, onClose, onForward }) => {
   }, [currentUser.uid]);
 
   const handleSelect = (userName, messageText) => {
-    console.log("Selected user:", userName); // Log the selected user's name
+    console.log("Selected user:", userName);
+    console.log("Selected mssg:", messageText); // Log the selected user's name
     setSelectedMessageText(messageText); // Set the selected message text
     const selectedUser = users.find(user => user.name === userName);
     if (selectedUser) {
@@ -56,26 +65,90 @@ const ForwardDialog = ({ messageId, messageText, onClose, onForward }) => {
     }
   };
 
-  const handleForwardMessage = async (recipientId) => {
-    try {
-      // Check if recipient ID is provided
-      if (!recipientId) {
-        console.error('Recipient ID is required');
-        return;
-      }
+  const handleForwardMessage = async () => {
+    try{
 
-      // Update recipient's chat with forwarded message
-      await db.collection('chats').doc(recipientId).collection('messages').add({
-        text: messageText,
-        senderId: messageId, // Include the sender's ID for reference
-        // Add any other necessary fields
+      let messagePayload = {
+        id: uuid(),
+        text:messageText,
+        senderId: currentUser.uid,
+        date: Timestamp.now(),
+        owner: true, // Set the owner flag to true for the messages you send
+      };
+
+    if (img) {
+      const storageRef = ref(storage, uuid());
+      const uploadTask = uploadBytesResumable(storageRef, img);
+
+      uploadTask.on(
+        (error) => {
+          console.error("Error uploading image:", error); 
+        },
+        async () => {
+          try {
+            // Wait for a short duration to ensure that the download URL is available
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+console.log("downloadURL", recipientId);
+            await updateDoc(doc(db, "chats", recipientId), {
+              messages: arrayUnion({
+                id: uuid(),
+                text: messageText,
+                senderId: currentUser.uid,
+                date: Timestamp.now(),
+                img: downloadURL,
+              }),
+            });
+          } catch (error) {
+            console.error("Error getting download URL:", error);
+          } finally {
+            
+          }
+        }
+      );
+    } else if (gif) {
+      await updateDoc(doc(db, "chats", data.chatId), {
+        messages: arrayUnion({
+          id: uuid(),
+          gif: gif.url, // Include the GIF URL in the message payload
+          senderId: currentUser.uid,
+          date: Timestamp.now(),
+        }),
       });
-
-      // Call the onForward function to handle any additional logic
-      onForward(messageId);
-    } catch (error) {
-      console.error('Error forwarding message:', error);
+    }else {
+      await updateDoc(doc(db, "chats", data.chatId), {
+        messages: arrayUnion({
+          id: uuid(),
+          text: messageText,
+          senderId: currentUser.uid,
+          date: Timestamp.now(),
+          owner: true,
+        }),
+      });
     }
+
+    await updateDoc(doc(db, "userChats", currentUser.uid), {
+      [data.chatId + ".lastMessage"]: {
+        text:messageText,
+      },
+      [data.chatId + ".date"]: serverTimestamp(),
+    });
+
+    await updateDoc(doc(db, "userChats", data.user.uid), {
+      [data.chatId + ".lastMessage"]: {
+        text:messageText,
+      },
+      [data.chatId + ".date"]: serverTimestamp(),
+    });
+
+    setText("");
+    setImg(null);
+    setGif(null);
+   }catch (error) {
+    console.error("Error sending message:", error);
+    // TODO: Handle error, show error message to the user
+  } 
   };
 
   return (
@@ -106,7 +179,7 @@ const ForwardDialog = ({ messageId, messageText, onClose, onForward }) => {
             <div
               className="userChat"
               key={chat[0]}
-              onClick={() => handleSelect(chat[1].userInfo.displayName, chat[1].lastMessage?.text)}
+              onClick={() => handleSelect(chat[1].userInfo.displayName, messageText)}
             >
               {chat[1]?.userInfo && (
                 <div className="userChatInfo">
