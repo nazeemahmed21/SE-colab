@@ -66,11 +66,6 @@ body, html {
   top: 55%;
   font-size: 25px;
   left: 5%;
-  transition: transform 0.3s;
-}
-
-.lp-desc:hover {
-  transform: translateY(-5px); 
 }
 
 .lp-blob {
@@ -99,13 +94,7 @@ body, html {
   top: 3%;
   left: 5%;
   width: 6%;
-  transition: transform 0.3s;
 }
-
-.lp-logo:hover {
-  transform: translateY(-5px); 
-}
-
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -141,52 +130,13 @@ body, html {
     top: 50%; /* Adjust positioning */
   }
 
-  .lp-img-1 {
-    width: 28%; /* Larger for visibility */
-    top: 15%; /* Adjust positioning */
+  .lp-img-1, .lp-img-2 {
+    width: 40%; /* Larger for visibility */
+    top: 60%; /* Adjust positioning */
   }
 
-  .lp-img-2 {
-    width: 32%; /* Larger for visibility */
-    top: 15%; /* Adjust positioning */
-  }
   .lp-blob {
-    width: 60%; /* Adjust blob size */
-    right: -3%;
-  }
-  
-  .landing-p-register {
-    padding: 14px 28px;
-    font-weight: bold;
-    position: absolute;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    background-color: inherit;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    top: 0%;
-    right: 15%; 
-  
-    font-size: 1.8rem;
-    color: black;
-    cursor: pointer;
-  }
-
-  .landing-p-login{
-    padding: 14px 28px;
-    font-weight: bold;
-    position: absolute;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    background-color: inherit;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    top: 0%;
-    right: 0%; 
-  
-    font-size: 1.8rem;
-    color: black;
-    cursor: pointer;
+    width: 70%; /* Adjust blob size */
   }
 }
 
@@ -195,46 +145,9 @@ body, html {
     left: 3%; /* Adjust text alignment */
   }
 
-  .landing-p-register {
-    padding: 14px 28px;
-    font-weight: bold;
-    position: absolute;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    background-color: inherit;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    top: 0%;
-    right: 15%; 
-  
-    font-size: 1.8rem;
-    color: black;
-    cursor: pointer;
-  }
-
-  .landing-p-login{
-    padding: 14px 28px;
-    font-weight: bold;
-    position: absolute;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    background-color: inherit;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    top: 0%;
-    right: 0%; 
-  
-    font-size: 1.8rem;
-    color: black;
-    cursor: pointer;
-  }
-
-
   .lp-main-h {
     font-size: 40px; /* Further reduce for small screens */
     top: 15%; /* Adjust positioning */
-    left: 5%; /* Ensure visibility */
-
   }
 
   .lp-sh-1, .lp-sh-2 {
@@ -243,27 +156,21 @@ body, html {
 
   .lp-desc {
     font-size: 14px; /* Smaller text */
-    top: 50%; /* Adjust positioning */
+    top: 45%; /* Adjust positioning */
   }
 
   .lp-img-1, .lp-img-2 {
-    width: 30%; /* Adjust image size */
-    top: 15%; /* Adjust image positioning*/
+    width: 50%; /* Adjust image size */
+    top: 70%; /* Adjust image positioning */
   }
 
   .lp-blob {
-    width: 60%; /* Adjust blob size for small screens */
-    top: 10%; /* Adjust positioning */
+    width: 80%; /* Adjust blob size for small screens */
+    top: 0%; /* Adjust positioning */
   }
 
   .landing-p-login, .landing-p-register {
     font-size: 1.4rem; /* Adjust button font size */
     padding: 10px 22px; /* Adjust button padding */
-  }
-
-  .lp-logo {
-    width: 15%; /* Adjust logo size */
-    top: 3%; /* Adjust logo positioning */
-    left: 5%; /* Ensure visibility */
   }
 }
