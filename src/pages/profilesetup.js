@@ -141,10 +141,17 @@ const ProfileSetup = () => {
         }} />
         <button className='pfp-signup_button' onClick={uploadImage} style={{
           width: '15%',
-          height: '7.6%',
+          marginBottom: '20px',
+          padding: '10px',
           border: '3px solid black',
           borderRadius: '20px',
-          top: '49%',
+          fontSize: '20px',
+          textAlign: 'center',
+          color: 'white',
+          position: 'absolute',
+          top: '45%',
+          left: '59.75%',
+          backgroundColor: '#FFA07A'
         }}>Upload Image</button>
         <div className='pfp-user-info' style={{
           position: 'absolute',
