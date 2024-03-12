@@ -5,6 +5,7 @@ import blob from "../images/blob.svg";
 import lp1 from "../images/lp-img-1.jpg";
 import lp2 from "../images/lp-img-2.png";
 import lplogo from "../images/logo.png";
+
 const Landingpage = () => {
   const navigate = useNavigate();
   const words = ["Learn to Connect", "Connect to Co-lab"];
