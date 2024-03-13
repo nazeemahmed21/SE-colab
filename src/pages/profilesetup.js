@@ -6,8 +6,8 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { updateProfile } from "firebase/auth";
 import logo from "../images/logo.png";
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as Sun } from "../images/Sun.svg";
-import { ReactComponent as Moon } from "../images/Moon.svg";
+// import { ReactComponent as Sun } from "../images/Sun.svg";
+// import { ReactComponent as Moon } from "../images/Moon.svg";
 
 // Placeholder image URL
 const placeholderImageUrl =
