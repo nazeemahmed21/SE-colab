@@ -54,24 +54,45 @@ const ForwardDialog = ({ messageId, messageText, onClose, onForward }) => {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
 
-  const handleSelect = (userName, messageText) => {
-    console.log("Selected user:", userName);
-    console.log("Selected mssg:", messageText); // Log the selected user's name
-    setSelectedMessageText(messageText); // Set the selected message text
-    const selectedUser = users.find(user => user.name === userName);
-    if (selectedUser) {
-      setRecipientId(selectedUser.id);
-      handleForwardMessage(selectedUser.id);
-    }
-  };
+//   const handleSelect = (userName, messageText) => {
+//     console.log("Selected user:", userName);
+//     console.log("Selected mssg:", messageText); // Log the selected user's name
+//     setSelectedMessageText(messageText); // Set the selected message text
+//     const selectedUser = users.find(user => user.name === userName);
+// Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => {
+//   console.log("Selected user 2:", chat[1].userInfo.uid);
+//   if (selectedUser) {
+//     setRecipientId(selectedUser.id);
+//     handleForwardMessage(userName.id);
+//   }
+// })
+//   }
 
-  const handleForwardMessage = async () => {
+const handleSelect = (userName, messageText) => {
+  console.log("Selected user:", userName);
+  console.log("Selected message:", messageText); // Log the selected user's name
+  setSelectedMessageText(messageText);
+
+  // Search for the user by display name
+  const selectedUser = Object.entries(chats)?.find((chat) => chat[1]?.userInfo?.displayName === userName);
+
+  // Extract the uid if the user is found
+  if (selectedUser) {
+    console.log("Selected user UID:", selectedUser[1].userInfo.uid);
+   handleForwardMessage(selectedUser[1].userInfo.uid);
+    // Add your logic here to handle the selected user's UID
+  } else {
+    console.log("User not found");
+  }
+};
+
+  const handleForwardMessage = async (recipientId) => {
     try{
 
       let messagePayload = {
         id: uuid(),
         text:messageText,
-        senderId: currentUser.uid,
+        senderId: recipientId.uid,
         date: Timestamp.now(),
         owner: true, // Set the owner flag to true for the messages you send
       };
@@ -89,13 +110,12 @@ const ForwardDialog = ({ messageId, messageText, onClose, onForward }) => {
             // Wait for a short duration to ensure that the download URL is available
             await new Promise(resolve => setTimeout(resolve, 1000));
             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-
-console.log("downloadURL", recipientId);
-            await updateDoc(doc(db, "chats", recipientId), {
+            console.log("downloadURL", recipientId);
+            await updateDoc(doc(db, "chats", recipientId.uid), {
               messages: arrayUnion({
                 id: uuid(),
                 text: messageText,
-                senderId: currentUser.uid,
+                senderId: recipientId.uid,
                 date: Timestamp.now(),
                 img: downloadURL,
               }),
@@ -128,7 +148,7 @@ console.log("downloadURL", recipientId);
       });
     }
 
-    await updateDoc(doc(db, "userChats", currentUser.uid), {
+    await updateDoc(doc(db, "userChats", recipientId), {
       [data.chatId + ".lastMessage"]: {
         text:messageText,
       },

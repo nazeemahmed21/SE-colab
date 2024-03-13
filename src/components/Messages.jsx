@@ -93,21 +93,25 @@ const Messages = ({ message }) => {
       // Delete the message from the Firestore database
       await deleteDoc(doc(db, 'chats', data.chatId, 'messages', messageId));
       console.log('Message deleted successfully');
-
+  
+      // If you're using local state to manage messages, update it accordingly
       setMessages((prevMessages) =>
         prevMessages.filter((msg) => msg.id !== messageId)
       );
-
-      // Set a flag to indicate that the message was deleted
-      setMessageOptions((prevOptions) => ({
-        ...prevOptions,
-        [messageId]: true,
-      }));
+  
+      // If you're managing options related to messages, update them accordingly
+      // setMessageOptions((prevOptions) => ({
+      //   ...prevOptions,
+      //   [messageId]: true,
+      // }));
+  
+      // If there's a function to handle UI changes after deletion, call it
       handleToggleOptions(messageId);
     } catch (error) {
       console.error('Error deleting message:', error);
     }
   };
+  
 
   const handleForward = (messageId) => {
     setSelectedMessageId(messageId);
@@ -144,6 +148,9 @@ const Messages = ({ message }) => {
     }
   };
 
+
+  
+  
   useEffect(() => {
     const unSub = onSnapshot(doc(db, 'chats', data.chatId), (doc) => {
       doc.exists() && setMessages(doc.data().messages);
