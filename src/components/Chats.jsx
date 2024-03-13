@@ -7,6 +7,7 @@ import { db } from "../firebase";
 //new_user@gmail.com , new_user 
 const Chats = () => {
   const [chats, setChats] = useState([]);
+  const [Users] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { currentUser } = useContext(AuthContext);
@@ -33,7 +34,7 @@ const Chats = () => {
   };
 
   // console.log(chats)
-  // console.log(Object.entries(chats))
+  // console.log(Object.entries(Users))
   return (
     <div className="chats">
        {loading ? (
@@ -46,9 +47,12 @@ const Chats = () => {
           key={chat[0]}
           onClick={() => handleSelect(chat[1].userInfo)}
         >
+         
           {chat[1]?.userInfo && (
             <>
-          <img src={chat[1].userInfo.pfpURL} alt="" />
+         {/* { chat[1].userInfo.pfpURL && ( */}
+  <img src={chat[1].userInfo.pfpURL} alt="" />
+{/* )}  */}
           <div className="userChatInfo">
             <span>{chat[1].userInfo.displayName}</span>
             <p>{chat[1].lastMessage?.text}</p>
@@ -58,8 +62,11 @@ const Chats = () => {
         </div>
       ))
       )}
+      
     </div>
+    
   );
+  
 };
 
 export default Chats;

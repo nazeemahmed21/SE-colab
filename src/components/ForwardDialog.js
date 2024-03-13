@@ -9,7 +9,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 const ForwardDialog = ({ messageId, messageText, onClose, onForward }) => {
   const [recipientId, setRecipientId] = useState('');
-  const [users, setUsers] = useState([]);
+  const [users, setUsers, Users] = useState([]);
   const [chats, setChats] = useState([]);
   const [selectedMessageText, setSelectedMessageText] = useState('');
   const [loading, setLoading] = useState(true);
@@ -75,7 +75,6 @@ const handleSelect = (userName, messageText) => {
 
   // Search for the user by display name
   const selectedUser = Object.entries(chats)?.find((chat) => chat[1]?.userInfo?.displayName === userName);
-
   // Extract the uid if the user is found
   if (selectedUser) {
     console.log("Selected user UID:", selectedUser[1].userInfo.uid);
@@ -195,7 +194,8 @@ const handleSelect = (userName, messageText) => {
           // Render a loading indicator, e.g., a spinner
           <div>Loading...</div>
         ) : (
-          Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
+         Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
+           console.log("chat", chat[1].userInfo.pfpURL),
             <div
               className="userChat"
               key={chat[0]}
@@ -203,6 +203,7 @@ const handleSelect = (userName, messageText) => {
             >
               {chat[1]?.userInfo && (
                 <div className="userChatInfo">
+                    {/* <img src={chat[1].userInfo.pfpURL} alt="" /> */}
                   <span>{chat[1].userInfo.displayName}</span>
                 </div>
               )}
