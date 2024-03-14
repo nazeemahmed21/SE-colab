@@ -1,0 +1,45 @@
+/* Styles for the image preview */
+.lab-icon-preview-container {
+    display: flex;
+    justify-content: center; /* Center the image */
+    overflow: hidden;
+    width:100px;
+    height: 100px;
+  }
+  
+  .lab-icon-preview-container img { 
+    width: 100%;       /* Force image to take up the full width */
+    height: auto;       /* Automatic height to maintain aspect ratio */
+    object-fit: cover;  /* Crop the image */
+    border-radius: 10px; /* Add rounded corners */
+  }
+  .preview{
+    display: flex;
+    justify-content: center; /* Center the image */
+    margin-top: 10px; /* Space between input and preview */
+  }
+
+.uploadLabIcon ::-webkit-file-upload-button{
+    display: inline;
+    color: white;
+    font-size: 13px;
+    padding: 10px;
+    background-color: #fd9752 ;
+    border-radius: 3px;
+    border:0.5px;
+    cursor: pointer;
+  }
+  .MuiModalClose-root svg {
+    width: 20px;
+    height: 20px; 
+  }
+
+  .modalSubmit{
+    display: 'flex'; 
+    justify-content: 'center';
+    width:100%;
+  }
+
+  .css-1riwrx0-JoyButton-root{
+    margin-left: 50%;
+  }

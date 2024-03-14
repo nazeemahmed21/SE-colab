@@ -23,21 +23,11 @@ border-radius: 5px;
   .labBox p {
     color: black;
     margin: 0;
-    font-size: 30px;
+    font-size: 25px;
     text-decoration: none;
   }
   
-.LabsPage{
-    margin-top: 100px;
-    padding-left: 250px;
-}
 
-.LabsPage h1{
-    margin-top: 100px;
-    padding-left: 120px;
-    font-size: 35px;
-    text-decoration: none;
-}
 
 button{
     display: inline;
@@ -45,9 +35,25 @@ button{
     font-size: 20px;
     margin-top: 30px;
     margin-left: 120px;
-    padding: 15px;
+    padding: 7px;
     background-color: #29ada0 ;
     border-radius: 5px;
+}
+
+.labIconContainer {
+  display: flex;
+  justify-content: center; /* Center the image */
+  overflow: hidden;
+  width:50px;
+  height: 50px;
+}
+
+.labIconContainer img { 
+  width: 100%;       /* Force image to take up the full width */
+  height: auto;       /* Automatic height to maintain aspect ratio */
+  object-fit: cover;  /* Crop the image */
+  border-radius: 10px; /* Add rounded corners */
+  
 }
 
 
@@ -96,6 +102,7 @@ button{
   /* align-items: center; */
   margin-top: 100px;
   display: flex;
+  flex-direction: row;
 }
 
 .labSideBar {
@@ -127,9 +134,8 @@ button{
 }
 
 .LabsContent {
-  flex: 1;
-  padding: 20px;
-  margin-left: 10px;
+  display:flex;
+  width: 100%;
 }
 
 .labAnncMessage {
@@ -145,7 +151,6 @@ button{
 }
 
 .labAnncMessage h1 {
-  
   margin-bottom: 5px;
 }
 
@@ -185,18 +190,6 @@ font-size: 20px;
   margin-top: 5px; /* Adjust the value to set the space between image and description */
 }
 
-.labsArrowContainer {
-  margin-top: 100px;
-  margin-left: 350px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
-.labsBack-arrow {
-  color: #29ada0;
-  font-size: 30px;
-}
 
 a {
   text-decoration: none;
@@ -234,4 +227,60 @@ a {
 
 .slideOutFromFolderAnimation {
   animation: slideOutFromFolder 1s ease-in-out forwards; /* Adjust the animation duration as needed */
+}
+
+.members-list {
+  display: flex; /* Arrange members horizontally */
+  flex-wrap: wrap; /* Allow members to wrap to next line if needed */
+  gap: 1rem; /* Add spacing between members */
+  margin-top: 40px;
+}
+
+.member-card {
+  border-radius: 7px; /* Add rounded corners */
+  padding: 1rem; /* Add padding inside the card */
+  display: flex; /* Arrange picture and name horizontally */
+  align-items: center; /* Align content vertically */
+  min-width: 500px; /* Set width for each card */
+  border: 1px solid #ccc; 
+
+}
+
+.member-profile-picture {
+  width: 50px; /* Set width for picture */
+  height: 50px; /* Set height for picture */
+  border-radius: 50%; /* Make picture circular */
+  object-fit: cover; /* Scale picture to fit within bounds */
+  margin-right: 1rem; /* Add margin between picture and name */
+}
+
+.member-name {
+  font-weight: lighter; /* Make name bold */
+  font-size: medium;
+}
+
+.member-card.owner { /* Styles when a member is the owner */
+  border: 2px solid orange;
+}
+
+.owner-label {
+  margin-left: auto; /* Push to the right */ 
+  color: black;
+}
+
+.MyLabs{
+  padding-left: 10px;
+}
+
+.navbarContainer{
+  display:flex;
+  flex-direction: column;
+}
+
+.labsButtons button{
+  padding:10px;
+  border: 1px solid #29ada0;
+  color: black;
+  background-color: #ccc;
+
 }

@@ -1,0 +1,36 @@
+.labs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 200px)); /* Responsive columns */
+    gap: 20px;
+    padding: 20px;
+    padding-left: 20px;
+    overflow-y: auto;  /* Enable vertical scrolling */
+    max-height: 500px;
+ 
+ }
+ .lab-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px; 
+    position: relative; /* Add this */
+ }
+ 
+ .lab-box::before { /* Using a pseudo-element for the square aspect ratio */
+   content: '';
+   display: block;
+   padding-top: 50%;
+   padding-bottom: 50%;
+   
+ }
+ 
+ .lab-box h3 { 
+    position: absolute; /* Position the name over the square */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Center the name*/
+    margin-bottom: 0; 
+    color: black;
+    font-size: medium;
+    font-weight: lighter;
+ }

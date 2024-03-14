@@ -1,0 +1,199 @@
+.labsPageMain{
+    margin-left: 250px;
+    margin-top: 100px;
+  }
+
+  .labsArrowContainer {
+    margin-top: 20px;
+    margin-left: 20px;
+    position: absolute;
+  }
+  
+  .labsBack-arrow {
+    color: #29ada0;
+    font-size: 30px;
+  }
+  .LabsContent h1{
+    margin-left: 30px;
+    font-size: 36px;
+  }
+  .LabsContent {
+    display:flex;
+  }
+  
+  .labsBody {
+    flex: 1; 
+    margin-left: 15px; 
+
+}
+.labsWrapper{
+    display: flex;
+    width:100%;
+}
+
+.labNavbarSection{
+    margin-top:75px;
+}
+.labInfo{
+    width:100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+/*for Labs Home*/
+.LabsPage {
+    margin-left: 30px;
+    margin-top: 100px;
+}
+/* Styles for the image preview */
+.labIconContainer {
+    display: flex;
+    justify-content: center; /* Center the image */
+    overflow: hidden;
+    width: 60px;
+    height:60px;
+  }
+  
+  .lab-icon-preview-container img { 
+    width: 100%;       /* Force image to take up the full width */
+    height: auto;       /* Automatic height to maintain aspect ratio */
+    object-fit: cover;  /* Crop the image */
+    border-radius: 6px; /* Add rounded corners */
+  }
+
+  .members-list {
+    display: flex; /* Arrange members horizontally */
+    flex-wrap: wrap; /* Allow members to wrap to next line if needed */
+    gap: 1rem; /* Add spacing between members */
+    margin-top: 40px;
+  }
+  
+  .member-card {
+    border-radius: 7px; /* Add rounded corners */
+    padding: 1rem; /* Add padding inside the card */
+    display: flex; /* Arrange picture and name horizontally */
+    align-items: center; /* Align content vertically */
+    min-width: 500px; /* Set width for each card */
+    border: 1px solid #ccc; 
+  
+  }
+  
+  .member-profile-picture {
+    width: 50px; /* Set width for picture */
+    height: 50px; /* Set height for picture */
+    border-radius: 50%; /* Make picture circular */
+    object-fit: cover; /* Scale picture to fit within bounds */
+    margin-right: 1rem; /* Add margin between picture and name */
+  }
+  
+  .member-name {
+    font-weight: lighter; /* Make name bold */
+    font-size: medium;
+  }
+  
+  .member-card.owner { /* Styles when a member is the owner */
+    border: 2px solid orange;
+  }
+  
+  .owner-label {
+    margin-left: auto; /* Push to the right */ 
+    color: black;
+  }
+  
+  .MyLabs{
+    padding-left: 10px;
+  }
+  
+  .navbarContainer{
+    display:flex;
+    flex-direction: column;
+  }
+
+  .LabsButtons button{
+    border-width: 3 px;
+    border-color: #29ada0;
+    padding:10px;
+    color: black;
+    background-color: aliceblue;
+    margin: 10px;
+    font-size: 16px;
+  
+  }
+
+  .LabsButtons button:hover{
+    background-color: gray;
+    color: white;
+    border-color: #FF7A69;
+    cursor:pointer;
+  }
+
+.LabsPage h1{
+    margin-top: 100px;
+    font-size: 48px;
+    text-decoration: none;
+    font-weight: lighter;
+}
+
+.LabsPage h2{
+  margin-top: 40px;
+
+  font-size: 32px;
+  text-decoration: none;
+}
+
+/* Overall Lab Settings Container */
+.labSettings {
+  margin: 30px auto; /* Center with some spacing */
+  padding: 20px;
+  max-width: 600px; /* Limit the max width for readability */
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 5px;
+}
+
+/* Settings Form Styling */
+.labSettings h2 {
+  text-align: center;
+  margin-bottom: 20px; 
+}
+
+.labSettings label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px; 
+}
+
+.labSettings input[type="text"],
+.labSettings input[type="file"] {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px; 
+  border-radius: 3px;
+}
+
+.labSettings button[type="submit"] {
+  background-color: #fd9752; /* Your theme color? */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.labSettings button[type="submit"]:hover {
+  background-color: #fd7529; /* Darker shade on hover */
+}
+
+/* Lab Icon Specific */
+.labIconSetting {
+  margin-bottom: 20px; 
+}
+
+.labIconSetting img {
+  max-width: 150px;
+  display: block;
+  margin: 10px auto; 
+  border: 1px solid #ddd;
+}

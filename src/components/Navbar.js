@@ -145,8 +145,6 @@ function Navbar() {
             </div>
             <div className='prof-name'>      
               <p className='userInformation1'>{userInfo.firstname},</p>
-            </div>
-            <div className='prof-role'>    
               <p className='userInformation'>{userInfo.Role}</p>
             </div>
             <div className='prof-notif'>

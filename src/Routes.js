@@ -5,7 +5,7 @@ import Signup from "./pages/signup.js";
 import Login from "./pages/login.js"
 import ProfileSetup from "./pages/profilesetup.js";
 import Home from "./pages/homepage.js";
-import Labs from "./pages/labs.js";
+import Labs from "./pages/labsHome.js";
 import Toolbox from "./pages/toolbox.js"
 import Messages from "./pages/messages.js";
 import Calendar from "./pages/calendar.js";
@@ -15,21 +15,20 @@ import { Navigate } from "react-router";
 import Video from "./components/Video.jsx";
 import { AuthContext } from "./Context/AuthContext.jsx";
 import UserProfile from "./pages/user-Profile.js";
-import LabDetails from "./pages/labDetails.js";
-import LabsAnnouncements from "./pages/labsAnnouncement.js";
+import LabDetails from "./pages/labs/labDetails.js";
+import LabsAnnouncements from "./pages/labs/labsAnnouncement.js";
 import VerifyEmail from "./pages/verifyEmail.js";
+import LabMembers from './pages/labs/labMembers.js';
+import LabLayout from "./pages/labs/labLayout.js";
+import LabSettings from "./pages/labs/labSettings.js";
 
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
 
 
   const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
-      return <Navigate to="/login" />
-    }
-
     return children;
-  }
+  };
   return (
     <Routes>
       <Route path="/" element={<LandingPage />}></Route>
@@ -39,8 +38,12 @@ const Rout = () => {
       <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
       <Route path="/messages" element={<Messages/>}></Route>
       <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>}></Route>
-      <Route path="/labDetails" element={<LabDetails />}></Route>
-      <Route path="/labAnnouncements" element={<LabsAnnouncements />}></Route>
+      <Route path="/labs/:labId" element={<LabLayout />}> 
+        <Route index element={<LabDetails />} />
+        <Route path="announcements" element={<LabsAnnouncements />} />
+        <Route path="members" element={<LabMembers />} />
+        <Route path="settings" element={<LabSettings />} />
+      </Route>
       <Route path="/toolbox" element={<ProtectedRoute><Toolbox /></ProtectedRoute>}></Route>
       <Route path="/calendar" element={<ProtectedRoute><CalendarApp /></ProtectedRoute>}></Route>
       <Route path="/interest" element={<ProtectedRoute><Interests/></ProtectedRoute>}></Route>

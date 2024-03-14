@@ -37,7 +37,7 @@ body{
 
 .nav-menu {
   background-color: #29ada0;
-  width: 350px;
+  width: 250px;
   height: 100vh;
   display: flex;
   justify-content: center; 
@@ -80,7 +80,7 @@ body{
 }
 
 .nav-menu-items {
-  width: 80%;
+  width: 100%;
 }
 
 .navbar-toggle {
@@ -161,7 +161,7 @@ span {
   margin-right: 0.5rem; /* Space between the input and the button */
   border: 4px solid  #29ada0;
   border-radius: 20px;
-  width: 50vw;
+  width: 40vw;
   height: 45px;
 }
 
@@ -186,8 +186,8 @@ span {
   border: 4px solid black;
 }
 .pfp-logo img{
-  width: 30%;
-  height: 13%;
+  width: 70px;
+  height: 70px;
   border-radius: 100%;
   position: absolute;
   border: 4px solid black;
@@ -202,7 +202,7 @@ span {
 .prof-name{
   position: absolute;
   left: 77vw;
-  padding: 100px;
+  padding: 10px;
   font-size: 20px;
   top: -70px;
   color: black;
@@ -230,7 +230,7 @@ span {
   }
 
   .search-bar {
-    top: 20px;
+    top: 15px;
     left: 60%;
     transform: translateX(-15%);
     margin-right: 0;
