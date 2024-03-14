@@ -1,35 +1,13 @@
 // LabDetails.js
 
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../../components/Navbar';
 import { Link } from 'react-router-dom';
-import '../styles/labs.css';
+import '../../styles/labs.css';
 
 const LabAnnouncements = () => {
   return (
     <div>
-      <Navbar />
-
-      <div className='LabsPageAnnouncement'>
-      <div className="labsArrowContainer">
-          <Link to="/labs">
-            <span className='labsBack-arrow'>←</span>
-          </Link>
-        </div>
-        {/* Sidebar with lab members */}
-        <div className="labSideBar">
-          <div className="labSideBarText">
-            <ul>
-            <Link to="/labDetails">
-              <p>Lab Files</p>
-              </Link>
-              <p>Lab Members</p>
-              <p>Announcements</p>
-              <p>Leave Lab</p>
-            </ul>
-          </div>
-        </div>
-
         <div className="LabsContent">
           
           <h1>Lab A</h1>
@@ -47,7 +25,6 @@ const LabAnnouncements = () => {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };

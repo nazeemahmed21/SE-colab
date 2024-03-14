@@ -1,0 +1,31 @@
+.lab-navbar {
+    border-radius: 8px;
+    height: 55vh;
+    margin-top: 50px;
+    margin-left: 20px;
+    width: 240px;
+    color: black;
+    border: 2px solid black;
+  }
+  .lab-navbarText {
+    margin-top: 70px;
+    padding: 20px;
+  }
+  
+  .lab-navbar ul {
+    align-items: space-between;
+    list-style-type: none;
+    padding: 20px;
+  }
+  
+  .lab-navbar li {
+    align-items: space-evenly;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .lab-navbar a {
+    text-decoration: none;
+    color: black;
+  }
+  
