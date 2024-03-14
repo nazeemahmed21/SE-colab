@@ -1,16 +1,8 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .tlbxmenu {
   margin: 0 auto;
   position: absolute;
   top: 12%;
   left: 30%;
-  /* margin-left: -25px;
-  margin-top: -25px; */
   text-align: center;
 }
 
@@ -63,7 +55,6 @@
 
 #one {
   position: absolute;
-  z-index: 1;
   top: 18%;
   left: 45%;
   animation: fadein 3s ease 2s forwards;
@@ -71,7 +62,6 @@
 
 #two {
   position: absolute;
-  z-index: 1;
   top: 26.5%;
   left: 63.1%;
   animation: fadein 3s ease 2s forwards;
@@ -79,7 +69,6 @@
 
 #three {
   position: absolute;
-  z-index: 1;
   top: 51%;
   left: 71.5%;
   animation: fadein 3s ease 2s forwards;
@@ -87,7 +76,6 @@
 
 #four {
   position: absolute;
-  z-index: 1;
   top: 28%;
   left: 27.5%;
   animation: fadein 3s ease 2s forwards;
@@ -95,7 +83,6 @@
 
 #five {
   position: absolute;
-  z-index: 1;
   top: 51.5%;
   left: 20%;
   animation: fadein 3s ease 2s forwards;
@@ -103,7 +90,6 @@
 
 #six {
   position: absolute;
-  z-index: 1;
   top: 75.5%;
   left: 26.5%;
   animation: fadein 3s ease 2s forwards;
@@ -111,7 +97,6 @@
 
 #seven {
   position: absolute;
-  z-index: 1;
   top: 85%;
   left: 45.2%;
   animation: fadein 3s ease 2s forwards;
@@ -119,7 +104,6 @@
 
 #eight {
   position: absolute;
-  z-index: 1;
   top: 75%;
   left: 64%;
   animation: fadein 3s ease 2s forwards;
@@ -181,4 +165,1656 @@
 
 .tlbxmenu a:hover {
   color: #29ada0;
+}
+
+@media screen and (min-width: 280px) and (max-width: 281px) {
+  .tlbxmenu {
+    top: 17%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 105%;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 39%;
+    left: 36%;
+  }
+
+  #two {
+    top: 45%;
+    left: 61%;
+  }
+
+  #three {
+    top: 61%;
+    left: 72%;
+  }
+
+  #four {
+    top: 45%;
+    left: 14.5%;
+  }
+
+  #five {
+    top: 61%;
+    left: 1%;
+  }
+
+  #six {
+    top: 76%;
+    left: 12.5%;
+  }
+
+  #seven {
+    top: 85%;
+    left: 36.5%;
+  }
+
+  #eight {
+    top: 76%;
+    left: 60.5%;
+  }
+}
+
+@media screen and (min-width: 282px) and (max-width: 290px) {
+  .tlbxmenu {
+    top: 17%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 105%;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 39%;
+    left: 36.5%;
+  }
+
+  #two {
+    top: 45%;
+    left: 61.5%;
+  }
+
+  #three {
+    top: 61%;
+    left: 72.5%;
+  }
+
+  #four {
+    top: 45%;
+    left: 14.5%;
+  }
+
+  #five {
+    top: 61%;
+    left: 1%;
+  }
+
+  #six {
+    top: 76%;
+    left: 13%;
+  }
+
+  #seven {
+    top: 85%;
+    left: 37%;
+  }
+
+  #eight {
+    top: 76%;
+    left: 61%;
+  }
+}
+
+@media screen and (min-width: 291px) and (max-width: 295px) {
+  .tlbxmenu {
+    top: 17%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 105%;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 37%;
+    left: 36.9%;
+  }
+
+  #two {
+    top: 43%;
+    left: 64%;
+  }
+
+  #three {
+    top: 61%;
+    left: 74%;
+  }
+
+  #four {
+    top: 43%;
+    left: 13%;
+  }
+
+  #five {
+    top: 61%;
+    left: 0%;
+  }
+
+  #six {
+    top: 77%;
+    left: 12.5%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 37%;
+  }
+
+  #eight {
+    top: 77%;
+    left: 63%;
+  }
+}
+
+@media screen and (min-width: 296px) and (max-width: 310px) {
+  .tlbxmenu {
+    top: 17%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 105%;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 37%;
+    left: 37.5%;
+  }
+
+  #two {
+    top: 43%;
+    left: 64%;
+  }
+
+  #three {
+    top: 60.5%;
+    left: 75%;
+  }
+
+  #four {
+    top: 43.5%;
+    left: 14%;
+  }
+
+  #five {
+    top: 60.5%;
+    left: 1%;
+  }
+
+  #six {
+    top: 77%;
+    left: 13%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 38%;
+  }
+
+  #eight {
+    top: 77%;
+    left: 64%;
+  }
+}
+
+@media screen and (min-width: 311px) and (max-width: 321px) {
+  .tlbxmenu {
+    top: 17%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 105%;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 36%;
+    left: 38%;
+  }
+
+  #two {
+    top: 42%;
+    left: 65%;
+  }
+
+  #three {
+    top: 60%;
+    left: 76%;
+  }
+
+  #four {
+    top: 43%;
+    left: 14.5%;
+  }
+
+  #five {
+    top: 60%;
+    left: 0%;
+  }
+
+  #six {
+    top: 78%;
+    left: 12.5%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 38%;
+  }
+
+  #eight {
+    top: 78%;
+    left: 65%;
+  }
+}
+
+@media screen and (min-width: 322px) and (max-width: 330px) {
+  .tlbxmenu {
+    top: 17%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 105%;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 34%;
+    left: 38.5%;
+  }
+
+  #two {
+    top: 41%;
+    left: 66%;
+  }
+
+  #three {
+    top: 60%;
+    left: 77%;
+  }
+
+  #four {
+    top: 42%;
+    left: 14%;
+  }
+
+  #five {
+    top: 60%;
+    left: 1%;
+  }
+
+  #six {
+    top: 78%;
+    left: 12.5%;
+  }
+
+  #seven {
+    top: 86.5%;
+    left: 39%;
+  }
+
+  #eight {
+    top: 78%;
+    left: 66%;
+  }
+}
+
+@media screen and (min-width: 331px) and (max-width: 339px) {
+  .tlbxmenu {
+    top: 17%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 105%;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 34%;
+    left: 38.5%;
+  }
+
+  #two {
+    top: 41%;
+    left: 66%;
+  }
+
+  #three {
+    top: 60%;
+    left: 77%;
+  }
+
+  #four {
+    top: 42%;
+    left: 14.5%;
+  }
+
+  #five {
+    top: 60%;
+    left: 1%;
+  }
+
+  #six {
+    top: 78%;
+    left: 12.5%;
+  }
+
+  #seven {
+    top: 87%;
+    left: 39%;
+  }
+
+  #eight {
+    top: 78%;
+    left: 66%;
+  }
+}
+
+@media screen and (min-width: 340px) and (max-width: 360px) {
+  .tlbxmenu {
+    top: 17%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 105%;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 30%;
+    left: 39%;
+  }
+
+  #two {
+    top: 37%;
+    left: 67%;
+  }
+
+  #three {
+    top: 57%;
+    left: 78%;
+  }
+
+  #four {
+    top: 38%;
+    left: 14%;
+  }
+
+  #five {
+    top: 57%;
+    left: 1%;
+  }
+
+  #six {
+    top: 77%;
+    left: 12.5%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 39%;
+  }
+
+  #eight {
+    top: 77%;
+    left: 67%;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 375px) {
+  .tlbxmenu {
+    top: 16%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 100%;
+  }
+
+  .tlbx8icons {
+    height: 35px;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 30%;
+    left: 38%;
+  }
+
+  #two {
+    top: 37%;
+    left: 64%;
+  }
+
+  #three {
+    top: 58%;
+    left: 76%;
+  }
+
+  #four {
+    top: 38%;
+    left: 13%;
+  }
+
+  #five {
+    top: 58%;
+    left: 1%;
+  }
+
+  #six {
+    top: 78%;
+    left: 12%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 38.5%;
+  }
+
+  #eight {
+    top: 77%;
+    left: 64%;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 414px) {
+  .tlbxmenu {
+    top: 16%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 100%;
+  }
+
+  .tlbx8icons {
+    height: 35px;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 28%;
+    left: 39%;
+  }
+
+  #two {
+    top: 36%;
+    left: 65%;
+  }
+
+  #three {
+    top: 57%;
+    left: 76%;
+  }
+
+  #four {
+    top: 36.2%;
+    left: 13%;
+  }
+
+  #five {
+    top: 57%;
+    left: 1%;
+  }
+
+  #six {
+    top: 78%;
+    left: 13%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 39%;
+  }
+
+  #eight {
+    top: 78%;
+    left: 66%;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 450px) {
+  .tlbxmenu {
+    top: 15%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 100%;
+  }
+
+  .tlbx8icons {
+    height: 35px;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 27%;
+    left: 39.5%;
+  }
+
+  #two {
+    top: 35%;
+    left: 66%;
+  }
+
+  #three {
+    top: 56%;
+    left: 77%;
+  }
+
+  #four {
+    top: 36%;
+    left: 14%;
+  }
+
+  #five {
+    top: 57%;
+    left: 2%;
+  }
+
+  #six {
+    top: 78%;
+    left: 13%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 40%;
+  }
+
+  #eight {
+    top: 77%;
+    left: 67%;
+  }
+}
+
+@media screen and (min-width: 451px) and (max-width: 470px) {
+  .tlbxmenu {
+    top: 15%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 100%;
+  }
+
+  .tlbx8icons {
+    height: 35px;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 26%;
+    left: 40%;
+  }
+
+  #two {
+    top: 34%;
+    left: 67%;
+  }
+
+  #three {
+    top: 56%;
+    left: 78%;
+  }
+
+  #four {
+    top: 35%;
+    left: 14%;
+  }
+
+  #five {
+    top: 56%;
+    left: 2%;
+  }
+
+  #six {
+    top: 77%;
+    left: 14%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 40%;
+  }
+
+  #eight {
+    top: 77%;
+    left: 67%;
+  }
+}
+
+@media screen and (min-width: 471px) and (max-width: 490px) {
+  .tlbxmenu {
+    top: 15%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 100%;
+  }
+
+  .tlbx8icons {
+    height: 35px;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 26%;
+    left: 41%;
+  }
+
+  #two {
+    top: 34%;
+    left: 67%;
+  }
+
+  #three {
+    top: 56%;
+    left: 78%;
+  }
+
+  #four {
+    top: 35%;
+    left: 14%;
+  }
+
+  #five {
+    top: 56%;
+    left: 2%;
+  }
+
+  #six {
+    top: 77.5%;
+    left: 14%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 41%;
+  }
+
+  #eight {
+    top: 77.5%;
+    left: 67%;
+  }
+}
+
+@media screen and (min-width: 491px) and (max-width: 510px) {
+  .tlbxmenu {
+    top: 13%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 100%;
+  }
+
+  .tlbx8icons {
+    height: 35px;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 25%;
+    left: 41%;
+  }
+
+  #two {
+    top: 34%;
+    left: 67%;
+  }
+
+  #three {
+    top: 56%;
+    left: 78%;
+  }
+
+  #four {
+    top: 34%;
+    left: 15%;
+  }
+
+  #five {
+    top: 56%;
+    left: 2%;
+  }
+
+  #six {
+    top: 77.5%;
+    left: 14%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 41%;
+  }
+
+  #eight {
+    top: 77.5%;
+    left: 67%;
+  }
+}
+
+@media screen and (min-width: 511px) and (max-width: 530px) {
+  .tlbxmenu {
+    top: 15%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 100%;
+  }
+
+  .tlbx8icons {
+    height: 35px;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 25%;
+    left: 41%;
+  }
+
+  #two {
+    top: 33%;
+    left: 68%;
+  }
+
+  #three {
+    top: 55%;
+    left: 79%;
+  }
+
+  #four {
+    top: 33.5%;
+    left: 15%;
+  }
+
+  #five {
+    top: 55%;
+    left: 3%;
+  }
+
+  #six {
+    top: 77.5%;
+    left: 15%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 41.5%;
+  }
+
+  #eight {
+    top: 77.5%;
+    left: 68%;
+  }
+}
+
+@media screen and (min-width: 531px) and (max-width: 570px) {
+  .tlbxmenu {
+    top: 12%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 98%;
+  }
+
+  .tlbx8icons {
+    height: 40px;
+  }
+
+  .toolboxbtn {
+    font-size: 0px;
+  }
+
+  #one {
+    top: 24.5%;
+    left: 41.5%;
+  }
+
+  #two {
+    top: 33%;
+    left: 68%;
+  }
+
+  #three {
+    top: 55%;
+    left: 79%;
+  }
+
+  #four {
+    top: 33%;
+    left: 15%;
+  }
+
+  #five {
+    top: 56%;
+    left: 4%;
+  }
+
+  #six {
+    top: 77.5%;
+    left: 15%;
+  }
+
+  #seven {
+    top: 87%;
+    left: 41.5%;
+  }
+
+  #eight {
+    top: 77.5%;
+    left: 68%;
+  }
+}
+
+@media screen and (min-width: 571px) and (max-width: 650px) {
+  .tlbxmenu {
+    top: 14%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 98%;
+  }
+
+  .tlbx8icons {
+    height: 40px;
+  }
+
+  .toolboxbtn {
+    font-size: 15px;
+  }
+
+  #one {
+    top: 22%;
+    left: 42.5%;
+  }
+
+  #two {
+    top: 30.5%;
+    left: 67%;
+  }
+
+  #three {
+    top: 53%;
+    left: 81%;
+  }
+
+  #four {
+    top: 30.5%;
+    left: 18%;
+  }
+
+  #five {
+    top: 53%;
+    left: 8%;
+  }
+
+  #six {
+    top: 76%;
+    left: 17%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 42.5%;
+  }
+
+  #eight {
+    top: 75%;
+    left: 69%;
+  }
+}
+
+@media screen and (min-width: 651px) and (max-width: 700px) {
+  .tlbxmenu {
+    top: 14%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 98%;
+  }
+
+  .tlbx8icons {
+    height: 40px;
+  }
+
+  .toolboxbtn {
+    font-size: 16px;
+  }
+
+  #one {
+    top: 18%;
+    left: 43%;
+  }
+
+  #two {
+    top: 27.5%;
+    left: 67%;
+  }
+
+  #three {
+    top: 51%;
+    left: 81%;
+  }
+
+  #four {
+    top: 27%;
+    left: 18%;
+  }
+
+  #five {
+    top: 51%;
+    left: 8%;
+  }
+
+  #six {
+    top: 75%;
+    left: 17%;
+  }
+
+  #seven {
+    top: 85%;
+    left: 43%;
+  }
+
+  #eight {
+    top: 74%;
+    left: 70%;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 750px) {
+  .tlbxmenu {
+    top: 11%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 98%;
+  }
+
+  .tlbx8icons {
+    height: 40px;
+  }
+
+  .toolboxbtn {
+    font-size: 16px;
+  }
+
+  #one {
+    top: 17%;
+    left: 43.5%;
+  }
+
+  #two {
+    top: 27%;
+    left: 68%;
+  }
+
+  #three {
+    top: 51%;
+    left: 81%;
+  }
+
+  #four {
+    top: 27%;
+    left: 18%;
+  }
+
+  #five {
+    top: 51%;
+    left: 8%;
+  }
+
+  #six {
+    top: 76%;
+    left: 17.5%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 43.5%;
+  }
+
+  #eight {
+    top: 75%;
+    left: 70%;
+  }
+}
+
+@media screen and (min-width: 751px) and (max-width: 768px) {
+  .tlbxmenu {
+    top: 8%;
+    left: 1%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 98%;
+  }
+
+  .tlbx8icons {
+    height: 40px;
+  }
+
+  .toolboxbtn {
+    font-size: 16px;
+  }
+
+  #one {
+    top: 16%;
+    left: 43.5%;
+  }
+
+  #two {
+    top: 26%;
+    left: 69.5%;
+  }
+
+  #three {
+    top: 51%;
+    left: 82%;
+  }
+
+  #four {
+    top: 26%;
+    left: 18%;
+  }
+
+  #five {
+    top: 51%;
+    left: 8%;
+  }
+
+  #six {
+    top: 76.5%;
+    left: 17.5%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 44%;
+  }
+
+  #eight {
+    top: 75.5%;
+    left: 70%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 810px) {
+  .tlbxmenu {
+    top: 9%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 98%;
+  }
+
+  .tlbx8icons {
+    height: 40px;
+  }
+
+  .toolboxbtn {
+    font-size: 16px;
+  }
+
+  #one {
+    top: 17%;
+    left: 43.5%;
+  }
+
+  #two {
+    top: 27%;
+    left: 68.5%;
+  }
+
+  #three {
+    top: 51%;
+    left: 81%;
+  }
+
+  #four {
+    top: 27%;
+    left: 18%;
+  }
+
+  #five {
+    top: 51%;
+    left: 8%;
+  }
+
+  #six {
+    top: 76%;
+    left: 17.5%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 43.5%;
+  }
+
+  #eight {
+    top: 75%;
+    left: 70%;
+  }
+}
+
+@media screen and (min-width: 811px) and (max-width: 860px) {
+  .tlbxmenu {
+    top: 7%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 92%;
+  }
+
+  .tlbx8icons {
+    height: 40px;
+  }
+
+  .toolboxbtn {
+    font-size: 16px;
+  }
+
+  #one {
+    top: 17%;
+    left: 44%;
+  }
+
+  #two {
+    top: 25.5%;
+    left: 69%;
+  }
+
+  #three {
+    top: 51%;
+    left: 81%;
+  }
+
+  #four {
+    top: 27%;
+    left: 20%;
+  }
+
+  #five {
+    top: 51%;
+    left: 10%;
+  }
+
+  #six {
+    top: 76%;
+    left: 19%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 44.5%;
+  }
+
+  #eight {
+    top: 75%;
+    left: 70%;
+  }
+}
+
+@media screen and (min-width: 861px) and (max-width: 890px) {
+  .tlbxmenu {
+    top: 9%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 86%;
+  }
+
+  .tlbx8icons {
+    height: 40px;
+  }
+
+  #one {
+    top: 16%;
+    left: 44.5%;
+  }
+
+  #two {
+    top: 25%;
+    left: 68%;
+  }
+
+  #three {
+    top: 51%;
+    left: 78.5%;
+  }
+
+  #four {
+    top: 26.5%;
+    left: 21.5%;
+  }
+
+  #five {
+    top: 51%;
+    left: 13%;
+  }
+
+  #six {
+    top: 76.5%;
+    left: 21%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 44.5%;
+  }
+
+  #eight {
+    top: 76%;
+    left: 68%;
+  }
+}
+
+@media screen and (min-width: 891px) and (max-width: 950px) {
+  .tlbxmenu {
+    top: 10%;
+    left: 0%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 80%;
+  }
+
+  .toolboxbtn {
+    font-size: 16px;
+  }
+
+  #one {
+    top: 17%;
+    left: 44.5%;
+  }
+
+  #two {
+    top: 26%;
+    left: 66%;
+  }
+
+  #three {
+    top: 51%;
+    left: 76%;
+  }
+
+  #four {
+    top: 27%;
+    left: 24%;
+  }
+
+  #five {
+    top: 51%;
+    left: 16%;
+  }
+
+  #six {
+    top: 76%;
+    left: 23%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 45%;
+  }
+
+  #eight {
+    top: 75.5%;
+    left: 67%;
+  }
+}
+
+@media screen and (min-width: 951px) and (max-width: 1000px) {
+  .tlbxmenu {
+    top: 12%;
+    left: 3%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 75%;
+  }
+
+  .toolboxbtn {
+    font-size: 16px;
+  }
+
+  #one {
+    top: 17%;
+    left: 45%;
+  }
+
+  #two {
+    top: 26%;
+    left: 65%;
+  }
+
+  #three {
+    top: 51%;
+    left: 74.5%;
+  }
+
+  #four {
+    top: 27%;
+    left: 25.5%;
+  }
+
+  #five {
+    top: 51%;
+    left: 18%;
+  }
+
+  #six {
+    top: 76%;
+    left: 25%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 45%;
+  }
+
+  #eight {
+    top: 75%;
+    left: 66%;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1100px) {
+  .tlbxmenu {
+    top: 11%;
+    left: 4%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 75%;
+  }
+
+  .toolboxbtn {
+    font-size: 16px;
+  }
+
+  #one {
+    top: 17%;
+    left: 45%;
+  }
+
+  #two {
+    top: 26%;
+    left: 65%;
+  }
+
+  #three {
+    top: 51%;
+    left: 74.5%;
+  }
+
+  #four {
+    top: 27%;
+    left: 25.5%;
+  }
+
+  #five {
+    top: 51%;
+    left: 18%;
+  }
+
+  #six {
+    top: 76%;
+    left: 25%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 45%;
+  }
+
+  #eight {
+    top: 75%;
+    left: 66%;
+  }
+}
+
+@media screen and (min-width: 1101px) and (max-width: 1200px) {
+  .tlbxmenu {
+    top: 11%;
+    left: 11%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 75%;
+  }
+
+  .toolboxbtn {
+    font-size: 16px;
+  }
+
+  #one {
+    top: 17%;
+    left: 45%;
+  }
+
+  #two {
+    top: 26%;
+    left: 65%;
+  }
+
+  #three {
+    top: 51%;
+    left: 74.5%;
+  }
+
+  #four {
+    top: 27%;
+    left: 25.5%;
+  }
+
+  #five {
+    top: 51%;
+    left: 18%;
+  }
+
+  #six {
+    top: 76%;
+    left: 25%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 45%;
+  }
+
+  #eight {
+    top: 75%;
+    left: 66%;
+  }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1300px) {
+  .tlbxmenu {
+    top: 11%;
+    left: 12%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tlbxbox {
+    width: 75%;
+  }
+
+  .toolboxbtn {
+    font-size: 16px;
+  }
+
+  #one {
+    top: 17%;
+    left: 45%;
+  }
+
+  #two {
+    top: 26%;
+    left: 65%;
+  }
+
+  #three {
+    top: 51%;
+    left: 74.5%;
+  }
+
+  #four {
+    top: 27%;
+    left: 25.5%;
+  }
+
+  #five {
+    top: 51%;
+    left: 18%;
+  }
+
+  #six {
+    top: 76%;
+    left: 25%;
+  }
+
+  #seven {
+    top: 86%;
+    left: 45%;
+  }
+
+  #eight {
+    top: 75%;
+    left: 66%;
+  }
 }
