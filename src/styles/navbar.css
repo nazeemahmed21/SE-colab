@@ -24,6 +24,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  z-index: 1001;
 }
 
 .menu-bars {
