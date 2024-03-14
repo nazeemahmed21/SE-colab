@@ -8,36 +8,36 @@ export const SidebarData = [
     title: 'Home',
     path: '/home',
     icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
+    cName: 'nb-nav-text'
   },
   {
     title: 'Labs',
     path: '/labs',
     icon: <FaIcons.FaFlask />,
-    cName: 'nav-text'
+    cName: 'nb-nav-text'
   },
   {
     title: 'Messages',
     path: '/messages',
     icon: <BiIcons.BiSolidMessageSquare/>,
-    cName: 'nav-text'
+    cName: 'nb-nav-text'
   },
   {
     title: 'Toolbox',
     path: '/toolbox',
     icon: <FaIcons.FaToolbox />,
-    cName: 'nav-text'
+    cName: 'nb-nav-text'
   },
   {
     title: 'Calendar',
     path: '/calendar',
     icon: <FaIcons.FaCalendarAlt />,
-    cName: 'nav-text'
+    cName: 'nb-nav-text'
   }, 
   {
     title: 'User Profile',
     path: '/user-prof',
     icon: <FaIcons.FaRegUserCircle/>,
-    cName: 'nav-text'
+    cName: 'nb-nav-text'
   },
 ]

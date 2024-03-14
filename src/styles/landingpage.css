@@ -1,134 +1,269 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 body, html {
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  height: 100vh;
 }
 
-.landing-page {
-  position: relative; /* Ensures that the wrapper is positioned relative to the section */
-}
-
-.wrapper {
-  position: relative; /* Required for absolute positioning of the 'hello' tag */
-}
-
-.wrapper img {
+.landing-p-wrapper {
+  position: absolute;
   width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  /* filter: blur(5px); */
+  min-height: 100vh;
+  background-color: #fea059;
 }
-.wrapper .logo img{
-  position: absolute;
-  top: 35px;  
-  left: 65px;
-  width: 95px;
-  height: 95px;
-  filter: none;
-}
-.wrapper .video img{
-  position: absolute;
-  top: 50%;
-  padding: 40px 40px;
-  left: 25vw;
-  width: 200px;
-  height: 200px;
-  filter: none;
-  border: 3px solid white;
-  background-position: center;
-  background-size: cover;
-}
-.wrapper .wb img{
-  position: absolute;
-  top: 50%;
-  padding: 40px 40px;
-  left: 43vw;
-  width: 200px;
-  height: 200px;
-  filter: none;
-  border: 3px solid white;
-}
-.wrapper .teams img{
-  position: absolute;
-  top: 50%;
-  padding: 40px 40px;
-  left: 61vw;
-  width: 200px;
-  height: 200px;
-  filter: none;
-  border: 3px solid white;
-}
-.wrapper .header {
-  font-weight: bold;
-  position: absolute;
-  font-family: 'Kanit', sans-serif;   
-  top: 27%; /* Adjust the top position as needed */
-  left: 50%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the 'hello' tag */
-  font-size: 100px; /* Set the font size as needed */
-  color: rgb(253, 254, 255); /* Set the text color */
-  /* Add additional styling properties as needed */
-}
-.wrapper .slogan{
-  font-weight: bold;
-  position: absolute;
-  font-family: 'Kanit', sans-serif; 
-  font-style: italic;  
-  top: 37%; /* Adjust the top position as needed */
-  left: 50%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the 'hello' tag */
-  font-size: 30px; /* Set the font size as needed */
-  color: rgb(249, 249, 249); /* Set the text color */
-  /* Add additional styling properties as needed */
-}
-.wrapper .desc{
-  font-weight: bold;
-  position: absolute;
-  font-family: 'Kanit', sans-serif; 
-  font-style: italic;  
-  top: 43%; /* Adjust the top position as needed */
-  left: 50%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the 'hello' tag */
-  font-size: 20px; /* Set the font size as needed */
-  color: rgb(249, 249, 249); /* Set the text color */
-  /* Add additional styling properties as needed */
-}
-.wrapper .register{
-  top: 4.5%; /* Adjust the top position as needed */
-  left: 77%; /* Adjust the left position as needed */
+
+/* Adjust button styles for better positioning */
+.landing-p-login, .landing-p-register {
   padding: 14px 28px;
   font-weight: bold;
-  position: fixed;
-  font-family: sans-serif; 
-  text-transform: uppercase;
-  border: 1px solid  rgba(109, 64, 2, 0);
-  border-radius: 5px;
-  background-color:inherit;
-  transform: translate(-50%, -50%); /* Center the 'hello' tag */
-  font-size: 1.7rem; /* Set the font size as needed */
-  color: white; /* Set the text color */
-  font-weight: 600;
-  /* Add additional styling properties as needed */
-}
-.wrapper .login{
-  top: 4.5%; /* Adjust the top position as needed */
-  left: 85%; /* Adjust the left position as needed */
-  padding: 14px 28px;
-  font-weight: bold;
-  position: fixed;
-  font-family: sans-serif; 
+  position: absolute;
+  font-family: sans-serif;
   text-transform: uppercase;
   background-color: inherit;
-  border: 1px solid  rgba(109, 64, 2, 0);
+  border: 1px solid transparent;
   border-radius: 4px;
-  transform: translate(-50%, -50%); /* Center the 'hello' tag */
-  font-size: 1.7rem; /* Set the font size as needed */
-  color: white; /* Set the text color */
-  font-weight: 600;
-  /* Add additional styling properties as needed */
+
+  font-size: 1.8rem;
+  color: black;
+  cursor: pointer;
 }
-.wrapper button:hover{
-  background-color: rgb(188,49,53);
-  color: rgb(255, 255, 255);
+
+.landing-p-login {
+  top: 0%;
+  right: 10%;
+}
+
+.landing-p-register {
+  top: 0%;
+  right: 2%;
+}
+
+/* Hover effect for buttons */
+.landing-p-wrapper button:hover {
+  background-color: #29ADA0;
+  color: white;
+}
+
+.lp-main-h, .lp-sh-1, .lp-sh-2, .lp-desc, .lp-blob, .lp-img-1, .lp-img-2, .lp-logo {
+  position: absolute;
+}
+
+.lp-main-h {
+  top: 30%;
+  font-size: 100px;
+  left: 5%;
+}
+
+.lp-sh-1, .lp-sh-2 {
+  font-size: 50px;
+  top: 45%;
+  left: 5%;
+}
+
+.lp-desc {
+  top: 55%;
+  font-size: 25px;
+  left: 5%;
+  transition: transform 0.3s;
+}
+
+.lp-desc:hover {
+  transform: translateY(-5px); 
+}
+
+.lp-blob {
+  top: 5%;
+  right: 1%;
+  width: 50%;
+}
+
+.lp-img-1, .lp-img-2 {
+  border-radius: 150px;
+}
+
+.lp-img-1 {
+  width: 19%;
+  top: 30%;
+  right: 17%;
+}
+
+.lp-img-2 {
+  width: 30%;
+  top: 35%;
+  right: 10%;
+}
+
+.lp-logo {
+  top: 3%;
+  left: 5%;
+  width: 6%;
+  transition: transform 0.3s;
+}
+
+.lp-logo:hover {
+  transform: translateY(-5px); 
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeIn 5s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 5s forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) { /* Tablets */
+  .lp-main-h {
+    font-size: 60px; /* Smaller font size */
+    top: 20%; /* Adjust positioning */
+  }
+
+  .lp-sh-1, .lp-sh-2 {
+    font-size: 30px; /* Smaller font size */
+  }
+
+  .lp-desc {
+    font-size: 18px; /* Smaller font size */
+    top: 50%; /* Adjust positioning */
+  }
+
+  .lp-img-1 {
+    width: 28%; /* Larger for visibility */
+    top: 15%; /* Adjust positioning */
+  }
+
+  .lp-img-2 {
+    width: 32%; /* Larger for visibility */
+    top: 15%; /* Adjust positioning */
+  }
+  .lp-blob {
+    width: 60%; /* Adjust blob size */
+    right: -3%;
+  }
+  
+  .landing-p-register {
+    padding: 14px 28px;
+    font-weight: bold;
+    position: absolute;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    background-color: inherit;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    top: 0%;
+    right: 15%; 
+  
+    font-size: 1.8rem;
+    color: black;
+    cursor: pointer;
+  }
+
+  .landing-p-login{
+    padding: 14px 28px;
+    font-weight: bold;
+    position: absolute;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    background-color: inherit;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    top: 0%;
+    right: 0%; 
+  
+    font-size: 1.8rem;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 480px) { /* Mobile phones */
+  .lp-main-h, .lp-sh-1, .lp-sh-2, .lp-desc {
+    left: 3%; /* Adjust text alignment */
+  }
+
+  .landing-p-register {
+    padding: 14px 28px;
+    font-weight: bold;
+    position: absolute;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    background-color: inherit;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    top: 0%;
+    right: 15%; 
+  
+    font-size: 1.8rem;
+    color: black;
+    cursor: pointer;
+  }
+
+  .landing-p-login{
+    padding: 14px 28px;
+    font-weight: bold;
+    position: absolute;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    background-color: inherit;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    top: 0%;
+    right: 0%; 
+  
+    font-size: 1.8rem;
+    color: black;
+    cursor: pointer;
+  }
+
+
+  .lp-main-h {
+    font-size: 40px; /* Further reduce for small screens */
+    top: 15%; /* Adjust positioning */
+    left: 5%; /* Ensure visibility */
+
+  }
+
+  .lp-sh-1, .lp-sh-2 {
+    font-size: 20px; /* Reduce size */
+  }
+
+  .lp-desc {
+    font-size: 14px; /* Smaller text */
+    top: 50%; /* Adjust positioning */
+  }
+
+  .lp-img-1, .lp-img-2 {
+    width: 30%; /* Adjust image size */
+    top: 15%; /* Adjust image positioning*/
+  }
+
+  .lp-blob {
+    width: 60%; /* Adjust blob size for small screens */
+    top: 10%; /* Adjust positioning */
+  }
+
+  .landing-p-login, .landing-p-register {
+    font-size: 1.4rem; /* Adjust button font size */
+    padding: 10px 22px; /* Adjust button padding */
+  }
+
+  .lp-logo {
+    width: 15%; /* Adjust logo size */
+    top: 3%; /* Adjust logo positioning */
+    left: 5%; /* Ensure visibility */
+  }
 }

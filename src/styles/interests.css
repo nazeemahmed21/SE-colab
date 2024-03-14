@@ -1,4 +1,4 @@
-.interest-container {
+.int-interest-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -7,13 +7,12 @@
   background-color: #fea059;
 }
 
-.interest-btn {
+.int-interest-btn {
   position: absolute;
   flex-wrap: wrap;
   padding: 20px;
   display: flex;
   background-color: #29ada0;
-  border-radius: 5px;
   order: 2;
   flex-direction: column;
   justify-content: center;
@@ -23,13 +22,13 @@
   right: 0px;
 }
 
-.interest-btn h1 {
+.int-interest-btn h1 {
   position: absolute;
   top: 5%;
   left: 15%;
 }
 
-.interest-btn .btn-container {
+.int-interest-btn .int-btn-container {
   display: flex;
   margin-top: 30px;
   flex-direction: column;
@@ -38,7 +37,7 @@
   gap: -5px;
 }
 
-.interest-btn .btn-container button {
+.int-interest-btn .int-btn-container button {
   display: flex; /* Changed from block to flex */
   justify-content: center; /* Centers content horizontally */
   align-items: center; /* Centers content vertically */
@@ -48,13 +47,14 @@
   margin-left: 10px;
   border: 3px solid black;
   border-radius: 100px;
-  font-size: 25px;
+  font-size: 20px;
   color: white;
+  margin-right: 105px;
   background-color: #FFA07A; /* Default orange background */
   transition: background-color 0.3s, background-image 0.3s;
 }
 
-.interest-btn .btn-container .btn-1 button.active { 
+.int-interest-btn .int-btn-container .int-btn-1 button.active { 
   background-image: url('../images/programming.png');
   background-size: cover;
   background-position:center;
@@ -62,21 +62,21 @@
   color: white;
   text-shadow: black 2px 2px; 
 }
-.interest-btn .btn-container .btn-2 button.active { 
+.int-interest-btn .int-btn-container .int-btn-2 button.active { 
   background-image: url('../images/art-bg.jpg');
   background-size: cover;
   background-position:center;
   transition: 1500ms;
   text-shadow: black 2px 2px;
 }
-.interest-btn .btn-container .btn-3 button.active { 
+.int-interest-btn .int-btn-container .int-btn-3 button.active { 
   background-image: url('../images/lib.jpg');
   background-size: cover;
   background-position:center;
   transition: 1500ms;
   text-shadow: black 2px 2px;
 }
-.interest-btn .btn-container .btn-4 button.active { 
+.int-interest-btn .int-btn-container .int-btn-4 button.active { 
   background-image: url('../images/business.jpg'); 
   background-size: cover;
   background-position:center;
@@ -85,14 +85,14 @@
   font-weight: bold;
   text-shadow: black 2px 2px;
 }
-.interest-btn .btn-container .btn-5 button.active { 
+.int-interest-btn .int-btn-container .int-btn-5 button.active { 
   background-image: url('../images/sci.jpg');
   background-size: cover;
   background-position:center;
   transition: 1500ms;
   text-shadow: black 2px 2px;
 }
-.interest-btn .btn-container .btn-6 button.active { 
+.int-interest-btn .int-btn-container .int-btn-6 button.active { 
   background-image: url('../images/num1.jpg');
   background-size: cover;
   background-position:center;
@@ -101,7 +101,7 @@
   font-weight: bold;
   text-shadow: black 2px 2px;
 }
-.interest-btn .btn-container .btn-7 button.active { 
+.int-interest-btn .int-btn-container .int-btn-7 button.active { 
   background-image: url('../images/game.jpg');
   background-size: cover;
   background-position:center;
@@ -109,7 +109,7 @@
   color: rgb(250, 192, 202);
   text-shadow: black 2px 2px;
 }
-.interest-btn .btn-container .btn-8 button.active { 
+.int-interest-btn .int-btn-container .int-btn-8 button.active { 
   background-image: url('../images/other.jpeg');
   background-size: cover;
   background-position:center;
@@ -119,16 +119,16 @@
   text-shadow: black 2px 2px;
 }
 
-.interest-btn .btn-container button:hover {
+.int-interest-btn .int-btn-container button:hover {
   box-shadow: 0 0 50px white;
 }
 
-.interest-container .logo {
+.int-interest-container .int-logo {
   position: absolute;
   left: 15%;
   top: 30%;
 }
-.go-to-login button{
+.int-go-to-login button{
   position: fixed;
   bottom: 2%;
   left: 83%;
@@ -144,7 +144,7 @@
   border: 3px solid black;
   background-color: #FFA07A;
 }
-.go-to-signup button{
+.int-go-to-signup button{
   position: fixed;
   bottom: 2%;
   left: 46%;

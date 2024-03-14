@@ -33,8 +33,8 @@ export default function Video() {
 
   const myMeeting = async (element) => {
     // generate Kit Token
-    const appID = 1922338105;
-    const serverSecret = "d062c9b85331396b9b6924985ca35885";
+    const appID = 1715142211;
+    const serverSecret = "254c8faee0ebede42e04d36dfe600f88";
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, randomID(5), randomID(5));
 
     // Create instance object from Kit Token.
@@ -89,10 +89,10 @@ export default function Video() {
   return (
 
     <div className="call-container">
-      <Navbar/>
-      <p>Do you want to start a call? </p>
+      {/* <Navbar/> */}
+      <p>To start a call please click the button below</p>
       <button onClick={handleButtonClick} className="accept">Call</button>
-      <button onClick={handleDeclineClick} className="decline">Decline</button>
+      {/* <button onClick={handleDeclineClick} className="decline">Decline</button> */}
        
       {/* {isCallContainerVisible && ( */}
         <div

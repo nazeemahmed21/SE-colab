@@ -267,6 +267,7 @@
 .forward-dialog .button-container {
   display: flex;
   justify-content: space-between;
+
 }
 
 .forward-dialog button {
@@ -281,6 +282,7 @@
   color: white;
 }
 
+
 .forward-dialog button:nth-child(2) {
   background-color: #f0f0f0; /* Cancel button color */
   color: #333;
@@ -288,4 +290,5 @@
 
 .forward-dialog button:hover {
   filter: brightness(0.9);
+
 }
