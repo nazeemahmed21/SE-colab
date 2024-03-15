@@ -199,9 +199,9 @@ const Messages = ({ message }) => {
                 <div className="option" onClick={() => handleDelete(m.id)}>
                   Delete
                 </div>
-                <div className="option" onClick={() => handleForward(m.id)}>
+                {/* <div className="option" onClick={() => handleForward(m.id)}>
                   Forward
-                </div>
+                </div> */}
                 <div className="option" onClick={() => handleLike(m.id)}>
                   Like
                 </div>

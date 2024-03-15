@@ -62,7 +62,6 @@
 
 
   .ChatNavbar .user img {
-  
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -83,6 +82,7 @@
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    border-bottom: 0.8px solid #f2f0f0; /* Add grey divider */
   }
   
   .sidebar .userChat:hover {
@@ -99,13 +99,12 @@
   /* Style for the chat area */
   .chat {
     /* left: 100; */
-    width: 300px;
-    height: 550px;
+    width: 30px;
+    height: 630px;
     flex: 3;
     background-color: #f0f2f5; /* WhatsApp chat background color */
     overflow-y: auto;
-/* width: 99; */
-    /* padding: 20px; */
+    padding-right: 3px;
   }
   
   .chatInfo {
@@ -138,12 +137,28 @@
   } */
   
   .messages{
- width: 1200px;
+ width: 88%;
     padding-left: 20px;
     margin-top: 65px;
-    height:200px; /* Adjust height as needed */
-    margin-bottom: 100px;
+    height:2000px; /* Adjust height as needed */
+    /* margin-bottom: 100px; */
   }
+
+  .messages::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+     /* Background color of the scrollbar track */
+  }
+  
+  .messages::-webkit-scrollbar-thumb {
+    background-color: #000000; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Border radius of the scrollbar thumb */
+  }
+  
+  /* Set scrollbar 20px from the right */
+  .messages::-webkit-scrollbar {
+    right: 200px; /* Distance from the right */
+  }
+
   .message {
     /* width:140px; */
     display: flex;
