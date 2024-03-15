@@ -63,4 +63,4 @@ const db = getFirestore(app);
 //   }, []);
 //   return currentUser;
 // }
-export { storage, auth, db };
+export { storage, auth, db, getFirestore };

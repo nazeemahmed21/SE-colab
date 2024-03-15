@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { ChatContext } from "../Context/ChatContext";
+import '../Style.css';
 
 const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
@@ -30,7 +31,7 @@ const Message = ({ message }) => {
       </div>
       <div className="messageContent">
         <p>{message.text}</p>
-        {message.img && <img src={message.img} alt="" />}
+        {/* {message.img && <img src={message.img} alt="" />} */}
       </div>
     </div>
   );

@@ -19,10 +19,12 @@ const Messages = () => {
 
         <Chat />
         </div>
+
+        <div className='call_icon_main'>
         <Link to="/video" target="_blank"> 
         <img src={call_icon} className='chatImage' alt='chatImage' style={{ width: '60px', height: '60px', marginRight:'20px', marginLeft:'70px' }} />
         </Link>
-
+</div>
 
       </div>
     </div>

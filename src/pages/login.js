@@ -42,6 +42,7 @@ function Login() {
           console.log("Please verify your email before logging in.");
         }
       })
+    fetchid()
       .catch((error) => {
         const errorMessage = `Error creating user: ${error}`;
         // setErrMsg(errorMessage);
