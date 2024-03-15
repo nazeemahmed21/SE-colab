@@ -162,16 +162,23 @@ const Messages = ({ message }) => {
   }, [data.chatId]);
 
   return (
-    <div className="messages" style={{ maxHeight: 'calc(100vh - 250px)'}}>
+    <div className="messages" 
+    // style={{ maxHeight: 'calc(100vh - 250px)'}}
+    >
       {messages.map((m) => (
-        //  <Message message={m} key={m.id} />
-        // <div message={m} key={m.id} className={`message ${m.owner ? 'owner' : ''}`}>
-        <div message={m} key={m.id} className={`message ${m.owner ? 'owner' : ''}`} style={{ backgroundColor: (m.owner==m.id) ? 'green' : 'white' }}>
+
+<div
+  message={m}
+  key={m.id}
+  className={`message ${m.owner ? 'owner' : ''}`}
+  style={{
+    backgroundColor: m.owner === m.uid ? 'white' : 'lightgreen',
+    marginLeft: m.owner === m.uid ? '0' : 'auto', // Pushes the message to the right if the owner is the current user
+    marginRight: m.owner === m.uid ? 'auto' : '0',  }}
+>
         {/* names */}
           <React.Fragment>
-          <div style={
-            { backgroundColor: m.owner ? 'lightgreen' : 'white' }
-            }>
+          <div >
               {m.text}
               </div>          
             <span className="like-icon" onClick={() => handleLike(m.id)}>

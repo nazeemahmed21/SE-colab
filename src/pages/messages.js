@@ -8,25 +8,16 @@ import { Link } from "react-router-dom";
 
 const Messages = () => {
   return (
-
+  
     <div className='homeContainer'>
-            <Navbar/>
-      <div className=' chatsHome'>
- 
-    
+        <Navbar/>  
+      {/* <div className=' chatsHome'> */}
       <div className='chatsContainer'>
       <Sidebar />
-
         <Chat />
         </div>
 
-        {/* <div className='call_icon_main'>
-        <Link to="/video" target="_blank"> 
-        <img src={call_icon} className='chatImage' alt='chatImage' style={{ width: '60px', height: '60px', marginRight:'20px', marginLeft:'70px' }} />
-        </Link>
-</div> */}
-
-      </div>
+      {/* </div> */}
     </div>
   )
 }
