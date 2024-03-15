@@ -42,7 +42,6 @@
   margin: auto;
   position: absolute;
   bottom: 5%;
-  /* left: 55%; */
   background-color: #fea059;
   color: white;
   cursor: pointer;
@@ -102,16 +101,11 @@
 
   }
   .su-main-container .su-image-container img {
-    /* background-color: #fea059; */
     margin: auto; 
     top: 5%;
     position: absolute;
     width: 270px;
     height: 270px;
-    /* padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 0%;
-    padding-bottom: 2%; */
   }
 }
 
@@ -159,7 +153,7 @@
 
 @media (max-height: 830px) and (max-width: 1100px) {
   .su-form-container h1, h3, input, select{
-    font-size: 1rem;
+    font-size: 10px;
   }
 }
 

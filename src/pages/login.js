@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
-import { auth } from '../firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
-import '../styles/login.css'; // Adjust the CSS import path
-import logo from '../images/logo.png'
-import { fetchid } from '../components/firebaseforreminder';
+import React, { useRef } from "react";
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import "../styles/login.css"; // Adjust the CSS import path
+import logo from "../images/logo.png";
+import { fetchid } from "../components/firebaseforreminder";
 
 function Login() {
   // const currentUser = useAuth();
@@ -50,20 +50,35 @@ function Login() {
       });
   };
   return (
-    <div className='login-container'>
-      <div className='l-form-container'>
+    <div className="login-container">
+      <div className="l-form-container">
         <h3>Enter your Email Address</h3>
-        <input ref={emailRef} className='email' type='email' placeholder='Email...' />
+        <input
+          ref={emailRef}
+          className="email"
+          type="email"
+          placeholder="Email..."
+        />
         <h3>Enter your Password</h3>
-        <input ref={passwordRef} className='password' type='password' placeholder='Password...' />
+        <input
+          ref={passwordRef}
+          className="password"
+          type="password"
+          placeholder="Password..."
+        />
         <br></br>
-        <Link to="/signup" className='link-to-signin'>Don't have an account? Sign Up Now.</Link>
+        <span className="login_no_underline">Don't have an account? </span>
+        <Link to="/signup" className="link-to-signin">
+          Sign Up Now.
+        </Link>
         <br></br>
-        <button className='login_button' onClick={handleLogin}>Login</button>
+        <button className="login_button" onClick={handleLogin}>
+          Login
+        </button>
         <br></br>
       </div>
-      <div className='l-image-container'>
-        <img src={logo} alt='logo' />
+      <div className="l-image-container">
+        <img src={logo} alt="logo" />
       </div>
     </div>
   );
