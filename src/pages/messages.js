@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar.js'
 import Sidebar from '../components/Sidebar.jsx'
 import Chat from '../components/Chat.jsx'
-import '../Style.css'
+import '../chatStyle.css'
 import call_icon from '../images/call_icon.png'
 import { Link } from "react-router-dom";
 

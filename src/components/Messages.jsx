@@ -7,7 +7,7 @@ import Message from './Message';
 import ForwardDialog from './ForwardDialog';
 import heart from '../images/heart_like.png';
 import { firestore } from '../firebase';
-import '../Style.css';
+import '../chatStyle.css';
 
 const Messages = ({ message }) => {
   const [messages, setMessages] = useState([]);

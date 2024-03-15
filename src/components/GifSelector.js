@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import '../Style.css';
+// import '../chatStyle.css';
 
 const GifSelector = ({ onSelect }) => {
   const [searchQuery, setSearchQuery] = useState('');
