@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import '../styles/labs.css';
+import '../styles/labsnew.css';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';

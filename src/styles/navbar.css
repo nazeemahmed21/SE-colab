@@ -63,18 +63,20 @@ body {
 .nb-nav-text a {
   text-decoration: none;
   color: white;
-  font-size: 25px;
+  font-size: 24px;
   width: 95%;
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 5px;
   border-radius: 4px;
 }
 
 .nb-nav-text a:hover {
   background-color: white;
-  height: 9vh;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
   /* font-size: 2em; */
 }
 
@@ -243,6 +245,9 @@ span {
 .sign-out-for-mobile {
   opacity: 0;
 }
+
+
+
 
 @media screen and (min-width: 280px) and (max-width: 300px) {
   .nav-menu {
@@ -2977,5 +2982,14 @@ span {
 
   .navbar-toggle .prof-notif {
     left: 80vw;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .nb-nav-text a:hover {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  
+    /* font-size: 2em; */
   }
 }

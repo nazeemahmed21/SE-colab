@@ -1,18 +1,18 @@
-import Navbar from '../../components/Navbar';
-import { Link } from 'react-router-dom';
-import '../../styles/labs.css';
+import '../../styles/labsnew.css';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase'; // Assuming your Firestore instance is in 'firebase.js'
+import { useOutletContext } from 'react-router-dom';
 
 const LabMembers = () => {
     const [members, setMembers] = useState([]);
     const [labData, setLabData] = useState(null); 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-
     const { labId } = useParams();
+    const [currentPageName,setCurrentPageName] = useOutletContext();
+    
 
     const fetchLabMembersAndData = async () => {
         setIsLoading(true);
@@ -54,7 +54,8 @@ const LabMembers = () => {
 
     useEffect(() => {
         fetchLabMembersAndData(); 
-    }, [labId]); 
+        setCurrentPageName('Members'); 
+    }, [labId, setCurrentPageName]); 
 
     async function fetchUserData(userId) {
         try {
@@ -81,12 +82,12 @@ const LabMembers = () => {
                 name: 'Error Fetching User'
             };
         }
+
     }
 
   return (
     <div>
         <div className="LabsMembers">
-        <h1> Lab Members</h1> 
                 {isLoading && <p>Loading members...</p>}
                 {error && <p>Error: {error}</p>}
 

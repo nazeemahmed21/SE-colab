@@ -3,38 +3,48 @@ import Navbar from '../../components/Navbar';
 import { Link, Outlet } from 'react-router-dom';
 import '../../styles/labsnew.css';
 import { useParams } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../firebase'; // Assuming your Firestore instance is in 'firebase.js'
+import { doc } from 'firebase/firestore';
+import { db , auth } from '../../firebase';
 import { LabNavbar } from '../../components/labs/LabNavbar';
-import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import { onSnapshot } from 'firebase/firestore';
+import defaultIcon from '../../images/lab-default-icon.jpg';
 
 
 const LabLayout = () => {
   const [labIconUrl, setLabIconUrl] = useState(null);
+  const [currentUserId, setCurrentUserId] = useState('');
   const [labData, setLabData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { labId } = useParams();
+  const [isLabOwner, setIsLabOwner]= useState(false);
+  const [currentPageName, setCurrentPageName] = useState("Home"); // Default page name
 
   useEffect(() => {
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      setCurrentUserId(currentUser.uid);
+    }
     const fetchLabDetails = async () => {
       setIsLoading(true);
-
+      
       try {
         const labRef = doc(db, 'labs', labId);
-
         // Real-time listener
         const unsubscribe = onSnapshot(labRef, (labSnap) => {
           if (labSnap.exists()) {
             const data = labSnap.data();
             setLabData(data);
-
+            if (data.ownerID === currentUserId) {
+              setIsLabOwner(true); 
+          } else {
+              setIsLabOwner(false); 
+          }
             // Update icon URL directly
             if (data.labIcon) {
               setLabIconUrl(data.labIcon);
             } else {
-              fetchDefaultIcon(); 
+              setLabIconUrl(defaultIcon); 
             }
           } else {
             setError('Lab not found');
@@ -53,30 +63,16 @@ const LabLayout = () => {
       }
     };
 
-    const fetchDefaultIcon = async () => {
-      const storage = getStorage();
-      // Using a more descriptive path for the default icon
-      const defaultIconRef = ref(storage, 'gs://final-colab.appspot.com/labIcons/DefaultIcon/labimg.png');
-
-      try {
-        const url = await getDownloadURL(defaultIconRef);
-        setLabIconUrl(url);
-      } catch (error) {
-        console.error('Error fetching default lab icon:', error);
-      }
-    };
-
     fetchLabDetails();
-  }, [labId]);
+
+
+  }, [labId, currentUserId, labData, setIsLabOwner, isLabOwner]);
 
 
   return (
     <div>
       <Navbar />
       <div className='labsPageMain'>
-        {/* Navigation Arrow */}
-
-        
         {/* Labs */}
         <div className="LabsContent">
           {isLoading && <p>Loading...</p>}
@@ -84,23 +80,23 @@ const LabLayout = () => {
 
           {labData && (
             <div className='labsWrapper'>
-                <div className="labsArrowContainer">
-                <Link to="/labs">
-                  <span className='labsBack-arrow'>←</span>
-                </Link>
-              </div>
               <div className='labNavbarSection'>
-                <LabNavbar labId={labId} />
+                <div className="labsArrowContainer">
+                  <Link to="/labs">
+                    <span className='labsBack-arrow'>←</span>
+                  </Link>
+                </div>
+                <LabNavbar labId={labId} isTheLabOwner={isLabOwner}/>
               </div>
               <div className='labsBody'>
                 <div className="labInfo">
                   <div className="labIconContainer">
                     {labIconUrl && <img src={labIconUrl} alt={labData.labName} />}
                   </div>
-                  <h1>{labData.labName}</h1>
+                  <h1>{labData.labName}</h1><h2> ❯&nbsp;&nbsp;&nbsp;{currentPageName}</h2>
                 </div>
                 <div className="labsComponents">
-                    <Outlet/>
+                <Outlet context = {[currentPageName,setCurrentPageName]}/>
                 </div>
               </div>
             </div>

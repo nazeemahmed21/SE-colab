@@ -4,6 +4,10 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase'; // Your Firebase configuration
 import { getStorage, ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import '../../styles/labsnew.css';
+import { DeleteLab } from '../../components/labs/labUtils';
+import { useNavigate } from 'react-router-dom';
+import defaultIcon from '../../images/lab-default-icon.jpg';
+import { useOutletContext } from 'react-router-dom';
 
 const LabSettings = () => {
   const { labId } = useParams();
@@ -16,6 +20,13 @@ const LabSettings = () => {
   const [defaultIconUrl, setDefaultIconUrl] = useState(null);
   const fileInputRef = React.useRef(null);
   const [newJoinId, setNewJoinId] = useState(labData ? labData.joinId : '');
+  const isDisabled = useState(true);
+  const [currentPageName,setCurrentPageName] = useOutletContext();
+  
+  
+  useEffect(() => {
+      setCurrentPageName('Settings'); 
+  }, [setCurrentPageName]);
 
   // Fetch lab data on component mount
   useEffect(() => {
@@ -33,10 +44,7 @@ const LabSettings = () => {
           // Fetch lab icon if available
           if (data.labIcon) {
             try {
-              const storage = getStorage();
-              const iconRef = ref(storage, data.labIcon);
-              const url = await getDownloadURL(iconRef);
-              setLabIconPreview(url); 
+              setLabIconPreview(defaultIcon); 
             } catch (error) {
               console.error('Error fetching lab icon:', error);
             }
@@ -50,27 +58,20 @@ const LabSettings = () => {
         setIsLoading(false);
       }
     };
-    const fetchDefaultIcon = async () => {
-        const storage = getStorage();
-        const defaultIconRef = ref(storage, 'gs://final-colab.appspot.com/labIcons/DefaultIcon/labimg.png');
-  
-        try {
-          const url = await getDownloadURL(defaultIconRef);
-          setLabIconPreview(url);
-          setDefaultIconUrl(url);
-        } catch (error) {
-          console.error('Error fetching default lab icon:', error);
-        }
-      };
-      fetchDefaultIcon();
 
     fetchLabData(); 
   }, [labId]); 
 
+  const navigate = useNavigate();
+
+  const handleDelete = (labId) => {
+    DeleteLab(labId, navigate); // Pass navigate to DeleteLab
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-
     setIsLoading(true);
+
     try {
       const docRef = doc(db, 'labs', labId);
 
@@ -89,8 +90,8 @@ const LabSettings = () => {
         const imageRef = ref(storage, `labIcons/${labId}.jpg`);
         await uploadBytes(imageRef, newLabIcon); 
         const iconUrl = await getDownloadURL(imageRef);
-
         await updateDoc(docRef, { labIcon: iconUrl }); 
+        setLabIconPreview(iconUrl)
       }
 
       // Update local state for immediate UI update
@@ -146,9 +147,15 @@ const LabSettings = () => {
             </div>
             <div className="joinIdSetting">
             <label htmlFor="joinId">Join ID:</label>
-            <input type="text" id="joinId" value={newJoinId} onChange={(e) => setNewJoinId(e.target.value)} /> 
+            <input type="text" id="joinId" value={newJoinId} disabled={isDisabled}/> 
             </div>
-            <button type="submit">Save Changes</button> 
+            <div className='deleteLabOption'>
+              <button type="button" onClick={() => handleDelete(labId)}>Delete Lab</button>
+              <h3>Delete the Lab Permanently</h3>
+            </div>
+            <div className='submitDiv'>
+              <button type="submit">Save Changes</button>
+            </div> 
           </form>
         )}
     </div>

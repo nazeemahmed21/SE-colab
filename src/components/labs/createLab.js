@@ -133,7 +133,11 @@ const CreateLab = () => {
   return (
     <React.Fragment>
       <button onClick={() => setOpen(true)}>Create New Lab</button> 
-      <Modal open={open} onClose={() => setOpen(false)}>
+      <Modal open={open} onClose={() => { 
+          setOpen(false); 
+          setLabIcon(null); // Reset labIcon
+          setLabIconPreview(defaultIconUrl); // Set back to default
+      }}>
       <ModalDialog sx={(theme) => ({
             [theme.breakpoints.only('xs')]: {
               top: 'unset',

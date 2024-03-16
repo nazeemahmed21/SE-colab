@@ -1,11 +1,11 @@
 .lab-navbar {
     border-radius: 8px;
-    height: 55vh;
-    margin-top: 50px;
-    margin-left: 20px;
-    width: 240px;
+    height: 50vh;
+    margin:10px;
+    width: 225px;
     color: black;
     border: 2px solid black;
+    margin-top:20px;
   }
   .lab-navbarText {
     margin-top: 70px;
@@ -27,5 +27,12 @@
   .lab-navbar a {
     text-decoration: none;
     color: black;
+  }
+
+  @media screen and (max-width: 940px) {
+    .lab-navbar{
+        display:none;
+    }
+    
   }
   

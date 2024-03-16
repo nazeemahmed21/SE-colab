@@ -2,7 +2,7 @@ import { deleteDoc, doc, updateDoc, arrayRemove , collection, getDocs, query } f
 import { db } from '../../firebase'; 
 
 
-export const DeleteLab = async (labId) => {
+export const DeleteLab = async (labId, navigate) => {
   if (window.confirm('Are you sure you want to delete this lab?')) {
       try {
           const labRef = doc(db, 'labs', labId);
@@ -26,6 +26,8 @@ export const DeleteLab = async (labId) => {
           // 2. Delete the lab document
           await deleteDoc(labRef); 
           console.log('Lab deleted successfully!');
+
+          navigate('/labs');
       } catch (error) {
           console.error("Error deleting lab:", error);
       }
