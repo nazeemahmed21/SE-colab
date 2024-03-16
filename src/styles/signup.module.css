@@ -1,4 +1,4 @@
-.su-main-container {
+.su_main_container {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -9,7 +9,7 @@
 
 
 
-.su-form-container {
+.su_form_container {
   flex: 2;
   padding: 20px;
   background-color:  #29ada0;
@@ -22,19 +22,19 @@
   height: 100%;
 }
 
-.su-form-container h3 {
+.su_form_container h3 {
   margin-bottom: 5px;
 }
 
-.su-form-container input,
-.su-form-container select{
+.su_form_container input,
+.su_form_container select{
   width: 70%;
   margin-bottom: 10px;
   padding: 10px;
   border: 3px solid #ccc;
   border-radius: 20px;
 }
-.su-form-container button{
+.su_form_container button{
   width: 20%;
   padding: 5px;
   border: 3px solid black;
@@ -48,40 +48,40 @@
   font-size: 1.5rem;
 }
 
-.su-form-container .su-gender {
+.su_form_container .su_gender {
   margin-bottom: 10px;
 }
 
-.su-form-container .su-gender label {
+.su_form_container .su_gender label {
   display: inline-flex;
   align-items: center;
   margin-right: 20px;
 }
 
-.su-form-container .su-gender input {
+.su_form_container .su_gender input {
   margin-right: 5px;
 }
 
-.su-form-container .su-role {
+.su_form_container .su_role {
   margin-bottom: 10px;
   width: 100%;
   margin-left: 30%;
 }
 
-.su-signup_button:hover {
+.su_signup_button:hover {
   background-color: #0056b3;
 }
-.su-main-container .su-image-container img{
+.su_main_container .su_image_container img{
   position: absolute;
   top: 30%;
   margin-left: 15%;
 }
 
-.su-image-container{
+.su_image_container{
   flex: 2;
 }
 
-.su-link-to-login {
+.su_link_to_login {
   font-weight: bold;
   color: black;
   text-decoration: underline;
@@ -89,18 +89,18 @@
 }
 
 @media (max-width: 1100px) {
-  .su-main-container {
+  .su_main_container {
     display: block;
     justify-content: center;
     background-color: #fea059;
   }
-  .su-image-container {
+  .su_image_container {
     display: flex;
     justify-content: center;
     margin: 0;
 
   }
-  .su-main-container .su-image-container img {
+  .su_main_container .su_image_container img {
     margin: auto; 
     top: 5%;
     position: absolute;
@@ -110,69 +110,91 @@
 }
 
 @media (max-height: 1200px) and (max-width: 1100px) {
-  .su-main-container .su-image-container img {
+  .su_main_container .su_image_container img {
   width: 250px;
   height: 250px;
   }
 }
 
 @media (max-height: 1140px) and (max-width: 1100px) {
-  .su-main-container .su-image-container img {
+  .su_main_container .su_image_container img {
   width: 230px;
   height: 230px;
   }
 }
 
 @media (max-height: 1090px) and (max-width: 1100px) {
-  .su-main-container .su-image-container img {
+  .su_main_container .su_image_container img {
   width: 200px;
   height: 200px;
   }
 }
 
 @media (max-height: 1020px) and (max-width: 1100px) {
-  .su-main-container .su-image-container img {
+  .su_main_container .su_image_container img {
   width: 170px;
   height: 170px;
   }
 }
 
 @media (max-height: 950px) and (max-width: 1100px) {
-  .su-main-container .su-image-container img {
+  .su_main_container .su_image_container img {
   width: 150px;
   height: 150px;
   }
 }
 
 @media (max-height: 900px) and (max-width: 1100px) {
-  .su-main-container .su-image-container img {
+  .su_main_container .su_image_container img {
   width: 120px;
   height: 120px;
   }
 }
 
 @media (max-height: 830px) and (max-width: 1100px) {
-  .su-form-container h1, h3, input, select{
-    font-size: 10px;
-  }
+  .su_main_container .su_image_container img {
+    width: 90px;
+    height: 90px;
+    }
 }
 
 @media (max-height: 770px) and (max-width: 1100px) {
-  .su-main-container .su-image-container img {
-  width: 90px;
-  height: 90px;
+  .su_main_container .su_image_container img {
+  width: 80px;
+  height: 80px;
   }
 }
 
-@media (max-height: 700px) and (max-width: 1100px) {
-  .su-main-container .su-image-container img {
+@media (max-height: 740px) and (max-width: 1100px) {
+  .su_main_container .su_image_container img {
   width: 60px;
   height: 60px;
   }
 }
 
-@media (max-width: 375px) {
-  .su-form-container button {
-    width: 30%;
+@media (max-height: 700px) and (max-width: 1100px) {
+  .su_main_container .su_image_container img {
+  width: 50px;
+  height: 50px;
   }
 }
+
+@media (max-height: 670px) and (max-width: 1100px) {
+  .su_main_container .su_image_container img {
+  width: 40px;
+  height: 40px;
+  }
+}
+
+@media (max-height: 650px) and (max-width: 1100px) {
+  .su_main_container .su_image_container img {
+  width: 30px;
+  height: 30px;
+  }
+}
+
+@media (max-width: 375px) {
+  .su_form_container button {
+    width: 30%;
+  }
+} 
