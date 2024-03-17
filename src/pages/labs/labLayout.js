@@ -86,7 +86,7 @@ const LabLayout = () => {
                     <span className='labsBack-arrow'>←</span>
                   </Link>
                 </div>
-                <LabNavbar labId={labId} isTheLabOwner={isLabOwner}/>
+                <LabNavbar labId={labId} isTheLabOwner={isLabOwner} currentUserId={currentUserId}/>
               </div>
               <div className='labsBody'>
                 <div className="labInfo">

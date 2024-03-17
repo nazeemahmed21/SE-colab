@@ -3,30 +3,44 @@
     height: 50vh;
     margin:10px;
     width: 225px;
-    color: black;
-    border: 2px solid black;
+    color: white;
     margin-top:20px;
+    background-color: #6F898A;
   }
   .lab-navbarText {
     margin-top: 70px;
     padding: 20px;
+    color: white;
   }
   
   .lab-navbar ul {
     align-items: space-between;
     list-style-type: none;
-    padding: 20px;
+    padding: 20px 10px;
   }
   
   .lab-navbar li {
     align-items: space-evenly;
     font-size: 16px;
-    margin-bottom: 10px;
+    padding:6px;
+    border-radius: 3px;
+    margin: 10px 0;
+    color: white;
   }
 
   .lab-navbar a {
     text-decoration: none;
     color: black;
+  }
+
+  .lab-navbar li:hover { 
+    background-color: #FD9752 ;/* Your desired hover color */
+  }
+  
+  /* Active state */
+  .lab-navbar a.active li { 
+
+    background-color: #FF7A69;/* Your desired active color */
   }
 
   @media screen and (max-width: 940px) {

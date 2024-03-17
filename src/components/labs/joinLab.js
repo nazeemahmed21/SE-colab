@@ -15,7 +15,6 @@ import '../../styles/labs.css';
 import { collection } from 'firebase/firestore';
 import ModalClose from '@mui/joy/ModalClose';
 import { db } from '../../firebase';
-
 import './modal.css';
 
 const JoinLab = () => {
@@ -23,6 +22,7 @@ const JoinLab = () => {
     const [joinId, setJoinId] = useState('');
     const navigate = useNavigate(); 
     const [userId, setUserId] = useState(''); // Updated: Store just the userId
+    const [alreadyMember, setAlreadyMember] = useState(false);
 
     useEffect(() => {
         const currentUser = auth.currentUser;
@@ -35,7 +35,6 @@ const JoinLab = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
 
         try {
             const labsQuery = query(collection(db, 'labs'), where('joinId', '==', joinId));
@@ -50,18 +49,28 @@ const JoinLab = () => {
                 const labRef = doc(db, 'labs', labId)
                 const membersRef = collection(db, 'labs', labId, 'members');
                 const userMemberRef = doc(membersRef); 
-                await setDoc(userMemberRef, {
-                    userId: userId,
-                    isOwner: false,
-                    isModerator: false
-                });
-                const userDocRef = doc(db, 'Users', userId);
-                console.log('User ID:', userId);
-                console.log('Lab Ref:', labRef); 
-                await updateDoc(userDocRef, {
-                    myLabs: arrayUnion(labRef) 
-                });
-                navigate(`/labs/${labId}`);
+                // Check for existing membership
+                const userMemberQuery = query(membersRef, where('userId', '==', userId));
+                const userMemberSnapshot = await getDocs(userMemberQuery);
+                
+                if (userMemberSnapshot.empty) {
+                    // User is not a member, proceed with joining logic
+                    const userMemberRef = doc(membersRef);
+                    await setDoc(userMemberRef, {
+                        userId: userId,
+                        isOwner: false,
+                        isModerator: false
+                    });
+                    const userDocRef = doc(db, 'Users', userId);
+                    console.log('User ID:', userId);
+                    console.log('Lab Ref:', labRef); 
+                    await updateDoc(userDocRef, {
+                        myLabs: arrayUnion(labRef) 
+                    });
+                    navigate(`/labs/${labId}`);
+                } else { 
+                    setAlreadyMember(true);
+                    }                   
             }
                 
 
@@ -118,7 +127,8 @@ const JoinLab = () => {
                                         onChange={(e) => setJoinId(e.target.value)} 
                                     />
                                 </FormControl>
-                                <Button type="submit">Join Lab</Button>
+                                
+                                <div className='modalSubmit'><button type="submit">Join Lab</button></div>
                             </Stack>
                         </form>
                     </DialogContent>

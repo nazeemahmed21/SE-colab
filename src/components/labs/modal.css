@@ -35,8 +35,6 @@
   }
 
   .modalSubmit{
-    display: 'flex'; 
-    justify-content: 'center';
     width:100%;
   }
 
@@ -46,4 +44,22 @@
 
 .MuiDialogTitle-title-lg{
     font-family: "Poppins", sans-serif;
+  }
+
+  .modalSubmit button{
+    padding: 5px 30px;
+    background-color: #7F00AD;
+    font-size:14px;
+    border:none;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  #submitModal{
+    padding: 5px 30px;
+    background-color: #824670;
+    font-size:12px;
+    border:none;
+    margin: 0 auto;
+    cursor: pointer;
   }
