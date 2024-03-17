@@ -117,10 +117,10 @@ const ProfileSetup = () => {
               Skip
             </button>
             <button
-              className="confirm_button"
+              className="next_button"
               onClick={handleNavigationToInterest}
             >
-              Confirm
+              Next
             </button>
           </div>
           <div className="logo_container">

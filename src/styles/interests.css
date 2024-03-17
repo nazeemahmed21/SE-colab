@@ -38,10 +38,9 @@
 }
 
 .int-interest-btn .int-btn-container button {
-  display: flex; /* Changed from block to flex */
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Centers content vertically */
-  padding: 0; /* Remove or adjust padding as needed */
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
   width: 150px;
   height: 50px;
   margin-left: 10px;
@@ -50,7 +49,7 @@
   font-size: 20px;
   color: white;
   margin-right: 105px;
-  background-color: #FFA07A; /* Default orange background */
+  background-color: #fea059;
   transition: background-color 0.3s, background-image 0.3s;
 }
 
@@ -128,35 +127,25 @@
   left: 15%;
   top: 30%;
 }
-.int-go-to-login button{
-  position: fixed;
-  bottom: 2%;
-  left: 83%;
+.int-go-to-login {
+  position: absolute;
+  bottom: 10%;
+  right: 15%;
   padding: 20px;
-  height: 60px; /* Adjusted for better vertical spacing */
-  width: 100px;
-  text-align: center; /* Centers text horizontally */
-  line-height: 20px; /* Adjust line height for vertical centering */
-  color: white; /* Optional: Set your text color */
-  font-size: 16px; /* Optional: Adjust text size */
+  line-height: 100%;
   cursor: pointer;
   border-radius: 100px;
   border: 3px solid black;
-  background-color: #FFA07A;
+  background-color: #fea059;
 }
-.int-go-to-signup button{
-  position: fixed;
-  bottom: 2%;
-  left: 46%;
+.int-go-to-profile-setup {
+  position: absolute;
+  bottom: 10%;
+  /* left: 0px; */
   padding: 20px;
-  height: 60px; /* Adjusted for better vertical spacing */
-  width: 100px;
-  text-align: center; /* Centers text horizontally */
-  line-height: 20px; /* Adjust line height for vertical centering */
-  color: white; /* Optional: Set your text color */
-  font-size: 16px; /* Optional: Adjust text size */
+  line-height: 100%;
   cursor: pointer;
   border-radius: 100px;
   border: 3px solid black;
-  background-color: #FFA07A;;
+  background-color: #fea059;
 }
