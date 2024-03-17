@@ -96,7 +96,8 @@ const LabLayout = () => {
                   <h1>{labData.labName}</h1><h2> ❯&nbsp;&nbsp;&nbsp;{currentPageName}</h2>
                 </div>
                 <div className="labsComponents">
-                <Outlet context = {[currentPageName,setCurrentPageName]}/>
+                <Outlet context = {[isLabOwner, setIsLabOwner,
+                                    currentPageName,setCurrentPageName]}/>
                 </div>
               </div>
             </div>

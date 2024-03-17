@@ -192,6 +192,42 @@
   cursor: pointer;
   transition: background-color 0.3s ease; /* Smooth hover effect */
 }
+/*Announcement*/
+/* General Container for Announcements */
+.announcements-container {
+  width: 95%; /* Adjust width as needed */
+  margin: 20px auto; /* Centers the container */
+  padding: 20px;
+  border: 1px solid #ddd;  /* Optional subtle border */
+  border-radius: 5px; /* Slightly round the corners */
+}
+
+/* Individual Announcement Styling */
+.announcement-card {
+  background-color: #fff;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.announcement-card h3 {
+  color: #333; /* Darker title color */
+  margin-bottom: 5px;
+}
+
+.announcement-card p {
+  font-size: 14px;
+  color: #555;
+}
+.no-announcements-message {
+  text-align: center; 
+  font-style: italic;
+  color: #777; /* Slightly greyed out color*/
+  font-size: 16px;
+}
+
+/*Delete Lab*/
 .deleteLabOption button{
   border-color: #fa0000; /* Your theme color? */
   color: #fa0000;

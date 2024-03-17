@@ -9,11 +9,11 @@
  
  }
  .lab-box {
-    border: 1px solid #ccc;
+    border: 2px solid #102542;
     padding: 20px;
     text-align: center;
     border-radius: 8px; 
-    position: relative; /* Add this */
+    position: relative;
  }
  
  .lab-box::before { /* Using a pseudo-element for the square aspect ratio */
@@ -52,3 +52,8 @@
       max-height: 55vh;
    }
  }
+@media screen and (max-width:800px){
+   .labs-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 2fr)); /* Responsive columns */
+   }
+}

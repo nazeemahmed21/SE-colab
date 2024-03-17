@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { doc, setDoc, collection } from 'firebase/firestore'; 
+import { doc, setDoc, collection , getDoc} from 'firebase/firestore'; 
 import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/joy/Button';
@@ -34,6 +34,7 @@ const CreateAnnouncement = () => {
     console.log("labId:", labId);
     if (currentUser) {
       setUserId(currentUser.uid);
+      
     } else {
       // Handle the case when user is not authenticated (redirect to login?)
     }

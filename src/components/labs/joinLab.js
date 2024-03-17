@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { doc, getDoc, setDoc, query, where, getDocs, updateDoc, arrayUnion } from 'firebase/firestore'; 
+import { doc, setDoc, query, where, getDocs, updateDoc, arrayUnion } from 'firebase/firestore'; 
 import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
-import Button from '@mui/joy/Button';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
@@ -28,6 +27,7 @@ const JoinLab = () => {
         const currentUser = auth.currentUser;
         if (currentUser) {
             setUserId(currentUser.uid); // Store the user's ID
+            
         } else {
             // Handle the case when user is not authenticated (redirect to login?)
         }
