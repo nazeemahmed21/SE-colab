@@ -1,20 +1,24 @@
-import React, { useRef, useState } from 'react';
-import '../styles/signup.css'; // Adjust the CSS import path
-import logo from '../images/logo.png'
-import { Link, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, updateProfile,sendEmailVerification } from 'firebase/auth';
-import { setDoc, doc } from 'firebase/firestore';
-import { auth, db, storage } from '../firebase';
+import React, { useRef, useState } from "react";
+import styles from "../styles/signup.module.css"; // Adjust the CSS import path
+import logo from "../images/logo.png";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+} from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore";
+import { auth, db, storage } from "../firebase";
 
 function Signup() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
   const [firstN, setFirstN] = useState("");
   const [secondN, setSecN] = useState("");
   const [sex, setSex] = useState("");
   const [job, setJob] = useState("");
-  
+
   // const firstName = firstN// Get the first name value from your input
   // const lastName = secondN// Get the last name value from your input
   // const gender = sex// Get the gender value from your input
@@ -31,33 +35,37 @@ function Signup() {
   // }
   const handleFNChange = (event) => {
     setFirstN(event.target.value);
-  }
+  };
   const handleSNChange = (event) => {
     setSecN(event.target.value);
-  }
+  };
   const handleGenderChange = (event) => {
     setSex(event.target.value); // Set the selected gender value
-  }
+  };
   const handleRoleChange = (event) => {
     setJob(event.target.value); // Set the selected role value
-  }
- const handleSignUpWithEmail = async (e) => {
+  };
+  const handleSignUpWithEmail = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    if (firstN === '' || secondN === '' || sex === '' || job === '') {
-      alert('Please fill in all required fields.');
+    if (firstN === "" || secondN === "" || sex === "" || job === "") {
+      alert("Please fill in all required fields.");
       return;
     }
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       // Send email verification
       await sendEmailVerification(user);
-      alert('A verification email has been sent. Please check your inbox.');
+      alert("A verification email has been sent. Please check your inbox.");
 
       // Save user info in Firestore
       await setDoc(doc(db, "Users", user.uid), {
@@ -66,7 +74,7 @@ function Signup() {
         gender: sex,
         role: job,
         uid: user.uid,
-        profileSetup: false
+        profileSetup: false,
       });
       setDoc(doc(db, "userChats", user.uid), {});
       navigate("/profile-setup");
@@ -84,7 +92,7 @@ function Signup() {
   //       .then((userCredential) => {
   //           const user = userCredential.user;
   //         // const v1 = USER_REGEX.test(username);
-          
+
   //           // console.log('hola');
   //           const uid = user.uid;
   //           // const v2 = PWD_REGEX.test(pwd);
@@ -120,7 +128,7 @@ function Signup() {
   //             uid:uid,
   //             profileSetup: false
   //           })
-           
+
   //           // setDoc(doc(db,"userChats",uid),{});
   //         navigate("/profile-setup");
   //       })
@@ -129,20 +137,39 @@ function Signup() {
   //           console.log("Error creating user:", error);
   //       });
   return (
-    
-    <div className='su-main-container'>
-      <div className='su-form-container'>
+    <div className={styles.su_main_container}>
+      <div className={styles.su_form_container}>
         <h1>Register</h1>
         <h3>Enter your First Name</h3>
-        <input onChange={handleFNChange} className='su-name1' type='text' placeholder='First Name...' />
+        <input
+          onChange={handleFNChange}
+          className="su-name1"
+          type="text"
+          placeholder="First Name..."
+        />
         <h3>Enter your Second Name</h3>
-        <input onChange={handleSNChange} className='su-name2' type='text' placeholder='Second Name...' />
+        <input
+          onChange={handleSNChange}
+          className="su-name2"
+          type="text"
+          placeholder="Second Name..."
+        />
         <h3>Enter your Email Address</h3>
-        <input ref={emailRef} className='su-email' type='email' placeholder='Email...' />
+        <input
+          ref={emailRef}
+          className="su-email"
+          type="email"
+          placeholder="Email..."
+        />
         <h3>Enter your Password</h3>
-        <input ref={passwordRef} className='su-password' type='password' placeholder='Password...' />
+        <input
+          ref={passwordRef}
+          className="su-password"
+          type="password"
+          placeholder="Password..."
+        />
         <h3>Select your gender</h3>
-        <div className='su-gender'>
+        <div className={styles.su_gender}>
           <label>
             <input
               type="radio"
@@ -163,7 +190,7 @@ function Signup() {
           </label>
         </div>
         <h3>Choose your role</h3>
-        <div className='su-role'>
+        <div className={styles.su_role}>
           <select
             name="role-names"
             id="role-names"
@@ -176,14 +203,20 @@ function Signup() {
             <option value="Artist">Artist</option>
           </select>
         </div>
-        <Link to="/login" className='su-link-to-login'>Already have an account? Login Now.</Link>
-        <button className='su-signup_button' onClick={handleSignUpWithEmail} >Sign up</button>
+        <Link to="/login" className={styles.su_link_to_login}>
+          Already have an account? Login Now.
+        </Link>
+        <button
+          className={styles.su_signup_button}
+          onClick={handleSignUpWithEmail}
+        >
+          Sign up
+        </button>
       </div>
-      <div className='su-image-container'>
-        <img src={logo} alt='logo' />
+      <div className={styles.su_image_container}>
+        <img src={logo} alt="logo" />
       </div>
-      <div className='su-text'>
-      </div>
+      <div className="su-text"></div>
     </div>
   );
 }
