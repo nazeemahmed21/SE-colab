@@ -17,7 +17,7 @@ import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { IoIosSettings } from "react-icons/io";
 
-function Navbar() {
+function Navbar({ darkMode }) {
   const [sidebar, setSidebar] = useState(false);
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
@@ -95,7 +95,7 @@ function Navbar() {
 
   return (
     <>
-      <div className='nav-body'>
+      <div className={`nav-body ${darkMode ? 'orange-navbar' : ''}`}>
         <IconContext.Provider value={{ color: '#000 ' }}>
           <div className='navbar'>
           </div>
@@ -136,7 +136,7 @@ function Navbar() {
                     </li>
                     <li className='nav_option'>
                       <Link to="/settings"><IoIosSettings color='#29ada0'/></Link>
-                      <span className="nav_option_text">Settings</span>
+                      <Link to="/settings"><span className="nav_option_text">Settings</span></Link>
                     </li>
                   </ul>
                 </div>

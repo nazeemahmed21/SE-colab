@@ -18,7 +18,7 @@ import UserProfile from "./pages/user-Profile.js";
 import LabDetails from "./pages/labDetails.js";
 import LabsAnnouncements from "./pages/labsAnnouncement.js";
 import VerifyEmail from "./pages/verifyEmail.js";
-
+import Settings from "./pages/setting.js";
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
 
@@ -46,7 +46,8 @@ const Rout = () => {
       <Route path="/interest" element={<ProtectedRoute><Interests/></ProtectedRoute>}></Route>
       <Route path="/video" element={<Video />} />
       <Route path="/verify-email" element={<VerifyEmail/>} />
-      <Route path="/user-prof" element={<ProtectedRoute><UserProfile/></ProtectedRoute>} />
+      <Route path="/user-prof" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+      <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
     </Routes>
   );
 };
