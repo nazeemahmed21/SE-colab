@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase';
 import { AuthContext } from '../Context/AuthContext';
-import '../Style.css'
+import '../chatStyle.css'
 import ForwardDialog from './ForwardDialog'; // import ForwardDialog component
 
 const Navbar = () => {

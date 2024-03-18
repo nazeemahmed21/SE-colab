@@ -17,25 +17,26 @@
     /* z-index: 99; */
     bottom: 0;
     position: fixed;
-    position: fixed;
     padding-top: 120px;
     display: flex;
     height: 99vh;
     width: 90%;
+    left: 350px;
   }
   
   /* Style for the sidebar */
   .sidebar {
     /* z-index: 1; */
-    flex: 0.8;
-     /* flex: 1 0 calc(15% - 350px); */
+    flex: 0.7;
     background-color: #ffffff; /* WhatsApp green */
     color: white;
     padding: 20px;
-    margin-left: 350px;
-    width: 60px;
+    /* margin-left: 350px; */
+    width: 40px;
     color: black;
+
   }
+  
   
   .sidebar .ChatNavbar {
     display: flex;
@@ -57,14 +58,15 @@
     /* gap: 10px; */
   }
   
-  .sidebar .ChatNavbar .user img {
+
+
+  .ChatNavbar .user img {
     width: 32px;
     height: 32px;
     border-radius: 50%;
   }
   
   .sidebar .search input {
-
     width: 100%;
     padding: 8px;
     border: none;
@@ -79,10 +81,11 @@
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    border-bottom: 0.8px solid #f2f0f0; /* Add grey divider */
   }
   
   .sidebar .userChat:hover {
-    background-color: #128c7e; /* Darker shade of green on hover */
+    background-color: #19b6a3; /* Darker shade of green on hover */
   }
   
   .sidebar .userChat img {
@@ -94,15 +97,16 @@
   
   /* Style for the chat area */
   .chat {
+    /* left: 100; */
+    width: 30px;
     height: 630px;
     flex: 3;
     background-color: #f0f2f5; /* WhatsApp chat background color */
     overflow-y: auto;
-
-    /* padding: 20px; */
+    padding-right: 3px;
   }
   
-  .chat .chatInfo {
+  .chatInfo {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -111,9 +115,9 @@
   }
   
   .chatInfo{
-    padding-left: 20px;
    position: fixed;
-   width: 54%;
+   /* left: 100; */
+   width: 63%;
    background-color: #075e54;
    color: white;
    font-size: 25px;
@@ -127,20 +131,37 @@
     gap: 15px;
   }
   
-  .chat .messages {
-
-    max-height: calc(100vh - 160px); /* Adjust height as needed */
-  }
+  /* .chat .messages {
+    max-height: calc(100vh - 160px); Adjust height as needed
+  } */
   
   .messages{
+ width: 88%;
     padding-left: 20px;
-    margin-top: 40px;
-    height: 100px;
+    margin-top: 65px;
+    height:2000px; /* Adjust height as needed */
     /* margin-bottom: 100px; */
   }
+
+  .messages::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+     /* Background color of the scrollbar track */
+  }
+  
+  .messages::-webkit-scrollbar-thumb {
+    background-color: #000000; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Border radius of the scrollbar thumb */
+  }
+  
+  /* Set scrollbar 20px from the right */
+  .messages::-webkit-scrollbar {
+    right: 200px; /* Distance from the right */
+  }
+
   .message {
+    /* width:140px; */
     display: flex;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     margin-bottom: 20px;
   }
   
@@ -175,16 +196,18 @@
   .chatImage{
     right:0;
   }
+
   /* Style for the input area */
   .input {
     height:80px;
-    width: 54%;
+    width: 63%;
     position: fixed;
     bottom: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 20px;
+    gap: 10px;
     background-color: white;
     border-top: 1px solid #ccc;
   }
@@ -202,7 +225,8 @@
   }
   
   .input button {
-    padding: 10px 20px;
+    margin-bottom: 15px;
+    padding: 13px 25px;
     border: none;
     border-radius: 20px;
     background-color: #128c7e; /* WhatsApp green */
