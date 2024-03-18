@@ -17,10 +17,6 @@ const [isVideoVisible, setVideoVisible] = useState(false);
 
 const handleCamClick = () => {
   setVideoVisible(!isVideoVisible);
-  // if (!isVideoVisible) {
-  //   // Navigate to /video when cam icon is clicked
-  //   history.push("/video");
-  // }
 };
   return (
     <div className="chat">

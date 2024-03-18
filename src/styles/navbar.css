@@ -26,10 +26,12 @@ body {
   align-items: center;
   z-index: 1001;
 }
-.navbar_dropdown_menu{
+
+.navbar_dropdown_menu {
   position: relative;
   left: 80vw;
 }
+
 .menu-bars {
   margin-left: 2rem;
   font-size: 2rem;
@@ -47,6 +49,11 @@ body {
   top: 0;
   left: 0%;
   transition: 850ms;
+}
+
+.dark-mode .nav-menu {
+  background-color: rgb(208, 135, 0);
+  height: 100vh;
 }
 
 .nav-menu.active {
@@ -139,7 +146,7 @@ span {
   top: 86.5%;
   padding: 5px;
   border-radius: 10px;
-  background-color: #29ada0;
+  background-color: inherit;
   color: white;
   border: none;
   cursor: pointer;
@@ -154,13 +161,15 @@ span {
   transition: fill 0.2s;
   /* Add a transition for a smooth color change */
 }
-.nav_select_menu{ 
-  position: relative;
-  left: 78vw;
-  top: -1vh;
+
+.nav_select_menu {
+  position: absolute;
+  left: 84vw;
+  top: 3.75vh;
   fill: #29ada0;
 }
-.nav_select_menu .nav_select_btn{
+
+.nav_select_menu .nav_select_btn {
   display: flex;
   height: 10vh;
   /* background: #fff; */
@@ -169,27 +178,32 @@ span {
   border-radius: 8px;
   align-items: center;
   cursor: pointer;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
-.nav_select_btn i{
+
+.nav_select_btn i {
   font-size: 25px;
 }
-.nav_select_menu .nav_options{
+
+.nav_select_menu .nav_options {
   display: none;
   position: relative;
   padding: 20px;
   margin-top: 10px;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
-.nav_select_menu.active{
-  top: 7.35vh;
+
+.nav_select_menu.active {
+  top: 3.75vh;
 }
-.nav_select_menu.active .nav_options{
+
+.nav_select_menu.active .nav_options {
   display: block;
 }
-.nav_options .nav_option{
+
+.nav_options .nav_option {
   display: flex;
   height: 5vh;
   cursor: pointer;
@@ -198,20 +212,25 @@ span {
   align-items: center;
   background: #fff;
 }
-.nav_options .nav_option:hover{
+
+.nav_options .nav_option:hover {
   background: #f2f2f2;
 }
-.nav_option_text{
+
+.nav_option_text {
   color: #000;
 }
-.nav_option i{
+
+.nav_option i {
   font-size: 25px;
   margin-right: 12px;
 }
-.nav_option .nav_option{
+
+.nav_option .nav_option {
   font-size: 18px;
   color: #333;
 }
+
 /* .sign-out-icon:hover svg {
   background-color: white;
   fill: black; /* Change the icon color to black when hovering */
@@ -237,7 +256,9 @@ span {
   width: 50vw;
   height: 45px;
 }
-
+.dark-mode .search-input {
+  border: 4px solid rgb(208, 135, 0);
+}
 .search-button {
   padding: 0.5rem 1rem;
   /* background-color: #007bff; Example blue color */
@@ -260,6 +281,9 @@ span {
   top: 20px;
   border: 4px solid #fea059;
 }
+.dark-mode .nav-logo img{
+  border: 4px solid #29ada0;
+}
 
 .pfp-logo img {
   width: 5vw;
@@ -270,7 +294,9 @@ span {
   left: 92vw;
   top: 24px;
 }
-
+.dark-mode .pfp-logo img{
+  border: 4px solid #29ada0;
+}
 .pfp-logo p {
   position: absolute;
   left: 1750px;
@@ -305,6 +331,10 @@ span {
   opacity: 0;
 }
 
+.mob_select_menu {
+  opacity: 0;
+}
+
 @media screen and (min-width: 280px) and (max-width: 300px) {
   .nav-menu {
     text-align: center;
@@ -319,7 +349,7 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 29.5%;
+    left: 13%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -349,35 +379,20 @@ span {
     margin-right: 0;
   }
 
-  .mob-logo img {
-    position: absolute;
-    top: 18px;
-    width: 16%;
-    left: 1.5%;
-    border-radius: 100%;
-    border: 4px solid black;
-  }
-
-  .navbar-toggle .prof-notif {
-    position: absolute;
-    margin-top: -202%;
-    left: 73vw;
-  }
-
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 73%;
+    left: 58%;
   }
 
   .sign-out-for-mobile {
     opacity: 1;
     position: absolute;
     top: 11px;
-    left: 84%;
+    left: 86%;
     background-color: transparent;
     margin: 0px;
-    padding-left: 2px;
+    padding-left: 0px;
     padding-right: 0px;
   }
 
@@ -393,6 +408,78 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 73.5%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
+  .mob-logo img,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -420,7 +507,7 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 29.5%;
+    left: 13%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -450,19 +537,10 @@ span {
     margin-right: 0;
   }
 
-  .mob-logo img {
-    position: absolute;
-    top: 18px;
-    width: 16%;
-    left: 1.5%;
-    border-radius: 100%;
-    border: 4px solid black;
-  }
-
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 71%;
+    left: 56%;
   }
 
   .sign-out-for-mobile {
@@ -488,6 +566,78 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 72%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
+  .mob-logo img,
   .sign-out-button,
   .sign-out-icon svg,
   .sign-out-icon,
@@ -516,7 +666,7 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 29.5%;
+    left: 14%;
     width: 65%;
     transform: translateX(-15%);
     margin-right: 0;
@@ -547,19 +697,10 @@ span {
     margin-right: 0;
   }
 
-  .mob-logo img {
-    position: absolute;
-    top: 18px;
-    width: 16%;
-    left: 1.5%;
-    border-radius: 100%;
-    border: 4px solid black;
-  }
-
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 73%;
+    left: 58%;
   }
 
   .sign-out-for-mobile {
@@ -585,6 +726,78 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 72%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
+  .mob-logo img,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -612,8 +825,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 29.5%;
-    width: 65%;
+    left: 27%;
+    width: 55%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -655,7 +868,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 73%;
+    left: 61%;
   }
 
   .sign-out-for-mobile {
@@ -681,6 +894,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 74%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -708,8 +992,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 29.5%;
-    width: 65%;
+    left: 26.5%;
+    width: 57%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -742,7 +1026,7 @@ span {
   .mob-logo img {
     position: absolute;
     top: 16px;
-    width: 16%;
+    width: 15%;
     left: 1.5%;
     border-radius: 100%;
     border: 4px solid black;
@@ -751,7 +1035,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 73%;
+    left: 63%;
   }
 
   .sign-out-for-mobile {
@@ -777,6 +1061,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 75%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -804,8 +1159,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 29.5%;
-    width: 65%;
+    left: 26%;
+    width: 58%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -838,9 +1193,9 @@ span {
 
   .mob-logo img {
     position: absolute;
-    top: 16px;
-    width: 14%;
-    left: 4%;
+    top: 18px;
+    width: 13%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -848,7 +1203,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 73%;
+    left: 64%;
   }
 
   .sign-out-for-mobile {
@@ -874,6 +1229,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 75.5%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -901,8 +1327,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 29.5%;
-    width: 68%;
+    left: 26%;
+    width: 58%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -936,8 +1362,8 @@ span {
   .mob-logo img {
     position: absolute;
     top: 16px;
-    width: 14%;
-    left: 4%;
+    width: 13%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -945,7 +1371,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 75%;
+    left: 65%;
   }
 
   .sign-out-for-mobile {
@@ -971,6 +1397,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 76%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -998,8 +1495,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 29.5%;
-    width: 68%;
+    left: 26%;
+    width: 58%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -1033,8 +1530,8 @@ span {
   .mob-logo img {
     position: absolute;
     top: 16px;
-    width: 14%;
-    left: 4%;
+    width: 13%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -1042,7 +1539,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 75%;
+    left: 65%;
   }
 
   .sign-out-for-mobile {
@@ -1068,6 +1565,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 76%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -1095,8 +1663,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 28%;
-    width: 69%;
+    left: 25%;
+    width: 59%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -1130,8 +1698,8 @@ span {
   .mob-logo img {
     position: absolute;
     top: 18px;
-    width: 12%;
-    left: 5%;
+    width: 11%;
+    left: 4%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -1139,7 +1707,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 76%;
+    left: 66%;
   }
 
   .sign-out-for-mobile {
@@ -1165,6 +1733,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 76%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -1192,8 +1831,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 28%;
-    width: 69%;
+    left: 25%;
+    width: 59%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -1227,8 +1866,8 @@ span {
   .mob-logo img {
     position: absolute;
     top: 18px;
-    width: 12%;
-    left: 5%;
+    width: 11%;
+    left: 4%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -1236,7 +1875,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 76%;
+    left: 66%;
   }
 
   .sign-out-for-mobile {
@@ -1262,6 +1901,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 76%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -1289,8 +1999,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 28%;
-    width: 69%;
+    left: 25%;
+    width: 59%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -1324,8 +2034,8 @@ span {
   .mob-logo img {
     position: absolute;
     top: 18px;
-    width: 12%;
-    left: 5%;
+    width: 11%;
+    left: 4%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -1333,7 +2043,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 76%;
+    left: 66%;
   }
 
   .sign-out-for-mobile {
@@ -1359,6 +2069,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 76%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -1386,8 +2167,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 28%;
-    width: 69%;
+    left: 25%;
+    width: 59%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -1421,8 +2202,8 @@ span {
   .mob-logo img {
     position: absolute;
     top: 18px;
-    width: 12%;
-    left: 5%;
+    width: 10.5%;
+    left: 4%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -1430,7 +2211,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 76%;
+    left: 66%;
   }
 
   .sign-out-for-mobile {
@@ -1456,6 +2237,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 76%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -1483,8 +2335,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 25%;
-    width: 77%;
+    left: 22%;
+    width: 67%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -1519,7 +2371,7 @@ span {
     position: absolute;
     top: 18px;
     width: 10%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -1527,7 +2379,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 80%;
+    left: 70%;
   }
 
   .sign-out-for-mobile {
@@ -1553,6 +2405,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 80%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -1580,8 +2503,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 25%;
-    width: 77%;
+    left: 22%;
+    width: 67%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -1616,7 +2539,7 @@ span {
     position: absolute;
     top: 18px;
     width: 10%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -1624,7 +2547,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 80%;
+    left: 70%;
   }
 
   .sign-out-for-mobile {
@@ -1650,6 +2573,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 80%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -1677,8 +2671,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 25%;
-    width: 77%;
+    left: 22%;
+    width: 67%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -1713,7 +2707,7 @@ span {
     position: absolute;
     top: 18px;
     width: 9%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -1721,7 +2715,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 80%;
+    left: 70%;
   }
 
   .sign-out-for-mobile {
@@ -1747,6 +2741,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 80%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -1774,8 +2839,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 25%;
-    width: 77%;
+    left: 21%;
+    width: 68%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -1810,7 +2875,7 @@ span {
     position: absolute;
     top: 18px;
     width: 9%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -1818,7 +2883,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 80%;
+    left: 70%;
   }
 
   .sign-out-for-mobile {
@@ -1844,6 +2909,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 80%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -1871,8 +3007,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 24%;
-    width: 77%;
+    left: 22%;
+    width: 68%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -1907,7 +3043,7 @@ span {
     position: absolute;
     top: 16px;
     width: 9%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -1915,7 +3051,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 80%;
+    left: 71%;
   }
 
   .sign-out-for-mobile {
@@ -1941,6 +3077,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 80%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -1968,8 +3175,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 22%;
-    width: 80%;
+    left: 20%;
+    width: 70%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -2004,7 +3211,7 @@ span {
     position: absolute;
     top: 16px;
     width: 8%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -2012,7 +3219,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 80%;
+    left: 71%;
   }
 
   .sign-out-for-mobile {
@@ -2038,6 +3245,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 80%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -2065,8 +3343,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 22%;
-    width: 80%;
+    left: 20%;
+    width: 70%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -2101,7 +3379,7 @@ span {
     position: absolute;
     top: 16px;
     width: 8%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -2109,7 +3387,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 80%;
+    left: 71%;
   }
 
   .sign-out-for-mobile {
@@ -2135,6 +3413,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 80%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -2162,8 +3511,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 21%;
-    width: 80%;
+    left: 18%;
+    width: 78%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -2198,7 +3547,7 @@ span {
     position: absolute;
     top: 16px;
     width: 7%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -2206,7 +3555,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 80%;
+    left: 75%;
   }
 
   .sign-out-for-mobile {
@@ -2232,6 +3581,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 82%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -2259,8 +3679,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 21%;
-    width: 80%;
+    left: 18%;
+    width: 78%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -2295,7 +3715,7 @@ span {
     position: absolute;
     top: 16px;
     width: 7%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -2303,7 +3723,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 80%;
+    left: 75%;
   }
 
   .sign-out-for-mobile {
@@ -2329,6 +3749,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 82%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -2356,8 +3847,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 20%;
-    width: 88%;
+    left: 18%;
+    width: 84%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -2392,7 +3883,7 @@ span {
     position: absolute;
     top: 18px;
     width: 6%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -2400,7 +3891,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 85%;
+    left: 79%;
   }
 
   .sign-out-for-mobile {
@@ -2426,6 +3917,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 85%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -2453,8 +4015,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 20%;
-    width: 88%;
+    left: 18%;
+    width: 84%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -2489,7 +4051,7 @@ span {
     position: absolute;
     top: 18px;
     width: 6%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -2497,7 +4059,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 85%;
+    left: 79%;
   }
 
   .sign-out-for-mobile {
@@ -2523,6 +4085,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 85%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -2550,8 +4183,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 20%;
-    width: 88%;
+    left: 18%;
+    width: 84%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -2586,7 +4219,7 @@ span {
     position: absolute;
     top: 18px;
     width: 6%;
-    left: 5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -2594,7 +4227,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 85%;
+    left: 79%;
   }
 
   .sign-out-for-mobile {
@@ -2620,6 +4253,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 85%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -2647,8 +4351,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 20%;
-    width: 88%;
+    left: 16%;
+    width: 84%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -2682,8 +4386,8 @@ span {
   .mob-logo img {
     position: absolute;
     top: 18px;
-    width: 6%;
-    left: 5%;
+    width: 5.5%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -2691,7 +4395,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 85%;
+    left: 79%;
   }
 
   .sign-out-for-mobile {
@@ -2717,6 +4421,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 85%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -2744,8 +4519,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 18%;
-    width: 95%;
+    left: 17%;
+    width: 88%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -2780,7 +4555,7 @@ span {
     position: absolute;
     top: 16px;
     width: 5.5%;
-    left: 4%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -2788,7 +4563,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 89%;
+    left: 82%;
   }
 
   .sign-out-for-mobile {
@@ -2814,6 +4589,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 88%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
@@ -2841,8 +4687,8 @@ span {
 
   .search-bar {
     top: 20px;
-    left: 18%;
-    width: 95%;
+    left: 16%;
+    width: 90%;
     transform: translateX(-15%);
     margin-right: 0;
   }
@@ -2877,7 +4723,7 @@ span {
     position: absolute;
     top: 16px;
     width: 5%;
-    left: 4%;
+    left: 3%;
     border-radius: 100%;
     border: 4px solid black;
   }
@@ -2885,7 +4731,7 @@ span {
   .mob-notif {
     position: absolute;
     top: 15px;
-    left: 89%;
+    left: 83%;
   }
 
   .sign-out-for-mobile {
@@ -2911,6 +4757,77 @@ span {
     background-color: transparent;
   }
 
+  .mob_select_menu {
+    opacity: 1;
+    position: absolute;
+    left: 88%;
+    top: 6px;
+    fill: #29ada0;
+  }
+
+  .mob_select_menu .nav_select_btn {
+    display: flex;
+    height: 10vh;
+    /* background: #fff; */
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .mob_select_btn i {
+    font-size: 25px;
+  }
+
+  .mob_select_menu .nav_options {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .mob_select_menu.active {
+    top: 6px;
+  }
+
+  .mob_select_menu.active .nav_options {
+    display: block;
+  }
+
+  .nav_options .nav_option {
+    display: flex;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+  }
+
+  .nav_options .nav_option:hover {
+    background: #f2f2f2;
+  }
+
+  .nav_option_text {
+    color: #000;
+  }
+
+  .nav_option i {
+    font-size: 25px;
+    margin-right: 12px;
+  }
+
+  .nav_option .nav_option {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .nav_select_menu,
   .sign-out-button,
   .sign-out-icon svg,
   .prof-notif,
