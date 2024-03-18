@@ -28,14 +28,13 @@
   .sidebar {
     /* z-index: 1; */
     flex: 0.7;
-     /* flex: 1 0 calc(15% - 350px); */
     background-color: #ffffff; /* WhatsApp green */
     color: white;
     padding: 20px;
     /* margin-left: 350px; */
     width: 40px;
     color: black;
-    /* left: 100px; */
+
   }
   
   
