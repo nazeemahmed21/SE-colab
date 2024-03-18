@@ -34,10 +34,10 @@ export const SidebarData = [
     icon: <FaIcons.FaCalendarAlt />,
     cName: 'nb-nav-text'
   }, 
-  {
-    title: 'User Profile',
-    path: '/user-prof',
-    icon: <FaIcons.FaRegUserCircle/>,
-    cName: 'nb-nav-text'
-  },
+  // {
+  //   title: 'User Profile',
+  //   path: '/user-prof',
+  //   icon: <FaIcons.FaRegUserCircle/>,
+  //   cName: 'nb-nav-text'
+  // },
 ]
