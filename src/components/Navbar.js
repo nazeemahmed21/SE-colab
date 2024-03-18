@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react'
-// import * as FaIcons from "react-icons/fa";
-// import * as AiIcons from "react-icons/ai";
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import '../styles/navbar.css';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-// import './Navbar.css'
 import logo from "../images/logo.png";
 import { CiSearch } from "react-icons/ci";
 import { IconContext } from 'react-icons'
@@ -16,32 +13,63 @@ import { doc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { IoNotificationsCircle } from "react-icons/io5";
 import { FaSignOutAlt } from "react-icons/fa";
-// import navbg from "../images/bg.gif"  
-// import { uploadBytes } from 'firebase/storage';
-// import { getDownloadURL } from 'firebase/storage';
-// import { updateDoc } from 'firebase/firestore';
-// import { storage } from '../firebase';
+import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { MdOutlineManageAccounts } from "react-icons/md";
+import { IoIosSettings } from "react-icons/io";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const navigate = useNavigate();
-  // const [imageUpload] = useState(null);
-  const [search, setSearch] = useState(''); // State for the search input
+  const [search, setSearch] = useState('');
   const [userInfo, setUserInfo] = useState({
     firstname: '',
     secondname: '',
     ProfPic: '',
     Role: '',
   });
+
+  useEffect(() => {
+    const navOptionMenu = document.querySelector(".nav_select_menu");
+    const navSelectBtn = navOptionMenu.querySelector(".nav_select_btn");
+
+    const toggleMenu = () => {
+      navOptionMenu.classList.toggle("active");
+    };
+
+    navSelectBtn.addEventListener("click", toggleMenu);
+
+    // Cleanup event listener when component unmounts
+    return () => {
+      navSelectBtn.removeEventListener("click", toggleMenu);
+    };
+  }, []); // Empty dependency array to run once after component mount
+
+  useEffect(() => {
+    const navOptionMenu = document.querySelector(".mob_select_menu");
+    const navSelectBtn = navOptionMenu.querySelector(".nav_select_btn");
+
+    const toggleMenu = () => {
+      navOptionMenu.classList.toggle("active");
+    };
+
+    navSelectBtn.addEventListener("click", toggleMenu);
+
+    // Cleanup event listener when component unmounts
+    return () => {
+      navSelectBtn.removeEventListener("click", toggleMenu);
+    };
+  }, []); // Empty dependency array to run once after component mount
+
   const handleSignOut = async () => {
     try {
       await signOut(auth);
       console.log('User signed out successfully');
-      navigate('/'); // Replace '/' with your landing page route
+      navigate('/');
     } catch (error) {
       console.error('Error signing out:', error);
     }
   };
+
   const fetchUserData = async () => {
     const currentUser = auth.currentUser;
     if (currentUser) {
@@ -65,61 +93,27 @@ function Navbar() {
       }
     }
   };
+
   useEffect(() => {
-    fetchUserData(); // Fetch user data when the component mounts
+    fetchUserData();
   }, []);
 
-  // const uploadImage = async () => {
-  //   if (imageUpload == null) return;
-  //   const currentUser = auth.currentUser;
-  //   const userId = currentUser.uid;
-
-  //   const imageRef = ref(storage, `user-profiles/${userId}/profile-img`);
-
-  //   try {
-  //     await uploadBytes(imageRef, imageUpload);
-  //     alert("Image Uploaded");
-
-  //     const url = await getDownloadURL(imageRef);
-  //     const userRef = doc(db, "Users", userId);
-
-  //     // Use the updateDoc function to update the 'pfpURL' field without affecting other fields
-  //     await updateDoc(userRef, {
-  //       pfpURL: url
-  //     });
-
-  //     // Update the ProfPic in state with the uploaded image URL
-  //     setUserInfo((prevState) => ({
-  //       ...prevState,
-  //       ProfPic: url,
-  //     }));
-  //   } catch (error) {
-  //     console.error("Error uploading image or updating document:", error);
-  //   }
-  // };
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
 
-  // Handler for search form submission
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     console.log('Search for:', search);
-    // Add your search logic here
   };
-  const showSidebar = () => setSidebar(!sidebar)
+
+  const showSidebar = () => setSidebar(!sidebar);
+
   return (
     <>
       <div className='nav-body'>
-        {/* <img src={navbg} alt=''/> */}
         <IconContext.Provider value={{ color: '#000 ' }}>
           <div className='navbar'>
-            {/* <p>First Name: {userInfo.firstname}</p>
-          <p>Last Name: {userInfo.secondname}</p>
-          <p>Role: {userInfo.Role}</p>   */}
-            {/* <Link to = '#' className='menu-bars'>
-        <FaIcons.FaBars onClick={showSidebar}/>
-      </Link> */}
           </div>
           <form onSubmit={handleSearchSubmit} className="search-bar">
             <input
@@ -140,23 +134,40 @@ function Navbar() {
           <div className='mob-notif'>
             <IoNotificationsCircle size={50} color='#29ada0' />
           </div>
+          <div className='mob_select_menu'>
+            <IoIosArrowDropdownCircle size={50} color='#29ada0' className='nav_select_btn' />
+            <ul className='nav_options'>
+              <li className='nav_option'>
+                <Link to="/user-prof"><MdOutlineManageAccounts color='#29ada0' /></Link>
+                <Link to="/user-prof"><span className="nav_option_text">Account Settings</span></Link>
+              </li>
+              <li className='nav_option'>
+                <Link to="/settings"><IoIosSettings color='#29ada0' /></Link>
+                <span className="nav_option_text">Settings</span>
+              </li>
+            </ul>
+          </div>
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
             <ul className='nav-menu-items' onClick={showSidebar}>
               <li className='navbar-toggle'>
-                {/* <Link to="#" className='menu-bars'>
-              <FaIcons.FaBars />  
-            </Link> */}
                 <div className='nav-logo'>
                   <img src={logo} alt='logo' />
                 </div>
                 <div className='pfp-logo'>
                   <img className='profile-pic' src={userInfo.ProfPic} alt='profile pic' />
                 </div>
-                <div className='prof-name'>
-                  <p className='userInformation1'>{userInfo.firstname},</p>
-                </div>
-                <div className='prof-role'>
-                  <p className='userInformation'>{userInfo.Role}</p>
+                <div className='nav_select_menu'>
+                  <IoIosArrowDropdownCircle size={50} color='#29ada0' className='nav_select_btn' />
+                  <ul className='nav_options'>
+                    <li className='nav_option'>
+                      <Link to="/user-prof"><MdOutlineManageAccounts color='#29ada0' /></Link>
+                      <Link to="/user-prof"><span className="nav_option_text">Account Settings</span></Link>
+                    </li>
+                    <li className='nav_option'>
+                      <Link to="/settings"><IoIosSettings color='#29ada0' /></Link>
+                      <span className="nav_option_text">Settings</span>
+                    </li>
+                  </ul>
                 </div>
                 <div className='prof-notif'>
                   <IoNotificationsCircle size={50} color='#29ada0' />
@@ -186,4 +197,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;
