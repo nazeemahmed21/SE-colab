@@ -19,6 +19,7 @@ import LabDetails from "./pages/labDetails.js";
 import LabsAnnouncements from "./pages/labsAnnouncement.js";
 import VerifyEmail from "./pages/verifyEmail.js";
 import Settings from "./pages/setting.js";
+import FileSystem from './pages/FileSystem.js';
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
 
@@ -40,6 +41,7 @@ const Rout = () => {
       <Route path="/messages" element={<Messages/>}></Route>
       <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>}></Route>
       <Route path="/labDetails" element={<LabDetails />}></Route>
+      <Route path="/fileSystem" element={<FileSystem />}></Route>
       <Route path="/labAnnouncements" element={<LabsAnnouncements />}></Route>
       <Route path="/toolbox" element={<ProtectedRoute><Toolbox /></ProtectedRoute>}></Route>
       <Route path="/calendar" element={<ProtectedRoute><CalendarApp /></ProtectedRoute>}></Route>

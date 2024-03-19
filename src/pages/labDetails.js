@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import '../styles/labs.css';
 import folder from "../images/folder.png"
 import ppt from "../images/ppt.png"
+import FileSystem from './FileSystem';
 
 const LabDetails = () => {
   const [currentImage, setCurrentImage] = useState(null);
@@ -17,6 +18,8 @@ const LabDetails = () => {
   return (
     <div>
       <Navbar />
+      
+      <FileSystem />
 
       <div className='LabsPageAnnouncement'>
         <div className="labsArrowContainer">
@@ -39,25 +42,7 @@ const LabDetails = () => {
           </div>
         </div>
 
-        <div className="LabsContent">
-          <h1>Lab A</h1>
-          <div className='LabsButtons'>
-            <button className='LabsButton'>Add a file</button>
-            <button className='LabsButton'>Add a folder</button>
-          </div>
-          <div className='labFolderContainer'>
-            <div className="labsImageContainer" onClick={() => handleClick(folder)}>
-              <img src={folder} alt="folder" />
-              <p>Folder</p>
-            </div>
-            {currentImage && (
-              <div className="labsImageContainer slideOutFromFolder" onClick={() => handleClick(null)}>
-                <img src={ppt} alt="ppt" />
-                <p>PPT</p>
-              </div>
-            )}
-          </div>
-        </div>
+        
       </div>
     </div>
   );
