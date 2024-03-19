@@ -19,6 +19,9 @@ import LabDetails from "./pages/labDetails.js";
 import LabsAnnouncements from "./pages/labsAnnouncement.js";
 import VerifyEmail from "./pages/verifyEmail.js";
 import Settings from "./pages/setting.js";
+import Meditation1 from "./pages/meditation1.js";
+import MeditationPlayer from './pages/meditationPlayer.js';
+
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
 
@@ -48,6 +51,9 @@ const Rout = () => {
       <Route path="/verify-email" element={<VerifyEmail/>} />
       <Route path="/user-prof" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
       <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+      <Route path="/meditationPlayer/:title" element={<ProtectedRoute><MeditationPlayer /></ProtectedRoute>} />
+ {/* <Route path="/player/:title" component={MeditationPlayer} /> */}
+      <Route path="/meditation1" element={<ProtectedRoute><Meditation1 /></ProtectedRoute>} />
     </Routes>
   );
 };

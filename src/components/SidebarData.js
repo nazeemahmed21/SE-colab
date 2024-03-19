@@ -34,6 +34,12 @@ export const SidebarData = [
     icon: <FaIcons.FaCalendarAlt />,
     cName: 'nb-nav-text'
   }, 
+  {
+    title: 'Zen Space',
+    path: '/meditation1',
+    icon: <FaIcons.FaCalendarAlt />,
+    cName: 'nb-nav-text' 
+  },  //need to change icon
   // {
   //   title: 'User Profile',
   //   path: '/user-prof',

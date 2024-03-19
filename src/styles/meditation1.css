@@ -1,0 +1,77 @@
+/* labs.css */
+.Meditation1PageWithNavBar {
+    display: flex;
+  }
+.Meditation1Page{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-left: 200px;  
+}
+/* .Meditation1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Page {
+    margin-top: 50px;
+    margin-left: 20px; 
+  }
+   */
+  .emotion-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .emotion-box {
+    width: 120px;
+    height: 120px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .emotion-box:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .emotion-title {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .emotion-description {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+  }
+  
+  /* meditation1.css */
+  .content-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+    
+  }
+  
+  .content-tile {
+    flex: 0 0 calc(33.33% - 20px); /* Adjust the width as needed */
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    color: black;
+  }
+  
+  .content-description {
+    margin-top: 5px;
+  }
