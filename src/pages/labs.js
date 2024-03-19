@@ -11,6 +11,7 @@ const Labs = () => {
       <div className='LabsPage'>
  
       <h1>Labs</h1>
+      
 
       <div className='LabsButtons'>
         <button className='LabsButton'>Join Lab</button>
