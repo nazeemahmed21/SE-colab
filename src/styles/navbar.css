@@ -51,10 +51,7 @@ body {
   transition: 850ms;
 }
 
-.dark-mode .nav-menu {
-  background-color: rgb(208, 135, 0);
-  height: 100vh;
-}
+
 
 .nav-menu.active {
   left: 0;
@@ -258,7 +255,9 @@ span {
 }
 
 .dark-mode .search-input {
-  border: 4px solid rgb(208, 135, 0);
+  border: 4px solid #29ada0;
+  background-color: #292828;
+  color: #000;
 }
 
 .search-button {
@@ -283,10 +282,13 @@ span {
   top: 20px;
   border: 4px solid #fea059;
 }
+<<<<<<< HEAD
+=======
 
 .dark-mode .nav-logo img {
   border: 4px solid #29ada0;
 }
+>>>>>>> 5646390f0efcc9177909a8aabc6fd07c97654e65
 
 .pfp-logo img {
   width: 5vw;
@@ -298,10 +300,13 @@ span {
   top: 24px;
 }
 
+<<<<<<< HEAD
+=======
 .dark-mode .pfp-logo img {
   border: 4px solid #29ada0;
 }
 
+>>>>>>> 5646390f0efcc9177909a8aabc6fd07c97654e65
 .pfp-logo p {
   position: absolute;
   left: 1750px;
