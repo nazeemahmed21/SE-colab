@@ -96,12 +96,14 @@ button{
   /* align-items: center; */
   margin-top: 100px;
   display: flex;
+  top: 0%;
+  position: absolute;
 }
 
 .labSideBar {
   border-radius: 8px;
   height: 60vh;
-  margin-top: 100px;
+  margin-top: 140px;
   margin-left: 390px;
   width: 260px;
   background-color: #29ada0 ; /* Add a background color for the sidebar */
@@ -186,8 +188,8 @@ font-size: 20px;
 }
 
 .labsArrowContainer {
-  margin-top: 100px;
-  margin-left: 350px;
+  margin-top: 50px;
+  margin-left: 370px;
   position: absolute;
   top: 20px;
   left: 20px;
