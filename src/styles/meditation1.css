@@ -75,3 +75,62 @@
   .content-description {
     margin-top: 5px;
   }
+
+  
+  
+ 
+  
+  .meditationPlayerPage {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Set the minimum height to 100% of viewport height */
+    background-size: cover; /* Ensure background image covers the entire container */
+    background-position: center; /* Center the background image */
+  }
+
+  .meditationPlayerTitle{
+    font-family: Arial, sans-serif;
+    margin-top: -340px; 
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    position: fixed;
+  }
+
+  .meditationPlayerQuote {
+    margin-left: 200px;  
+    margin-top: -150px;
+    font-size: 30px; /* Adjust the font size as needed */
+    font-family: Arial, sans-serif; /* Choose the appropriate font family */
+    font-weight: normal; /* Adjust the font weight as needed */
+    color: white;
+    width: 70%;
+    position: fixed;
+    /* font-style: italic; */
+  }
+  
+  .meditationPlayerPage button{
+    background-color: transparent;
+    border: none;
+    height: 100px;
+  }
+.buttonContainer{
+  margin-bottom: 20px;
+}
+
+.playPauseButton {
+  margin-top: 250px;
+  position: fixed;
+  align-self: center;
+}
+
+.playPauseButton {
+  transition: transform 0.3s ease-in-out;
+}
+
+.playPauseButton:hover {
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+}
