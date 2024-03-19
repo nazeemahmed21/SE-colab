@@ -44,6 +44,22 @@ function Navbar({ darkMode }) {
     };
   }, []); // Empty dependency array to run once after component mount
 
+  useEffect(() => {
+    const navOptionMenu = document.querySelector(".mob_select_menu");
+    const navSelectBtn = navOptionMenu.querySelector(".nav_select_btn");
+
+    const toggleMenu = () => {
+      navOptionMenu.classList.toggle("active");
+    };
+
+    navSelectBtn.addEventListener("click", toggleMenu);
+
+    // Cleanup event listener when component unmounts
+    return () => {
+      navSelectBtn.removeEventListener("click", toggleMenu);
+    };
+  }, []); // Empty dependency array to run once after component mount
+
   const handleSignOut = async () => {
     try {
       await signOut(auth);
@@ -118,6 +134,19 @@ function Navbar({ darkMode }) {
           <div className='mob-notif'>
             <IoNotificationsCircle size={50} color='#29ada0' />
           </div>
+          <div className='mob_select_menu'>
+            <IoIosArrowDropdownCircle size={50} color='#29ada0' className='nav_select_btn' />
+            <ul className='nav_options'>
+              <li className='nav_option'>
+                <Link to="/user-prof"><MdOutlineManageAccounts color='#29ada0' /></Link>
+                <Link to="/user-prof"><span className="nav_option_text">Account Settings</span></Link>
+              </li>
+              <li className='nav_option'>
+                <Link to="/settings"><IoIosSettings color='#29ada0' /></Link>
+                <span className="nav_option_text">Settings</span>
+              </li>
+            </ul>
+          </div>
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
             <ul className='nav-menu-items' onClick={showSidebar}>
               <li className='navbar-toggle'>
@@ -131,7 +160,7 @@ function Navbar({ darkMode }) {
                   <IoIosArrowDropdownCircle size={50} color='#29ada0' className='nav_select_btn' />
                   <ul className='nav_options'>
                     <li className='nav_option'>
-                      <Link to="/user-prof"><MdOutlineManageAccounts color='#29ada0'/></Link>
+                      <Link to="/user-prof"><MdOutlineManageAccounts color='#29ada0' /></Link>
                       <Link to="/user-prof"><span className="nav_option_text">Account Settings</span></Link>
                     </li>
                     <li className='nav_option'>

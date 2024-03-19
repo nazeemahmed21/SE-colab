@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { ZegoSuperBoardManager } from "zego-superboard-web";
-import '../Style.css';
+import '../chatStyle.css';
 import Navbar from './Navbar';
 
 function randomID(len) {
