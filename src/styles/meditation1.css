@@ -137,6 +137,7 @@
   }
 
   .meditationPlayerQuote {
+    /* background-color: rgba(0, 0, 0, 0.5);  */
     margin-left: 200px;  
     margin-top: -150px;
     font-size: 30px; /* Adjust the font size as needed */
@@ -156,11 +157,14 @@
     height: 100px;
   }
 .buttonContainer{
+
+  position: fixed;
   margin-bottom: 20px;
+
 }
 
 .playPauseButton {
-  margin-top: 250px;
+  margin-top: 50px;
   position: fixed;
   align-self: center;
   /* align-self: center; */
@@ -173,13 +177,6 @@
   
 }
 
-.playPauseButton {
-  /* transition: transform 0.3s ease-in-out; */
-}
-
-.playPauseButton:hover {
-  /* transform: scale(1.05); Adjust the scale factor as needed */
-}
 
 /* Add this to your CSS file */
 /* Add this to your CSS file */

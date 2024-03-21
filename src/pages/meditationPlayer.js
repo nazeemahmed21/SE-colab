@@ -151,7 +151,7 @@ const meditationData = {
         </ul>
         </div>
         <audio ref={audioRef} src={audio} type="audio/mp3" controls />
-        {isPlaying && <img src={soundwave} alt="Sound Wave" style={{ height: '100px', marginTop: '500px' }} />}
+        {isPlaying && <img src={soundwave} alt="Sound Wave" style={{ height: '100px', marginTop: '450px' }} />}
 <div className="buttonContainer">
   <button className="playPauseButton" onClick={toggleAudio}>
     {isPlaying ? <img src={pause} alt="Pause" style={{ height: '120px' }} /> : <img src={play} alt="Play" style={{ height: '120px' }} />}
