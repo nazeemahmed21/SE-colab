@@ -95,8 +95,6 @@ const meditationData = {
     {isPlaying ? <img src={pause} alt="Pause" style={{ height: '120px' }} /> : <img src={play} alt="Play" style={{ height: '120px' }} />}
   </button>
 </div>
-
-
  <br/>
       {isPlaying && <div className="musicWave"></div>}
      

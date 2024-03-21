@@ -113,6 +113,8 @@
   }
   
   .meditationPlayerPage button{
+    align-self: center;
+    justify-content: center;
     background-color: transparent;
     border: none;
     height: 100px;
@@ -125,6 +127,7 @@
   margin-top: 250px;
   position: fixed;
   align-self: center;
+  /* align-self: center; */
 }
 
 .playPauseButton {
