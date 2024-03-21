@@ -76,13 +76,13 @@
 
 
 
-.confirm_button {
+.next_button {
   background-color: #fea059;
   color: white;
   cursor: pointer;
   margin: 0;
   font-size: 20px;
-  width: 150px;
+  width: 120px;
   height: 60px;
   border: 3px solid black;
   border-radius: 100px;
@@ -158,7 +158,7 @@
 }
 
 @media (max-width: 355px) {
-  .confirm_button {
+  .next_button {
     margin-left: 5%;
   }
   .upload_button {
@@ -225,7 +225,7 @@
   .skip_button {
     margin-bottom: 5px;
   }
-  .confirm_button {
+  .next_button {
     margin-bottom: 5px;
   }
 }
@@ -238,7 +238,7 @@
   .skip_button {
     margin-bottom: 1px;
   }
-  .confirm_button {
+  .next_button {
     margin-bottom: 1px;
   }
 }
@@ -268,7 +268,7 @@
   .skip_button {
     margin-bottom: 5px;
   }
-  .confirm_button {
+  .next_button {
     margin-bottom: 5px;
   }
 }
