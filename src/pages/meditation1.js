@@ -4,7 +4,9 @@ import { auth, db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import '../styles/meditation1.css';
 import { Link } from "react-router-dom";
-
+import rainpic1 from '../components/Meditation1/soft-rain.jpg';
+import rainpic2 from '../components/Meditation1/forest.jpg';
+import rainpic3 from '../components/Meditation1/harmony.jpg';
 const Meditation1 = () => {
   const [userInfo, setUserInfo] = useState({
     firstname: "",
@@ -58,10 +60,15 @@ const Meditation1 = () => {
           { title: "Stress Relief", description: "Instant stress relief techniques." },
           { title: "Morning Meditation", description: "Start your day with a short morning meditation." }
         ] },
-        { title: "Sleep Better", category: "sleep", content: [
-          { title: "Sleep Meditation", description: "Guided meditation to help you fall asleep faster." },
-          { title: "Night-time Relaxation", description: "Relaxation techniques for a peaceful night's sleep." },
-          { title: "Deep Sleep", description: "Meditations to promote deep and restful sleep." }
+        { title: "Sleep Better - Sleep Music", category: "sleep", content: [
+          // Sound Effect by <a href="https://pixabay.com/users/soundsforyou-4861230/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=111154">Mikhail</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=111154">Pixabay</a>
+          { title: "Rainy morning", description: "Guided meditation to help you fall asleep faster.", pic: rainpic1},
+          // Image by <a href="https://pixabay.com/users/seaq68-4191072/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2942477">Sven Lachmann</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2942477">Pixabay</a>
+          // Music by <a href="https://pixabay.com/users/light_music-40074088/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=187590">Alex Wit</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=187590">Pixabay</a>
+          { title: "Forest stroll", description: "Relaxation techniques for a peaceful night's sleep.", pic: rainpic2 },
+          // Image by <a href="https://pixabay.com/users/wokandapix-614097/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2525787">WOKANDAPIX</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2525787">Pixabay</a>
+          // Music by <a href="https://pixabay.com/users/relaxingtime-17430502/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=123887">Piotr Witowski</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=123887">Pixabay</a>
+          { title: "Harmony", description: "Meditations to promote deep and restful sleep.", pic: rainpic3 }
         ] },
         // Add more categories and their content as needed
       ];
@@ -145,8 +152,10 @@ const Meditation1 = () => {
                 </div> */}
                 <div className="content-tiles">
   {category.content.map((contentItem, contentIndex) => (
-    <Link key={contentIndex} to={`/meditationPlayer/${contentItem.title}`} className="content-tile">
+    <Link key={contentIndex} to={`/meditationPlayer/${contentItem.title}`} className="content-tile" style={{ backgroundImage: `url(${contentItem.pic})` }}>
       <div>
+      {/* <img src={contentItem.pic} alt={contentItem.title} className="content-image" /> */}
+            
         <h4>{contentItem.title}</h4>
         <p>{contentItem.description}</p>
       </div>

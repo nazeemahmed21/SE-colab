@@ -144,26 +144,31 @@ const handleSelectGif = async (searchTerm) => {
 
   return (
     <div className='input'>
-    <div className="emoji-picker-container" style={{ display: showEmojiPicker ? 'block' : 'none' }}>
-      <EmojiPicker
-        onEmojiClick={handleEmojiClick}
-        navPosition="none"
-        searchPosition="none"
-        native
-        pickerStyle={{
-          width: '105px',
-          maxHeight: '100px',
-          padding: '8px',
-          borderRadius: '8px',
-          border: '1px solid #ccc',
-          backgroundColor: '#fff',
-          boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
-          fontSize: '10px'
-        }}
-        emojiSize={20}
-        pickerClassName="custom-emoji-picker"
-      />
-    </div>
+<div className="emoji-picker-container" style={{ display: showEmojiPicker ? 'block' : 'none' }}>
+  <EmojiPicker
+    onEmojiClick={handleEmojiClick}
+    navPosition="none"
+    search={false} // Set search to false to remove the search bar
+    grouped={true} // Set grouped to false to remove grouped categories
+    showSkinTones={false} // Set showSkinTones to false to remove skin tone picker
+  skinTone={null}
+    native
+    pickerStyle={{
+      width: '195px',
+      maxHeight: '100px',
+      whiteSpace: 'nowrap',
+      // padding: '8px',
+      // borderRadius: '8px',
+      // border: '1px solid #ccc',
+      // backgroundColor: '#fff',
+      // boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
+      fontSize: '10px'
+    }}
+    emojiSize={20}
+    pickerClassName="custom-emoji-picker"
+  />
+</div>
+
     <input type="text" placeholder='Type Something...' onChange={e => setText(e.target.value)} value={text} />
     <div className="send">
       <label htmlFor="file">

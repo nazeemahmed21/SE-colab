@@ -3,8 +3,13 @@ import React,{ useState, useRef, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import meditationAudio1 from '../components/Meditation1/IntroductionToMeditation.m4a';
 import meditationAudio2 from '../components/Meditation1/BreathingExercise.m4a';
+import sleepAudio1 from '../components/Meditation1/soft-rain.mp3';
+import sleepAudio2 from '../components/Meditation1/healing-forest.mp3';
+import sleepAudio3 from '../components/Meditation1/harmony.mp3';
 import meditationPic1 from '../components/Meditation1/IntroductionToMeditation.jpg';
 import  meditationPic2 from '../components/Meditation1/BreathingExercise.jpg';
+import rainpic1 from '../components/Meditation1/soft-rain.jpg';
+import rainpic2 from '../components/Meditation1/forest.jpg';
 import '../styles/meditation1.css';
 import Navbar from '../components/Navbar';
 import pause from '../images/icons8-pause-button-50.png';
@@ -46,6 +51,39 @@ const meditationData = {
           "The body benefits from movement, and the mind benefits from stillness. - Sakyong Mipham"
         ]
       },
+      // Image by <a href="https://pixabay.com/users/nickype-10327513/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6544618">Nicky ❤️🌿🐞🌿❤️</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6544618">Pixabay</a>
+      "Rainy morning": {
+        picture: rainpic1,
+      //   https://marshalucasphd.com/basic-mindfulness-practice-audio-download-marsha-lucas-phd/
+        audio: sleepAudio1,
+        quotes: [
+          "The present moment is the only moment available to us, and it is the door to all moments. - Thich Nhat Hanh",
+          "In today's rush, we all think too much, seek too much, want too much, and forget about the joy of just being. - Eckhart Tolle",
+          "Meditation is a way for nourishing and blossoming the divinity within you. - Amit Ray"
+        ]
+      },
+
+      "Forest stroll": {
+        picture: rainpic2,
+      //   https://marshalucasphd.com/basic-mindfulness-practice-audio-download-marsha-lucas-phd/
+        audio: sleepAudio2,
+        quotes: [
+          "The present moment is the only moment available to us, and it is the door to all moments. - Thich Nhat Hanh",
+          "In today's rush, we all think too much, seek too much, want too much, and forget about the joy of just being. - Eckhart Tolle",
+          "Meditation is a way for nourishing and blossoming the divinity within you. - Amit Ray"
+        ]
+      },
+
+      "Harmony": {
+        picture: meditationPic1,
+      //   https://marshalucasphd.com/basic-mindfulness-practice-audio-download-marsha-lucas-phd/
+        audio: sleepAudio3,
+        quotes: [
+          "The present moment is the only moment available to us, and it is the door to all moments. - Thich Nhat Hanh",
+          "In today's rush, we all think too much, seek too much, want too much, and forget about the joy of just being. - Eckhart Tolle",
+          "Meditation is a way for nourishing and blossoming the divinity within you. - Amit Ray"
+        ]
+      },
     // Define data for other titles similarly
   };
   
@@ -57,7 +95,31 @@ const meditationData = {
     const audioRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
-   
+    const [duration, setDuration] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
+
+    useEffect(() => {
+      const audioElement = audioRef.current;
+      if (!audioElement) return;
+    
+      const handleLoadedMetadata = () => {
+        setDuration(audioElement.duration);
+      };
+    
+      const handleTimeUpdate = () => {
+        setCurrentTime(audioElement.currentTime);
+      };
+    
+      audioElement.addEventListener('loadedmetadata', handleLoadedMetadata);
+      audioElement.addEventListener('timeupdate', handleTimeUpdate);
+    
+      return () => {
+        audioElement.removeEventListener('loadedmetadata', handleLoadedMetadata);
+        audioElement.removeEventListener('timeupdate', handleTimeUpdate);
+      };
+    }, []);
+    
+
     useEffect(() => {
         const intervalId = setInterval(() => {
           if (currentQuoteIndex < quotes.length - 1) {
@@ -89,17 +151,36 @@ const meditationData = {
         </ul>
         </div>
         <audio ref={audioRef} src={audio} type="audio/mp3" controls />
-        {isPlaying && <img src={soundwave} alt="Sound Wave" style={{ height: '120px' }} />}
-        <div className="buttonContainer">
+        {isPlaying && <img src={soundwave} alt="Sound Wave" style={{ height: '100px', marginTop: '500px' }} />}
+<div className="buttonContainer">
   <button className="playPauseButton" onClick={toggleAudio}>
     {isPlaying ? <img src={pause} alt="Pause" style={{ height: '120px' }} /> : <img src={play} alt="Play" style={{ height: '120px' }} />}
   </button>
 </div>
  <br/>
-      {isPlaying && <div className="musicWave"></div>}
+      {/* {isPlaying && <div className="musicWave"></div>} */}
+      {isPlaying && (
+  <>
+    <div className="timeDisplay">
+    <div>Current Time: {formatTime(currentTime)}</div>
+      <div>Duration: {formatTime(duration)}</div>
+    </div>
+
+    <div className="progress-bar">
+      <div className="progress-bar-fill" style={{ width: `${(currentTime / duration) * 100}%` }}></div>
+    </div>
+  </>
+)}
+
      
       </div>
     );
+  };
+
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
   
   export default MeditationPlayer;
