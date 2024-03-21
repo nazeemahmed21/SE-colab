@@ -19,7 +19,7 @@ const ProfileSetup = () => {
   };
   const [userInfo, setUserInfo] = useState({
     firstname: "",
-    secondname: "",
+    lastname: "",
     ProfPic: placeholderImageUrl,
     Role: "",
   });
@@ -37,7 +37,7 @@ const ProfileSetup = () => {
           const userData = userDoc.data();
           setUserInfo({
             firstname: userData.firstName || "",
-            secondname: userData.lastName || "",
+            lastname: userData.lastName || "",
             ProfPic: userData.pfpURL || placeholderImageUrl,
             Role: userData.role || "",
           });
@@ -106,7 +106,7 @@ const ProfileSetup = () => {
           </button>
           <div className="user_info">
             <p>First Name: {userInfo.firstname}</p>
-            <p>Last Name: {userInfo.secondname}</p>
+            <p>Last Name: {userInfo.lastname}</p>
             <p>Role: {userInfo.Role}</p>
           </div>
           <div className="button_container">
@@ -117,10 +117,10 @@ const ProfileSetup = () => {
               Skip
             </button>
             <button
-              className="confirm_button"
+              className="next_button"
               onClick={handleNavigationToInterest}
             >
-              Confirm
+              Next
             </button>
           </div>
           <div className="logo_container">

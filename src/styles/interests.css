@@ -24,13 +24,13 @@
 
 .int-interest-btn h1 {
   position: absolute;
+  text-align: center;
   top: 5%;
-  left: 15%;
+  padding: 60px;
 }
 
 .int-interest-btn .int-btn-container {
   display: flex;
-  margin-top: 30px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -38,19 +38,18 @@
 }
 
 .int-interest-btn .int-btn-container button {
-  display: flex; /* Changed from block to flex */
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Centers content vertically */
-  padding: 0; /* Remove or adjust padding as needed */
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
   width: 150px;
   height: 50px;
-  margin-left: 10px;
+  margin-left: auto;
+  margin-right: auto;
   border: 3px solid black;
   border-radius: 100px;
   font-size: 20px;
   color: white;
-  margin-right: 105px;
-  background-color: #FFA07A; /* Default orange background */
+  background-color: #fea059;
   transition: background-color 0.3s, background-image 0.3s;
 }
 
@@ -62,6 +61,7 @@
   color: white;
   text-shadow: black 2px 2px; 
 }
+
 .int-interest-btn .int-btn-container .int-btn-2 button.active { 
   background-image: url('../images/art-bg.jpg');
   background-size: cover;
@@ -69,6 +69,7 @@
   transition: 1500ms;
   text-shadow: black 2px 2px;
 }
+
 .int-interest-btn .int-btn-container .int-btn-3 button.active { 
   background-image: url('../images/lib.jpg');
   background-size: cover;
@@ -76,6 +77,7 @@
   transition: 1500ms;
   text-shadow: black 2px 2px;
 }
+
 .int-interest-btn .int-btn-container .int-btn-4 button.active { 
   background-image: url('../images/business.jpg'); 
   background-size: cover;
@@ -85,6 +87,7 @@
   font-weight: bold;
   text-shadow: black 2px 2px;
 }
+
 .int-interest-btn .int-btn-container .int-btn-5 button.active { 
   background-image: url('../images/sci.jpg');
   background-size: cover;
@@ -92,6 +95,7 @@
   transition: 1500ms;
   text-shadow: black 2px 2px;
 }
+
 .int-interest-btn .int-btn-container .int-btn-6 button.active { 
   background-image: url('../images/num1.jpg');
   background-size: cover;
@@ -101,6 +105,7 @@
   font-weight: bold;
   text-shadow: black 2px 2px;
 }
+
 .int-interest-btn .int-btn-container .int-btn-7 button.active { 
   background-image: url('../images/game.jpg');
   background-size: cover;
@@ -109,6 +114,7 @@
   color: rgb(250, 192, 202);
   text-shadow: black 2px 2px;
 }
+
 .int-interest-btn .int-btn-container .int-btn-8 button.active { 
   background-image: url('../images/other.jpeg');
   background-size: cover;
@@ -128,35 +134,227 @@
   left: 15%;
   top: 30%;
 }
-.int-go-to-login button{
-  position: fixed;
-  bottom: 2%;
-  left: 83%;
+
+.int-go-to-login {
+  position: absolute;
+  bottom: 5%;
+  right: 14%;
   padding: 20px;
-  height: 60px; /* Adjusted for better vertical spacing */
-  width: 100px;
-  text-align: center; /* Centers text horizontally */
-  line-height: 20px; /* Adjust line height for vertical centering */
-  color: white; /* Optional: Set your text color */
-  font-size: 16px; /* Optional: Adjust text size */
+  line-height: 100%;
   cursor: pointer;
   border-radius: 100px;
   border: 3px solid black;
-  background-color: #FFA07A;
+  background-color: #fea059;
+  font-size: 20px;
+  height: 60px;
 }
-.int-go-to-signup button{
-  position: fixed;
-  bottom: 2%;
-  left: 46%;
+
+.int-go-to-profile-setup {
+  position: absolute;
+  bottom: 5%;
+  margin-left: 18%;
+  left: 0%;
   padding: 20px;
-  height: 60px; /* Adjusted for better vertical spacing */
-  width: 100px;
-  text-align: center; /* Centers text horizontally */
-  line-height: 20px; /* Adjust line height for vertical centering */
-  color: white; /* Optional: Set your text color */
-  font-size: 16px; /* Optional: Adjust text size */
+  line-height: 100%;
   cursor: pointer;
   border-radius: 100px;
   border: 3px solid black;
-  background-color: #FFA07A;;
+  background-color: #fea059;
+  font-size: 20px;
+  width: 120px;
+  height: 60px;
+}
+
+@media (max-width: 1100px) {
+  .int-interest-container {
+    display: flex;
+    justify-content: center;
+    width: 0vw;
+  }
+
+  .int-interest-btn {
+    width: 100vw;
+  }
+
+  .int-interest-container .int-logo {
+    display: none;
+    /* z-index: 69;
+    position: absolute;
+    left: 0%;
+    top: 5%; */
+  }
+
+  .int-interest-btn .int-btn-container button {
+    width: 200px;
+  }
+
+  .int-go-to-login {
+    width: 180px;
+  }
+
+  .int-go-to-profile-setup {
+    width: 180px;
+    margin-left: 15%;
+  }
+}
+
+@media (max-width: 750px) {
+  .int-interest-btn .int-btn-container button {
+    width: 150px;
+  }
+
+  .int-go-to-login {
+    width: 140px;
+  }
+
+  .int-go-to-profile-setup {
+    width: 140px;
+  }
+
+  .int-interest-btn h1 {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .int-go-to-login {
+    width: 130px;
+    bottom: 2%;
+  }
+
+  .int-go-to-profile-setup {
+    width: 130px;
+    bottom: 2%;
+  }
+}
+
+@media (max-width: 500px) {
+  .int-go-to-login {
+    right: 8%
+  }
+
+  .int-go-to-profile-setup {
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .int-go-to-login {
+    right: 5%;
+    width: 120px;
+  }
+
+  .int-go-to-profile-setup {
+    margin-left: 30px;
+    width: 120px;
+  }
+}
+
+@media (max-height: 1130px) and (max-width: 1100px) {
+  .int-interest-btn .int-btn-container button {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-height: 1040px) and (max-width: 1100px) {
+  .int-interest-btn .int-btn-container button {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-height: 1000px) and (max-width: 1100px) {
+  .int-interest-btn .int-btn-container button {
+    margin-bottom: 2px;
+  }
+}
+
+@media (max-height: 970px) and (max-width: 1100px) {
+  .int-interest-btn h1 {
+    padding: 20px;
+  }
+}
+
+@media (max-height: 875px) and (max-width: 1100px) {
+  .int-go-to-profile-setup {
+    height: 40px;
+    line-height: 0px;
+  }
+  .int-go-to-login {
+    height: 40px;
+    line-height: 0px;
+  }
+  .int-interest-btn .int-btn-container button {
+    margin-bottom: 0px;
+    margin-top: 25px;
+  }
+}
+
+@media (max-height: 810px) and (max-width: 1100px) {
+  .int-interest-btn .int-btn-container button {
+    margin-top: 20px;
+  }
+  .int-interest-btn h1 {
+    padding: 5px;
+  }
+}
+
+@media (max-height: 740px) and (max-width: 1100px) {
+  .int-interest-btn .int-btn-container button {
+    margin-top: 20px;
+    font-size: 15px;
+    width: 100px;
+    height: 40px;
+  }
+  .int-go-to-profile-setup {
+  font-size: 15px;
+  width: 100px;
+  bottom: 0%;
+  }
+  .int-go-to-login {
+  font-size: 15px;
+  width: 100px;
+  bottom: 0%;
+  }
+  .int-interest-btn h1 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1100px) and (max-height: 1100px){
+  .int-interest-btn h1 {
+    padding: 5px;
+  }
+}
+
+@media (min-width: 1100px) and (max-height: 1040px){
+  .int-go-to-login {
+    bottom: 2%;
+  }
+  .int-go-to-profile-setup {
+    bottom: 2%;
+  }
+}
+
+@media (min-width: 1100px) and (max-height: 960px){
+  .int-interest-btn .int-btn-container button {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 1100px) and (max-height: 890px){
+  .int-interest-btn .int-btn-container button {
+    margin-top: 10px;
+  }
+  .int-go-to-profile-setup {
+    margin-left: 70px;
+  }
+  .int-go-to-login {
+    right: 11%;
+  }
+}
+
+@media (min-width: 1100px) and (max-height: 805px){
+  .int-interest-btn .int-btn-container button {
+    margin-bottom: 10px;
+  }
 }

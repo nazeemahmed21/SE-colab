@@ -15,7 +15,7 @@ function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [firstN, setFirstN] = useState("");
-  const [secondN, setSecN] = useState("");
+  const [LastN, setLasN] = useState("");
   const [sex, setSex] = useState("");
   const [job, setJob] = useState("");
 
@@ -37,7 +37,7 @@ function Signup() {
     setFirstN(event.target.value);
   };
   const handleSNChange = (event) => {
-    setSecN(event.target.value);
+    setLasN(event.target.value);
   };
   const handleGenderChange = (event) => {
     setSex(event.target.value); // Set the selected gender value
@@ -50,7 +50,7 @@ function Signup() {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    if (firstN === "" || secondN === "" || sex === "" || job === "") {
+    if (firstN === "" || LastN === "" || sex === "" || job === "") {
       alert("Please fill in all required fields.");
       return;
     }
@@ -70,7 +70,7 @@ function Signup() {
       // Save user info in Firestore
       await setDoc(doc(db, "Users", user.uid), {
         firstName: firstN,
-        lastName: secondN,
+        lastName: LastN,
         gender: sex,
         role: job,
         uid: user.uid,
@@ -147,12 +147,12 @@ function Signup() {
           type="text"
           placeholder="First Name..."
         />
-        <h3>Enter your Second Name</h3>
+        <h3>Enter your Last Name</h3>
         <input
           onChange={handleSNChange}
           className="su-name2"
           type="text"
-          placeholder="Second Name..."
+          placeholder="Last Name..."
         />
         <h3>Enter your Email Address</h3>
         <input
