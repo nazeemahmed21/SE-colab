@@ -1,13 +1,12 @@
-
 .settings_header{
   position: relative;
-  bottom: 40vh;
+  bottom: 60vh;
   left: 26.5vw;
   font-size: 40px;
 }
 .settings_theme{
   position: relative;
-  bottom: 40vh;
+  bottom: 60vh;
   left: 26.5vw;
   font-size: 25px;
 }

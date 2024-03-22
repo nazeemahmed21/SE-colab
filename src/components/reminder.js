@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { reminders, updateReminder } from './firebaseforreminder';
+import { reminders, updateReminder } from '../firebase';
 import '../styles/reminder.css'
 import { PageTitle } from "../components/combinedTodo";
+import fetchid from '../firebase';
 
 const Reminder = () => {
   const [refresh, setRefresh] = useState(false);
 
-  useEffect(() => {
+    // useEffect(() => {
 
-  }, [reminders])
+    // }, [reminders])
 
   const handleRefresh = () => {
     setRefresh(!refresh);
