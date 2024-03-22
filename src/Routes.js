@@ -1,18 +1,17 @@
-import React ,{useContext} from "react";
+import React, { useContext } from "react";
 import { Routes, Route } from "react-router";
 import LandingPage from "./pages/landingpage.js";
 import Signup from "./pages/signup.js";
-import Login from "./pages/login.js"
+import Login from "./pages/login.js";
 import ProfileSetup from "./pages/profilesetup.js";
 import Home from "./pages/homepage.js";
 import Labs from "./pages/labs.js";
-import Toolbox from "./pages/toolbox.js"
+import Toolbox from "./pages/toolbox.js";
 import Messages from "./pages/messages.js";
-import Calendar from "./pages/calendar.js";
 import CalendarApp from "./components/calendarModule.js";
 import Interests from "./pages/interests.js";
-import { Navigate } from "react-router";
 import Video from "./components/Video.jsx";
+import { Navigate } from "react-router";
 import { AuthContext } from "./Context/AuthContext.jsx";
 import UserProfile from "./pages/user-Profile.js";
 import LabDetails from "./pages/labDetails.js";
@@ -20,34 +19,35 @@ import LabsAnnouncements from "./pages/labsAnnouncement.js";
 import VerifyEmail from "./pages/verifyEmail.js";
 import Settings from "./pages/setting.js";
 import FileSystem from './pages/FileSystem.js';
+
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
 
-
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/login" />
+      return <Navigate to="/login" />;
     }
 
     return children;
-  }
+  };
+
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />}></Route>
-      <Route path="/signup" element={<Signup />}></Route>
-      <Route path="/login" element={<Login />}></Route>
-      <Route path="/profile-setup" element={<ProfileSetup/>}  ></Route>
-      <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>}></Route>
-      <Route path="/messages" element={<Messages/>}></Route>
-      <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>}></Route>
-      <Route path="/labDetails" element={<LabDetails />}></Route>
-      <Route path="/fileSystem" element={<FileSystem />}></Route>
-      <Route path="/labAnnouncements" element={<LabsAnnouncements />}></Route>
-      <Route path="/toolbox" element={<ProtectedRoute><Toolbox /></ProtectedRoute>}></Route>
-      <Route path="/calendar" element={<ProtectedRoute><CalendarApp /></ProtectedRoute>}></Route>
-      <Route path="/interest" element={<ProtectedRoute><Interests/></ProtectedRoute>}></Route>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/profile-setup" element={<ProfileSetup />} />
+      <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+      <Route path="/messages" element={<Messages />} />
+      <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>} />
+      <Route path="/labDetails" element={<LabDetails />} />
+      <Route path="/fileSystem" element={<FileSystem />} />
+      <Route path="/labAnnouncements" element={<LabsAnnouncements />} />
+      <Route path="/toolbox" element={<ProtectedRoute><Toolbox /></ProtectedRoute>} />
+      <Route path="/calendar" element={<ProtectedRoute><CalendarApp /></ProtectedRoute>} />
+      <Route path="/interest" element={<ProtectedRoute><Interests /></ProtectedRoute>} />
       <Route path="/video" element={<Video />} />
-      <Route path="/verify-email" element={<VerifyEmail/>} />
+      <Route path="/verify-email" element={<VerifyEmail />} />
       <Route path="/user-prof" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
       <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
     </Routes>
