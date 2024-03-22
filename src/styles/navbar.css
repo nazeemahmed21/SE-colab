@@ -282,13 +282,6 @@ span {
   top: 20px;
   border: 4px solid #fea059;
 }
-<<<<<<< HEAD
-=======
-
-.dark-mode .nav-logo img {
-  border: 4px solid #29ada0;
-}
->>>>>>> 5646390f0efcc9177909a8aabc6fd07c97654e65
 
 .pfp-logo img {
   width: 5vw;
@@ -300,13 +293,6 @@ span {
   top: 24px;
 }
 
-<<<<<<< HEAD
-=======
-.dark-mode .pfp-logo img {
-  border: 4px solid #29ada0;
-}
-
->>>>>>> 5646390f0efcc9177909a8aabc6fd07c97654e65
 .pfp-logo p {
   position: absolute;
   left: 1750px;
