@@ -133,7 +133,7 @@ const Meditation1 = () => {
   <div className="Angry">Angry</div>
 </div>
 <div className="emotion-box" style={{backgroundImage: `url(${hardBreathe})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
-  <div className="breatheHard">Hard to Breathe? Try our breathing exercises</div>
+  <div className="breatheHard">Hard to Breathe?</div>
 </div>
 
           </div>
@@ -166,7 +166,7 @@ const Meditation1 = () => {
                 <div className="content-tiles">
   {category.content.map((contentItem, contentIndex) => (
     <Link key={contentIndex} to={`/meditationPlayer/${contentItem.title}`} className="content-tile" style={{ backgroundImage: `url(${contentItem.pic})` }}>
-      <div>
+      <div className="content-text">
       {/* <img src={contentItem.pic} alt={contentItem.title} className="content-image" /> */}
             
         <h4>{contentItem.title}</h4>

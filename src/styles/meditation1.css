@@ -8,8 +8,18 @@
     flex-direction: column;
     margin-top: 100px;
     margin-left: 200px;  
-    overflow-y: auto;
-    height: 100%;
+    /* overflow-y: auto; */
+    height: 760px;
+    /* position: sticky;
+    top: 50px;  */
+}
+
+.Meditation1Page h1{
+  font-size: 28px;
+}
+
+.Meditation1Page h2{
+  font-size: 24px;
 }
 /* .Meditation1 {
     display: flex;
@@ -24,11 +34,21 @@
    */
   .emotion-container {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     margin-top: 30px;
     margin-bottom: 60px;
   }
-  
+  .emotion-box div {
+    text-align: center;
+    font-size: 25px;
+    margin-top: auto;
+    color: white; /* Set text color to white */
+    text-shadow: -1px -1px 0 #ccc,  
+                 1px -1px 0 #ccc,
+                -1px  1px 0 #ccc,
+                 1px  1px 0 #ccc; /* Apply light grey outline */
+}
+
   .emotion-box {
     width: 120px;
     height: 120px;
@@ -48,19 +68,14 @@
   
   .emotion-title {
     margin-top: 10px;
-    font-size: 16px;
+    text-align: center;
+    font-size: 25px;
     font-weight: bold;
   }
   
-  .emotion-description {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #666;
-    text-align: center;
-  }
-  
-  .filter-categories button{
 
+  .filter-categories button{
+background-color: #29ada0;;
     border: none;
     margin: 0 10px;
     cursor: pointer;
@@ -110,6 +125,20 @@
     z-index: 1; /* Ensure text appears above the background image */
   }
   
+  .category-container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+  .content-text {
+    text-align: left;
+    position: relative; /* Position the text */
+    z-index: 1;
+    text-shadow: -1px -1px 0 black,  
+    0.8px -0.8px 0 black,
+   -0.8px  0.8px 0 black,
+   0.8px  0.8px 0 black; /* Ensure text appears above the background image */
+  }
   .content-image {
     position: absolute; /* Position the background image */
     top: 0;
@@ -142,11 +171,15 @@
   .meditationPlayerTitle{
     font-family: Arial, sans-serif;
     margin-top: -340px; 
-    font-size: 36px;
+    font-size: 40px;
     font-weight: bold;
     color: white;
     margin-bottom: 20px;
     position: fixed;
+    text-shadow: -1px -1px 0 black,  
+    1px -1px 0 black,
+   -1px  1px 0 black,
+    1px  1px 0 black;
   }
 
   .meditationPlayerQuote {
