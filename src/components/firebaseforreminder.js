@@ -1,7 +1,5 @@
-import firebase from "firebase/compat/app";
 import {
   collection,
-  getFirestore,
   query,
   where,
   onSnapshot,
@@ -10,32 +8,24 @@ import {
   updateDoc,
   getDocs
 } from 'firebase/firestore'
-import { auth } from "../firebase";
+import { db } from "../firebase";
+import { getAuth } from 'firebase/auth';
+import { fetchTodosAsync } from '../slices/todoSlice';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBJ0R15ggpAOPPNYXOIxJMeXzJxmwqx2Qc",
-  authDomain: "final-colab.firebaseapp.com",
-  projectId: "final-colab",
-  storageBucket: "final-colab.appspot.com",
-  messagingSenderId: "474778904282",
-  appId: "1:474778904282:web:4e6913ee24a5b7f214a7e3",
-}
-
-const app = firebase.initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
+const database = db;
 
 let ids = []
 let events = []
-let todos = []
+let todos = [];
 let itemids = []
 let ritemids = []
 
 const fetchid = async () => {
   try {
+    const auth = getAuth();
     const currentUser = auth.currentUser;
     const userid = currentUser.uid;
-    const colRef = collection(db, 'Users')
+    const colRef = collection(database, 'Users')
 
     const q = query(colRef, where("uid", "==", userid))
 
@@ -43,8 +33,8 @@ const fetchid = async () => {
       snapshot.docs.forEach((doc) => {
         ids.push({ ...doc.data(), id: doc.id });
       });
-      console.log(ids);
-      populateritemids()
+      console.log(ids[0].id);
+      populateritemids();
       fetchdata();
     });
   } catch (error) {
@@ -53,7 +43,7 @@ const fetchid = async () => {
 };
 
 const populateritemids = () => {
-  const colRef5 = collection(db, 'Users', ids[0].id, 'reminder')
+  const colRef5 = collection(database, 'Users', ids[0].id, 'reminder')
   let pop = []
 
   onSnapshot(colRef5, (snapshot) => {
@@ -65,19 +55,31 @@ const populateritemids = () => {
       ritemids.push(p.itemid)
     }
   })
+  console.log(ritemids)
 }
 
-const fetchdata = () => {
+const fetchdata = async () => {
   try {
-    const colRef2 = collection(db, 'CalendarEvents');
-
-    const date = new Date();
-    let curDate = date.toLocaleDateString('en-US');
+    const colRef2 = collection(database, 'CalendarEvents');
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+    const path = ids[0].id;
 
-    const q2 = query(colRef2, where("uid", "==", ids[0].id), where("Start Date", ">=", today), where("Start Date", "<", new Date(today.getTime() + 3 * 24 * 60 * 60 * 1000)))
+    const userDocRef = doc(db, "Users", path);
+    const todosCollection = collection(userDocRef, "todo");
+    if (todosCollection) {
+      const querySnapshot = await getDocs(todosCollection);
+      console.log("Query snapshot:", querySnapshot);
+      todos = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+    }
+    console.log(todos);
+    addtodos()
+
+    const q2 = await query(colRef2, where("uid", "==", ids[0].id), where("Start Date", ">=", today), where("Start Date", "<", new Date(today.getTime() + 3 * 24 * 60 * 60 * 1000)))
 
     onSnapshot(q2, (snapshot) => {
       snapshot.docs.forEach((doc) => {
@@ -86,20 +88,6 @@ const fetchdata = () => {
       console.log(events);
       addevents()
     });
-
-    console.log(curDate)
-
-    const colRef3 = collection(db, 'Users', ids[0].id, 'todo');
-
-    const q3 = query(colRef3, where("time", "==", curDate), where("status", "!=", "complete"))
-
-    onSnapshot(q3, (snapshot) => {
-      snapshot.docs.forEach((doc) => {
-        todos.push({ ...doc.data(), id: doc.id })
-      })
-      console.log(todos)
-      addtodos()
-    })
   } catch (error) {
     console.log("message:", error);
   }
@@ -109,30 +97,12 @@ const addevents = async () => {
   try {
     for (const event of events) {
       itemids.push(event.id);
-      const res = await addDoc(collection(db, 'Users', ids[0].id, 'reminder'), {
+      const res = await addDoc(collection(database, 'Users', ids[0].id, 'reminder'), {
         title: event.Title,
         status: 'unread',
         itemid: event.id
       });
-      const res2 = await updateDoc(doc(collection(db, 'Users', ids[0].id, 'reminder'), res.id), {
-        id: res.id
-      });
-    };
-  } catch (error) {
-    console.log("message:", error);
-  }
-};
-
-const addtodos = async () => {
-  try {
-    for (const todo of todos) {
-      itemids.push(todo.id);
-      const res = await addDoc(collection(db, 'Users', ids[0].id, 'reminder'), {
-        title: todo.title,
-        status: 'unread',
-        itemid: todo.id
-      });
-      const res2 = await updateDoc(doc(collection(db, 'Users', ids[0].id, 'reminder'), res.id), {
+      const res2 = await updateDoc(doc(collection(database, 'Users', ids[0].id, 'reminder'), res.id), {
         id: res.id
       });
     };
@@ -142,15 +112,32 @@ const addtodos = async () => {
   }
 };
 
+const addtodos = async () => {
+  try {
+    for (const todo of todos) {
+      itemids.push(todo.id);
+      const res = await addDoc(collection(database, 'Users', ids[0].id, 'reminder'), {
+        title: todo.title,
+        status: 'unread',
+        itemid: todo.id
+      });
+      const res2 = await updateDoc(doc(collection(database, 'Users', ids[0].id, 'reminder'), res.id), {
+        id: res.id
+      });
+    };
+  } catch (error) {
+    console.log("message:", error);
+  }
+};
+
 let reminders = []
 
 const fetchreminders = async () => {
-  // let reminders = []
   try {
     for (const id of itemids) {
       if (!(id in ritemids)) {
         await new Promise((resolve) => setTimeout(resolve, 5000));
-        const colRef4 = collection(db, 'Users', ids[0].id, 'reminder');
+        const colRef4 = collection(database, 'Users', ids[0].id, 'reminder');
 
         const q4 = query(colRef4, where("status", "==", "unread"), where("itemid", "==", id))
 
@@ -160,18 +147,16 @@ const fetchreminders = async () => {
         console.log(reminders);
 
         ritemids.push(id);
-        // reminders.length = 0;
       }
     }
   } catch (error) {
     console.log("message:", error);
   }
-  // return reminders;
 };
 
 const updateReminder = async (id) => {
   try {
-    const res = await updateDoc(doc(collection(db, 'Users', ids[0].id, 'reminder'), id), {
+    const res = await updateDoc(doc(collection(database, 'Users', ids[0].id, 'reminder'), id), {
       status: 'read'
     });
   } catch (error) {
