@@ -1,15 +1,37 @@
 // MeditationPlayer.js
 import React,{ useState, useRef, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-import meditationAudio1 from '../components/Meditation1/IntroductionToMeditation.m4a';
-import meditationAudio2 from '../components/Meditation1/BreathingExercise.m4a';
+
 import sleepAudio1 from '../components/Meditation1/soft-rain.mp3';
 import sleepAudio2 from '../components/Meditation1/healing-forest.mp3';
 import sleepAudio3 from '../components/Meditation1/harmony.mp3';
-import meditationPic1 from '../components/Meditation1/IntroductionToMeditation.jpg';
-import  meditationPic2 from '../components/Meditation1/BreathingExercise.jpg';
+
+import introAudio1 from '../components/Meditation1/IntroductionToMeditation.m4a';
+import introAudio2 from '../components/Meditation1/breathe.mp3';
+import introAudio3 from '../components/Meditation1/bodyScan.mp3';
+
+import quickAudio1 from '../components/Meditation1/5min.mp3';
+import quickAudio2 from '../components/Meditation1/stressRelief.mp3';
+import quickAudio3 from '../components/Meditation1/morning.mp3';
+
+import lowAudio1 from '../components/Meditation1/low1.mp3';
+import lowAudio2 from '../components/Meditation1/low2.mp3';
+import lowAudio3 from '../components/Meditation1/low3.mp3';
+
+import low1 from '../components/Meditation1/low1.jpg';
+import low2 from '../components/Meditation1/low2.jpg';
+import low3 from '../components/Meditation1/low3.jpeg';
+
 import rainpic1 from '../components/Meditation1/soft-rain.jpg';
 import rainpic2 from '../components/Meditation1/forest.jpg';
+import rainpic3 from '../components/Meditation1/harmony.jpg';
+import quick1 from '../components/Meditation1/5min.jpg';
+import quick2 from '../components/Meditation1/stressRelief.jpg';
+import quick3 from '../components/Meditation1/morning.jpg';
+import intro1 from '../components/Meditation1/intro1.jpg';
+import intro2 from '../components/Meditation1/breathe.jpg';
+import intro3 from '../components/Meditation1/BodyScanMeditation.jpg';
+
 import '../styles/meditation1.css';
 import Navbar from '../components/Navbar';
 import pause from '../images/icons8-pause-button-50.png';
@@ -22,9 +44,9 @@ import soundwave from '../images/sound-wave.gif';
 
 const meditationData = {
     "Introduction to Meditation": {
-      picture: meditationPic1,
+      picture: intro1,
     //   https://marshalucasphd.com/basic-mindfulness-practice-audio-download-marsha-lucas-phd/
-      audio: meditationAudio1,
+      audio: introAudio1,
       quotes: [
         "The present moment is the only moment available to us, and it is the door to all moments. - Thich Nhat Hanh",
         "In today's rush, we all think too much, seek too much, want too much, and forget about the joy of just being. - Eckhart Tolle",
@@ -33,9 +55,9 @@ const meditationData = {
     },
     "Breathing Techniques": {
         // https://www.nivati.com/blog/what-is-4-7-8-breathing
-        picture: meditationPic2,
-        // https://www.youtube.com/watch?v=enJyOTvEn4M
-        audio: meditationAudio2,
+        picture: intro2,
+        // Sound Effect by <a href="https://pixabay.com/users/soundsforyou-4861230/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=121349">Mikhail</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=121349">Pixabay</a>
+        audio: introAudio2,
         quotes: [
           "Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor. - Thich Nhat Hanh",
           "The breath is the king of the mind. - B.K.S. Iyengar",
@@ -43,12 +65,49 @@ const meditationData = {
         ]
       },
       "Body Scan Meditation": {
-        picture: "path/to/introduction_picture.jpg",
-        audio: "path/to/introduction_audio.mp3",
+        picture: intro3,
+        // Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6394">Pixabay</a>
+        audio: introAudio3,
         quotes: [
           "Your body is your temple. Keep it pure and clean for the soul to reside in. - B.K.S. Iyengar",
           "Listen to your body. It's smarter than you. - Thich Nhat Hanh",
           "The body benefits from movement, and the mind benefits from stillness. - Sakyong Mipham"
+        ]
+      },
+
+      "5-Minute Mindfulness": {
+        // https://www.nivati.com/blog/what-is-4-7-8-breathing
+        picture: quick1,
+        // Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=24370">Pixabay</a>
+        audio: quickAudio1,
+        quotes: [
+          "In the midst of movement and chaos, keep stillness inside of you. - Deepak Chopra",
+          "Peace comes from within. Do not seek it without. - Buddha",
+          "If you want to conquer the anxiety of life, live in the moment, live in the breath. - Amit Ray"
+        ]
+      },
+
+      "Stress Relief": {
+        // https://www.nivati.com/blog/what-is-4-7-8-breathing
+        picture: quick2,
+        // Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=50061">Pixabay</a>
+        audio: quickAudio2,
+        quotes: [
+          "Sleep is the best meditation. - Dalai Lama",
+          "Music is the best solution to any problem. It's the most constructive way to release tension. - X'Phraze",
+          "Don't underestimate the value of doing nothing, of just going along, listening to all the things you can't hear, and not bothering. - A.A. Milne"
+        ]
+      },
+
+      "Monring Meditation": {
+        // https://www.nivati.com/blog/what-is-4-7-8-breathing
+        picture: quick3,
+        // Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=14557">Pixabay</a>
+        audio: quickAudio3,
+        quotes: [
+          "Sometimes the most important thing in a whole day is the rest we take between two deep breaths. - Etty Hillesum",
+          "Simplicity is the ultimate sophistication. - Leonardo da Vinci",
+          "If you want to conquer the anxiety of life, live in the moment, live in the breath. - Amit Ray"
         ]
       },
       // Image by <a href="https://pixabay.com/users/nickype-10327513/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6544618">Nicky ❤️🌿🐞🌿❤️</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6544618">Pixabay</a>
@@ -57,9 +116,9 @@ const meditationData = {
       //   https://marshalucasphd.com/basic-mindfulness-practice-audio-download-marsha-lucas-phd/
         audio: sleepAudio1,
         quotes: [
-          "The present moment is the only moment available to us, and it is the door to all moments. - Thich Nhat Hanh",
-          "In today's rush, we all think too much, seek too much, want too much, and forget about the joy of just being. - Eckhart Tolle",
-          "Meditation is a way for nourishing and blossoming the divinity within you. - Amit Ray"
+          "Each night, when I go to sleep, I die. And the next morning, when I wake up, I am reborn. - Mahatma Gandhi",
+          "Sleep is that golden chain that ties health and our bodies together. - Thomas Dekker",
+          "There is a time for many words, and there is also a time for sleep. - Homer"
         ]
       },
 
@@ -75,16 +134,48 @@ const meditationData = {
       },
 
       "Harmony": {
-        picture: meditationPic1,
+        picture: rainpic3,
       //   https://marshalucasphd.com/basic-mindfulness-practice-audio-download-marsha-lucas-phd/
         audio: sleepAudio3,
         quotes: [
           "The present moment is the only moment available to us, and it is the door to all moments. - Thich Nhat Hanh",
           "In today's rush, we all think too much, seek too much, want too much, and forget about the joy of just being. - Eckhart Tolle",
-          "Meditation is a way for nourishing and blossoming the divinity within you. - Amit Ray"
+          "Inhale the future, exhale the past."
         ]
       },
     // Define data for other titles similarly
+
+    "Winter rhythm": {
+      picture: low1,
+    //   https://marshalucasphd.com/basic-mindfulness-practice-audio-download-marsha-lucas-phd/
+      audio: lowAudio1,
+      quotes: [
+        "The present moment is the only moment available to us, and it is the door to all moments. - Thich Nhat Hanh",
+        "In today's rush, we all think too much, seek too much, want too much, and forget about the joy of just being. - Eckhart Tolle",
+        "Inhale the future, exhale the past."
+      ]
+    },
+    "Enchanted garden": {
+      picture: low2,
+      // https://stock.adobe.com/search?k=%22zen+background%22
+    //   https://marshalucasphd.com/basic-mindfulness-practice-audio-download-marsha-lucas-phd/
+      audio: lowAudio2,
+      quotes: [
+        "The present moment is the only moment available to us, and it is the door to all moments. - Thich Nhat Hanh",
+        "In today's rush, we all think too much, seek too much, want too much, and forget about the joy of just being. - Eckhart Tolle",
+        "Inhale the future, exhale the past."
+      ]
+    },
+    "Serenity Symphony": {
+      picture: low3,
+    //   https://marshalucasphd.com/basic-mindfulness-practice-audio-download-marsha-lucas-phd/
+      audio: lowAudio3,
+      quotes: [
+        "The present moment is the only moment available to us, and it is the door to all moments. - Thich Nhat Hanh",
+        "In today's rush, we all think too much, seek too much, want too much, and forget about the joy of just being. - Eckhart Tolle",
+        "Inhale the future, exhale the past."
+      ]
+    }
   };
   
   // MeditationPlayer component
