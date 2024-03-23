@@ -38,7 +38,7 @@ function Home({ isAuth }) {
   const navigate = useNavigate();
   
   const rsvpAlert = (post) => {
-    if (post.rsvpCount >= post.maxAttendees) {
+    if (post.rsvpCount > post.maxAttendees) {
       alert("Sorry, this event is full.");
       return;
     }
@@ -55,7 +55,7 @@ function Home({ isAuth }) {
     const user = auth.currentUser;
     const postId = post.id;
   
-    if (post.rsvpCount >= post.maxAttendees) {
+    if (post.rsvpCount > post.maxAttendees) {
       alert("Sorry, this event is full.");
       return;
     }
