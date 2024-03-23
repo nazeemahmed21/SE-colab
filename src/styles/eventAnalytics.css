@@ -1,0 +1,122 @@
+.event-analytics-container {
+  margin-top: 20px;
+  text-align: center;
+  width: 6%; /* Ensure the container spans the full width */
+  position: absolute;
+  left: 40%;
+}
+
+/* Adjust the position and width of the search input */
+.event-analytics input[type="text"] {
+  width: 20%; /* Take up full width */
+  margin-bottom: 10px; /* Add some space below the input */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.toggle-analytics-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  
+}
+
+.event-analytics {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow-y: auto; /* Make it scrollable */
+  max-height: 300px; /* Limit height and add scrollbar if necessary */
+  left: 50%; /* Center the container */
+}
+
+.AnalyticsSearchBar {
+  position: relative;
+  width: 100%; /* Make it take full width of the parent container */
+}
+
+.AnalyticsSearchBar input[type="text"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.event-analytics h2 {
+  margin-bottom: 10px;
+}
+
+.event-analytics-item {
+  margin-bottom: 20px;
+}
+
+.event-analytics-item h3 {
+  margin-bottom: 5px;
+}
+
+.event-analytics-item button {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.event-analytics-item button:hover {
+  background-color: #219653;
+}
+
+.rsvp-users-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.rsvp-users-container h2 {
+  margin-top: 0;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.rsvp-users-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rsvp-users-container li {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.rsvp-users-container button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.rsvp-users-container button:hover {
+  background-color: #c0392b;
+}

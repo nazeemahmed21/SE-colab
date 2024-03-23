@@ -12,7 +12,7 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bold;
   height: 90%; /* Adjust as needed */
-  width: 1000px;
+  width: 10000px;
   padding: 20px; /* Add padding for spacing between events */
   overflow-y: auto; /* Enable vertical scrolling */
   max-height: 90vh; /* Limit the maximum height */
