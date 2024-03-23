@@ -1,0 +1,52 @@
+.content-containerZenSpace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+}
+
+
+.title {
+    font-size: 28px;
+    margin-bottom: 20px; /* Add spacing between the title and boxes */
+}
+
+.NavbarZenSpaceContainer{
+    position: fixed;
+}
+.boxes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.boxZenSpace {
+    width: 300px; /* Adjust the width of the boxes as needed */
+    height: 300px; /* Adjust the height of the boxes as needed */
+    margin: 20px; /* Add margin between the boxes */
+    background-color: #29ada0;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a shadow to the boxes */
+}
+
+.boxZenSpace:hover {
+    background-color: #2ebbad; /* Change the background color on hover */
+}
+
+.boxZenSpace h2 {
+    font-size: 24px;
+    color: white; /* Set the color of the text */
+}
+
+.box-icon {
+    width: 80px; /* Adjust the width of the images */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Add spacing between the image and text */
+}

@@ -1,0 +1,282 @@
+/* labs.css */
+.Meditation1PageWithNavBar {
+    display: flex;
+  }
+.Meditation1Page{
+  overflow-y: auto; 
+  max-height: calc(100vh - 110px);
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+    margin-left: 150px;  
+    /* overflow-y: auto; */
+    height: 740px;
+    /* position: relative; Add relative positioning */
+    /* position: sticky;
+    top: 50px;  */
+}
+
+.NavbarMeditatation1{
+  position: sticky;
+  z-index: 100; /* Ensure the header stays above other content */
+}
+.Meditation1Page h1{
+  font-size: 28px;
+}
+
+.Meditation1Page h2{
+  font-size: 24px;
+}
+/* .Meditation1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Page {
+    margin-top: 50px;
+    margin-left: 20px; 
+  }
+   */
+  .emotion-container {
+    display: flex;
+    justify-content: left;
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
+  .emotion-box div {
+    text-align: center;
+    font-size: 25px;
+    margin-top: auto;
+    color: white; /* Set text color to white */
+    text-shadow: -1px -1px 0 #ccc,  
+                 1px -1px 0 #ccc,
+                -1px  1px 0 #ccc,
+                 1px  1px 0 #ccc; /* Apply light grey outline */
+}
+
+  .emotion-box {
+    width: 120px;
+    height: 120px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+
+  
+  .emotion-title {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+
+  .filter-categories button{
+background-color: #29ada0;;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center; /* Center text */
+  }
+
+  .filter-categories button:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+  }
+
+  /* meditation1.css */
+  .content-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+    
+  }
+  
+  .emotion-box {
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .emotion-box:hover {
+  opacity: 0.8; /* Reduce opacity on hover */
+}
+  .content-tile {
+    flex: 0 0 calc(33.33% - 20px); /* Adjust the width as needed */
+    /* margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    color: black; */
+  }
+
+  
+  .content-text:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+  }
+
+  .content-tile {
+    height: 150px;
+    flex: 0 0 calc(33.33% - 20px); /* Adjust the width as needed */
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    position: relative; /* Ensure proper positioning of the text */
+    background-size: cover; /* Ensure the background image covers the entire content tile */
+    background-position: center; /* Center the background image */
+    text-align: center; /* Center the text horizontally */
+  }
+  
+  .content-tile > div {
+    position: relative; /* Ensure proper positioning of the text */
+    z-index: 1; /* Ensure text appears above the background image */
+  }
+  
+  .category-container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+  .content-text {
+    text-align: left;
+    position: relative; /* Position the text */
+    z-index: 1;
+    text-shadow: -1px -1px 0 black,  
+    0.8px -0.8px 0 black,
+   -0.8px  0.8px 0 black,
+   0.8px  0.8px 0 black; /* Ensure text appears above the background image */
+  }
+  .content-image {
+    position: absolute; /* Position the background image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px; /* Ensure border-radius is applied to the background image */
+  }
+  
+  
+  
+  .content-description {
+    margin-top: 5px;
+  }
+
+  
+  
+ 
+  
+  .meditationPlayerPage {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Set the minimum height to 100% of viewport height */
+    background-size: cover; /* Ensure background image covers the entire container */
+    background-position: center; /* Center the background image */
+  }
+
+  .meditationPlayerTitle{
+    font-family: Arial, sans-serif;
+    margin-top: -340px; 
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    position: fixed;
+    text-shadow: -1px -1px 0 black,  
+    1px -1px 0 black,
+   -1px  1px 0 black,
+    1px  1px 0 black;
+  }
+
+  .meditationPlayerQuote {
+    background-color: rgba(0, 0, 0, 0.8); 
+    margin-left: 200px;  
+    margin-top: -150px;
+    font-size: 30px; /* Adjust the font size as needed */
+    font-family: Arial, sans-serif; /* Choose the appropriate font family */
+    font-weight: normal; /* Adjust the font weight as needed */
+    color: white;
+    width: 70%;
+    position: fixed;
+    /* font-style: italic; */
+  }
+  
+  .meditationPlayerPage button{
+    align-self: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    height: 100px;
+  }
+.buttonContainerMeditation{
+
+  position: fixed;
+  margin-bottom: 20px;
+
+}
+
+.playPauseButton {
+  margin-top: 50px;
+  position: fixed;
+  align-self: center;
+  /* align-self: center; */
+
+    position: fixed;
+    /* top: 50%;
+    left: 50%; */
+    transform: translate(-100%, -50%);
+
+  
+}
+
+
+/* Add this to your CSS file */
+/* Add this to your CSS file */
+.timeDisplay {
+  color: white;
+  font-size: 28px;
+  display: flex;
+  gap: 150px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+  padding: 10px; /* Add padding to improve readability */
+}
+
+/* Add this to your CSS file */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #555; /* Background color of the progress bar */
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #fff; /* Color of the filled progress bar */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cross-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white; /* Adjust color as needed */
+  font-size: 30px; /* Adjust size as needed */
+  cursor: pointer;
+}
+
+.cross-icon:hover {
+  color: red; /* Adjust color on hover as needed */
+}
