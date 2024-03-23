@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
-function Notification({ userId, rsvpNotifications }) {
+const Notification = ({ userId }) => {
   const [notifications, setNotifications] = useState([]);
+
+  const notificationsCollectionRef = collection(db, "notifications");
 
   useEffect(() => {
     const fetchNotifications = async () => {
+      const querySnapshot = await getDocs(notificationsCollectionRef);
       const userNotifications = [];
-      for (const postId in rsvpNotifications) {
-        for (const notification of rsvpNotifications[postId]) {
-          const userIdIndex = notification.indexOf(" "); // Find the index of the first space
-          const userId = notification.substring(0, userIdIndex); // Extract the user ID
-          const userData = await getUserData(userId);
-          userNotifications.push({
-            message: notification.substring(userIdIndex + 1), // Extract the message after the user ID
-            user: userData,
-          });
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        if (data.userId === userId) {
+          userNotifications.push({ id: doc.id, message: data.message });
         }
-      }
+      });
       setNotifications(userNotifications);
     };
-
+  
     fetchNotifications();
-  }, [userId, rsvpNotifications]);
+  }, [userId, notificationsCollectionRef]);
+  
 
   const getUserData = async (userId) => {
     try {
@@ -42,9 +42,18 @@ function Notification({ userId, rsvpNotifications }) {
   };
 
   const handleClearNotifications = async () => {
+    // Clear notifications for the user in the database
+    const userNotifications = notifications.map((notification) =>
+      doc(db, "notifications", notification.id)
+    );
+    await Promise.all(
+      userNotifications.map((notification) => deleteDoc(notification))
+    );
+
     // Clear notifications in the component state
     setNotifications([]);
   };
+
 
   return (
     <div className="notification-container">

@@ -9,9 +9,12 @@ import Popup from "../components/Popup"; // Import Popup component
 import Event from "./Home";
 import EventAnalytics from "./EventAnalytics";
 import "../styles/eventAnalytics.css";
+import Searchbar from "./Searchbar";
 
 function Home() {
   const [isPopupVisible, setPopupVisible] = useState(false);
+
+  const [searchQuery, setSearchQuery] = useState("");
 
   const showPopup = () => {
     setPopupVisible(true);
@@ -28,6 +31,7 @@ function Home() {
           <EventAnalytics />          
           <br></br>
         </div>
+        
         <div>
           <Navbar />
         </div>
