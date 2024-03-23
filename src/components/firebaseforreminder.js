@@ -10,7 +10,6 @@ import {
 } from 'firebase/firestore'
 import { db } from "../firebase";
 import { getAuth } from 'firebase/auth';
-import { fetchTodosAsync } from '../slices/todoSlice';
 
 const database = db;
 
