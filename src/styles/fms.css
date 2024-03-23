@@ -17,7 +17,7 @@
     margin-bottom: 20px;
   }
   
-  .createFolder button {
+  button {
     background-color: #4caf50;
     color: white;
     border: none;
@@ -31,46 +31,10 @@
     margin-bottom: 20px;
   }
   
-  .createFolder:hover {
-    background-color: #45a049;
-  }
-
-  .foldersBack button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  
-  .foldersBack:hover {
+  button:hover {
     background-color: #45a049;
   }
   
-  .createFolder button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  
-  .createFolder:hover {
-    background-color: #45a049;
-  }
-
   .folder-list {
     margin-top: 20px;
     padding: 0;

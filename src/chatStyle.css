@@ -34,6 +34,7 @@
     /* margin-left: 350px; */
     width: 40px;
     color: black;
+
   }
   
   
@@ -314,11 +315,4 @@
 .forward-dialog button:hover {
   filter: brightness(0.9);
 
-}
-
-.emoji-picker-container{
-  height: 850px;
-  width: 250px;
-  padding-right: 50px;
-  /* overflow-y: auto; */
 }

@@ -6,14 +6,14 @@
   position: fixed;
   top: 47%;
   margin-top: 100px;
-  left: 37%;
+  left: 42%;
   transform: translate(-50%, -50%);
   font-size: 55px;
   color: black;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bold;
   height: 90%; /* Adjust as needed */
-  width: 1800px;
+  width: 1000px;
   padding: 20px; /* Add padding for spacing between events */
   overflow-y: auto; /* Enable vertical scrolling */
   max-height: 90vh; /* Limit the maximum height */

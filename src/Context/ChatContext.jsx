@@ -1,15 +1,32 @@
-import { createContext,useContext, useReducer} from "react";
+import { createContext,useContext, useEffect, useState, useReducer} from "react";
 import { AuthContext } from "./AuthContext";
-import { onAuthStateChanged } from "firebase/auth";
-
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 
 export const ChatContext = createContext();
 
 export const ChatContextProvider = ({ children }) => {
     const { currentUser } = useContext(AuthContext);
+
+    const [userIdNameMap, setuserIdNameMap] = useState({});
+
+
+    useEffect(async () => {
+      await getDocs(collection(db, "Users"))
+      .then((userDocs) => {
+          const idNameMap = {};
+          userDocs.forEach((doc) => {
+            const data = doc.data();
+            const name = `${data.firstName} ${data.lastName}`;
+            idNameMap[data.uid] = name;
+          });
+          setuserIdNameMap(idNameMap);
+      });
+    }, []);
+
     const INITIAL_STATE = {
         chatId: "null",
-        user: {},
+        user: {}
     };
 
     // console.log("biggyat123", currentUser.uid)
@@ -18,11 +35,8 @@ export const ChatContextProvider = ({ children }) => {
         switch (action.type) {
           case "CHANGE_USER":
             return {
-              user: action.payload,
-              chatId:
-                currentUser.uid > action.payload.uid
-                  ? currentUser.uid + action.payload.uid
-                  : action.payload.uid + currentUser.uid,
+              user: action.payload.user,
+              chatId: action.payload.chatId,
             };
     
           default:
@@ -35,7 +49,7 @@ export const ChatContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(chatReducer, INITIAL_STATE);
 
     return (
-        <ChatContext.Provider value={{ data: state, dispatch }}>
+        <ChatContext.Provider value={{ data: state, userIdNameMap, dispatch }}>
             {children}
         </ChatContext.Provider>
     );
