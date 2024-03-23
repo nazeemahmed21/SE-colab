@@ -1,19 +1,25 @@
 /* labs.css */
 .Meditation1PageWithNavBar {
     display: flex;
-    overflow-y: auto; 
   }
 .Meditation1Page{
+  overflow-y: auto; 
+  max-height: calc(100vh - 110px);
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
-    margin-left: 200px;  
+    margin-top: 120px;
+    margin-left: 150px;  
     /* overflow-y: auto; */
-    height: 760px;
+    height: 740px;
+    /* position: relative; Add relative positioning */
     /* position: sticky;
     top: 50px;  */
 }
 
+.NavbarMeditatation1{
+  position: sticky;
+  z-index: 100; /* Ensure the header stays above other content */
+}
 .Meditation1Page h1{
   font-size: 28px;
 }
@@ -62,9 +68,7 @@
     cursor: pointer;
   }
   
-  .emotion-box:hover {
-    background-color: #e0e0e0;
-  }
+
   
   .emotion-title {
     margin-top: 10px;
@@ -77,9 +81,15 @@
   .filter-categories button{
 background-color: #29ada0;;
     border: none;
-    margin: 0 10px;
+    margin: 10px;
     cursor: pointer;
+    text-align: center; /* Center text */
   }
+
+  .filter-categories button:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+  }
+
   /* meditation1.css */
   .content-tiles {
     display: flex;
@@ -93,7 +103,9 @@ background-color: #29ada0;;
     background-position: center;
   }
   
-  
+  .emotion-box:hover {
+  opacity: 0.8; /* Reduce opacity on hover */
+}
   .content-tile {
     flex: 0 0 calc(33.33% - 20px); /* Adjust the width as needed */
     /* margin: 10px;
@@ -104,6 +116,10 @@ background-color: #29ada0;;
   }
 
   
+  .content-text:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+  }
+
   .content-tile {
     height: 150px;
     flex: 0 0 calc(33.33% - 20px); /* Adjust the width as needed */
@@ -202,7 +218,7 @@ background-color: #29ada0;;
     border: none;
     height: 100px;
   }
-.buttonContainer{
+.buttonContainerMeditation{
 
   position: fixed;
   margin-bottom: 20px;
@@ -250,4 +266,17 @@ background-color: #29ada0;;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.cross-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white; /* Adjust color as needed */
+  font-size: 30px; /* Adjust size as needed */
+  cursor: pointer;
+}
+
+.cross-icon:hover {
+  color: red; /* Adjust color on hover as needed */
 }

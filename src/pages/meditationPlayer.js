@@ -6,13 +6,13 @@ import sleepAudio1 from '../components/Meditation1/soft-rain.mp3';
 import sleepAudio2 from '../components/Meditation1/healing-forest.mp3';
 import sleepAudio3 from '../components/Meditation1/harmony.mp3';
 
-import introAudio1 from '../components/Meditation1/IntroductionToMeditation.m4a';
+import introAudio1 from '../components/Meditation1/introAudio1.mp3';
 import introAudio2 from '../components/Meditation1/breathe.mp3';
 import introAudio3 from '../components/Meditation1/bodyScan.mp3';
 
 import quickAudio1 from '../components/Meditation1/5min.mp3';
 import quickAudio2 from '../components/Meditation1/stressRelief.mp3';
-import quickAudio3 from '../components/Meditation1/morning.mp3';
+import quickAudio3 from '../components/Meditation1/quick3.mp3';
 
 import lowAudio1 from '../components/Meditation1/low1.mp3';
 import lowAudio2 from '../components/Meditation1/low2.mp3';
@@ -27,7 +27,7 @@ import rainpic2 from '../components/Meditation1/forest.jpg';
 import rainpic3 from '../components/Meditation1/harmony.jpg';
 import quick1 from '../components/Meditation1/5min.jpg';
 import quick2 from '../components/Meditation1/stressRelief.jpg';
-import quick3 from '../components/Meditation1/morning.jpg';
+import quick3 from '../components/Meditation1/morning1.jpg';
 import intro1 from '../components/Meditation1/intro1.jpg';
 import intro2 from '../components/Meditation1/breathe.jpg';
 import intro3 from '../components/Meditation1/BodyScanMeditation.jpg';
@@ -37,6 +37,7 @@ import Navbar from '../components/Navbar';
 import pause from '../images/icons8-pause-button-50.png';
 import play from '../images/icons8-circled-play-50.png';
 import soundwave from '../images/sound-wave.gif';
+import { Link } from 'react-router-dom';
 
 // https://icons8.com/icons/set/sound-wave--animated 
 // Circled Play  and pause buttons from Icons8.com https://icons8.com/icons/set/play-button
@@ -45,6 +46,7 @@ import soundwave from '../images/sound-wave.gif';
 const meditationData = {
     "Introduction to Meditation": {
       picture: intro1,
+      // Music by <a href="https://pixabay.com/users/samuelfrancisjohnson-1207793/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=11497">Samuel F. Johanns</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=11497">Pixabay</a>
     //   https://marshalucasphd.com/basic-mindfulness-practice-audio-download-marsha-lucas-phd/
       audio: introAudio1,
       quotes: [
@@ -99,11 +101,11 @@ const meditationData = {
         ]
       },
 
-      "Monring Meditation": {
+      "Morning Meditation": {
         // https://www.nivati.com/blog/what-is-4-7-8-breathing
         picture: quick3,
-        // Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=14557">Pixabay</a>
         audio: quickAudio3,
+        // Music by <a href="https://pixabay.com/users/natureseye-18615106/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=115787">Leigh Robinson</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=115787">Pixabay</a>audio: quickAudio3,
         quotes: [
           "Sometimes the most important thing in a whole day is the rest we take between two deep breaths. - Etty Hillesum",
           "Simplicity is the ultimate sophistication. - Leonardo da Vinci",
@@ -231,7 +233,9 @@ const meditationData = {
 
     return ( <div className='meditationPlayerPage' style={{ backgroundImage: `url(${picture})`, backgroundSize: 'cover' }}>
 {/* <Navbar /> */}
-
+<Link to="/meditation1" className="back-link">
+        <div className="cross-icon">✕</div>
+      </Link>
         <div className='meditationPlayerTitle'>
         <h2>{title}</h2>
         </div>
@@ -243,7 +247,7 @@ const meditationData = {
         </div>
         <audio ref={audioRef} src={audio} type="audio/mp3" controls />
         {isPlaying && <img src={soundwave} alt="Sound Wave" style={{ height: '100px', marginTop: '450px' }} />}
-<div className="buttonContainer">
+<div className="buttonContainerMeditation">
   <button className="playPauseButton" onClick={toggleAudio}>
     {isPlaying ? <img src={pause} alt="Pause" style={{ height: '120px' }} /> : <img src={play} alt="Play" style={{ height: '120px' }} />}
   </button>

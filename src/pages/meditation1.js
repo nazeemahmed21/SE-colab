@@ -33,6 +33,7 @@ const Meditation1 = () => {
 
   const [meditations, setMeditations] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
+const [ setFilteredMeditations] = useState([]);
 
   useEffect(() => {
     fetchUserData();
@@ -110,26 +111,63 @@ const Meditation1 = () => {
 
   const filteredMeditations = selectedCategory === "all" ? meditations : meditations.filter(meditation => meditation.category === selectedCategory);
 
+  const filterMeditationsByEmotion = (emotion) => {
+    // Logic to filter meditations based on the selected emotion
+    switch (emotion) {
+      case "happy":
+        // Set the selected category to "beginner" when happy emoji is clicked
+        setSelectedCategory("beginner");
+        break;
+      case "tired":
+        // Display meditations for better sleep
+        setSelectedCategory("sleep");
+        break;
+      case "sad":
+        setSelectedCategory("low");
+        // Handle sad emotion filtering
+        // Add logic to filter and display meditations based on the emotion
+        break;
+      case "anxious":
+        setSelectedCategory("low");
+        // Handle anxious emotion filtering
+        // Add logic to filter and display meditations based on the emotion
+        break;
+      case "angry":
+        setSelectedCategory("quick_easy");
+        // Handle angry emotion filtering
+        // Add logic to filter and display meditations based on the emotion
+        break;
+      case "hardBreathe":
+        // Handle hardBreathe emotion filtering
+        // Add logic to filter and display meditations based on the emotion
+        break;
+      default:
+        // If no emotion matches, display all meditations
+        setFilteredMeditations(meditations);
+    }
+  };
+  
+
   return (
     <div className='Meditation1PageWithNavBar'>
-      <Navbar />
+     <div className="NavbarMeditatation1"><Navbar /> </div> 
       <div className="Meditation1Page">
         <h1>Hello {userInfo.firstname} </h1>
         <h2>How are you feeling today?</h2>
         <div className="emotion-container">
-        <div className="emotion-box" style={{backgroundImage: `url(${happyEm})`}}>
+        <div className="emotion-box" style={{backgroundImage: `url(${happyEm})`}} onClick={() => filterMeditationsByEmotion("happy")}>
   <div className="Happy">Happy</div>
 </div>
-<div className="emotion-box" style={{backgroundImage: `url(${tiredEm})`}}>
+<div className="emotion-box" style={{backgroundImage: `url(${tiredEm})`}} onClick={() => filterMeditationsByEmotion("tired")}>
   <div className="Tired">Tired</div>
 </div>
-<div className="emotion-box" style={{backgroundImage: `url(${sadEm})`}}>
+<div className="emotion-box" style={{backgroundImage: `url(${sadEm})`}} onClick={() => filterMeditationsByEmotion("sad")}>
   <div className="Sad">Sad</div>
 </div>
-<div className="emotion-box" style={{backgroundImage: `url(${anxiousEm})`}}>
+<div className="emotion-box" style={{backgroundImage: `url(${anxiousEm})`}} onClick={() => filterMeditationsByEmotion("anxious")}>
   <div className="Anxious">Anxious</div>
 </div>
-<div className="emotion-box" style={{backgroundImage: `url(${angryEm})`}}>
+<div className="emotion-box" style={{backgroundImage: `url(${angryEm})`}} onClick={() => filterMeditationsByEmotion("angry")}>
   <div className="Angry">Angry</div>
 </div>
 <div className="emotion-box" style={{backgroundImage: `url(${hardBreathe})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
