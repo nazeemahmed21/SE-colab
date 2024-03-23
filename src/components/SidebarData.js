@@ -1,5 +1,6 @@
 import React from "react";
 import * as FaIcons from 'react-icons/fa';
+import { FaGamepad } from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 // import * as FiIcons from 'react-icons/fi';
 import * as BiIcons from "react-icons/bi";
@@ -36,8 +37,8 @@ export const SidebarData = [
   }, 
   {
     title: 'Zen Space',
-    path: '/meditation1',
-    icon: <FaIcons.FaCalendarAlt />,
+    path: '/zenSpace',
+    icon: <FaGamepad />,
     cName: 'nb-nav-text' 
   },  //need to change icon
   // {

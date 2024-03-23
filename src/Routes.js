@@ -20,7 +20,7 @@ import VerifyEmail from "./pages/verifyEmail.js";
 import Settings from "./pages/setting.js";
 import Meditation1 from "./pages/meditation1.js";
 import MeditationPlayer from './pages/meditationPlayer.js';
-
+import ZenSpace from './pages/zenSpace.js';
 import FileSystem from './pages/FileSystem.js';
 
 const Rout = () => {
@@ -56,6 +56,7 @@ const Rout = () => {
       <Route path="/meditationPlayer/:title" element={<ProtectedRoute><MeditationPlayer /></ProtectedRoute>} />
  {/* <Route path="/player/:title" component={MeditationPlayer} /> */}
       <Route path="/meditation1" element={<ProtectedRoute><Meditation1 /></ProtectedRoute>} />
+      <Route path="/zenSpace" element={<ProtectedRoute><ZenSpace /></ProtectedRoute>} />
     </Routes>
   );
 };
