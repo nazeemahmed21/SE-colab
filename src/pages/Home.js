@@ -36,9 +36,9 @@ function Home({ isAuth }) {
   const postsCollectionRef = collection(db, "posts");
   const notificationsCollectionRef = collection(db, "notifications");
   const navigate = useNavigate();
-
+  
   const rsvpAlert = (post) => {
-    if (post.rsvpCount >= post.maxAttendees) {
+    if (post.rsvpCount > post.maxAttendees) {
       alert("Sorry, this event is full.");
       return;
     }
@@ -55,7 +55,7 @@ function Home({ isAuth }) {
     const user = auth.currentUser;
     const postId = post.id;
   
-    if (post.rsvpCount >= post.maxAttendees) {
+    if (post.rsvpCount > post.maxAttendees) {
       alert("Sorry, this event is full.");
       return;
     }
@@ -78,11 +78,12 @@ function Home({ isAuth }) {
       message: notificationMessage,
     });
   
-    // Update RSVP status in local storage
+    // Update RSVP status and notifications in local storage
     const updatedRsvpStatus = { ...rsvpStatus, [postId]: true };
     setRsvpStatus(updatedRsvpStatus);
     localStorage.setItem("rsvpStatus", JSON.stringify(updatedRsvpStatus));
   
+    
     // Check if the maximum number of attendees reached
     if (post.rsvpCount + 1 === post.maxAttendees) {
       const postDoc = doc(db, "posts", postId);
@@ -102,13 +103,13 @@ function Home({ isAuth }) {
   const cancelRSVP = async (post) => {
     const user = auth.currentUser;
     const postId = post.id;
-
+  
     const postDoc = doc(db, "posts", postId);
     await updateDoc(postDoc, {
       rsvpCount: post.rsvpCount ? post.rsvpCount - 1 : 0,
       rsvps: arrayRemove(user.uid),
     });
-
+  
     const notificationQuery = query(
       notificationsCollectionRef,
       where("userId", "==", post.author.id),
@@ -118,12 +119,13 @@ function Home({ isAuth }) {
     notificationSnapshot.forEach(async (notification) => {
       await deleteDoc(doc(db, "notifications", notification.id));
     });
-
-    // Update RSVP status in local storage
+  
+    // Update RSVP status and notifications in local storage
     const updatedRsvpStatus = { ...rsvpStatus, [postId]: false };
     setRsvpStatus(updatedRsvpStatus);
     localStorage.setItem("rsvpStatus", JSON.stringify(updatedRsvpStatus));
-
+  
+    
     alert("RSVP Cancelled!");
     getFilteredPosts();
   };
@@ -214,6 +216,7 @@ function Home({ isAuth }) {
   const handleToggleNotifications = () => {
     setShowNotifications(!showNotifications);
   };
+  
 
   return (
     <div className="homePage">
@@ -240,12 +243,9 @@ function Home({ isAuth }) {
         <option value="maths">Maths</option>
       </select>
   
-      {showNotifications && (
-        <Notification
-          userId={auth.currentUser.uid}
-          rsvpNotifications={rsvpNotifications}
-        />
-      )}
+      
+    {showNotifications && <Notification userId={auth.currentUser.uid}  />}
+  
 
   
       {postLists.map((post) => (
