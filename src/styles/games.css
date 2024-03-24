@@ -210,33 +210,6 @@
   }
 }
 
-/* @media (min-height: 600px) and (min-width: 1024px) {
-  .games_container {
-    margin-top: 0;
-    margin-left: 0;
-  }
-
-  .games_box {
-    width: 250px;
-    height: 250px;
-    flex-direction: column;
-  }
-
-  .games_boxes {
-    flex-direction: row;
-    gap: 0px;
-  }
-
-  .games-icon {
-    width: 150px;
-    height: auto;
-  }
-
-  .games_box h2 {
-    font-size: 21px;
-  }
-} */
-
 @media (min-width: 1300px) {
   .games_container {
     margin-top: -40%;
@@ -268,9 +241,9 @@
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1800px) {
   .games_container {
-    margin-top: -40%;
+    margin-top: -30%;
     margin-left: 25%;
   }
 
