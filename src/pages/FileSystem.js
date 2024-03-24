@@ -164,7 +164,7 @@ function FileSystem() {
           value={folderName}
           onChange={(event) => setFolderName(event.target.value)}
         />
-        <button onClick={createFolder}> Create Folder</button>
+        <button className="createFolder" onClick={createFolder}> Create Folder</button>
       </div>
 
       {loading && <p>Loading...</p>}
@@ -172,7 +172,7 @@ function FileSystem() {
       {currentFolder ? (
         <>
           <h2>{currentFolder.name} Folder:</h2>
-          <button onClick={navigateBack}>Back</button>
+          <button className="foldersBack" onClick={navigateBack}>Back</button>
           <div>
             <input
               type="file"
@@ -180,7 +180,7 @@ function FileSystem() {
                 setFileUpload(event.target.files[0]);
               }}
             />
-            <button onClick={uploadFile} disabled={loading}>Upload File</button>
+            <button className="fileUploadBtn" onClick={uploadFile} disabled={loading}>Upload File</button>
           </div>
           {fileUrls.length > 0 && (
             <div className="file-container">

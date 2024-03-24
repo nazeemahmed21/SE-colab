@@ -2,16 +2,48 @@ import { collection, documentId, doc, getDoc, onSnapshot, where, query } from "f
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { ChatContext } from "../Context/ChatContext";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 
 //new_user@gmail.com , new_user 
 const Chats = () => {
   const [chats, setChats] = useState([]);
-  const [Users] = useState([]);
+  const [userInfo, setUserInfo] = useState({
+    firstname: "",
+    secondname: "",
+    ProfPic: "", // Corrected to match the fetched user data
+    Role: "",
+  });
   const [loading, setLoading] = useState(true);
 
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const currentUser = auth.currentUser;
+      if (currentUser) {
+        const userId = currentUser.uid;
+        const userRef = doc(db, "Users", userId);
+
+        try {
+          const userDoc = await getDoc(userRef);
+          if (userDoc.exists()) {
+            const userData = userDoc.data();
+            setUserInfo({
+              firstname: userData.firstName || "",
+              secondname: userData.lastName || "",
+              ProfPic: userData.pfpURL || "",
+              Role: userData.role || "",
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   useEffect(() => {
     const getChats = async () => {
@@ -59,7 +91,7 @@ const Chats = () => {
           {chat[1]?.userInfo && (
             <>
          {/* { chat[1].userInfo.pfpURL && ( */}
-          <img src={chat[1].userInfo.pfpURL} alt="" />
+          <img src={userInfo.ProfPic} alt="" />
 {/* )}  */}
           <div className="userChatInfo">
             <span>{chat[1].userInfo.displayName}</span>

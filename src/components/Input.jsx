@@ -141,16 +141,20 @@ const handleSelectGif = async (searchTerm) => {
       <EmojiPicker
         onEmojiClick={handleEmojiClick}
         navPosition="none"
-        searchPosition="none"
+        search={false} // Set search to false to remove the search bar
+        grouped={true} // Set grouped to false to remove grouped categories
+        showSkinTones={false} // Set showSkinTones to false to remove skin tone picker
+      skinTone={null}
         native
         pickerStyle={{
-          width: '105px',
+          width: '195px',
           maxHeight: '100px',
-          padding: '8px',
-          borderRadius: '8px',
-          border: '1px solid #ccc',
-          backgroundColor: '#fff',
-          boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
+          whiteSpace: 'nowrap',
+          // padding: '8px',
+          // borderRadius: '8px',
+          // border: '1px solid #ccc',
+          // backgroundColor: '#fff',
+          // boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
           fontSize: '10px'
         }}
         emojiSize={20}
