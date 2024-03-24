@@ -38,4 +38,4 @@ const deleteSignedUser = async () => {
   localStorage.removeItem("user");
 };
 
-export { storage, auth, db, getFirestore, deleteSignedUser};
+export { storage, auth, db, getFirestore, deleteSignedUser };
