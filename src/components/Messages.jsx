@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ChatContext } from '../Context/ChatContext';
+import { AuthContext } from '../Context/AuthContext';
 import { db, getFirestore } from '../firebase';
 import { doc, onSnapshot, deleteDoc, updateDoc, getDoc } from 'firebase/firestore';
 import { getDatabase, ref, remove } from 'firebase/database';
@@ -8,10 +9,12 @@ import ForwardDialog from './ForwardDialog';
 import heart from '../images/heart_like.png';
 import { firestore } from '../firebase';
 import '../chatStyle.css';
+import Typography from '@mui/material/Typography';
 
 const Messages = ({ message }) => {
   const [messages, setMessages] = useState([]);
-  const { data } = useContext(ChatContext);
+  const { data, userIdNameMap } = useContext(ChatContext);
+  const { currentUser } = useContext(AuthContext);
   const [messageOptions, setMessageOptions] = useState({});
   const [showForwardDialog, setShowForwardDialog] = useState(false);
   const [selectedMessageId, setSelectedMessageId] = useState(null);
@@ -91,7 +94,7 @@ const Messages = ({ message }) => {
   const handleDelete = async (messageId) => {
     try {
       // Delete the message from the Firestore database
-      await deleteDoc(doc(db, 'chats', data.chatId, 'messages', messageId));
+      await deleteDoc(doc(db, 'chatMessages', data.chatId, 'messages', messageId));
       console.log('Message deleted successfully');
   
       // If you're using local state to manage messages, update it accordingly
@@ -130,7 +133,7 @@ const Messages = ({ message }) => {
         setLikedMessages([...likedMessages, messageId]);
       }
 
-      const messageRef = doc(db, 'chats', data.chatId, 'messages', messageId);
+      const messageRef = doc(db, 'chatsMessages', data.chatId, 'messages', messageId);
       const messageSnapshot = await getDoc(messageRef);
 
       if (messageSnapshot.exists()) {
@@ -152,7 +155,7 @@ const Messages = ({ message }) => {
   
   
   useEffect(() => {
-    const unSub = onSnapshot(doc(db, 'chats', data.chatId), (doc) => {
+    const unSub = onSnapshot(doc(db, 'chatMessages', data.chatId), (doc) => {
       doc.exists() && setMessages(doc.data().messages);
     });
 
@@ -161,6 +164,7 @@ const Messages = ({ message }) => {
     };
   }, [data.chatId]);
 
+  console.log("UserNameIDMPA", userIdNameMap);
   return (
     <div className="messages" 
     // style={{ maxHeight: 'calc(100vh - 250px)'}}
@@ -172,15 +176,20 @@ const Messages = ({ message }) => {
   key={m.id}
   className={`message ${m.owner ? 'owner' : ''}`}
   style={{
-    backgroundColor: m.owner === m.uid ? 'white' : 'lightgreen',
-    marginLeft: m.owner === m.uid ? '0' : 'auto', // Pushes the message to the right if the owner is the current user
-    marginRight: m.owner === m.uid ? 'auto' : '0',  }}
+    backgroundColor: m.senderId != currentUser.uid ? 'white' : 'lightgreen',
+    marginLeft: m.senderId != currentUser.uid ? '0' : 'auto', // Pushes the message to the right if the owner is the current user
+    marginRight: m.senderId != currentUser.uid ? 'auto' : '0',  }}
 >
         {/* names */}
           <React.Fragment>
-          <div >
+            <div >
               {m.text}
-              </div>          
+            </div>  
+            <div>
+              <Typography variant='body2'>
+                {m.senderId != currentUser.uid ? <p>{userIdNameMap[m.senderId]}</p> : ''}
+              </Typography>
+            </div>        
             <span className="like-icon" onClick={() => handleLike(m.id)}>
               {m.likes > 0 && likedMessages.includes(m.id) && (
                 <img src={heart} alt="Like" />

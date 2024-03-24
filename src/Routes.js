@@ -18,10 +18,10 @@ import LabDetails from "./pages/labDetails.js";
 import LabsAnnouncements from "./pages/labsAnnouncement.js";
 import VerifyEmail from "./pages/verifyEmail.js";
 import Settings from "./pages/setting.js";
+import FileSystem from './pages/FileSystem.js';
 import Meditation1 from "./pages/meditation1.js";
 import MeditationPlayer from './pages/meditationPlayer.js';
 import ZenSpace from './pages/zenSpace.js';
-import FileSystem from './pages/FileSystem.js';
 
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);

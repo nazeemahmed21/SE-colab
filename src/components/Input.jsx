@@ -55,7 +55,7 @@ const Input = () => {
             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
 
 
-            await updateDoc(doc(db, "chats", data.chatId), {
+            await updateDoc(doc(db, "chatMessages", data.chatId), {
               messages: arrayUnion({
                 id: uuid(),
                 text,
@@ -72,7 +72,7 @@ const Input = () => {
         }
       );
     } else if (gif) {
-      await updateDoc(doc(db, "chats", data.chatId), {
+      await updateDoc(doc(db, "chatMessages", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
           gif: gif.url, // Include the GIF URL in the message payload
@@ -82,7 +82,7 @@ const Input = () => {
       });
     }
     else {
-      await updateDoc(doc(db, "chats", data.chatId), {
+      await updateDoc(doc(db, "chatMessages", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
           text: censoredText,
@@ -93,18 +93,11 @@ const Input = () => {
       });
     } 
 
-    await updateDoc(doc(db, "userChats", currentUser.uid), {
-      [data.chatId + ".lastMessage"]: {
+    await updateDoc(doc(db, "chatMetadata", data.chatId), {
+      lastMessage: {
         text:censoredText,
       },
-      [data.chatId + ".date"]: serverTimestamp(),
-    });
-
-    await updateDoc(doc(db, "userChats", data.user.uid), {
-      [data.chatId + ".lastMessage"]: {
-        text:censoredText,
-      },
-      [data.chatId + ".date"]: serverTimestamp(),
+      date: serverTimestamp(),
     });
 
     setText("  ");
@@ -144,31 +137,30 @@ const handleSelectGif = async (searchTerm) => {
 
   return (
     <div className='input'>
-<div className="emoji-picker-container" style={{ display: showEmojiPicker ? 'block' : 'none' }}>
-  <EmojiPicker
-    onEmojiClick={handleEmojiClick}
-    navPosition="none"
-    search={false} // Set search to false to remove the search bar
-    grouped={true} // Set grouped to false to remove grouped categories
-    showSkinTones={false} // Set showSkinTones to false to remove skin tone picker
-  skinTone={null}
-    native
-    pickerStyle={{
-      width: '195px',
-      maxHeight: '100px',
-      whiteSpace: 'nowrap',
-      // padding: '8px',
-      // borderRadius: '8px',
-      // border: '1px solid #ccc',
-      // backgroundColor: '#fff',
-      // boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
-      fontSize: '10px'
-    }}
-    emojiSize={20}
-    pickerClassName="custom-emoji-picker"
-  />
-</div>
-
+    <div className="emoji-picker-container" style={{ display: showEmojiPicker ? 'block' : 'none' }}>
+      <EmojiPicker
+        onEmojiClick={handleEmojiClick}
+        navPosition="none"
+        search={false} // Set search to false to remove the search bar
+        grouped={true} // Set grouped to false to remove grouped categories
+        showSkinTones={false} // Set showSkinTones to false to remove skin tone picker
+      skinTone={null}
+        native
+        pickerStyle={{
+          width: '195px',
+          maxHeight: '100px',
+          whiteSpace: 'nowrap',
+          // padding: '8px',
+          // borderRadius: '8px',
+          // border: '1px solid #ccc',
+          // backgroundColor: '#fff',
+          // boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
+          fontSize: '10px'
+        }}
+        emojiSize={20}
+        pickerClassName="custom-emoji-picker"
+      />
+    </div>
     <input type="text" placeholder='Type Something...' onChange={e => setText(e.target.value)} value={text} />
     <div className="send">
       <label htmlFor="file">

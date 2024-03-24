@@ -1,185 +1,184 @@
 /* App.css */
 
 .App {
-    width: 100vw;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    position: absolute;
-    justify-self: center;
-    left: 50%;
-    top: 20%;
-  }
-  
-  input {
-    margin-bottom: 20px;
-  }
-  
-  .createFolder button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  
-  .createFolder:hover {
-    background-color: #45a049;
-  }
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: absolute;
+  justify-self: center;
+  left: 50%;
+  top: 20%;
+}
 
-  .foldersBack button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  
-  .foldersBack:hover {
-    background-color: #45a049;
-  }
-  
-  .createFolder button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  
-  .createFolder:hover {
-    background-color: #45a049;
-  }
+input {
+  margin-bottom: 20px;
+}
 
-  .folder-list {
-    margin-top: 20px;
-    padding: 0;
-  }
-  
-  .folder-list li {
-    list-style-type: none;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .folder-icon {
-    width: 24px;
-    height: 24px;
-    background-color: #2196f3;
-    border-radius: 4px;
-    margin-right: 10px;
-  }
-  
-  .folder-name {
-    color: #2196f3;
-    cursor: pointer;
-  }
-  
-  .folder-name:hover {
-    text-decoration: underline;
-  }
-  
-  .file-table {
-    width: 60%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .file-table th,
-  .file-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .file-table th {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  .file-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .file-table tr:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .folder-container {
-    margin-top: 20px;
-  }
-  
-  .folder-tiles {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .folder-tile {
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .folder-tile:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .folder-tile .ffolder {
-    margin-right: 5px;
-  }
-  
-  /* New styles for file tiles and file icon placeholder */
-  .file-container {
-    margin-top: 20px;
-  }
-  
-  .file-tiles {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .file-tile {
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .file-tile:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .file-icon {
-    width: 24px;
-    height: 24px;
-    background-color: black; /* Black rectangle to represent file */
-    border-radius: 4px;
-    margin-right: 10px;
-  }
-  
+.createFolder button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.createFolder:hover {
+  background-color: #45a049;
+}
+
+.foldersBack button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.foldersBack:hover {
+  background-color: #45a049;
+}
+
+.createFolder button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.createFolder:hover {
+  background-color: #45a049;
+}
+
+.folder-list {
+  margin-top: 20px;
+  padding: 0;
+}
+
+.folder-list li {
+  list-style-type: none;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.folder-icon {
+  width: 24px;
+  height: 24px;
+  background-color: #2196f3;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.folder-name {
+  color: #2196f3;
+  cursor: pointer;
+}
+
+.folder-name:hover {
+  text-decoration: underline;
+}
+
+.file-table {
+  width: 60%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.file-table th,
+.file-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.file-table th {
+  background-color: #4caf50;
+  color: white;
+}
+
+.file-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.file-table tr:hover {
+  background-color: #e0e0e0;
+}
+
+.folder-container {
+  margin-top: 20px;
+}
+
+.folder-tiles {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.folder-tile {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.folder-tile:hover {
+  background-color: #f0f0f0;
+}
+
+.folder-tile .ffolder {
+  margin-right: 5px;
+}
+
+/* New styles for file tiles and file icon placeholder */
+.file-container {
+  margin-top: 20px;
+}
+
+.file-tiles {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.file-tile {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-tile:hover {
+  background-color: #f0f0f0;
+}
+
+.file-icon {
+  width: 24px;
+  height: 24px;
+  background-color: black; /* Black rectangle to represent file */
+  border-radius: 4px;
+  margin-right: 10px;
+}

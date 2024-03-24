@@ -40,7 +40,7 @@ export const SidebarData = [
     path: '/zenSpace',
     icon: <FaGamepad />,
     cName: 'nb-nav-text' 
-  },  //need to change icon
+  },
   // {
   //   title: 'User Profile',
   //   path: '/user-prof',
