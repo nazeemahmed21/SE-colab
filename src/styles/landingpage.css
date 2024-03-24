@@ -10,34 +10,48 @@ body, html {
 .landing-p-wrapper {
   position: absolute;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   background-color: #fea059;
 }
 
+.lp-loginandregis {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+
+}
+
 /* Adjust button styles for better positioning */
-.landing-p-login, .landing-p-register {
+.landing-p-login {
   padding: 14px 28px;
   font-weight: bold;
-  position: absolute;
+  position: relative;
   font-family: sans-serif;
   text-transform: uppercase;
   background-color: inherit;
   border: 1px solid transparent;
   border-radius: 4px;
-
   font-size: 1.8rem;
   color: black;
   cursor: pointer;
-}
-
-.landing-p-login {
-  top: 0%;
-  right: 10%;
+  margin-right: 0%;
+  margin-left: 100px;
 }
 
 .landing-p-register {
-  top: 0%;
-  right: 2%;
+  padding: 14px 28px;
+  font-weight: bold;
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  background-color: inherit;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 1.8rem;
+  color: black;
+  cursor: pointer;
+  margin-left: 100px;
 }
 
 /* Hover effect for buttons */
@@ -46,8 +60,23 @@ body, html {
   color: white;
 }
 
-.lp-main-h, .lp-sh-1, .lp-sh-2, .lp-desc, .lp-blob, .lp-img-1, .lp-img-2, .lp-logo {
+.lp-main-h, .lp-sh-1, .lp-sh-2, .lp-desc {
   position: absolute;
+}
+
+/* .lp-blob-img-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+} */
+
+.lp-logo {
+  position: fixed;
+  width: 10%;
 }
 
 .lp-main-h {
@@ -77,22 +106,25 @@ body, html {
   top: 5%;
   right: 1%;
   width: 50%;
-}
-
-.lp-img-1, .lp-img-2 {
-  border-radius: 150px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
 }
 
 .lp-img-1 {
   width: 19%;
   top: 30%;
   right: 17%;
+  border-radius: 150px;
+  position: absolute;
 }
 
 .lp-img-2 {
   width: 30%;
   top: 35%;
   right: 10%;
+  border-radius: 150px;
+  position: absolute;
 }
 
 .lp-logo {
@@ -125,145 +157,21 @@ body, html {
   animation: fadeOut 5s forwards;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) { /* Tablets */
-  .lp-main-h {
-    font-size: 60px; /* Smaller font size */
-    top: 20%; /* Adjust positioning */
-  }
-
-  .lp-sh-1, .lp-sh-2 {
-    font-size: 30px; /* Smaller font size */
-  }
-
-  .lp-desc {
-    font-size: 18px; /* Smaller font size */
-    top: 50%; /* Adjust positioning */
-  }
-
-  .lp-img-1 {
-    width: 28%; /* Larger for visibility */
-    top: 15%; /* Adjust positioning */
-  }
-
-  .lp-img-2 {
-    width: 32%; /* Larger for visibility */
-    top: 15%; /* Adjust positioning */
-  }
-  .lp-blob {
-    width: 60%; /* Adjust blob size */
-    right: -3%;
-  }
-  
+@media (max-width: 730px) {
   .landing-p-register {
-    padding: 14px 28px;
-    font-weight: bold;
-    position: absolute;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    background-color: inherit;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    top: 0%;
-    right: 15%; 
-  
-    font-size: 1.8rem;
-    color: black;
-    cursor: pointer;
+    margin-left: 20px;
   }
-
-  .landing-p-login{
-    padding: 14px 28px;
-    font-weight: bold;
-    position: absolute;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    background-color: inherit;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    top: 0%;
-    right: 0%; 
-  
-    font-size: 1.8rem;
-    color: black;
-    cursor: pointer;
+  .landing-p-login {
+    margin-left: 20px;
   }
 }
 
-@media (max-width: 480px) { /* Mobile phones */
-  .lp-main-h, .lp-sh-1, .lp-sh-2, .lp-desc {
-    left: 3%; /* Adjust text alignment */
-  }
-
+@media (max-width: 730px) {
   .landing-p-register {
-    padding: 14px 28px;
-    font-weight: bold;
-    position: absolute;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    background-color: inherit;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    top: 0%;
-    right: 15%; 
-  
-    font-size: 1.8rem;
-    color: black;
-    cursor: pointer;
+    margin-left: 0px;
   }
-
-  .landing-p-login{
-    padding: 14px 28px;
-    font-weight: bold;
-    position: absolute;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    background-color: inherit;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    top: 0%;
-    right: 0%; 
-  
-    font-size: 1.8rem;
-    color: black;
-    cursor: pointer;
-  }
-
-
-  .lp-main-h {
-    font-size: 40px; /* Further reduce for small screens */
-    top: 15%; /* Adjust positioning */
-    left: 5%; /* Ensure visibility */
-
-  }
-
-  .lp-sh-1, .lp-sh-2 {
-    font-size: 20px; /* Reduce size */
-  }
-
-  .lp-desc {
-    font-size: 14px; /* Smaller text */
-    top: 50%; /* Adjust positioning */
-  }
-
-  .lp-img-1, .lp-img-2 {
-    width: 30%; /* Adjust image size */
-    top: 15%; /* Adjust image positioning*/
-  }
-
-  .lp-blob {
-    width: 60%; /* Adjust blob size for small screens */
-    top: 10%; /* Adjust positioning */
-  }
-
-  .landing-p-login, .landing-p-register {
-    font-size: 1.4rem; /* Adjust button font size */
-    padding: 10px 22px; /* Adjust button padding */
-  }
-
-  .lp-logo {
-    width: 15%; /* Adjust logo size */
-    top: 3%; /* Adjust logo positioning */
-    left: 5%; /* Ensure visibility */
+  .landing-p-login {
+    margin-left: 0px;
   }
 }
+

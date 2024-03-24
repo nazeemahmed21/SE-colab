@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./med_breath.css";
+import "../styles/med_breath.css";
 
 const MedBreathingComponent = () => {
   const [breathsLeft, setBreathsLeft] = useState(3);
