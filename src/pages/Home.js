@@ -38,7 +38,7 @@ function Home({ isAuth }) {
   const navigate = useNavigate();
   
   const rsvpAlert = (post) => {
-    if (post.rsvpCount > post.maxAttendees) {
+    if (post.rsvpCount >= post.maxAttendees) {
       alert("Sorry, this event is full.");
       return;
     }
@@ -55,7 +55,7 @@ function Home({ isAuth }) {
     const user = auth.currentUser;
     const postId = post.id;
   
-    if (post.rsvpCount > post.maxAttendees) {
+    if (post.rsvpCount >= post.maxAttendees) {
       alert("Sorry, this event is full.");
       return;
     }
@@ -63,10 +63,9 @@ function Home({ isAuth }) {
     const postDoc = doc(db, "posts", postId);
     await updateDoc(postDoc, {
       rsvpCount: post.rsvpCount ? post.rsvpCount + 1 : 1,
-      rsvps: arrayUnion(user.uid),
+      rsvps: arrayUnion(user.uid), // Add user ID to the rsvps array
     });
   
-    // Fetch the user's data
     const userRef = doc(db, "Users", user.uid);
     const userDoc = await getDoc(userRef);
     const userData = userDoc.data();
@@ -78,13 +77,20 @@ function Home({ isAuth }) {
       message: notificationMessage,
     });
   
-    // Update RSVP status and notifications in local storage
+    const eventData = {
+      Title: post.title,
+      "Start Date": new Date(post.dateFrom), // Convert to Date object
+      "End Date": new Date(post.dateTo),     // Convert to Date object
+      "uid": user.uid,               // Include user ID
+    };
+  
+    // Trigger the function to add the RSVP and create an event on the calendar
+    handleAddRSVPAndEvent(eventData);
+  
     const updatedRsvpStatus = { ...rsvpStatus, [postId]: true };
     setRsvpStatus(updatedRsvpStatus);
     localStorage.setItem("rsvpStatus", JSON.stringify(updatedRsvpStatus));
   
-    
-    // Check if the maximum number of attendees reached
     if (post.rsvpCount + 1 === post.maxAttendees) {
       const postDoc = doc(db, "posts", postId);
       await updateDoc(postDoc, {
@@ -94,8 +100,20 @@ function Home({ isAuth }) {
   
     alert("RSVPed!");
     getFilteredPosts();
-  };
+  };  
   
+  
+  
+  
+  const handleAddRSVPAndEvent = async (eventData) => {
+    // Add the event data to the Firestore collection
+    try {
+      const docRef = await addDoc(collection(db, 'CalendarEvents'), eventData);
+      console.log('Event added to Firestore with ID: ', docRef.id);
+    } catch (error) {
+      console.error('Error adding event to Firestore: ', error);
+    }
+  };
   
   
 

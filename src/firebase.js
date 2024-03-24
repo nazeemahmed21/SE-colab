@@ -25,7 +25,6 @@ const storage = getStorage(app);
 const db = getFirestore(app);
 const analytics = getAnalytics(app);
 
-
 const deleteSignedUser = async () => {
   // const navigate = useNavigate();
   const currentUser = auth.currentUser;
@@ -39,4 +38,4 @@ const deleteSignedUser = async () => {
   localStorage.removeItem("user");
 };
 
-export { storage, auth, db, getFirestore, deleteSignedUser };
+export { storage, auth, db, getFirestore, deleteSignedUser};
