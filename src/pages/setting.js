@@ -18,6 +18,7 @@ const Settings = () => {
         <div className="settings_theme">
           <p >Theme:</p>
           <button className="settings_theme_btn" onClick={toggleDarkMode}>{darkMode ? "Light Mode" : "Dark Mode"}</button>
+          <p >Account:</p>
           <button className="delete_acc_btn" onClick={deleteSignedUser}>Delete Account</button>
         </div>
       </div>
