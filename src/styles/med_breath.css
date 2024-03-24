@@ -1,0 +1,129 @@
+.med_breath_page {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  /* background: url('bg.png'); */
+  background-size: cover;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: -1;
+}
+
+.med_breath_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.med_input {
+  display: flex;  
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.med_input label {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.med_input select {
+  border: none;
+  border-radius: 8px;
+  min-width: 300px;
+  font-size: 16px;
+  padding: 8px 4px;
+  background-color: #29ada0;
+  color: white;
+}
+
+.med_input select:focus {
+  outline: none;
+}
+
+.med_circle_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.med_circle_outline {
+  width: 275px; 
+  height: 275px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 15px solid lightgrey;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.med_circle_progress {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: #29ada0;
+  border-radius: 50%;
+  transition: 4s ease all;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.med_circle_grow {
+  transform: scale(5.31);
+}
+
+.med_breaths {
+  font-size: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.med_instructions {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.med_start_button {   
+  padding: 8px 20px;
+  border-radius: 8px;
+  background-color: #29ada0;
+  color: white;
+  cursor: pointer;
+  transform: 0.3 ease all;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.med_start_button:hover {
+  background-color: #f1f1f1;
+  color: #29ada0;
+}
+
+.med_button_inactive {
+  pointer-events: none;
+  background-color: #969696;
+}
