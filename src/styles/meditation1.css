@@ -282,6 +282,7 @@ background-color: #29ada0;;
 }
 
 /* labs.css */
+/* Responsiveness for meditation player */
 @media screen and (max-width: 1368px) {
   .meditationPlayerPage {
     justify-content: center; /* Center horizontally */
