@@ -138,6 +138,8 @@ const [ setFilteredMeditations] = useState([]);
         // Add logic to filter and display meditations based on the emotion
         break;
       case "hardBreathe":
+        // <Link to="/meditationPlayer/Breathing Techniques">Breathing Techniques</Link>;
+        <Link to="/medBreath">Hard to Breathe?</Link>;
         // Handle hardBreathe emotion filtering
         // Add logic to filter and display meditations based on the emotion
         break;

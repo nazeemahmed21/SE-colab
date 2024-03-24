@@ -280,3 +280,74 @@ background-color: #29ada0;;
 .cross-icon:hover {
   color: red; /* Adjust color on hover as needed */
 }
+
+/* labs.css */
+/* Responsiveness for meditation player */
+@media screen and (max-width: 1368px) {
+  .meditationPlayerPage {
+    justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+    /* Adjust margin for smaller screens */
+    max-height: calc(100vh - 70px); /* Adjust max height for smaller screens */
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .meditationPlayerTitle {
+    /* Adjust margin for smaller screens */
+    font-size: 25px; /* Adjust font size for smaller screens */
+    position: fixed; /* Reset position */
+    text-align: center; /* Center align for smaller screens */
+  }
+
+  .meditationPlayerQuote {
+    /* Adjust margin for smaller screens */
+    font-size: 20px; /* Adjust font size for smaller screens */
+    position: fixed;
+    text-align: center; /* Center align for smaller screens */
+    right: 70px; /* Adjust left margin */
+  }
+  
+  .meditationPlayerQuote ul {
+    vertical-align: middle;
+    text-align: center;
+    align-self: center;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+  }
+  
+
+  .buttonContainerMeditation {
+    vertical-align: middle;
+  align-self: center;
+  width: 100%;
+    text-align: center;
+    position: fixed; /* Keep position fixed */
+    /* bottom: 20px; Adjust bottom position */
+  }
+  
+  .playPauseButton img {
+    align-items: center;
+    margin-bottom: 100px; /* Adjust top margin */
+    margin: auto;
+    display: block;
+   
+  }
+
+  .playPauseButton{left: calc(50% - 30px); /* Adjust the value as needed */}
+  .timeDisplay {
+    font-size: 20px; /* Adjust font size for smaller screens */
+    gap: 50px; /* Adjust gap for smaller screens */
+    padding: 5px; /* Adjust padding for smaller screens */
+  }
+
+  .progress-bar {
+    height: 5px; /* Adjust height for smaller screens */
+  }
+
+  .cross-icon {
+    top: 10px; /* Adjust top position for smaller screens */
+    left: 10px; /* Adjust left position for smaller screens */
+    font-size: 25px; /* Adjust font size for smaller screens */
+  }
+}
