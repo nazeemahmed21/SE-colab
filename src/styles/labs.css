@@ -88,11 +88,6 @@ button{
   margin-bottom: 10px;
 }
 
-.LabsContent {
-  flex: 1;
-  padding: 20px;
-  margin-left: 10px;
-}
 
 .labAnncMessage {
   border-radius: 8px;
@@ -153,10 +148,6 @@ a {
 }
 
 
-.LabsContent h1{
-  margin-left: 30px;
-  font-size: 36px;
-}
 
 .LabsButtons{
   align-items: center;

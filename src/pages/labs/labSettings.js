@@ -44,7 +44,7 @@ const LabSettings = () => {
           // Fetch lab icon if available
           if (data.labIcon) {
             try {
-              setLabIconPreview(defaultIcon); 
+              setLabIconPreview(data.labIcon); 
             } catch (error) {
               console.error('Error fetching lab icon:', error);
             }
@@ -112,7 +112,6 @@ const LabSettings = () => {
         {error && <p>Error: {error}</p>}
         {labData && (
           <form onSubmit={handleSubmit}> 
-            <h2>Lab Settings</h2> 
             {/* Lab Icon */}
             <div className="labIconSetting">
               <label htmlFor="labIcon">Lab Icon:</label>

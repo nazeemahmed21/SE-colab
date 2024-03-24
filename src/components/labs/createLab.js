@@ -210,9 +210,7 @@ const CreateLab = () => {
                     onChange={(e) => setLabName(e.target.value)} 
                   />
                 </FormControl>
-                <div className="modalSubmit"><button type="submit" sx={{ '&::before': {
-                        display: 'none',
-                      },fontSize: '14px', maxWidth: '250px',paddingY: '10px', margin:1}}>Create Lab</button></div>
+                <div className="modalSubmit"><button type="submit">Create Lab</button></div>
               </Stack>
             </form>
           </DialogContent>

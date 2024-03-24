@@ -6,6 +6,7 @@
     color: white;
     margin-top:20px;
     background-color: #6F898A;
+    display:flex;
   }
   .lab-navbarText {
     margin-top: 70px;
@@ -14,9 +15,9 @@
   }
   
   .lab-navbar ul {
-    align-items: space-between;
     list-style-type: none;
     padding: 20px 10px;
+    width: 100%;
   }
   
   .lab-navbar li {
@@ -43,10 +44,40 @@
     background-color: #FF7A69;/* Your desired active color */
   }
 
+  .lab-menu-icon img{
+    max-width: 50px;
+    width: 10vw;
+  }
+
+  
   @media screen and (max-width: 940px) {
     .lab-navbar{
+        display:none;
+        position: fixed; /* Or absolute, depending on your layout */
+        top: 30; 
+        left: -100%; /* Position it off-screen initially */
+        width: 300px; /* Adjust the width as needed */
+        transition: left 0.7s ease-in-out; /* Transition property */
+
+    }
+    .lab-navbar.is-open {
+      left: 0; /* Slide it in when toggled */
+    }
+    
+  }
+  
+  @media screen and (min-width: 941px) {
+    .lab-menu-icon{
         display:none;
     }
     
   }
+
+  @media screen and (max-width: 500px) {
+    .lab-navbar{
+      width:90vw;
+    }
+  }
+
+
   

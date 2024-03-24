@@ -1,15 +1,16 @@
 import React , { useEffect } from 'react';
 import '../../styles/labsnew.css';
 import { useOutletContext } from 'react-router';
+import FileSystem from '../../components/labs/FileSystem';
 
 const LabDetails = () => {
-  const [currentPageName,setCurrentPageName] = useOutletContext();
+  const [currentPageName,setCurrentPageName, isLabOwner, labId] = useOutletContext();
   useEffect(() => {
-    setCurrentPageName('Lab Details'); 
+    setCurrentPageName('Lab Files'); 
   }, [setCurrentPageName]);
   return (
     <div>
-        <h1></h1>
+        <FileSystem labId = {labId}/>
     </div>
   );
 };

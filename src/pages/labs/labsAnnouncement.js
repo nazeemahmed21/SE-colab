@@ -6,8 +6,7 @@ import ViewAnnouncements from '../../components/labs/viewAnnouncements';
 
 
 const LabAnnouncements = () => {
-  const [currentPageName, setCurrentPageName] = useOutletContext();
-  const [isLabOwner, setIsLabOwner] = useOutletContext();
+  const [currentPageName, setCurrentPageName, isLabOwner] = useOutletContext();
 
   useEffect(() => {
     setCurrentPageName('Announcements'); 

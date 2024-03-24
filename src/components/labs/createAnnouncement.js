@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { doc, setDoc, collection , getDoc} from 'firebase/firestore'; 
 import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
-import Button from '@mui/joy/Button';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Modal from '@mui/joy/Modal';
@@ -69,7 +68,7 @@ const CreateAnnouncement = () => {
 
   return (
     <React.Fragment>
-      <button onClick={() => setOpen(true)}>Create Announcement</button> 
+      <button id= "labCreateAnnouncement" onClick={() => setOpen(true)}>Create Announcement</button> 
       <Modal open={open} onClose={() => setOpen(false)}>
         <ModalDialog 
           sx={(theme) => ({

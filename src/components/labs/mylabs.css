@@ -1,6 +1,6 @@
 .labs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 200px)); /* Responsive columns */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 0.1fr)); /* Responsive columns */
     gap: 20px;
     padding: 20px;
     padding-left: 20px;
@@ -52,8 +52,9 @@
       max-height: 55vh;
    }
  }
-@media screen and (max-width:800px){
+
+/* @media screen and (max-width:600px){
    .labs-grid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 2fr)); /* Responsive columns */
+      grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
    }
-}
+} */
