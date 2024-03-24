@@ -4,7 +4,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { AuthContext } from "../Context/AuthContext";
 import { ChatContext } from "../Context/ChatContext";
 import { storage } from '../firebase';
-import { updateDoc, arrayUnion, serverTimestamp, Timestamp } from 'firebase/firestore';
+import { getDoc, query, collection, where, documentId, updateDoc, arrayUnion, serverTimestamp, Timestamp } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 const ForwardDialog = ({ messageId, messageText, onClose, onForward }) => {
@@ -40,9 +40,17 @@ const ForwardDialog = ({ messageId, messageText, onClose, onForward }) => {
   }, []);
 
   useEffect(() => {
-    const getChats = () => {
-      const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
-        setChats(doc.data());
+    const getChats = async () => {
+      const userChats = await getDoc(doc(db, "userChatMapping", currentUser.uid)).then(doc => doc.data()?.chats);
+
+      const q = query(collection(db, "chatMetadata"), where(documentId(), 'in', userChats==undefined ? ["test"] : userChats));
+      const unsub = onSnapshot(q, (querySnapshot) => {
+        const chatsArray = [];
+        
+        querySnapshot.forEach((doc) => {
+          chatsArray.push([doc.id, doc.data()]);
+        })
+        setChats(chatsArray);
         setLoading(false);
       });
 
@@ -74,7 +82,7 @@ const handleSelect = (userName, messageText) => {
   setSelectedMessageText(messageText);
 
   // Search for the user by display name
-  const selectedUser = Object.entries(chats)?.find((chat) => chat[1]?.userInfo?.displayName === userName);
+  const selectedUser = chats.find((chat) => chat[1]?.userInfo?.displayName === userName);
   // Extract the uid if the user is found
   if (selectedUser) {
     console.log("Selected user UID:", selectedUser[1].userInfo.uid);
@@ -110,7 +118,7 @@ const handleSelect = (userName, messageText) => {
             await new Promise(resolve => setTimeout(resolve, 1000));
             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
             console.log("downloadURL", recipientId);
-            await updateDoc(doc(db, "chats", recipientId.uid), {
+            await updateDoc(doc(db, "chatMessages", recipientId.uid), {
               messages: arrayUnion({
                 id: uuid(),
                 text: messageText,
@@ -127,7 +135,7 @@ const handleSelect = (userName, messageText) => {
         }
       );
     } else if (gif) {
-      await updateDoc(doc(db, "chats", data.chatId), {
+      await updateDoc(doc(db, "chatMessages", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
           gif: gif.url, // Include the GIF URL in the message payload
@@ -136,7 +144,7 @@ const handleSelect = (userName, messageText) => {
         }),
       });
     }else {
-      await updateDoc(doc(db, "chats", data.chatId), {
+      await updateDoc(doc(db, "chatMessages", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
           text: messageText,
@@ -147,18 +155,11 @@ const handleSelect = (userName, messageText) => {
       });
     }
 
-    await updateDoc(doc(db, "userChats", recipientId), {
-      [data.chatId + ".lastMessage"]: {
+    await updateDoc(doc(db, "chatMetadata", data.chatId), {
+      lastMessage: {
         text:messageText,
       },
-      [data.chatId + ".date"]: serverTimestamp(),
-    });
-
-    await updateDoc(doc(db, "userChats", data.user.uid), {
-      [data.chatId + ".lastMessage"]: {
-        text:messageText,
-      },
-      [data.chatId + ".date"]: serverTimestamp(),
+      date: serverTimestamp(),
     });
 
     setText("");

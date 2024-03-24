@@ -182,14 +182,14 @@ const Messages = ({ message }) => {
 >
         {/* names */}
           <React.Fragment>
+            <div >
+              {m.text}
+            </div>  
             <div>
               <Typography variant='body2'>
                 {m.senderId != currentUser.uid ? <p>{userIdNameMap[m.senderId]}</p> : ''}
               </Typography>
-            </div>
-             <div >
-              {m.text}
-              </div>          
+            </div>        
             <span className="like-icon" onClick={() => handleLike(m.id)}>
               {m.likes > 0 && likedMessages.includes(m.id) && (
                 <img src={heart} alt="Like" />

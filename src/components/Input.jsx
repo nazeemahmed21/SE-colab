@@ -94,10 +94,10 @@ const Input = () => {
     } 
 
     await updateDoc(doc(db, "chatMetadata", data.chatId), {
-      [data.chatId + ".lastMessage"]: {
+      lastMessage: {
         text:censoredText,
       },
-      [data.chatId + ".date"]: serverTimestamp(),
+      date: serverTimestamp(),
     });
 
     setText("  ");
