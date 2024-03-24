@@ -22,6 +22,7 @@
     "font-awesome": "^4.7.0",
     "framer-motion": "^10.18.0",
     "gsap": "^3.12.5",
+    "markerjs2": "^2.32.1",
     "react": "^18.2.0",
     "react-big-calendar": "^1.8.7",
     "react-datepicker": "^4.25.0",

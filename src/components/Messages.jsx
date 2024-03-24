@@ -10,6 +10,7 @@ import heart from '../images/heart_like.png';
 import { firestore } from '../firebase';
 import '../chatStyle.css';
 import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
 const Messages = ({ message }) => {
   const [messages, setMessages] = useState([]);
@@ -185,6 +186,9 @@ const Messages = ({ message }) => {
             <div >
               {m.text}
             </div>  
+            <div style={{margin: 5}}>
+              {m.img ? <Link target="_blank" href={m.img} underline="hover">Click to view image</Link> : <></>}
+            </div>
             <div>
               <Typography variant='body2'>
                 {m.senderId != currentUser.uid ? <p>{userIdNameMap[m.senderId]}</p> : ''}

@@ -23,6 +23,7 @@ import Meditation1 from "./pages/meditation1.js";
 import MeditationPlayer from './pages/meditationPlayer.js';
 import ZenSpace from './pages/zenSpace.js';
 import Games from './pages/games.js';
+import { ImageAnnotator } from "./components/ImageAnnotation.jsx";
 
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
@@ -59,6 +60,7 @@ const Rout = () => {
       <Route path="/meditation1" element={<ProtectedRoute><Meditation1 /></ProtectedRoute>} />
       <Route path="/zenSpace" element={<ProtectedRoute><ZenSpace /></ProtectedRoute>} />
       <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
+      <Route path="/imageAnnotation" element={<ImageAnnotator />}></Route>
     </Routes>
   );
 };
