@@ -4,6 +4,7 @@ import { auth, db, storage } from "../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import "../styles/userProfile.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const UserProfile = () => {
   const roles = ["Student", "Educator", "Marketer", "Artist"]; // Add roles here
@@ -70,7 +71,8 @@ const UserProfile = () => {
           pfpURL: url,
         });
         setUserInfo({ ...userInfo, ProfPic: url });
-        alert("Profile image updated successfully");
+        // alert("Profile image updated successfully");
+        toast.success("Changes updated successfully");
       } catch (error) {
         console.error("Error uploading image:", error);
       }
@@ -95,7 +97,8 @@ const UserProfile = () => {
         lastname: editedLastName,
       });
       setIsEditing(false);
-      alert("Name updated successfully");
+      // alert("Name updated successfully");
+      toast.success("Changes updated successfully");
     } catch (error) {
       console.error("Error updating name:", error);
     }
@@ -108,83 +111,96 @@ const UserProfile = () => {
       });
       setUserInfo({ ...userInfo, Role: editedRole });
       setIsEditing(false);
-      alert("Role updated successfully");
+      // alert("Role updated successfully");
+      toast.success("Changes updated successfully");
     } catch (error) {
       console.error("Error updating role:", error);
     }
   };
   return (
-    <div>
-      <Navbar />
-      <div className="up-user-profile-container">
-        <img
-          src={userInfo.ProfPic || "default-profile-pic-url.jpg"}
-          alt="Profile"
-          className="up-profile-pic"
+    <>
+      <div>
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              fontSize: "1.75rem",
+            },
+          }}
         />
-        <div></div>
-        <>
-          <div className="up-name">
-            <input
-              type="text"
-              value={editedFirstName}
-              onChange={(e) => setEditedFirstName(e.target.value)}
-            />
-            <br></br>
-            <br></br>
-            <input
-              type="text"
-              value={editedLastName}
-              onChange={(e) => setEditedLastName(e.target.value)}
-            />
-          </div>
-          {/* <div className='up-save'>
+      </div>
+      <div>
+        <Navbar />
+        <div className="up-user-profile-container">
+          <img
+            src={userInfo.ProfPic || "default-profile-pic-url.jpg"}
+            alt="Profile"
+            className="up-profile-pic"
+          />
+          <div></div>
+          <>
+            <div className="up-name">
+              <input
+                type="text"
+                value={editedFirstName}
+                onChange={(e) => setEditedFirstName(e.target.value)}
+              />
+              <br></br>
+              <br></br>
+              <input
+                type="text"
+                value={editedLastName}
+                onChange={(e) => setEditedLastName(e.target.value)}
+              />
+            </div>
+            {/* <div className='up-save'>
             <button onClick={handleSaveNameChange}>Save Changes</button>
           </div> */}
-        </>
-        <>
-          <div className="up-currentname">
-            <p>
-              Firstname:<span></span>
-              {userInfo.firstname}
-            </p>
-            <p>
-              Lastname:<span></span>
-              {userInfo.lastname}
-            </p>
-            <p>
-              Role:<span></span>
-              {userInfo.Role}
-            </p>
-          </div>
+          </>
+          <>
+            <div className="up-currentname">
+              <p>
+                Firstname:<span></span>
+                {userInfo.firstname}
+              </p>
+              <p>
+                Lastname:<span></span>
+                {userInfo.lastname}
+              </p>
+              <p>
+                Role:<span></span>
+                {userInfo.Role}
+              </p>
+            </div>
 
-          <div className="up-edit-name">
-            <button onClick={handleSaveNameChange}>Edit Name</button>
+            <div className="up-edit-name">
+              <button onClick={handleSaveNameChange}>Edit Name</button>
+            </div>
+          </>
+          <div className="up-file">
+            <input type="file" onChange={handleImageChange} />
           </div>
-        </>
-        <div className="up-file">
-          <input type="file" onChange={handleImageChange} />
-        </div>
-        <div className="up-edit-role">
-          <button onClick={handleSaveNameChange}>Edit Role</button>
-        </div>
-        <div className="up-roles">
-          <select
-            value={editedRole}
-            onChange={(e) => setEditedRole(e.target.value)}
-          >
-            {roles.map((role) => (
-              <option key={role} value={role}>
-                {role}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="up-update-img">
-          <button onClick={handleImageUpload}>Update Image</button>
+          <div className="up-edit-role">
+            <button onClick={handleSaveNameChange}>Edit Role</button>
+          </div>
+          <div className="up-roles">
+            <select
+              value={editedRole}
+              onChange={(e) => setEditedRole(e.target.value)}
+            >
+              {roles.map((role) => (
+                <option key={role} value={role}>
+                  {role}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="up-update-img">
+            <button onClick={handleImageUpload}>Update Image</button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

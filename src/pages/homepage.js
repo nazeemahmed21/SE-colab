@@ -19,7 +19,7 @@ function Home() {
   const showPopup = () => {
     setPopupVisible(true);
   };
-//ewlfnwefp
+  //ewlfnwefp
   const hidePopup = () => {
     setPopupVisible(false);
   };
@@ -28,10 +28,10 @@ function Home() {
       <div>
         <div className="events">
           <Event />
-          <EventAnalytics />          
+          <EventAnalytics />
           <br></br>
         </div>
-        
+
         <div>
           <Navbar />
         </div>
