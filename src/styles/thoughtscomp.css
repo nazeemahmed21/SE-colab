@@ -3,37 +3,66 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Center content vertically */
-    height: 100vh; /* Make the container full height of viewport */
-    padding: 20px; /* Add padding for better spacing */
-  }
-  
-  /* thought-item styles */
-  .thought-item {
-    background-color: #f9f9f9;
-    border-radius: 5px;
+    height: 100vh;
+    padding: 20px;
+    overflow-y: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.createThoughtBtn {
+    display: inline;
+    color: white;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 120px;
     padding: 15px;
-    margin-bottom: 15px; /* Add margin between thoughts */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    width: 100%; /* Ensure thoughts span the full width */
-    max-width: 600px; /* Limit maximum width for better readability */
-    overflow-y: auto; /* Add scrollbar when content exceeds height */
-  }
-  
-  .thought-item p {
-    margin: 0; /* Remove default paragraph margin */
-  }
-  
-  /* Optional: Style for thought author */
-  .thought-author {
+    background-color: #29ada0 ;
+    border-radius: 5px;
+    left: 10%;
+}
+
+/* thought-item styles */
+.thought-item {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto; /* Adjust margin to provide spacing between thought items */
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.thought-item:first-child {
+    margin-top: 50%; /* Remove margin-top for the first thought item */
+}
+
+.thought-item:last-child {
+    margin-bottom: 5%; /* Remove margin-top for the first thought item */
+}
+
+.thought-item p {
+    margin: 0;
+}
+
+/* Style for thought images */
+.thought-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+/* Optional: Style for thought author */
+.thought-author {
     font-weight: bold;
     color: #333;
-    margin-bottom: 5px; /* Add space below author name */
-  }
-  
-  /* Optional: Style for timestamp */
-  .timestamp {
-    font-size: 0.8rem; /* Decrease font size for timestamp */
+    margin-bottom: 5px;
+}
+
+/* Optional: Style for timestamp */
+.timestamp {
+    font-size: 0.8rem;
     color: #888;
-  }
-  
+}

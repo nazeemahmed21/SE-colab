@@ -61,7 +61,7 @@ function ThoughtsComp() {
   return (
     <>
       <div className="thoughts-container">
-        <button onClick={() => setShowPopup(true)}>Create Thought</button>
+        <button className="createThoughtBtn" onClick={() => setShowPopup(true)}>Create Thought</button>
         {thoughts.map((thought) => (
           <div key={thought.id} className="thought-item">
             <h3>Title: {thought.title}</h3>
@@ -72,6 +72,7 @@ function ThoughtsComp() {
               <p>Author: Unknown</p>
             )}
             <p>Posted on: {thought.timestamp ? thought.timestamp.toDate().toLocaleString() : "N/A"}</p>
+            {thought.imageUrl && <img src={thought.imageUrl} alt="Thought Image" />}
             {/* Add additional fields here if necessary */}
           </div>
         ))}
@@ -83,7 +84,6 @@ function ThoughtsComp() {
       />
     </>
   );  
-  
 }
 
 export default ThoughtsComp;
