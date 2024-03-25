@@ -9,6 +9,9 @@ import ForwardDialog from './ForwardDialog';
 import heart from '../images/heart_like.png';
 import { firestore } from '../firebase';
 import '../chatStyle.css';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
+
 
 const Messages = ({ message }) => {
   const [messages, setMessages] = useState([]);
@@ -183,7 +186,16 @@ const Messages = ({ message }) => {
             { backgroundColor: m.owner ? 'lightgreen' : 'white' }
             }>
               {m.text}
-              </div>          
+            </div>  
+            <div style={{margin: 5}}>
+              {m.img ? <Link target="_blank" href={m.img} underline="hover">Click to view image</Link> : <></>}
+            </div>
+            <div>
+              <Typography variant='body2'>
+                {m.senderId != currentUser.uid ? <p>{userIdNameMap[m.senderId]}</p> : ''}
+              </Typography>
+            </div>        
+
             <span className="like-icon" onClick={() => handleLike(m.id)}>
               {m.likes > 0 && likedMessages.includes(m.id) && (
                 <img src={heart} alt="Like" />

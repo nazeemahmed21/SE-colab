@@ -5,7 +5,6 @@ import Signup from "./pages/signup.js";
 import Login from "./pages/login.js";
 import ProfileSetup from "./pages/profilesetup.js";
 import Home from "./pages/homepage.js";
-import Labs from "./pages/labs.js";
 import Toolbox from "./pages/toolbox.js";
 import Messages from "./pages/messages.js";
 import CalendarApp from "./components/calendarModule.js";
@@ -14,18 +13,24 @@ import Video from "./components/Video.jsx";
 import { Navigate } from "react-router";
 import { AuthContext } from "./Context/AuthContext.jsx";
 import UserProfile from "./pages/user-Profile.js";
-import LabDetails from "./pages/labDetails.js";
-import LabsAnnouncements from "./pages/labsAnnouncement.js";
 import VerifyEmail from "./pages/verifyEmail.js";
 import Settings from "./pages/setting.js";
 import FileSystem from './pages/FileSystem.js';
 import Meditation1 from "./pages/meditation1.js";
 import MeditationPlayer from './pages/meditationPlayer.js';
 import ZenSpace from './pages/zenSpace.js';
+import LabMembers from './pages/labs/labMembers.js';
+import LabLayout from "./pages/labs/labLayout.js";
+import LabSettings from "./pages/labs/labSettings.js";
+import LabDetails from "./pages/labs/labDetails.js";
+import LabsAnnouncements from "./pages/labs/labsAnnouncement.js";
+import Labs from "./pages/labsHome.js";
 // import medBreath from '../src/components/med_breath.js';
 // import MedBreathingComponent from "./MedBreathingComponent";
 import Games from './pages/games.js';
+import { ImageAnnotator } from "./components/ImageAnnotation.jsx";
 import Thoughts from './pages/Thoughts.js';
+
 
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
@@ -46,10 +51,13 @@ const Rout = () => {
       <Route path="/profile-setup" element={<ProfileSetup />} />
       <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
       <Route path="/messages" element={<Messages />} />
-      <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>} />
-      <Route path="/labDetails" element={<LabDetails />} />
-      <Route path="/fileSystem" element={<FileSystem />} />
-      <Route path="/labAnnouncements" element={<LabsAnnouncements />} />
+      <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>}></Route>
+      <Route path="/labs/:labId" element={<LabLayout />}> 
+        <Route index element={<LabsAnnouncements />} />
+        <Route path="files" element={<LabDetails />} />
+        <Route path="members" element={<LabMembers />} />
+        <Route path="settings" element={<LabSettings />} />
+      </Route>
       <Route path="/toolbox" element={<ProtectedRoute><Toolbox /></ProtectedRoute>} />
       <Route path="/calendar" element={<ProtectedRoute><CalendarApp /></ProtectedRoute>} />
       <Route path="/interest" element={<ProtectedRoute><Interests /></ProtectedRoute>} />
@@ -63,7 +71,7 @@ const Rout = () => {
       <Route path="/zenSpace" element={<ProtectedRoute><ZenSpace /></ProtectedRoute>} />
       <Route path="/thoughts" element={<ProtectedRoute><Thoughts /></ProtectedRoute>} />
       <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
-      <Route path="/medBreath" element={<ProtectedRoute><medBreath /></ProtectedRoute>} />
+      <Route path="/imageAnnotation" element={<ImageAnnotator />}></Route>
 
     </Routes>
   );

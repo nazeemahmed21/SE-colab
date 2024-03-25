@@ -7,8 +7,10 @@ import { doc, updateDoc, arrayUnion, serverTimestamp, Timestamp } from 'firebase
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 import EmojiPicker from 'emoji-picker-react'; // Import the emoji picker library
+import { useNavigate } from "react-router-dom";
 
 const Input = () => {
+  const navigate = useNavigate();
   const [text, setText] = useState('');
   const [img, setImg] = useState(null);
   const [gif, setGif] = useState(null);
@@ -140,7 +142,10 @@ const handleSelectGif = async (searchTerm) => {
        setText(text+event.emoji);
   };
   
-  
+  const handleUploadImage = (event) => {
+    const files = event.target.files;
+    navigate("/imageAnnotation", {state: URL.createObjectURL(files[0])});
+  };
 
   return (
     <div className='input'>
@@ -167,10 +172,10 @@ const handleSelectGif = async (searchTerm) => {
     <input type="text" placeholder='Type Something...' onChange={e => setText(e.target.value)} value={text} />
     <div className="send">
       <label htmlFor="file">
-        <AiOutlineFile className='icons' size={24} />
+        <AiOutlineFile className='icons' size={25} />
+        <input type="file" onChange={(e) => handleUploadImage(e)} />
       </label>
-      <input type="file" style={{ display: "none" }} id='file' onChange={e => setImg(e.target.files[0])} />
-      <span className='icons' style={{ fontSize: '24px' }} onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
+      <span className='icons' style={{ fontSize: '25px' }} onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
         😀
       </span>
       <button onClick={handleSend}>Send</button>
