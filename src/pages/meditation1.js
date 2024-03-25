@@ -22,7 +22,8 @@ import tiredEm from "../components/Meditation1/tiredEmoji.jfif";
 import anxiousEm from "../components/Meditation1/anxiousEmoji.jfif";
 import hardBreathe from "../components/Meditation1/hardBreatheEmoji.jfif";
 import angryEm from "../components/Meditation1/angryEmoji.jfif";
-// import MedBreathingComponent from "../components/med_breath.js";
+// import BreathingTechniquesPage from "../pages/breathingTech";
+// import MedBreathingComponent from "../components/med_breath"; 
 
 const Meditation1 = () => {
   const [userInfo, setUserInfo] = useState({
@@ -35,6 +36,7 @@ const Meditation1 = () => {
   const [meditations, setMeditations] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [setFilteredMeditations] = useState([]);
+
 
   useEffect(() => {
     fetchUserData();
@@ -78,8 +80,8 @@ const Meditation1 = () => {
               pic: intro1,
             },
             {
-              title: "Breathing Techniques",
-              description: "Learn simple breathing techniques for relaxation.",
+              title: "Breathing Exercises",
+              description: "",
               pic: intro2,
             },
             {
@@ -210,6 +212,17 @@ const Meditation1 = () => {
         // Add logic to filter and display meditations based on the emotion
         break;
       case "hardBreathe":
+        <div className="emotion-box" style={{ backgroundImage: `url(${hardBreathe})` }}>
+        <Link to="/medBreath" className="breatheHard">Hard to Breathe?</Link>
+      </div>
+      
+        // <button onClick={handleHardToBreatheClick}>
+        //   Hard to Breathe Emoji
+        // </button>
+        // <Link to="/medBreath" className="emotion-box">
+        //   <div className="breatheHard">Hard to Breathe?</div>
+        // </Link>
+
         // Handle hardBreathe emotion filtering
         // Add logic to filter and display meditations based on the emotion
         break;
@@ -271,14 +284,12 @@ const Meditation1 = () => {
               backgroundPosition: "center",
             }}
           >
-            <div className="breatheHard">Hard to Breathe?</div>
+      <div className="breatheHard">
+  <Link to="/medBreath" className="breatheHardLink">Hard to Breathe?</Link>
+</div>
+
           </div>
         </div>
-        {/* {selectedCategory === "beginner" && (
-  <div className="med_breathing_component_idk">
-    <MedBreathingComponent show={true} />
-  </div>
-)} */}
         <div className="filter-categories">
           <button
             className={selectedCategory === "all" ? "active" : ""}
@@ -316,34 +327,34 @@ const Meditation1 = () => {
         <div className="meditation-playlist">
           {meditations.length === 0 ? (
             <p>Loading...</p>
-          ) : (
+          ) : 
+          (
             filteredMeditations.map((category, index) => (
               <div key={index} className="category-container">
                 <h3>{category.title}</h3>
-                {/* <div className="content-tiles">
-                  {category.content.map((contentItem, contentIndex) => (
-                    <div key={contentIndex} className="content-tile">
-                      <h4>{contentItem.title}</h4>
-                      <p>{contentItem.description}</p>
-                      <Link to={`/meditationPlayer/${contentItem.title}`}>Meditation Player</Link> </div>
-                  ))}
-                </div> */}
                 <div className="content-tiles">
-                  {category.content.map((contentItem, contentIndex) => (
-                    <Link
-                      key={contentIndex}
-                      to={`/meditationPlayer/${contentItem.title}`}
-                      className="content-tile"
-                      style={{ backgroundImage: `url(${contentItem.pic})` }}
-                    >
-                      <div className="content-text">
-                        {/* <img src={contentItem.pic} alt={contentItem.title} className="content-image" /> */}
+               
+                {category.content.map((contentItem, contentIndex) => (
+  <div key={contentIndex} className="content-tile" style={{backgroundImage: `url(${contentItem.pic})`}}>
+   <Link
+        key={contentIndex}
+        to={`/meditationPlayer/${contentItem.title}`}
+        className="content-tile-link"
+      >
+    <div className="content-text">
+      <h4>{contentItem.title}</h4>
+      <p>{contentItem.description}</p>
+    
+      {contentItem.title === "Breathing Exercises" && (
+        <Link to="/medBreath" className="breatheHardLink">Click here to try out some breathing exercises 🧘🏻</Link>
+      )}
+    </div>
+    </Link>
+  </div>
+)
 
-                        <h4>{contentItem.title}</h4>
-                        <p>{contentItem.description}</p>
-                      </div>
-                    </Link>
-                  ))}
+)}
+
                 </div>
               </div>
             ))

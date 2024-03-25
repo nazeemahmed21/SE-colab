@@ -101,40 +101,42 @@ const MedBreathingComponent = () => {
   };
 
   return (
-    <div className="med_breath_page">
-      <div className="med_breath_container">
-        <div className="med_input">
-          <label>Select Breaths</label>
-          <select
-            className="med_breath_input"
-            onChange={handleBreathsChange}
-            value={breathsLeft}
+    <div className="body-style"> {/* Adding body-style class here */}
+      <div className="med_breath_page">
+        <div className="med_breath_container">
+          <div className="med_input">
+            <label>Select Breaths</label>
+            <select
+              className="med_breath_input"
+              onChange={handleBreathsChange}
+              value={breathsLeft}
+            >
+              <option value="3">3 Breaths</option>
+              <option value="5">5 Breaths</option>
+              <option value="7">7 Breaths</option>
+            </select>
+          </div>
+          <div className="med_circle_wrap">
+            <div className="med_circle_outline"></div>
+            <div className="med_circle_progress"></div>
+          </div>
+          <p className="med_breaths">
+            Breaths remaining:
+            <span className="med_breaths_text" ref={breathsTextRef}>
+              {breathsLeft}
+            </span>
+          </p>
+          <p className="med_instructions" ref={instructionsRef}>
+            Are you ready to start breathing?
+          </p>
+          <button
+            className="med_start_button"
+            onClick={handleStartClick}
+            ref={startButtonRef}
           >
-            <option value="3">3 Breaths</option>
-            <option value="5">5 Breaths</option>
-            <option value="7">7 Breaths</option>
-          </select>
+            Begin
+          </button>
         </div>
-        <div className="med_circle_wrap">
-          <div className="med_circle_outline"></div>
-          <div className="med_circle_progress"></div>
-        </div>
-        <p className="med_breaths">
-          Breaths remaining:
-          <span className="med_breaths_text" ref={breathsTextRef}>
-            {breathsLeft}
-          </span>
-        </p>
-        <p className="med_instructions" ref={instructionsRef}>
-          Are you ready to start breathing?
-        </p>
-        <button
-          className="med_start_button"
-          onClick={handleStartClick}
-          ref={startButtonRef}
-        >
-          Begin
-        </button>
       </div>
     </div>
   );
