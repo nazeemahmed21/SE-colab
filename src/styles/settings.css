@@ -1,16 +1,18 @@
-.settings_header{
+.settings_header {
   position: relative;
   bottom: 60vh;
   left: 26.5vw;
   font-size: 40px;
 }
-.settings_theme{
+
+.settings_theme {
   position: relative;
   bottom: 60vh;
   left: 26.5vw;
   font-size: 25px;
 }
-.settings_theme_btn{
+
+.settings_theme_btn {
   position: relative;
   bottom: 2.5vh;
   left: -7.7vw;
@@ -24,26 +26,417 @@
   display: inline-block;
   font-size: 16px;
 }
-.dark-mode .settings_theme_btn{
+
+.dark-mode .settings_theme_btn {
   background-color: #29ada0;
   color: white;
 }
+
 .dark-mode {
-  background-color: #292828; /* Light black color */
-  color: white; /* Text color for better contrast */
+  background-color: #292828;
+  /* Light black color */
+  color: white;
+  /* Text color for better contrast */
   height: 100vh;
 }
-.delete_acc_btn{
-  position: relative;
-  bottom: -15.5vh;
-  left: -27vw;
-  font-size: 25px;
-  background-color: #29ada0;
-  color: white;
-  border: solid 2px black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+
+
+@media (min-height: 653px) and (min-width: 280px) {
+  .settings_header {
+    bottom: -20vh;
+    left: 25vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: -25vh;
+    left: 26.5vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -42vw;
+  }
+
+  .delete_acc_btn {
+    bottom: 2vh;
+    left: -42vw;
+  }
+}
+
+@media (min-height: 667px) and (min-width: 375px) {
+  .settings_header {
+    bottom: -20vh;
+    left: 25vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: -25vh;
+    left: 26.5vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -32vw;
+  }
+
+  .delete_acc_btn {
+    bottom: 2vh;
+    left: -32vw;
+  }
+}
+
+@media (min-height: 740px) and (min-width: 360px) {
+  .settings_header {
+    bottom: -20vh;
+    left: 25vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: -25vh;
+    left: 26.5vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -32vw;
+  }
+
+  .delete_acc_btn {
+    bottom: 2vh;
+    left: -32vw;
+  }
+}
+
+@media (min-height: 896px) and (min-width: 414px) {
+  .settings_header {
+    bottom: -20vh;
+    left: 25vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: -23vh;
+    left: 26.5vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -30vw;
+  }
+
+  .delete_acc_btn {
+    bottom: 2vh;
+    left: -30vw;
+  }
+}
+
+@media (min-height: 915px) and (min-width: 412px) {
+  .settings_header {
+    bottom: -20vh;
+    left: 25vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: -25vh;
+    left: 26.5vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -30vw;
+  }
+
+  .delete_acc_btn {
+    bottom: 2vh;
+    left: -30vw;
+  }
+}
+
+@media (min-height: 1024px) and (min-width: 768px) {
+  .settings_header {
+    bottom: -20vh;
+    left: 25vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: -25vh;
+    left: 36vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -15vw;
+    font-size: 20px;
+  }
+
+  .delete_acc_btn {
+    bottom: 2vh;
+    left: -15vw;
+    font-size: 20px;
+  }
+}
+
+@media (min-height: 760px) and (min-width: 428px) {
+  .settings_header {
+    bottom: -20vh;
+    left: 25vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: -25vh;
+    left: 25vw;
+  }
+
+  .settings_theme_btn {
+    left: -26vw;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -26vw;
+  }
+}
+
+@media (min-height: 738px) and (min-width: 1000px) {
+  .settings_header {
+    bottom: -20vh;
+    left: 25vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: -25vh;
+    left: 25vw;
+  }
+
+  .settings_theme_btn {
+    left: -20vw;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -26vw;
+  }
+}
+
+@media (min-height: 1366px) and (min-width: 1024px) {
+  .settings_theme {
+    position: relative;
+    bottom: -20vh;
+    left: 34vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -12vw;
+    font-size: 35px;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -12vw;
+    font-size: 35px;
+  }
+}
+
+@media (min-height: 720px) and (min-width: 540px) {
+  .settings_header {
+    bottom: -15vh;
+    left: 25vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: -20vh;
+    left: 28vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -20vw;
+    font-size: 25px;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -20vw;
+    font-size: 25px;
+  }
+}
+
+@media (min-height: 1180px) and (min-width: 820px) {
+  .settings_header {
+    bottom: -20vh;
+    left: 28vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: -25vh;
+    left: 28vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -15vw;
+    font-size: 25px;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -15vw;
+    font-size: 25px;
+  }
+}
+
+@media (min-height: 1368px) and (min-width: 912px) {
+  .settings_theme {
+    position: relative;
+    bottom: -25vh;
+    left: 30vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -13vw;
+    font-size: 30px;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -13vw;
+    font-size: 30px;
+  }
+}
+
+@media (min-height: 1280px) and (min-width: 853px) {
+  .settings_theme {
+    position: relative;
+    bottom: -25vh;
+    left: 30vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -13vw;
+    font-size: 30px;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -13vw;
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1700px) {
+  .settings_header {
+    bottom: 40vh;
+    left: 35vw;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: 35vh;
+    left: 36.5vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -6vw;
+    font-size: 30px;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -6vw;
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1701px) and (max-width: 2000px) {
+  .settings_header {
+    position: relative;
+    bottom: 35vh;
+    left: 35vw;
+    font-size: 40px;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: 30vh;
+    left: 36.5vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -6vw;
+    font-size: 30px;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -6vw;
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 2001px) and (max-width: 2300px) {
+  .settings_header {
+    position: relative;
+    bottom: 35vh;
+    left: 35vw;
+    font-size: 40px;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: 30vh;
+    left: 36.5vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -4vw;
+    font-size: 30px;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -4vw;
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 2301px) and (max-width: 2500px) {
+  .settings_header {
+    position: relative;
+    bottom: 30vh;
+    left: 35vw;
+    font-size: 40px;
+  }
+
+  .settings_theme {
+    position: relative;
+    bottom: 25vh;
+    left: 36.5vw;
+    font-size: 25px;
+  }
+
+  .settings_theme_btn {
+    left: -2vw;
+    font-size: 30px;
+  }
+
+  .delete_acc_btn {
+    bottom: 2.5vh;
+    left: -2vw;
+    font-size: 30px;
+  }
 }

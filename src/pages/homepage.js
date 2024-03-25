@@ -10,6 +10,7 @@ import Event from "./Home";
 import EventAnalytics from "./EventAnalytics";
 import "../styles/eventAnalytics.css";
 import Searchbar from "./Searchbar";
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -26,6 +27,9 @@ function Home() {
   return (
     <>
       <div>
+        <Link to="/thoughts">
+          <button className="thoughtsBtn">Go to Thoughts</button>
+        </Link>
         <div className="events">
           <Event />
           <EventAnalytics />          

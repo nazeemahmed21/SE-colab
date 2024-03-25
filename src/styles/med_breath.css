@@ -7,25 +7,44 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* .med_breathing_component_idk {
+/* body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: white;
-  background: url('/src/components/Meditation1/breathe.jpg');
   background-size: cover;
 }
 
-.med_breathing_component_idk::after {
+body::after {
   content: "";
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0); 
   z-index: -1;
 } */
+
+.body-style {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+  background-size: cover;
+}
+
+.body-style::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0); 
+  z-index: -1;
+}
+
 
 .med_breath_container {
   display: flex;
@@ -125,5 +144,5 @@
 
 .med_button_inactive {
   pointer-events: none;
-  background-color: #969696;
+  background-color: transparent;
 }
