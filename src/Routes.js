@@ -28,7 +28,9 @@ import Labs from "./pages/labsHome.js";
 // import medBreath from '../src/components/med_breath.js';
 // import MedBreathingComponent from "./MedBreathingComponent";
 import Games from './pages/games.js';
+import { ImageAnnotator } from "./components/ImageAnnotation.jsx";
 import Thoughts from './pages/Thoughts.js';
+
 
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
@@ -69,7 +71,7 @@ const Rout = () => {
       <Route path="/zenSpace" element={<ProtectedRoute><ZenSpace /></ProtectedRoute>} />
       <Route path="/thoughts" element={<ProtectedRoute><Thoughts /></ProtectedRoute>} />
       <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
-      <Route path="/medBreath" element={<ProtectedRoute><medBreath /></ProtectedRoute>} />
+      <Route path="/imageAnnotation" element={<ImageAnnotator />}></Route>
 
     </Routes>
   );
