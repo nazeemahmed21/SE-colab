@@ -1,6 +1,7 @@
 // MeditationPlayer.js
 import React,{ useState, useRef, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+// import MedBreathingComponent from "../components/med_breath"; // Import the MedBreathingComponent
 
 import sleepAudio1 from '../components/Meditation1/soft-rain.mp3';
 import sleepAudio2 from '../components/Meditation1/healing-forest.mp3';
@@ -179,19 +180,19 @@ const meditationData = {
       ]
     }
   };
-  
   // MeditationPlayer component
-  const MeditationPlayer = ({ match }) => {
-    // Extract parameters from the route
-    const { title } = useParams();
-    const { picture, audio, quotes } = meditationData[title];
-    const audioRef = useRef(null);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
-    const [duration, setDuration] = useState(0);
-    const [currentTime, setCurrentTime] = useState(0);
+const MeditationPlayer = ({ match }) => {
+  // Extract parameters from the route
+  const { title } = useParams();
 
-    useEffect(() => {
+  const { picture, audio, quotes } = meditationData[title];
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+
+  useEffect(() => {
       const audioElement = audioRef.current;
       if (!audioElement) return;
     
@@ -211,72 +212,68 @@ const meditationData = {
         audioElement.removeEventListener('timeupdate', handleTimeUpdate);
       };
     }, []);
-    
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-          if (currentQuoteIndex < quotes.length - 1) {
-            setCurrentQuoteIndex(currentQuoteIndex + 1);
-          }
-        }, 30000); // 30 seconds interval
-    
-        return () => clearInterval(intervalId);
-      }, [currentQuoteIndex, quotes.length]);
-    const toggleAudio = () => {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (currentQuoteIndex < quotes.length - 1) {
+        setCurrentQuoteIndex(currentQuoteIndex + 1);
       }
-      setIsPlaying(!isPlaying);
-    };
+    }, 30000); // 30 seconds interval
+  
+    return () => clearInterval(intervalId);
+  }, [currentQuoteIndex, quotes.length]);
 
-    return ( <div className='meditationPlayerPage' style={{ backgroundImage: `url(${picture})`, backgroundSize: 'cover' }}>
-{/* <Navbar /> */}
-<Link to="/meditation1" className="back-link">
+  const toggleAudio = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  return ( 
+    <div className='meditationPlayerPage' style={{ backgroundImage: `url(${picture})`, backgroundSize: 'cover' }}>
+      <Link to="/meditation1" className="back-link">
         <div className="cross-icon">✕</div>
       </Link>
-        <div className='meditationPlayerTitle'>
+      <div className='meditationPlayerTitle'>
         <h2>{title}</h2>
-        </div>
-        <br />
-        <div className='meditationPlayerQuote'>
-          <ul>
+      </div>
+      <br />
+      <div className='meditationPlayerQuote'>
+        <ul>
           {quotes[currentQuoteIndex]}
         </ul>
-        </div>
-        <audio ref={audioRef} src={audio} type="audio/mp3" controls />
-        {isPlaying && <img src={soundwave} alt="Sound Wave" style={{ height: '100px', marginTop: '450px' }} />}
-<div className="buttonContainerMeditation">
-  <button className="playPauseButton" onClick={toggleAudio}>
-    {isPlaying ? <img src={pause} alt="Pause" style={{ height: '120px' }} /> : <img src={play} alt="Play" style={{ height: '120px' }} />}
-  </button>
-</div>
- <br/>
-      {/* {isPlaying && <div className="musicWave"></div>} */}
-      {isPlaying && (
-  <>
-    <div className="timeDisplay">
-    <div>Current Time: {formatTime(currentTime)}</div>
-      <div>Duration: {formatTime(duration)}</div>
-    </div>
-
-    <div className="progress-bar">
-      <div className="progress-bar-fill" style={{ width: `${(currentTime / duration) * 100}%` }}></div>
-    </div>
-  </>
-)}
-
-     
       </div>
-    );
-  };
+      <audio ref={audioRef} src={audio} type="audio/mp3" controls />
+      {isPlaying && <img src={soundwave} alt="Sound Wave" style={{ height: '100px', marginTop: '450px' }} />}
+      <div className="buttonContainerMeditation">
+        <button className="playPauseButton" onClick={toggleAudio}>
+          {isPlaying ? <img src={pause} alt="Pause" style={{ height: '120px' }} /> : <img src={play} alt="Play" style={{ height: '120px' }} />}
+        </button>
+      </div>
+      <br/>
+      {isPlaying && (
+        <>
+          <div className="timeDisplay">
+            <div>Current Time: {formatTime(currentTime)}</div>
+            <div>Duration: {formatTime(duration)}</div>
+          </div>
 
-  const formatTime = (timeInSeconds) => {
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = Math.floor(timeInSeconds % 60);
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  };
-  
-  export default MeditationPlayer;
-  
+          <div className="progress-bar">
+            <div className="progress-bar-fill" style={{ width: `${(currentTime / duration) * 100}%` }}></div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+const formatTime = (timeInSeconds) => {
+const minutes = Math.floor(timeInSeconds / 60);
+const seconds = Math.floor(timeInSeconds % 60);
+return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+};
+
+export default MeditationPlayer;

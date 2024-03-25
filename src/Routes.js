@@ -22,6 +22,8 @@ import FileSystem from './pages/FileSystem.js';
 import Meditation1 from "./pages/meditation1.js";
 import MeditationPlayer from './pages/meditationPlayer.js';
 import ZenSpace from './pages/zenSpace.js';
+// import medBreath from '../src/components/med_breath.js';
+// import MedBreathingComponent from "./MedBreathingComponent";
 import Games from './pages/games.js';
 import { ImageAnnotator } from "./components/ImageAnnotation.jsx";
 
@@ -61,6 +63,7 @@ const Rout = () => {
       <Route path="/zenSpace" element={<ProtectedRoute><ZenSpace /></ProtectedRoute>} />
       <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
       <Route path="/imageAnnotation" element={<ImageAnnotator />}></Route>
+
     </Routes>
   );
 };
