@@ -56,7 +56,7 @@ const meditationData = {
         "Meditation is a way for nourishing and blossoming the divinity within you. - Amit Ray"
       ]
     },
-    "Breathing Techniques": {
+    "Breathing Exercises": {
         // https://www.nivati.com/blog/what-is-4-7-8-breathing
         picture: intro2,
         // Sound Effect by <a href="https://pixabay.com/users/soundsforyou-4861230/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=121349">Mikhail</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=121349">Pixabay</a>

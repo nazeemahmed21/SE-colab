@@ -22,10 +22,12 @@
 }
 .Meditation1Page h1{
   font-size: 28px;
+  color: black;
 }
 
 .Meditation1Page h2{
   font-size: 24px;
+  color: black;
 }
 /* .Meditation1 {
     display: flex;

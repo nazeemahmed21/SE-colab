@@ -19,6 +19,8 @@ import FileSystem from './pages/FileSystem.js';
 import Meditation1 from "./pages/meditation1.js";
 import MeditationPlayer from './pages/meditationPlayer.js';
 import ZenSpace from './pages/zenSpace.js';
+import Games from './pages/games.js';
+import BreathingTechniquesPage from './pages/breathingTech.js';
 import LabMembers from './pages/labs/labMembers.js';
 import LabLayout from "./pages/labs/labLayout.js";
 import LabSettings from "./pages/labs/labSettings.js";
@@ -27,7 +29,6 @@ import LabsAnnouncements from "./pages/labs/labsAnnouncement.js";
 import Labs from "./pages/labsHome.js";
 // import medBreath from '../src/components/med_breath.js';
 // import MedBreathingComponent from "./MedBreathingComponent";
-import Games from './pages/games.js';
 import { ImageAnnotator } from "./components/ImageAnnotation.jsx";
 import Thoughts from './pages/Thoughts.js';
 
@@ -66,13 +67,12 @@ const Rout = () => {
       <Route path="/user-prof" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
       <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
       <Route path="/meditationPlayer/:title" element={<ProtectedRoute><MeditationPlayer /></ProtectedRoute>} />
-      {/* <Route path="/player/:title" component={MeditationPlayer} /> */}
       <Route path="/meditation1" element={<ProtectedRoute><Meditation1 /></ProtectedRoute>} />
       <Route path="/zenSpace" element={<ProtectedRoute><ZenSpace /></ProtectedRoute>} />
-      <Route path="/thoughts" element={<ProtectedRoute><Thoughts /></ProtectedRoute>} />
       <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
+      <Route path="/medBreath" element={<ProtectedRoute><BreathingTechniquesPage /></ProtectedRoute>} />
+      <Route path="/thoughts" element={<ProtectedRoute><Thoughts /></ProtectedRoute>} />
       <Route path="/imageAnnotation" element={<ImageAnnotator />}></Route>
-
     </Routes>
   );
 };
