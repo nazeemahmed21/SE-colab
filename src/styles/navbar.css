@@ -26,6 +26,9 @@ body {
   align-items: center;
   z-index: 1001;
 }
+.nb-nav-text svg{
+  font-size: 25px;
+}
 
 .navbar_dropdown_menu {
   position: relative;
@@ -41,7 +44,7 @@ body {
 
 .nav-menu {
   background-color: #29ada0;
-  width: 350px;
+  width: 270px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -71,7 +74,7 @@ body {
 .nb-nav-text a {
   text-decoration: none;
   color: white;
-  font-size: 25px;
+  font-size: 20px;
   width: 95%;
   height: 100%;
   display: flex;
@@ -80,9 +83,14 @@ body {
   border-radius: 4px;
 }
 
+.nb-nav-text svg{
+  font-size: 24px;
+}
+
 .nb-nav-text a:hover {
   background-color: white;
-  height: 9vh;
+  padding-top: 30px;
+  padding-bottom: 30px;
   /* font-size: 2em; */
 }
 
