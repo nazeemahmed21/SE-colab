@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 import { auth, db, storage } from "../firebase";
+import toast, { Toaster } from "react-hot-toast";
 
 function Signup() {
   const navigate = useNavigate();
@@ -51,7 +52,9 @@ function Signup() {
     const password = passwordRef.current.value;
 
     if (firstN === "" || LastN === "" || sex === "" || job === "") {
-      alert("Please fill in all required fields.");
+      // alert("Please fill in all required fields.");
+      toast.error("Please fill in all required fields.");
+      console.log("Please fill in all required fields.");
       return;
     }
 
@@ -65,7 +68,12 @@ function Signup() {
 
       // Send email verification
       await sendEmailVerification(user);
-      alert("A verification email has been sent. Please check your inbox.");
+      // alert("A verification email has been sent. Please check your inbox.");
+      toast.success("A verification email has been sent.");
+      console.log("Verification email sent");
+      setTimeout(() => {
+        navigate("/profile-setup");
+      }, 3000);
 
       // Save user info in Firestore
       await setDoc(doc(db, "Users", user.uid), {
@@ -79,7 +87,8 @@ function Signup() {
       setDoc(doc(db, "userChats", user.uid), {});
       navigate("/profile-setup");
     } catch (error) {
-      alert("Error creating user: " + error.message);
+      // alert("Error creating user: " + error.message);
+      toast.error("Error creating user: " + error.message);
       console.error("Error creating user:", error);
     }
   };
@@ -137,87 +146,99 @@ function Signup() {
   //           console.log("Error creating user:", error);
   //       });
   return (
-    <div className={styles.su_main_container}>
-      <div className={styles.su_form_container}>
-        <h1>Register</h1>
-        <h3>Enter your First Name</h3>
-        <input
-          onChange={handleFNChange}
-          className="su-name1"
-          type="text"
-          placeholder="First Name..."
+    <>
+      <div>
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: {
+              fontSize: "1.75rem",
+            },
+          }}
         />
-        <h3>Enter your Last Name</h3>
-        <input
-          onChange={handleSNChange}
-          className="su-name2"
-          type="text"
-          placeholder="Last Name..."
-        />
-        <h3>Enter your Email Address</h3>
-        <input
-          ref={emailRef}
-          className="su-email"
-          type="email"
-          placeholder="Email..."
-        />
-        <h3>Enter your Password</h3>
-        <input
-          ref={passwordRef}
-          className="su-password"
-          type="password"
-          placeholder="Password..."
-        />
-        <h3>Select your gender</h3>
-        <div className={styles.su_gender}>
-          <label>
-            <input
-              type="radio"
-              name="gender"
-              value="Male"
-              onChange={handleGenderChange} // Use the handleGenderChange function
-            />
-            <span>Male</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="gender"
-              value="Female"
-              onChange={handleGenderChange} // Use the handleGenderChange function
-            />
-            <span>Female</span>
-          </label>
-        </div>
-        <h3>Choose your role</h3>
-        <div className={styles.su_role}>
-          <select
-            name="role-names"
-            id="role-names"
-            onChange={handleRoleChange} // Use the handleRoleChange function
+      </div>
+      <div className={styles.su_main_container}>
+        <div className={styles.su_form_container}>
+          <h1>Register</h1>
+          <h3>Enter your First Name</h3>
+          <input
+            onChange={handleFNChange}
+            className="su-name1"
+            type="text"
+            placeholder="First Name..."
+          />
+          <h3>Enter your Last Name</h3>
+          <input
+            onChange={handleSNChange}
+            className="su-name2"
+            type="text"
+            placeholder="Last Name..."
+          />
+          <h3>Enter your Email Address</h3>
+          <input
+            ref={emailRef}
+            className="su-email"
+            type="email"
+            placeholder="Email..."
+          />
+          <h3>Enter your Password</h3>
+          <input
+            ref={passwordRef}
+            className="su-password"
+            type="password"
+            placeholder="Password..."
+          />
+          <h3>Select your gender</h3>
+          <div className={styles.su_gender}>
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="Male"
+                onChange={handleGenderChange} // Use the handleGenderChange function
+              />
+              <span>Male</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="Female"
+                onChange={handleGenderChange} // Use the handleGenderChange function
+              />
+              <span>Female</span>
+            </label>
+          </div>
+          <h3>Choose your role</h3>
+          <div className={styles.su_role}>
+            <select
+              name="role-names"
+              id="role-names"
+              onChange={handleRoleChange} // Use the handleRoleChange function
+            >
+              <option value="default">Please choose a role</option>
+              <option value="Student">Student</option>
+              <option value="Educator">Educator</option>
+              <option value="Marketer">Marketer</option>
+              <option value="Artist">Artist</option>
+            </select>
+          </div>
+          <Link to="/login" className={styles.su_link_to_login}>
+            Already have an account? Login Now.
+          </Link>
+          <button
+            className={styles.su_signup_button}
+            onClick={handleSignUpWithEmail}
           >
-            <option value="default">Please choose a role</option>
-            <option value="Student">Student</option>
-            <option value="Educator">Educator</option>
-            <option value="Marketer">Marketer</option>
-            <option value="Artist">Artist</option>
-          </select>
+            Sign up
+          </button>
         </div>
-        <Link to="/login" className={styles.su_link_to_login}>
-          Already have an account? Login Now.
-        </Link>
-        <button
-          className={styles.su_signup_button}
-          onClick={handleSignUpWithEmail}
-        >
-          Sign up
-        </button>
+        <div className={styles.su_image_container}>
+          <img src={logo} alt="logo" />
+        </div>
+        <div className="su-text"></div>
       </div>
-      <div className={styles.su_image_container}>
-        <img src={logo} alt="logo" />
-      </div>
-      <div className="su-text"></div>
-    </div>
+    </>
   );
 }
 
