@@ -22,6 +22,7 @@ import EventAnalytics from "./EventAnalytics";
 import "../styles/events.css";
 import Searchbar from "./Searchbar";
 import { IoNotificationsCircle } from "react-icons/io5";
+import toast, { Toaster } from "react-hot-toast";
 
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
@@ -41,7 +42,8 @@ function Home({ isAuth }) {
 
   const rsvpAlert = (post) => {
     if (post.rsvpCount >= post.maxAttendees) {
-      alert("Sorry, this event is full.");
+      // alert("Sorry, this event is full.");
+      toast.error("Sorry, this event is full.");
       return;
     }
 
@@ -58,7 +60,8 @@ function Home({ isAuth }) {
     const postId = post.id;
 
     if (post.rsvpCount >= post.maxAttendees) {
-      alert("Sorry, this event is full.");
+      // alert("Sorry, this event is full.");
+      toast.error("Sorry, this event is full.");
       return;
     }
 
@@ -82,8 +85,8 @@ function Home({ isAuth }) {
     const eventData = {
       Title: post.title,
       "Start Date": new Date(post.dateFrom), // Convert to Date object
-      "End Date": new Date(post.dateTo),     // Convert to Date object
-      "uid": user.uid,               // Include user ID
+      "End Date": new Date(post.dateTo), // Convert to Date object
+      uid: user.uid, // Include user ID
     };
 
     // Trigger the function to add the RSVP and create an event on the calendar
@@ -100,17 +103,18 @@ function Home({ isAuth }) {
       });
     }
 
-    alert("RSVPed!");
+    // alert("RSVPed!");
+    toast.success("RSVPed!");
     getFilteredPosts();
   };
 
   const handleAddRSVPAndEvent = async (eventData) => {
     // Add the event data to the Firestore collection
     try {
-      const docRef = await addDoc(collection(db, 'CalendarEvents'), eventData);
-      console.log('Event added to Firestore with ID: ', docRef.id);
+      const docRef = await addDoc(collection(db, "CalendarEvents"), eventData);
+      console.log("Event added to Firestore with ID: ", docRef.id);
     } catch (error) {
-      console.error('Error adding event to Firestore: ', error);
+      console.error("Error adding event to Firestore: ", error);
     }
   };
 
@@ -139,7 +143,8 @@ function Home({ isAuth }) {
     setRsvpStatus(updatedRsvpStatus);
     localStorage.setItem("rsvpStatus", JSON.stringify(updatedRsvpStatus));
 
-    alert("RSVP Cancelled!");
+    // alert("RSVP Cancelled!");
+    toast.success("RSVP Cancelled!");
     getFilteredPosts();
   };
 
@@ -165,9 +170,10 @@ function Home({ isAuth }) {
     }
 
     if (searchQuery) {
-      filteredPosts = filteredPosts.filter((post) =>
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.author.name.toLowerCase().includes(searchQuery.toLowerCase())
+      filteredPosts = filteredPosts.filter(
+        (post) =>
+          post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.author.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
@@ -221,11 +227,13 @@ function Home({ isAuth }) {
     if (window.confirm("Are you sure you want to delete this post?")) {
       try {
         await deleteDoc(doc(db, "posts", postId));
-        alert("Post deleted successfully!");
+        // alert("Post deleted successfully!");
+        toast.success("Post deleted successfully!");
         getFilteredPosts();
       } catch (error) {
         console.error("Error deleting post:", error);
-        alert("An error occurred while deleting the post.");
+        // alert("An error occurred while deleting the post.");
+        toast.error("An error occurred while deleting the post.");
       }
     }
   };
@@ -235,17 +243,32 @@ function Home({ isAuth }) {
   };
 
   return (
-    <div className="homePage">
-      <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <button className="CreateEvent" onClick={() => setButtonPopup(true)}>Create Event</button>
+    <>
+      <div>
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              fontSize: "1.75rem",
+            },
+          }}
+        />
+      </div>
+      <div className="homePage">
+        <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <button className="CreateEvent" onClick={() => setButtonPopup(true)}>
+          Create Event
+        </button>
 
-      <button className="notif" onClick={handleToggleNotifications}>Show Notifications <br></br></button>
-      <Popup
-        trigger={buttonPopup}
-        setTrigger={setButtonPopup}
-        editPostData={editPostData} // Pass editPostData to Popup
-        setEditPostData={setEditPostData}
-      />
+        <button className="notif" onClick={handleToggleNotifications}>
+          Show Notifications <br></br>
+        </button>
+        <Popup
+          trigger={buttonPopup}
+          setTrigger={setButtonPopup}
+          editPostData={editPostData} // Pass editPostData to Popup
+          setEditPostData={setEditPostData}
+        />
 
         <div className="select-wrapper">
           <select onChange={(e) => setSelectedCategory(e.target.value)}>
@@ -261,63 +284,71 @@ function Home({ isAuth }) {
           </select>
         </div>
 
+        {showNotifications && <Notification userId={auth.currentUser.uid} />}
 
-      {showNotifications && <Notification userId={auth.currentUser.uid} />}
-
-      {postLists.map((post) => (
-        <div className="post" key={post.id}>
-          <div className="postHeader">
-            <div className="title">
-              <h1>{post.title}</h1>
+        {postLists.map((post) => (
+          <div className="post" key={post.id}>
+            <div className="postHeader">
+              <div className="title">
+                <h1>{post.title}</h1>
+              </div>
             </div>
-            
-          </div>
-          <div className="dateFrom">
-            <h3>From {post.dateFrom}</h3>
-          </div>
-          <div className="dateTo">
-            <h3> To {post.dateTo}</h3>
-          </div>
-          <div className="location">
-            <h3>At {post.location}</h3>
-          </div>
-          <div className="postTextContainer">
+            <div className="dateFrom">
+              <h3>From {post.dateFrom}</h3>
+            </div>
+            <div className="dateTo">
+              <h3> To {post.dateTo}</h3>
+            </div>
+            <div className="location">
+              <h3>At {post.location}</h3>
+            </div>
+            <div className="postTextContainer">
+              <br />
+              {post.postText}
+            </div>
             <br />
-            {post.postText}
-          </div>
-          <br />
-          {post.imageUrl && <img src={post.imageUrl} alt="Post Image" />}
-          <div className="postCategory">
-            <h2>{post.category}</h2>
-          </div>
-          <h3>{post.author.name}</h3>
-          <div className="userEmail">
-              <p className="emailText">{userEmail}</p> {/* Display user's email */}
+            {post.imageUrl && <img src={post.imageUrl} alt="Post Image" />}
+            <div className="postCategory">
+              <h2>{post.category}</h2>
             </div>
-          <button onClick={() => rsvpAlert(post)}>
-            {rsvpStatus[post.id] ? "Cancel RSVP" : "RSVP"}
-          </button>
-          <span>{post.rsvpCount || 0} RSVPs</span>
-          <br />
-          <p>Limit of Attendees:</p>
-          <span>{post.maxAttendees ? post.maxAttendees : ""}</span> {/* Display max attendees */}
-          <div className="postInfo">
-            <p>
-              Posted on:{" "}
-              {post.timestamp
-                ? new Date(post.timestamp.seconds * 1000).toLocaleString()
-                : "N/A"}
-            </p>
-          </div>
-          {post.author.id === auth.currentUser.uid && (
-            <div>
-              <button className="EditBtn" onClick={() => editPost(post.id)}>Edit</button>
-              <button className="DeleteBtn" onClick={() => deletePost(post.id)}>Delete</button>
+            <h3>{post.author.name}</h3>
+            <div className="userEmail">
+              <p className="emailText">{userEmail}</p>{" "}
+              {/* Display user's email */}
             </div>
-          )}
-        </div>
-      ))}
-    </div>
+            <button onClick={() => rsvpAlert(post)}>
+              {rsvpStatus[post.id] ? "Cancel RSVP" : "RSVP"}
+            </button>
+            <span>{post.rsvpCount || 0} RSVPs</span>
+            <br />
+            <p>Limit of Attendees:</p>
+            <span>{post.maxAttendees ? post.maxAttendees : ""}</span>{" "}
+            {/* Display max attendees */}
+            <div className="postInfo">
+              <p>
+                Posted on:{" "}
+                {post.timestamp
+                  ? new Date(post.timestamp.seconds * 1000).toLocaleString()
+                  : "N/A"}
+              </p>
+            </div>
+            {post.author.id === auth.currentUser.uid && (
+              <div>
+                <button className="EditBtn" onClick={() => editPost(post.id)}>
+                  Edit
+                </button>
+                <button
+                  className="DeleteBtn"
+                  onClick={() => deletePost(post.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
