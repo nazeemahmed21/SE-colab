@@ -92,8 +92,8 @@
 
 @media (min-height: 667px) and (min-width: 375px) {
     .content-containerZenSpace {
-        margin-top: 4%;
-        margin-left: 4%;
+        margin-top: 0;
+        margin-left: -2%;
     }
 
     .boxZenSpace {
@@ -232,10 +232,85 @@
     }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1300px) and (max-width: 1500px) {
     .content-containerZenSpace {
         margin-top: -40%;
         margin-left: 25%;
+    }
+
+    .title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .boxes-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .boxZenSpace {
+        width: 300px;
+        height: 300px;
+        margin: 20px;
+    }
+}
+
+@media (min-width: 1501px) and (max-width: 1700px) {
+    .content-containerZenSpace {
+        margin-top: -35%;
+        margin-left: 25%;
+    }
+
+    .title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .boxes-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .boxZenSpace {
+        width: 300px;
+        height: 300px;
+        margin: 20px;
+    }
+}
+
+@media (min-width: 1701px) and (max-width: 2000px) {
+    .content-containerZenSpace {
+        margin-top: -30%;
+        margin-left: 20%;
+    }
+
+    .title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .boxes-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .boxZenSpace {
+        width: 300px;
+        height: 300px;
+        margin: 20px;
+    }
+}
+
+@media (min-width: 2001px) and (max-width: 2500px) {
+    .content-containerZenSpace {
+        margin-top: -25%;
+        margin-left: 15%;
     }
 
     .title {
