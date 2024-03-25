@@ -1,0 +1,429 @@
+.labsPageMain{
+    margin-left: 300px;
+    margin-top: 5px;
+    padding: 10px;
+    margin-bottom: 0.01px;
+  }
+
+  .labsArrowContainer {
+    display: flex;
+  }
+  
+  .labsBack-arrow {
+    color: #29ada0;
+    font-size: 30px;
+  }
+  .LabsContent h1{
+    margin-left: 30px;
+    font-size: 36px;
+  }
+  .LabsContent {
+    display:flex;
+  }
+  
+  .labsBody {
+    flex: 1; 
+    margin-left: 15px;
+    overflow: auto;
+}
+.labsWrapper{
+    display: flex;
+    width:100%;
+    justify-content: flex-start;
+}
+
+.labNavbarSection{
+    margin-top:0px;
+}
+.labInfo{
+    width:100%;
+    display: flex;
+    align-items: center;
+}
+.labInfo h1{
+  font-size:32px;
+}
+.labInfo h2{
+  font-size:20px;
+  font-weight: 200;
+  padding-left: 20px;
+}
+/*for Labs Home*/
+
+/* Styles for the image preview */
+.labIconContainer {
+    display: flex;
+    justify-content: center; /* Center the image */
+    overflow: hidden;
+    width: 60px;
+    height:60px;
+    border-radius: 6px;
+  }
+  
+  .lab-icon-preview-container img { 
+    width: 100%;       /* Force image to take up the full width */
+    height: auto;       /* Automatic height to maintain aspect ratio */
+    object-fit: cover;  /* Crop the image */
+    border-radius: 6px;/* Add rounded corners */
+  }
+
+  .members-list {
+    display: flex; /* Arrange members horizontally */
+    flex-wrap: wrap; /* Allow members to wrap to next line if needed */
+    gap: 1rem; /* Add spacing between members */
+    margin-top: 40px;
+  }
+  
+  .member-card {
+    border-radius: 7px; /* Add rounded corners */
+    padding: 1rem; /* Add padding inside the card */
+    display: flex; /* Arrange picture and name horizontally */
+    align-items: center; /* Align content vertically */
+    min-width: 500px; /* Set width for each card */
+    border: 1px solid #ccc; 
+  
+  }
+  
+  .member-profile-picture {
+    width: 50px; /* Set width for picture */
+    height: 50px; /* Set height for picture */
+    border-radius: 50%; /* Make picture circular */
+    object-fit: cover; /* Scale picture to fit within bounds */
+    margin-right: 1rem; /* Add margin between picture and name */
+  }
+  
+  .member-name {
+    font-weight: lighter; /* Make name bold */
+    font-size: medium;
+  }
+  
+  .member-card.owner { /* Styles when a member is the owner */
+    border: 2px solid orange;
+  }
+  
+  .owner-label {
+    margin-left: auto; /* Push to the right */ 
+    color:  black;
+  }
+  
+  .MyLabs{
+    height: 100%;
+  }
+  
+  .navbarContainer{
+    display:flex;
+    flex-direction: column;
+  }
+
+  .LabsButtons button{
+    border-width: 3 px;
+    border-color: #29ada0;
+    padding:10px;
+    color: black;
+    background-color: aliceblue;
+    margin: 10px;
+    font-size: 16px;
+  
+  }
+
+  .LabsButtons button:hover{
+    background-color: gray;
+    color: white;
+    border-color: #FF7A69;
+    cursor:pointer;
+  }
+
+.LabsPage h1{
+    font-size: 32px;
+    text-decoration: none;
+    font-weight: lighter;
+}
+
+.LabsPage .MyLabs h2{
+  margin-top: 20px;
+  font-size: 28px;
+  text-decoration: none;
+}
+
+
+/* Overall Lab Settings Container */
+.labSettings {
+  margin: 30px auto; /* Center with some spacing */
+  padding: 20px;
+  max-width: 600px; /* Limit the max width for readability */
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 5px;
+}
+
+/* Settings Form Styling */
+.labSettings h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.labSettings label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px; 
+}
+
+.labSettings input[type="text"],
+.labSettings input[type="file"] {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px; 
+  border-radius: 3px;
+}
+
+.labSettings button[type="submit"] {
+  background-color: #fd9752; /* Your theme color? */
+  color: #fff;
+  border: none;
+  
+}
+
+.labSettings button {
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  font-size: 14px;
+  margin:2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+/*Announcement*/
+/* General Container for Announcements */
+.announcements-container {
+  width: 95%; /* Adjust width as needed */
+  margin: 5px auto; /* Centers the container */
+  padding: 20px;
+  border: 1px solid #ddd;  /* Optional subtle border */
+  border-radius: 5px; /* Slightly round the corners */
+}
+
+/* Individual Announcement Styling */
+.announcement-card {
+  background-color: #fff;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.announcement-card h3 {
+  color: #333; /* Darker title color */
+  margin-bottom: 5px;
+  font-size:18px;
+}
+
+.announcement-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.announcement-card .creator {
+  font-size: 12px;
+  color: #555;
+  text-align: right;
+}
+.announcement-card .timestamp {
+  font-size: 11px;
+  color: #555;
+  text-align: right;
+}
+.no-announcements-message {
+  text-align: center; 
+  font-style: italic;
+  color: #777; /* Slightly greyed out color*/
+  font-size: 16px;
+}
+.announcement-card button{
+  font-size: 1.1rem;  /* Adjust as needed */
+  padding: 5px 8px;    /* Adjust as needed */
+  background-color: red; 
+  color: white;
+  border: none;
+  margin: 1px;
+  border-radius: 5px;  /* Adjust as needed */
+  cursor: pointer;     /* Optional: Provides a pointer cursor on hover */
+}
+
+/*Delete Lab*/
+.deleteLabOption button{
+  border-color: #fa0000; /* Your theme color? */
+  color: #fa0000;
+  border-width: 2px;
+  background-color: #eee8e8;
+
+}
+.deleteLabOption {
+  display: flex; 
+  align-items: center; 
+  gap: 10px;
+  padding: 10px 0; 
+}
+.deleteLabOption h3{
+  font-size: 14px;
+}
+.submitDiv {
+  text-align: center;  
+} 
+
+
+
+.labSettings label{
+  font-size: 16px;
+}
+
+.labSettings button[type="submit"]:hover {
+  background-color: #fd7529; /* Darker shade on hover */
+}
+
+/* Lab Icon Specific */
+.labIconSetting {
+  margin-bottom: 20px; 
+}
+
+.labIconSetting img {
+  max-width: 150px;
+  display: block;
+  margin: 10px auto; 
+  border: 1px solid #ddd;
+}
+.labsTitle h1{
+  font-size: 32px;
+}
+
+
+@media screen and (max-width: 1300px) {
+  .labsPageMain{
+    margin-left: 0px;
+    margin-bottom: 100px;
+    margin-top:100px
+    
+  }
+
+.LabsButtons button{
+  border-width: 2 px;
+  border-color: #29ada0;
+  padding:5px;
+  color: black;
+  background-color: aliceblue;
+  margin: 10px;
+  font-size: 14px;
+}
+.labsComponents{
+  flex:1;
+  overflow: auto;
+  max-height: 80vh;
+}
+
+.labsBody {
+  flex: 1; 
+  margin-left: 15px;
+  max-height: 90vh;
+}
+.labInfo h2{
+  font-size:20px;
+}
+.labInfo h1{
+  font-size:28px;
+}
+.labIconContainer {
+  overflow: hidden;
+  width: 50px;
+  height:50px;
+  border-radius: 6px;
+}
+  
+
+}
+@media screen and (min-width: 1301px) {
+  .mob-notif{
+    display: none;
+    width:0.1px;
+    height: 0.1px;
+  }
+  .mob-logo{
+    display: none;
+    width:0.1px;
+    height: 0.1px;
+  }
+  .mob_select_menu{
+    display: none;
+    width:0.1px;
+    height: 0.1px;
+  }
+}
+@media screen and (max-width: 940px){
+  .labsArrowContainer{
+    display: none;
+  }
+  .announcements-container {
+    margin: 0 10px;
+  }
+  .LabsPage .MyLabs h2{
+    margin-top: 5vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .labs-grid{
+    display:flex;
+    justify-content: center;
+  }
+  .labInfo h2{
+    font-size: 18px;
+    text-decoration: none;
+    margin-top: 5px;
+  }
+  .labInfo h1{
+    font-size: 24px;
+    margin: 0;
+}
+.LabsPage .MyLabs h2{
+  margin-top:3vw;
+  font-size: 20px;
+}
+.LabsPage h1{
+  font-size: 22px;
+}
+
+.labsComponents{
+  flex:1;
+  overflow: auto;
+  max-height: 65vh;
+}
+.labsArrowContainer{
+  display: none;
+}.labIconContainer {
+  display:none;
+}
+.LabsContent {
+  margin:0;
+  padding: 5px;
+}
+.member-card {
+  min-width: 300px; /* Set width for each card */
+}
+
+
+}
+
+@media screen and (max-width: 400px){
+  .labInfo h2{
+    font-size: 16px;
+    text-decoration: none;
+  }
+  .labInfo h1{
+    font-size: 18px;
+    margin: 0;
+  }
+  .member-card {
+    min-width: 250px; /* Set width for each card */
+  }
+}

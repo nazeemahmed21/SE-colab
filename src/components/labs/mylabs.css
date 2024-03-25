@@ -1,0 +1,60 @@
+.labs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 0.1fr)); /* Responsive columns */
+    gap: 20px;
+    padding: 20px;
+    padding-left: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+ 
+ }
+ .lab-box {
+    border: 2px solid #102542;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px; 
+    position: relative;
+ }
+ 
+ .lab-box::before { /* Using a pseudo-element for the square aspect ratio */
+   content: '';
+   display: block;
+   padding-top: 50%;
+   padding-bottom: 50%;
+   
+ }
+ 
+ .lab-box h3 { 
+    position: absolute; /* Position the name over the square */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Center the name*/
+    margin-bottom: 0; 
+    color: black;
+    font-size: medium;
+    font-weight: lighter;
+ }
+
+ @media screen and (max-width:1300px) {
+   .labs-grid{
+      max-height: 60vh;
+   }
+ }
+
+ @media screen and (max-height: 700px) and (max-width:400px){
+   .labs-grid{
+      max-height: 50vh;
+   }
+ }
+
+ @media screen and (max-height: 840px) and (max-width:400px){
+   .labs-grid{
+      max-height: 55vh;
+   }
+ }
+
+/* @media screen and (max-width:600px){
+   .labs-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
+   }
+} */
