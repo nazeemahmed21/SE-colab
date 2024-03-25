@@ -28,6 +28,7 @@ import Labs from "./pages/labsHome.js";
 // import medBreath from '../src/components/med_breath.js';
 // import MedBreathingComponent from "./MedBreathingComponent";
 import Games from './pages/games.js';
+import Thoughts from './pages/Thoughts.js';
 
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
@@ -66,7 +67,7 @@ const Rout = () => {
       {/* <Route path="/player/:title" component={MeditationPlayer} /> */}
       <Route path="/meditation1" element={<ProtectedRoute><Meditation1 /></ProtectedRoute>} />
       <Route path="/zenSpace" element={<ProtectedRoute><ZenSpace /></ProtectedRoute>} />
-
+      <Route path="/thoughts" element={<ProtectedRoute><Thoughts /></ProtectedRoute>} />
       <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
       <Route path="/medBreath" element={<ProtectedRoute><medBreath /></ProtectedRoute>} />
 

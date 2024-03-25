@@ -115,7 +115,7 @@ function Navbar({ darkMode }) {
         <IconContext.Provider value={{ color: '#000 ' }}>
           <div className='navbar'>
           </div>
-          <form onSubmit={handleSearchSubmit} className="search-bar">
+          {/* <form onSubmit={handleSearchSubmit} className="search-bar">
             <input
               type="text"
               placeholder="Search..."
@@ -124,7 +124,7 @@ function Navbar({ darkMode }) {
               className="search-input"
             />
             <div className='search-button'><CiSearch size={25} /></div>
-          </form>
+          </form> */}
           <div className='sign-out-for-mobile'>
             <button className='lonely' onClick={handleSignOut}><FaSignOutAlt size={30} color='black' background-color="transparent" /></button>
           </div>
