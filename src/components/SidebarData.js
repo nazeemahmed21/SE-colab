@@ -4,6 +4,8 @@ import { FaGamepad } from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 // import * as FiIcons from 'react-icons/fi';
 import * as BiIcons from "react-icons/bi";
+import { FaClipboardQuestion } from "react-icons/fa6";
+
 export const SidebarData = [
   {
     title: 'Home',
@@ -41,10 +43,4 @@ export const SidebarData = [
     icon: <FaGamepad />,
     cName: 'nb-nav-text' 
   },  //need to change icon
-  // {
-  //   title: 'User Profile',
-  //   path: '/user-prof',
-  //   icon: <FaIcons.FaRegUserCircle/>,
-  //   cName: 'nb-nav-text'
-  // },
 ]

@@ -219,11 +219,11 @@ function Home({ isAuth }) {
   
 
   return (
-    <div className="homePage">
+    <div className="events_homePage">
       <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <button className="CreateEvent" onClick={() => setButtonPopup(true)}>Create Event</button>
+      <button className="events_CreateEvent" onClick={() => setButtonPopup(true)}>Create Event</button>
       
-      <button className="notif" onClick={handleToggleNotifications}>Show Notifications</button>
+      <button className="events_notif" onClick={handleToggleNotifications}>Show Notifications</button>
       <Popup
         trigger={buttonPopup}
         setTrigger={setButtonPopup}
@@ -249,29 +249,29 @@ function Home({ isAuth }) {
 
   
       {postLists.map((post) => (
-        <div className="post" key={post.id}>
-          <div className="postHeader">
-            <div className="title">
+        <div className="events_post" key={post.id}>
+          <div className="events_postHeader">
+            <div className="events_title">
               <h1>{post.title}</h1>
             </div>
             
           </div>
-          <div className="dateFrom">
+          <div className="events_dateFrom">
             <h3>From {post.dateFrom}</h3>
           </div>
-          <div className="dateTo">
+          <div className="events_dateTo">
             <h3> To {post.dateTo}</h3>
           </div>
-          <div className="location">
+          <div className="events_location">
             <h3>At {post.location}</h3>
           </div>
-          <div className="postTextContainer">
+          <div className="events_postTextContainer">
             <br />
             {post.postText}
           </div>
           <br />
           {post.imageUrl && <img src={post.imageUrl} alt="Post Image" />}
-          <div className="postCategory">
+          <div className="events_postCategory">
             <h2>{post.category}</h2>
           </div>
           <h3>{post.author.name}</h3>
@@ -282,7 +282,7 @@ function Home({ isAuth }) {
           <br />
           <p>Limit of Attendees:</p>
           <span>{post.maxAttendees ? post.maxAttendees : ""}</span> {/* Display max attendees */}
-          <div className="postInfo">
+          <div className="events_postInfo">
             <p>
               Posted on:{" "}
               {post.timestamp
@@ -292,8 +292,8 @@ function Home({ isAuth }) {
           </div>
           {post.author.id === auth.currentUser.uid && (
               <div>
-                <button className="EditBtn" onClick={() => editPost(post.id)}>Edit</button>
-                <button className="DeleteBtn" onClick={() => deletePost(post.id)}>Delete</button>
+                <button className="events_EditBtn" onClick={() => editPost(post.id)}>Edit</button>
+                <button className="events_DeleteBtn" onClick={() => deletePost(post.id)}>Delete</button>
               </div>
             )}
         </div>

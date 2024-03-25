@@ -56,10 +56,10 @@ const Notification = ({ userId }) => {
 
 
   return (
-    <div className="notification-container">
+    <div className="events_notification-container">
       <h2>Notifications</h2>
       <br></br>
-      <div className="notifButton"><button onClick={handleClearNotifications}>Clear Notifications</button></div>
+      <div className="events_notifButton"><button onClick={handleClearNotifications}>Clear Notifications</button></div>
       
       <ul>
         {notifications.map((notification, index) => (

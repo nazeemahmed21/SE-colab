@@ -1,11 +1,11 @@
 /* Global styles */
 
-.homePage {
+.events_homePage {
   font-family: 'Roboto', sans-serif;
 
 }
 
-.homePage button {
+.events_homePage button {
   background-color: #3498db;
   color: white;
   width: 150px;
@@ -18,11 +18,11 @@
   cursor: pointer;
 }
 
-.homePage button:hover {
+.events_homePage button:hover {
   background-color: #2980b9;
 }
 
-.homePage a {
+.events_homePage a {
   color: white;
   text-decoration: none;
   margin: 10px;
@@ -31,7 +31,7 @@
 
 /* Navbar styles */
 
-.homePage nav {
+.events_homePage nav {
   margin: 0;
   width: 100%;
   height: 80px;
@@ -45,7 +45,7 @@
 
 /* Create Post Page styles */
 
-.createPostPage {
+.events_createPostPage {
   width: 100%;
   height: calc(100vh - 80px);
   display: flex;
@@ -53,7 +53,7 @@
   align-items: center;
 }
 
-.cpContainer {
+.events_cpContainer {
   width: 600px;
   max-height: 70vh;
   background-color: #3498db;
@@ -65,23 +65,23 @@
   box-sizing: border-box;
 }
 
-.cpContainer h1 {
+.events_cpContainer h1 {
   text-align: center;
 }
 
-.cpContainer label {
+.events_cpContainer label {
   font-size: 20px;
 }
 
-.inputGp {
+.events_inputGp {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.inputGp input,
-.inputGp textarea,
-.inputGp select {
+.events_inputGp input,
+.events_inputGp textarea,
+.events_inputGp select {
   font-size: 16px;
   border: none;
   border-radius: 10px;
@@ -89,11 +89,11 @@
   margin-top: 5px;
 }
 
-.inputGp textarea {
+.events_inputGp textarea {
   height: 100px;
 }
 
-.cpContainer button {
+.events_cpContainer button {
   margin-top: 20px;
   height: 50px;
   border: none;
@@ -109,18 +109,18 @@ select {
   margin-top: 10px;
 }
 
-.cpContainer button:first-child {
+.events_cpContainer button:first-child {
   background-color: #2ecc71;
   margin-right: 10px;
 }
 
-.cpContainer button:last-child {
+.events_cpContainer button:last-child {
   background-color: #e74c3c;
 }
 
 /* Popup styles */
 
-.popup {
+.events_popup {
   position: fixed;
   top: 0;
   left: 0;
@@ -133,7 +133,7 @@ select {
   z-index: 100;
 }
 
-.popup-inner {
+.events_popup-inner {
   position: fixed;
   padding: 32px;
   width: 100%;
@@ -144,7 +144,7 @@ select {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.popup-inner .close-btn {
+.events_popup-inner .events_close-btn {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -162,7 +162,7 @@ select {
   height: 100%;
 }
 
-.homePage .post {
+.homePage .events_post {
   width: 80%;
   max-width: 800px;
   margin: 20px auto;
@@ -172,13 +172,13 @@ select {
   border-radius: 15px;
 }
 
-.postHeader {
+.events_postHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.post .postTextContainer {
+.events_post .events_postTextContainer {
   word-wrap: break-word;
   height: auto;
   max-height: 400px;
@@ -187,7 +187,7 @@ select {
   overflow-y: auto;
 }
 
-.post .postCategory {
+.events_post .events_postCategory {
   background-color: #27ae60;
   color: white;
   padding: 8px;
@@ -195,18 +195,18 @@ select {
   margin-top: 10px;
 }
 
-.post .postCategory h2 {
+.events_post .events_postCategory h2 {
   margin: 0;
 }
 
-.post img {
+.events_post img {
   width: 100%;
   height: auto;
   border-radius: 15px;
   margin-top: 10px;
 }
 
-.post .rsvpButton {
+.events_post .rsvpButton {
   background-color: #3498db;
   color: white;
   padding: 10px 15px;
@@ -216,13 +216,13 @@ select {
   margin-top: 10px;
 }
 
-.post .rsvpButton:hover {
+.events_post .rsvpButton:hover {
   background-color: #2980b9;
 }
 
 /* Notification styles */
 
-.notification-container {
+.events_notification-container {
   position: absolute;
   top: 180px; /* Adjust as needed */
   right: 20px; /* Adjust as needed */
@@ -235,20 +235,20 @@ select {
   justify-content: center;
 }
 
-.notification-container h2 {
+.events_notification-container h2 {
   margin-top: 0;
   justify-self: center;
   
 }
 
-.notification-container button {
+.events_notification-container button {
   margin-top: 80px;
   justify-self: center;
   margin-right: 50%;
   display: grid;
 }
 
-.notifButton {
+.events_notifButton {
   top: 1%;
   left: 1%;
   padding-top: 70px;
@@ -257,14 +257,14 @@ select {
   justify-self: center;
 }
 
-.notification-container ul {
+.events_notification-container ul {
   list-style: none;
   padding: 0;
   margin: 0;
   margin-top: 20px;
 }
 
-.notification-container li {
+.events_notification-container li {
   margin-bottom: 5px;
 }
 
@@ -285,11 +285,11 @@ select {
 
 /* Events search bar styles */
 
-.eventsSearchBar {
+.events_eventsSearchBar {
   display: grid;
 }
 
-.eventsSearchBar input {
+.events_eventsSearchBar input {
   width: 100%;
   height: 60px;
   justify-self: center;

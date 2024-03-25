@@ -186,15 +186,15 @@ function Popup({
   };
 
   return trigger ? (
-    <div className="popup">
-      <div className="popup-inner">
-        <button className="close-btn" onClick={handleClosePopup}>
+    <div className="events_popup">
+      <div className="events_popup-inner">
+        <button className="events_close-btn" onClick={handleClosePopup}>
           Close
         </button>
-        <div className="createPostPage">
-          <div className="cpContainer">
+        <div className="events_createPostPage">
+          <div className="events_cpContainer">
             <h1>{editPostData ? "Edit Event" : "Create Event"}</h1> {/* Display appropriate title based on editPostData */}
-            <div className="inputGp">
+            <div className="events_inputGp">
               <label>Title: </label>
               <input
                 placeholder="Title..."
@@ -202,7 +202,7 @@ function Popup({
                 onChange={(event) => setTitle(event.target.value)}
               />
             </div>
-            <div className="inputGp">
+            <div className="events_inputGp">
               <label>From: </label>
               <input
                 type="date"
@@ -210,7 +210,7 @@ function Popup({
                 onChange={(event) => setDateFrom(event.target.value)}
               />
             </div>
-            <div className="inputGp">
+            <div className="events_inputGp">
               <label>To: </label>
               <input
                 type="date"
@@ -218,7 +218,7 @@ function Popup({
                 onChange={(event) => setDateTo(event.target.value)}
               />
             </div>
-            <div className="inputGp">
+            <div className="events_inputGp">
               <label>Location: </label>
               <textarea
                 placeholder="Location..."
@@ -226,7 +226,7 @@ function Popup({
                 onChange={(event) => setLocation(event.target.value)}
               />
             </div>
-            <div className="inputGp">
+            <div className="events_inputGp">
               <label>Post: </label>
               <textarea
                 placeholder="Post..."
@@ -234,13 +234,13 @@ function Popup({
                 onChange={(event) => setPostText(event.target.value)}
               />
             </div>
-            <div className="inputGp">
+            <div className="events_inputGp">
               <input
                 type="file"
                 onChange={(event) => setImageUpload(event.target.files[0])}
               />
             </div>
-            <div className="inputGp">
+            <div className="events_inputGp">
               <label>Category: </label>
               <select
                 value={category}
@@ -257,7 +257,7 @@ function Popup({
                 <option value="maths">Maths</option>
               </select>
             </div>
-            <div className="inputGp">
+            <div className="events_inputGp">
               <label>Maximum Attendees: </label>
               <input
                 type="number"
@@ -265,7 +265,7 @@ function Popup({
                 onChange={(event) => setMaxAttendees(parseInt(event.target.value))}
               />
             </div>
-            <div className="inputGp">
+            <div className="events_inputGp">
               <button onClick={uploadImage}>Upload Image</button>
               {editPostData ? ( // Display appropriate button based on editPostData
                 <button onClick={editPost}>Edit Post</button>

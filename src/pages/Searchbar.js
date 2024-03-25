@@ -4,7 +4,7 @@ import "../styles/events.css";
 
 function Searchbar({ searchQuery, setSearchQuery }) {
   return (
-    <div className="eventsSearchBar">
+    <div className="events_eventsSearchBar">
       <input
         type="text"
         placeholder=" Search Events by author name or event title..."
