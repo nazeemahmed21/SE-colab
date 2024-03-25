@@ -4,6 +4,7 @@ import { auth, db, storage } from "../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import "../styles/userProfile.css";
+import { deleteSignedUser } from "../firebase";
 
 const UserProfile = () => {
   const roles = ["Student", "Educator", "Marketer", "Artist"]; // Add roles here
@@ -124,15 +125,17 @@ const UserProfile = () => {
         />
         <div></div>
         <>
-          <div className="up-name">
+          <div className="up-name1">
             <input
               type="text"
               value={editedFirstName}
               onChange={(e) => setEditedFirstName(e.target.value)}
             />
+            </div>
             <br></br>
-            <br></br>
-            <input
+          <br></br>
+          <div className="up_name2">
+            <input 
               type="text"
               value={editedLastName}
               onChange={(e) => setEditedLastName(e.target.value)}
@@ -179,6 +182,9 @@ const UserProfile = () => {
               </option>
             ))}
           </select>
+        </div>
+        <div className="up_del_acc">
+        <button className="up_delete_acc_btn" onClick={deleteSignedUser}>Delete Account</button>
         </div>
         <div className="up-update-img">
           <button onClick={handleImageUpload}>Update Image</button>

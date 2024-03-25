@@ -135,15 +135,11 @@ function Navbar({ darkMode }) {
             <IoNotificationsCircle size={50} color='#29ada0' />
           </div>
           <div className='mob_select_menu'>
-            <IoIosArrowDropdownCircle size={50} color='#29ada0' className='nav_select_btn' />
+            <img className='nav_select_btn' src={userInfo.ProfPic} alt='profile pic'/>
             <ul className='nav_options'>
               <li className='nav_option'>
                 <Link to="/user-prof"><MdOutlineManageAccounts color='#29ada0' /></Link>
                 <Link to="/user-prof"><span className="nav_option_text">Account Settings</span></Link>
-              </li>
-              <li className='nav_option'>
-                <Link to="/settings"><IoIosSettings color='#29ada0' /></Link>
-                <span className="nav_option_text">Settings</span>
               </li>
             </ul>
           </div>
@@ -153,20 +149,20 @@ function Navbar({ darkMode }) {
                 <div className='nav-logo'>
                   <img src={logo} alt='logo' />
                 </div>
-                <div className='pfp-logo'>
+                {/* <div className='pfp-logo'>
                   <img className='profile-pic' src={userInfo.ProfPic} alt='profile pic' />
-                </div>
+                </div> */}
                 <div className='nav_select_menu'>
-                  <IoIosArrowDropdownCircle size={50} color='#29ada0' className='nav_select_btn' />
+                  <img className='nav_select_btn' src={userInfo.ProfPic} alt='profile pic' />
                   <ul className='nav_options'>
                     <li className='nav_option'>
                       <Link to="/user-prof"><MdOutlineManageAccounts color='#29ada0' /></Link>
                       <Link to="/user-prof"><span className="nav_option_text">Account Settings</span></Link>
                     </li>
-                    <li className='nav_option'>
+                    {/* <li className='nav_option'>
                       <Link to="/settings"><IoIosSettings color='#29ada0'/></Link>
                       <Link to="/settings"><span className="nav_option_text">Settings</span></Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
                 <div className='prof-notif'>
