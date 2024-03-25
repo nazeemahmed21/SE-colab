@@ -21,6 +21,7 @@ import Notification from "./Notification";
 import EventAnalytics from "./EventAnalytics";
 import "../styles/events.css";
 import Searchbar from "./Searchbar";
+import { IoNotificationsCircle } from "react-icons/io5";
 
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
@@ -238,7 +239,7 @@ function Home({ isAuth }) {
       <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <button className="CreateEvent" onClick={() => setButtonPopup(true)}>Create Event</button>
 
-      <button className="notif" onClick={handleToggleNotifications}>Show Notifications</button>
+      <button className="notif" onClick={handleToggleNotifications}>Show Notifications <br></br></button>
       <Popup
         trigger={buttonPopup}
         setTrigger={setButtonPopup}
@@ -246,17 +247,20 @@ function Home({ isAuth }) {
         setEditPostData={setEditPostData}
       />
 
-      <select onChange={(e) => setSelectedCategory(e.target.value)}>
-        <option value="">All</option>
-        <option value="fun">Fun</option>
-        <option value="technology">Technology</option>
-        <option value="art">Art</option>
-        <option value="education">Education</option>
-        <option value="gaming">Gaming</option>
-        <option value="business">Business</option>
-        <option value="general science">General Science</option>
-        <option value="maths">Maths</option>
-      </select>
+        <div className="select-wrapper">
+          <select onChange={(e) => setSelectedCategory(e.target.value)}>
+            <option value="">All</option>
+            <option value="fun">Fun</option>
+            <option value="technology">Technology</option>
+            <option value="art">Art</option>
+            <option value="education">Education</option>
+            <option value="gaming">Gaming</option>
+            <option value="business">Business</option>
+            <option value="general science">General Science</option>
+            <option value="maths">Maths</option>
+          </select>
+        </div>
+
 
       {showNotifications && <Notification userId={auth.currentUser.uid} />}
 
@@ -288,7 +292,7 @@ function Home({ isAuth }) {
           </div>
           <h3>{post.author.name}</h3>
           <div className="userEmail">
-              <p>{userEmail}</p> {/* Display user's email */}
+              <p className="emailText">{userEmail}</p> {/* Display user's email */}
             </div>
           <button onClick={() => rsvpAlert(post)}>
             {rsvpStatus[post.id] ? "Cancel RSVP" : "RSVP"}

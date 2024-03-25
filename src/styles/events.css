@@ -6,7 +6,7 @@
 }
 
 .homePage button {
-  background-color: #3498db;
+  background-color: #29ada0;
   color: white;
   width: 150px;
   height: 60px;
@@ -16,6 +16,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-size: large;
   cursor: pointer;
+  justify-content: center;
 }
 
 .homePage button:hover {
@@ -220,6 +221,10 @@ select {
   background-color: #2980b9;
 }
 
+.post .emailText{
+  font-size: x-large;
+}
+
 /* Notification styles */
 
 .notification-container {
@@ -269,7 +274,7 @@ select {
 }
 
 .notif {
-  background-color: #3498db;
+  background-color: #29ada0;
   color: white;
   width: 150px;
   height: 60px;
@@ -281,12 +286,15 @@ select {
   cursor: pointer;
   left: 75%;
   position: absolute;
+  justify-content: center;
+  padding: 10px;
 }
 
 /* Events search bar styles */
 
 .eventsSearchBar {
   display: grid;
+  width : 35%
 }
 
 .eventsSearchBar input {
@@ -402,3 +410,48 @@ select {
   background-color: #c0392b;
 }
 
+
+/* Style for dropdown menu */
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 200px;
+  outline: none;
+  cursor: pointer;
+}
+
+.select-wrapper select:focus {
+  border-color: #007bff;
+}
+
+/* Arrow icon */
+.select-wrapper::after {
+  content: '\25BC'; /* Unicode character for down arrow */
+  font-size: 12px;
+  color: #555;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Hover effect */
+.select-wrapper:hover::after {
+  color: #333;
+}
+
+/* Focus effect */
+.select-wrapper select:focus + ::after {
+  color: #007bff;
+}
