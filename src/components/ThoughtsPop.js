@@ -17,7 +17,7 @@ import toast, { Toaster } from "react-hot-toast";
 //============================================================
 //DISCLAIMER, READ THE FOLLOWING LIST OF WORDS AT YOUR OWN RISK, ONLY USED FOR THE PURPOSE OF TESTING AND FILTERING OUT VULGAR WORDS
 //============================================================
-const vulgarWords = []; // Taken from https://www.cs.cmu.edu/~biglou/resources/bad-words.txt
+const vulgarWords = ["vulgar", "offensive", "bad", "harmful", "hate", "controversial"]; // Taken from https://www.cs.cmu.edu/~biglou/resources/bad-words.txt
 
 function containsVulgarWords(text) {
   const lowerCaseText = text.toLowerCase();
@@ -187,7 +187,7 @@ function ThoughtsPopup({
           </button>
           <div className="createPostPage">
             <div className="cpContainer">
-              <h1>{editThoughtData ? "Edit Event" : "Create Event"}</h1>{" "}
+              <h1>{editThoughtData ? "Edit Event" : "Post Thought"}</h1>{" "}
               {/* Display appropriate title based on editPostData */}
               <div className="inputGp">
                 <label>Title: </label>
