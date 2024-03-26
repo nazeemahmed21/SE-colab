@@ -4,6 +4,7 @@ import { FaGamepad } from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 // import * as FiIcons from 'react-icons/fi';
 import * as BiIcons from "react-icons/bi";
+import { FaListCheck } from "react-icons/fa6";
 export const SidebarData = [
   {
     title: 'Home',
@@ -27,6 +28,12 @@ export const SidebarData = [
     title: 'Toolbox',
     path: '/toolbox',
     icon: <FaIcons.FaToolbox />,
+    cName: 'nb-nav-text'
+  },
+  {
+    title: 'To-do',
+    path: '/todo',
+    icon: <FaListCheck />,
     cName: 'nb-nav-text'
   },
   {

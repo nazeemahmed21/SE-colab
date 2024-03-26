@@ -1,12 +1,12 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+  } */
   
-  body {
-    font-family: Arial, sans-serif; /* Use a suitable font family */
-  }
+  /* body {
+    font-family: Arial, sans-serif; 
+  } */
   
   .message .m.owner{
     text-align: right;

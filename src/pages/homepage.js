@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import { Toaster } from "react-hot-toast";
-import { PageTitle, AppHeader, AppContent } from "../components/combinedTodo";
-import styles from "../styles/todo.module.css";
 import "../styles/homepage.css";
-import Reminder from "../components/reminder";
 import Popup from "../components/Popup"; // Import Popup component
 import Event from "./Home";
 import EventAnalytics from "./EventAnalytics";
@@ -57,6 +53,7 @@ function Home() {
           />
         </div>
         <Reminder />
+
         {/* Render Popup component conditionally */}
         {isPopupVisible && <Popup onClose={hidePopup} />}
       </div>
