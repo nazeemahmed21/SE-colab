@@ -133,9 +133,9 @@ function Navbar({ darkMode }) {
           <div className='mob-logo'>
             <img src={logo} alt='logo' />
           </div>
-          <div className='mob-notif'>
+          {/* <div className='mob-notif'>
             <IoNotificationsCircle size={50} color='#29ada0' />
-          </div>
+          </div> */}
           <div className='mob_select_menu'>
             <img className='nav_select_btn' src={userInfo.ProfPic} alt='profile pic'/>
             <ul className='nav_options'>
@@ -167,9 +167,9 @@ function Navbar({ darkMode }) {
                     </li> */}
                   </ul>
                 </div>
-                <div className='prof-notif'>
+                {/* <div className='prof-notif'>
                   <IoNotificationsCircle size={50} color='#29ada0' />
-                </div>
+                </div> */}
               </li>
               <div className='sign-out-box'>
                 <div className='sign-out-icon'>
