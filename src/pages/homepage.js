@@ -35,24 +35,7 @@ function Home() {
         <div>
           <Navbar />
         </div>
-        <div className={styles.todo_half}>
-          <div className="todo_container">
-            <PageTitle>TO DO List</PageTitle>
-            <div className={styles.todo_app__wrapper}>
-              <AppHeader />
-              <AppContent />
-            </div>
-          </div>
-          <Toaster
-            position="bottom-right"
-            toastOptions={{
-              style: {
-                fontSize: "1.75rem",
-              },
-            }}
-          />
-        </div>
-        <Reminder />
+        
 
         {/* Render Popup component conditionally */}
         {isPopupVisible && <Popup onClose={hidePopup} />}
