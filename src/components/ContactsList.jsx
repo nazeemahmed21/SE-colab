@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import { AuthContext } from "../Context/AuthContext";
+import { useNavigate } from 'react-router';
 
 
 export default function ContactsList() {
@@ -22,6 +23,7 @@ export default function ContactsList() {
   const groupNameRef = useRef('');
   const [alert, setAlert] = useState(false);
   const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value);
@@ -49,6 +51,13 @@ export default function ContactsList() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (alert != false) {
+      setTimeout(1000);
+      window.location.reload();
+    }
+  }, [alert]);
 
   const getDisplayName = (uid) => {
     let user = userData.find((user) => user.uid === uid);
