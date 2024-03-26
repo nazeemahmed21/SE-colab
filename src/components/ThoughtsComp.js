@@ -1,3 +1,4 @@
+// ThoughtsComp.js
 import React, { useState, useEffect } from "react";
 import {
   getDocs,
@@ -14,12 +15,14 @@ import { db } from "../firebase";
 import ThoughtsPopup from "./ThoughtsPop";
 import "../styles/thoughtscomp.css";
 import { auth } from "../firebase";
+import ThoughtsSearchbar from "./ThoughtsSearchbar";
 
 function ThoughtsComp() {
   const [thoughts, setThoughts] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [editThoughtData, setEditThoughtData] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const currentUser = auth.currentUser;
 
   useEffect(() => {
@@ -85,9 +88,16 @@ function ThoughtsComp() {
     return unsubscribe;
   }, [selectedCategory]);
 
+  const filteredThoughts = thoughts.filter((thought) => {
+    const titleMatch = thought.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const authorMatch = thought.author && thought.author.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return titleMatch || authorMatch;
+  });
+
   return (
     <>
       <div className="thoughts-container">
+        <ThoughtsSearchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <button
           className="createThoughtBtn"
           onClick={() => setShowPopup(true)}
@@ -112,10 +122,10 @@ function ThoughtsComp() {
           </select>
         </div>
 
-        {thoughts.length === 0 ? (
+        {filteredThoughts.length === 0 ? (
           <p>No thoughts found in this category.</p>
         ) : (
-          thoughts.map((thought) => (
+          filteredThoughts.map((thought) => (
             <div key={thought.id} className="thought-item">
               <h1>{thought.title}</h1>
               <h2>{thought.postText}</h2>
