@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
 }
+
 :root {
   --primaryGreen: #29ada0;
   --black-1: #646681;
@@ -17,23 +18,26 @@
   --black: black;
   --white: white;
 }
+
 html {
   font-size: 10px;
 }
+
 body {
   font-family: "Poppins", sans-serif;
   width: 100%;
   min-height: 100vh;
   background-color: var(--bg-1);
 }
+
 * {
   font-family: "Poppins", sans-serif;
 }
 
 .todo_half {
   width: 63%;
-  margin-left: 50%;
-  margin-top: 12rem;
+  margin-left: 26%;
+  margin-top: 3rem;
 }
 
 .todo_container {
@@ -75,8 +79,8 @@ body {
 }
 
 .todo_button {
-    margin-left: 3%;
-    margin-bottom: 2%;
+  margin-left: 3%;
+  margin-bottom: 2%;
   display: inline-block;
   height: auto;
   padding: 0.8rem 2rem;
@@ -370,4 +374,3 @@ body {
   transition: 0.3s ease background-color;
   background-color: var(--gray-2);
 }
-

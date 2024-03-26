@@ -31,6 +31,7 @@ import Labs from "./pages/labsHome.js";
 // import MedBreathingComponent from "./MedBreathingComponent";
 import { ImageAnnotator } from "./components/ImageAnnotation.jsx";
 import Thoughts from './pages/Thoughts.js';
+import Todo from './pages/todopage.js';
 
 
 const Rout = () => {
@@ -53,7 +54,7 @@ const Rout = () => {
       <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
       <Route path="/messages" element={<Messages />} />
       <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>}></Route>
-      <Route path="/labs/:labId" element={<LabLayout />}> 
+      <Route path="/labs/:labId" element={<LabLayout />}>
         <Route index element={<LabsAnnouncements />} />
         <Route path="files" element={<LabDetails />} />
         <Route path="members" element={<LabMembers />} />
@@ -73,6 +74,7 @@ const Rout = () => {
       <Route path="/medBreath" element={<ProtectedRoute><BreathingTechniquesPage /></ProtectedRoute>} />
       <Route path="/thoughts" element={<ProtectedRoute><Thoughts /></ProtectedRoute>} />
       <Route path="/imageAnnotation" element={<ImageAnnotator />}></Route>
+      <Route path="/todo" element={<ProtectedRoute><Todo /></ProtectedRoute>} />
     </Routes>
   );
 };
