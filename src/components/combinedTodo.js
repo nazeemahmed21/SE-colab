@@ -45,11 +45,11 @@ const checkVariants = {
 
 const boxVariant = {
   checked: {
-    background: "var(--primaryGreen)",
+    background: "#29ada0",
     transition: { duration: 0.15 },
   },
   unchecked: {
-    background: "var(--gray-1)",
+    background: "#eee",
     transition: { duration: 0.15 },
   },
 };

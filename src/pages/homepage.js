@@ -10,7 +10,7 @@ import Event from "./Home";
 import EventAnalytics from "./EventAnalytics";
 import "../styles/eventAnalytics.css";
 import Searchbar from "./Searchbar";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Home() {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -20,7 +20,7 @@ function Home() {
   const showPopup = () => {
     setPopupVisible(true);
   };
-//ewlfnwefp
+  //ewlfnwefp
   const hidePopup = () => {
     setPopupVisible(false);
   };
@@ -32,15 +32,15 @@ function Home() {
         </Link>
         <div className="events">
           <Event />
-          <EventAnalytics />          
+          <EventAnalytics />
           <br></br>
         </div>
-        
+
         <div>
           <Navbar />
         </div>
         <div className={styles.todo_half}>
-          <div className="container">
+          <div className="todo_container">
             <PageTitle>TO DO List</PageTitle>
             <div className={styles.todo_app__wrapper}>
               <AppHeader />
