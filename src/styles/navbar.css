@@ -66,7 +66,7 @@ body {
   padding: 8px 0px 8px 16px;
   list-style: none;
   height: 50px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .nb-nav-text a {
@@ -85,8 +85,8 @@ body {
 }
 .nb-nav-text a:hover {
   background-color: white;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   /* font-size: 2em; */
 }
 .nav-menu-items {
