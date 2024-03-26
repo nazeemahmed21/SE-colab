@@ -169,6 +169,7 @@
   .message {
     font-size: 24px;
     /* display: inline-block; */
+    max-width: -moz-fit-content;
     max-width:fit-content;
     padding: 10px;
     border-radius: 10px;

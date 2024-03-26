@@ -166,23 +166,29 @@ select {
 
 .homePage .post {
   position: relative;
-  left: 90px;
-  width: 40%;
-  max-width: 800px;
+  left: 100px;
+  width: 70%;
+  bottom: 23%;
+  /* max-width: 800px; */
   margin: 20px auto;
-  background-color: #ffffff;
+  background-color: #fea059;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: 20px;
   border-radius: 15px;
 }
-
+.post .dateFrom, .dateTo, .postLocation{ 
+  font-size: 20px;
+}
 .postHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 40px;
+  margin-top: -60px;
+  margin-bottom: -60px;
 }
 
-.post .postTextContainer {
+.post .postTextContainer {  
   word-wrap: break-word;
   height: auto;
   max-height: 400px;
@@ -190,15 +196,22 @@ select {
   overflow: hidden;
   overflow-y: auto;
 }
-
+.postTextContainer{
+  font-size: 20px;
+}
 .post .postCategory {
-  background-color: #27ae60;
+  background-color: #29ada0;
   color: white;
   padding: 8px;
   border-radius: 10px;
   margin-top: 10px;
+  font-size: 40px;
 }
 
+.select-wrapper{
+  position: relative;
+  bottom: 25%;
+}
 .post .postCategory h2 {
   margin: 0;
 }
@@ -223,13 +236,27 @@ select {
 .post .rsvpButton:hover {
   background-color: #2980b9;
 }
-
-.post .emailText{
-  font-size: x-large;
+.postAuthorName{
+  font-size: 30px;
 }
-
+.post .emailText{
+  font-size: 30px;
+}
+.home_Events_RSVP{
+  position: relative;
+  right: 110px;
+}
+.numRSVPattendees{
+  font-size: 30px;
+  position: relative;
+  bottom: 70px;
+  left: 160px;
+}
 /* Notification styles */
-
+.updPostBtns{
+  position: relative;
+  left: 200px;
+}
 .notification-container {
   position: absolute;
   top: 180px; /* Adjust as needed */
@@ -279,26 +306,57 @@ select {
 .notif {
   background-color: #29ada0;
   color: white;
-  width: 150px;
-  height: 60px;
+  /* width: 120px;
+  height: 40px; */
   font-family: 'Roboto', sans-serif;
   border: none;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-size: large;
   cursor: pointer;
-  left: 79%;
-  top: 20px;
-  position: absolute;
+  /* left: 51%;
+  top: 26px;
+  position: absolute; */
   justify-content: center;
   padding: 10px;
 }
-
+.notif_events_btn button{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  position: relative;
+  bottom: 180px;
+  left: 100px;
+}
+.CreateEvent{
+  background-color: #29ada0;
+  color: white;
+  /* width: 120px;
+  height: 40px; */
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: large;
+  cursor: pointer;
+  /* left: 51%;
+  top: 26px;
+  position: absolute; */
+  justify-content: center;
+  padding: 10px;
+}
 /* Events search bar styles */
-
+.create_event button{
+  position: relative;
+  bottom: 95px;
+  left: 140%;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+}
 .eventsSearchBar {
   position: relative;
-  left: 30px;
+  right: 160px;
   display: grid;
   width : 35%
 }
@@ -330,9 +388,12 @@ select {
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 20px 20px;
   cursor: pointer;
   font-size: 16px;
+  position: relative;
+  left: 800%;
+  top: -15px;
 }
 
 /* Event analytics styles */
@@ -462,9 +523,9 @@ select {
   color: #007bff;
 }
 
-@media screen and (min-width: 1201px) and (max-width: 1300px){
+@media screen and (min-width: 1101px) and (max-width: 1300px){
   .homePage .post {
-    width: 60vw;
+    width: 70%;
     max-width: 800px;
     min-width: 600px;
     margin: 20px auto;
@@ -472,10 +533,28 @@ select {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 15px;
+    position: relative;
+    left: 30px;
+  }
+  .notif_events_btn button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    bottom: 180px;
+    left: 60px;
+  }
+  .create_event button{
+    position: relative;
+    bottom: 95px;
+    left: 120%;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
   }
 }
 
-@media screen and (min-width: 1101px) and (max-width: 1200px){
+/* @media screen and (min-width: 1101px) and (max-width: 1200px){
   .homePage .post {
     width: 60vw;
     max-width: 700px;
@@ -486,18 +565,37 @@ select {
     padding: 20px;
     border-radius: 15px;
   }
-}
+} */
 
 @media screen and (min-width: 1001px) and (max-width: 1100px){
-    .homePage .post {
-      width: 60vw;
-      max-width: 700px;
-      margin: 20px auto;
-      background-color: #ffffff;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-    }
+  .homePage .post {
+    width: 70%;
+    max-width: 800px;
+    min-width: 600px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    left: 30px;
+  }
+  .notif_events_btn button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    bottom: 180px;
+    left: 60px;
+  }
+  .create_event button{
+    position: relative;
+    bottom: 95px;
+    left: 120%;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+  }
   }
   @media screen and (min-width: 999px) and (max-width: 1000px){
     .homePage .post {
@@ -567,23 +665,80 @@ select {
   }
   @media screen and (min-width: 400px) and (max-width: 499px){
     .homePage .post {
-      width: 60vw;
-      max-width: 700px;
+      width: 70%;
+      max-width: 800px;
+      /* min-width: 600px; */
       margin: 20px auto;
       background-color: #ffffff;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
       padding: 20px;
       border-radius: 15px;
+      position: relative;
+      left: 0px;
+    }
+    .notif_events_btn button{
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      position: relative;
+      bottom: 180px;
+      left: 60px;
+    }
+    .create_event button{
+      position: relative;
+      bottom: 95px;
+      left: 120%;
+      border-radius: 50px;
+      width: 50px;
+      height: 50px;
     }
   }
   @media screen and (min-width: 300px) and (max-width: 399px){
     .homePage .post {
-      width: 270px;
-      max-width: 700px;
+      width: 80%;
+      max-width: 800px;
+      /* min-width: 600px; */
       margin: 20px auto;
-      background-color: #ffffff;
+      /* background-color: #ffffff; */
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
       padding: 20px;
       border-radius: 15px;
+      position: relative;
+      left: -4px;
+    }
+    .notif_events_btn button{
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      position: relative;
+      bottom: 180px;
+      left: -10px;
+    }
+    .create_event button{
+      position: relative;
+      bottom: 95px;
+      left: 65%;
+      bottom: 96px;
+      border-radius: 50px;
+      width: 50px;
+      height: 50px;
+    }
+    .eventsSearchBar {
+      position: relative;
+      right: 90px;
+      display: grid;
+      width : 44%
+    }
+    .postHeader{
+      margin-top: -40px;
+      margin-bottom: -40px;
+      font-size: 30px;
+      text-transform: capitalize;
+    }
+    .post .dateFrom, .dateTo, .postLocation{ 
+      font-size: 20px;
+    }
+    .postCategory{
+      font-size: 40px;
     }
   }
