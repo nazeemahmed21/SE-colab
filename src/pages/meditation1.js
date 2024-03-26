@@ -23,7 +23,7 @@ import anxiousEm from "../components/Meditation1/anxiousEmoji.jfif";
 import hardBreathe from "../components/Meditation1/hardBreatheEmoji.jfif";
 import angryEm from "../components/Meditation1/angryEmoji.jfif";
 // import BreathingTechniquesPage from "../pages/breathingTech";
-// import MedBreathingComponent from "../components/med_breath"; 
+// import MedBreathingComponent from "../components/med_breath";
 
 const Meditation1 = () => {
   const [userInfo, setUserInfo] = useState({
@@ -36,7 +36,6 @@ const Meditation1 = () => {
   const [meditations, setMeditations] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [setFilteredMeditations] = useState([]);
-
 
   useEffect(() => {
     fetchUserData();
@@ -212,10 +211,15 @@ const Meditation1 = () => {
         // Add logic to filter and display meditations based on the emotion
         break;
       case "hardBreathe":
-        <div className="emotion-box" style={{ backgroundImage: `url(${hardBreathe})` }}>
-        <Link to="/medBreath" className="breatheHard">Hard to Breathe?</Link>
-      </div>
-      
+        <div
+          className="emotion-box"
+          style={{ backgroundImage: `url(${hardBreathe})` }}
+        >
+          <Link to="/medBreath" className="breatheHard">
+            Hard to Breathe?
+          </Link>
+        </div>;
+
         // <button onClick={handleHardToBreatheClick}>
         //   Hard to Breathe Emoji
         // </button>
@@ -284,10 +288,11 @@ const Meditation1 = () => {
               backgroundPosition: "center",
             }}
           >
-      <div className="breatheHard">
-  <Link to="/medBreath" className="breatheHardLink">Hard to Breathe?</Link>
-</div>
-
+            <div className="breatheHard">
+              <Link to="/medBreath" className="breatheHardLink">
+                Hard to Breathe?
+              </Link>
+            </div>
           </div>
         </div>
         <div className="filter-categories">
@@ -327,34 +332,35 @@ const Meditation1 = () => {
         <div className="meditation-playlist">
           {meditations.length === 0 ? (
             <p>Loading...</p>
-          ) : 
-          (
+          ) : (
             filteredMeditations.map((category, index) => (
               <div key={index} className="category-container">
                 <h3>{category.title}</h3>
                 <div className="content-tiles">
-               
-                {category.content.map((contentItem, contentIndex) => (
-  <div key={contentIndex} className="content-tile" style={{backgroundImage: `url(${contentItem.pic})`}}>
-   <Link
-        key={contentIndex}
-        to={`/meditationPlayer/${contentItem.title}`}
-        className="content-tile-link"
-      >
-    <div className="content-text">
-      <h4>{contentItem.title}</h4>
-      <p>{contentItem.description}</p>
-    
-      {contentItem.title === "Breathing Exercises" && (
-        <Link to="/medBreath" className="breatheHardLink">Click here to try out some breathing exercises 🧘🏻</Link>
-      )}
-    </div>
-    </Link>
-  </div>
-)
+                  {category.content.map((contentItem, contentIndex) => (
+                    <div
+                      key={contentIndex}
+                      className="content-tile"
+                      style={{ backgroundImage: `url(${contentItem.pic})` }}
+                    >
+                      <Link
+                        key={contentIndex}
+                        to={`/meditationPlayer/${contentItem.title}`}
+                        className="content-tile-link"
+                      >
+                        <div className="content-text">
+                          <h4>{contentItem.title}</h4>
+                          <p>{contentItem.description}</p>
 
-)}
-
+                          {contentItem.title === "Breathing Exercises" && (
+                            <Link to="/medBreath" className="breatheHardLink">
+                              Click here to try out some breathing exercises 🧘🏻
+                            </Link>
+                          )}
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))

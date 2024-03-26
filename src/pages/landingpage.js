@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/landingpage.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import "../styles/landingpage.css";
+import { useNavigate } from "react-router-dom";
 import blob from "../images/blob.svg";
 import lp1 from "../images/lp-img-1.jpg";
 import lp2 from "../images/lp-img-2.png";
@@ -25,27 +25,55 @@ const Landingpage = () => {
   }, []);
 
   return (
-    <div className='landing-p-wrapper'>
+    <div className="landing-p-wrapper">
       <div>
         <div>
-          <h1 className='lp-main-h'>Co-lab</h1>
-          <h1 className={`lp-sh-1 ${visible ? 'fade-in' : 'fade-out'}`}>
+          <h1 className="lp-main-h">Co-lab</h1>
+          <h1 className={`lp-sh-1 ${visible ? "fade-in" : "fade-out"}`}>
             {words[wordIndex]}
           </h1>
-          <p className='lp-desc'>Co-lab is your virtual collaborative tool that helps you <br></br>
+          <p className="lp-desc">
+            Co-lab is your virtual collaborative tool that helps you <br></br>
             empower yourself in order to learn and connect with others.<br></br>
             Learn to use a different set of features that will <br></br>
-          help you professionally.</p>
+            help you professionally.
+          </p>
         </div>
-        <img src={lplogo} alt="lplogo" className='lp-logo' />
-        <img src={blob} alt="blob" className='lp-blob' />
-        {wordIndex === 0 && <img src={lp2} alt="lp2" className={`lp-img-2 ${visible ? 'fade-in' : 'fade-out'}`} />}
-        {wordIndex === 1 && <img src={lp1} alt="lp1" className={`lp-img-1 ${visible ? 'fade-in' : 'fade-out'}`} />}
-        <button className='landing-p-login' onClick={() => navigate('/login')}>Login</button>
-        <button className='landing-p-register' onClick={() => navigate('/signup')}>Sign-Up</button>
+        <img src={lplogo} alt="lplogo" className="lp-logo" />
+        <div className="lp-blob-img-container">
+          <img src={blob} alt="blob" className="lp-blob" />
+          {wordIndex === 0 && (
+            <img
+              src={lp2}
+              alt="lp2"
+              className={`lp-img-2 ${visible ? "fade-in" : "fade-out"}`}
+            />
+          )}
+          {wordIndex === 1 && (
+            <img
+              src={lp1}
+              alt="lp1"
+              className={`lp-img-1 ${visible ? "fade-in" : "fade-out"}`}
+            />
+          )}
+        </div>
+        <div className="lp-loginandregis">
+          <button
+            className="landing-p-login"
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </button>
+          <button
+            className="landing-p-register"
+            onClick={() => navigate("/signup")}
+          >
+            Sign-Up
+          </button>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Landingpage;

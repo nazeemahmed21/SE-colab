@@ -5,7 +5,8 @@ import Popup from "../components/Popup"; // Import Popup component
 import Event from "./Home";
 import EventAnalytics from "./EventAnalytics";
 import "../styles/eventAnalytics.css";
-import { Link } from 'react-router-dom';
+import Searchbar from "./Searchbar";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -34,6 +35,24 @@ function Home() {
         <div>
           <Navbar />
         </div>
+        <div className={styles.todo_half}>
+          <div className="todo_container">
+            <PageTitle>TO DO List</PageTitle>
+            <div className={styles.todo_app__wrapper}>
+              <AppHeader />
+              <AppContent />
+            </div>
+          </div>
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                fontSize: "1.75rem",
+              },
+            }}
+          />
+        </div>
+        <Reminder />
 
         {/* Render Popup component conditionally */}
         {isPopupVisible && <Popup onClose={hidePopup} />}
