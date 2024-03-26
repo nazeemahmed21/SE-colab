@@ -13,6 +13,7 @@ import { storage } from "../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
 import "../styles/thoughtscomp.css";
+import toast, { Toaster } from "react-hot-toast";
 //============================================================
 //DISCLAIMER, READ THE FOLLOWING LIST OF WORDS AT YOUR OWN RISK, ONLY USED FOR THE PURPOSE OF TESTING AND FILTERING OUT VULGAR WORDS
 //============================================================
@@ -24,11 +25,11 @@ function containsVulgarWords(text) {
 }
 
 function ThoughtsPopup({
-    trigger,
-    setTrigger,
-    setEditThoughtData,
-    editThoughtData,
-  }) {
+  trigger,
+  setTrigger,
+  setEditThoughtData,
+  editThoughtData,
+}) {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
   const [imageUpload, setImageUpload] = useState(null);
@@ -63,14 +64,14 @@ function ThoughtsPopup({
     const imageUrl = await getDownloadURL(snapshot.ref);
 
     setImageUrl(imageUrl);
-    alert("Uploaded an image!");
+    // alert("Uploaded an image!");
+    toast.success("Uploaded an image!");
   };
 
   const createThought = async () => {
-    if (
-      containsVulgarWords(postText) ||
-      containsVulgarWords(title) ) {
-      alert("Please avoid using vulgar or offensive words.");
+    if (containsVulgarWords(postText) || containsVulgarWords(title)) {
+      // alert("Please avoid using vulgar or offensive words.");
+      toast.error("Please avoid using vulgar or offensive words.");
       return;
     }
 
@@ -78,7 +79,8 @@ function ThoughtsPopup({
     const currentUser = auth.currentUser;
 
     if (!currentUser) {
-      alert("User not logged in.");
+      // alert("User not logged in.");
+      toast.error("User not logged in.");
       return;
     }
 
@@ -103,28 +105,31 @@ function ThoughtsPopup({
         });
 
         setTrigger(false);
-        alert("Uploaded a thought!");
+        // alert("Uploaded a thought!");
+        toast.success("Uploaded a thought!");
       } else {
-        alert("User data not found.");
+        // alert("User data not found.");
+        toast.error("User data not found.");
       }
     } catch (error) {
       console.error("Error adding thought:", error);
-      alert("An error occurred while adding the thought.");
+      // alert("An error occurred while adding the thought.");
+      toast.error("An error occurred while adding the thought.");
     }
   };
 
   const editThought = async () => {
-    if (
-      containsVulgarWords(postText) ||
-      containsVulgarWords(title)  ) {
-      alert("Please avoid using vulgar or offensive words.");
+    if (containsVulgarWords(postText) || containsVulgarWords(title)) {
+      // alert("Please avoid using vulgar or offensive words.");
+      toast.error("Please avoid using vulgar or offensive words.");
       return;
     }
 
     const currentUser = auth.currentUser;
 
     if (!currentUser) {
-      alert("User not logged in.");
+      // alert("User not logged in.");
+      toast.error("User not logged in.");
       return;
     }
 
@@ -145,60 +150,75 @@ function ThoughtsPopup({
           imageUrl,
         });
 
-        alert("Thought updated successfully!");
+        // alert("Thought updated successfully!");
+        toast.success("Thought updated successfully!");
       } else {
-        alert("User data not found.");
+        // alert("User data not found.");
+        toast.error("User data not found.");
       }
     } catch (error) {
       console.error("Error updating Thought:", error);
-      alert("An error occurred while updating the Thought.");
+      // alert("An error occurred while updating the Thought.");
+      toast.error("An error occurred while updating the Thought.");
     }
   };
 
   return trigger ? (
-    <div className="popup">
-      <div className="popup-inner">
-        <button className="close-btn" onClick={handleCloseThoughtPop}>
-          Close
-        </button>
-        <div className="createPostPage">
-          <div className="cpContainer">
-            <h1>{editThoughtData ? "Edit Event" : "Create Event"}</h1>{" "}
-            {/* Display appropriate title based on editPostData */}
-            <div className="inputGp">
-              <label>Title: </label>
-              <input
-                placeholder="Title..."
-                value={title}
-                onChange={(event) => setTitle(event.target.value)}
-              />
-            </div>
-            <div className="inputGp">
-              <label>Post: </label>
-              <textarea
-                placeholder="Post..."
-                value={postText}
-                onChange={(event) => setPostText(event.target.value)}
-              />
-            </div>
-            <div className="inputGp">
-              <input
-                type="file"
-                onChange={(event) => setImageUpload(event.target.files[0])}
-              />
-            </div>
-            <div className="inputGp">
-              <button onClick={uploadImage}>Upload Image</button>
-              {editThoughtData ? ( // Display appropriate button based on editPostData
-                <button onClick={editThought}>Edit Post</button>
-              ) : (
-                <button onClick={createThought}>Create Post</button>
-              )}
+    <>
+      <div>
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: {
+              fontSize: "1.75rem",
+            },
+          }}
+        />
+      </div>
+      <div className="popup">
+        <div className="popup-inner">
+          <button className="close-btn" onClick={handleCloseThoughtPop}>
+            Close
+          </button>
+          <div className="createPostPage">
+            <div className="cpContainer">
+              <h1>{editThoughtData ? "Edit Event" : "Create Event"}</h1>{" "}
+              {/* Display appropriate title based on editPostData */}
+              <div className="inputGp">
+                <label>Title: </label>
+                <input
+                  placeholder="Title..."
+                  value={title}
+                  onChange={(event) => setTitle(event.target.value)}
+                />
+              </div>
+              <div className="inputGp">
+                <label>Post: </label>
+                <textarea
+                  placeholder="Post..."
+                  value={postText}
+                  onChange={(event) => setPostText(event.target.value)}
+                />
+              </div>
+              <div className="inputGp">
+                <input
+                  type="file"
+                  onChange={(event) => setImageUpload(event.target.files[0])}
+                />
+              </div>
+              <div className="inputGp">
+                <button onClick={uploadImage}>Upload Image</button>
+                {editThoughtData ? ( // Display appropriate button based on editPostData
+                  <button onClick={editThought}>Edit Post</button>
+                ) : (
+                  <button onClick={createThought}>Create Post</button>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   ) : null;
 }
 
