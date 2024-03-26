@@ -12,12 +12,13 @@ import "../styles/eventAnalytics.css";
 import Searchbar from "./Searchbar";
 import { Link } from 'react-router-dom';
 import ThoughtsComp from "../components/ThoughtsComp";
+import "../styles/thoughtscomp.css";
 
 function Thoughts() {
   return (
     <>
     <div>
-      <h1>Thoughts</h1>
+      <button className="thoughtsBtnThoughts">Go to Thoughts</button>
       <Link to="/home">
         <button className="backHomebtn">Go back to Homepage</button>
       </Link>

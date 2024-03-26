@@ -1,4 +1,45 @@
 /* thoughts-container styles */
+
+.thoughtsBtnThoughts {
+    position: absolute;
+    top: 0.35%;
+    left: 37%;
+    z-index: 99; /* Set a higher z-index value */
+    background-color: #1c8c81;
+    color: white;
+    width: 350px;
+    height: 160px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: large;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .backHomebtn {
+    position: absolute;
+    top: 0.35%;
+    left: 47%;
+    z-index: 99; /* Set a higher z-index value */
+    background-color: #29ada0;
+    color: white;
+    width: 350px;
+    height: 160px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: large;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .backHomebtn:hover {
+    background-color: #1c8c81;
+  }
+
 .thoughts-container {
     display: flex;
     flex-direction: column;
@@ -6,20 +47,28 @@
     height: 100vh;
     padding: 20px;
     overflow-y: auto;
-    margin-top: 2%;
+    margin-top: 7%;
     margin-bottom: 2%;
 }
 
 .createThoughtBtn {
-    display: inline;
+    background-color: #29ada0;
     color: white;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-left: 120px;
-    padding: 15px;
-    background-color: #29ada0 ;
-    border-radius: 5px;
-    left: 10%;
+    width: 200px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 400px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: large;
+    cursor: pointer;
+    justify-content: center;
+    padding: 10px;
+}
+
+.createThoughtBtn:hover {
+    background-color: #1c8c81;
 }
 
 /* thought-item styles */
@@ -39,7 +88,7 @@
 }
 
 .thought-item:last-child {
-    margin-bottom: 5%; /* Remove margin-top for the first thought item */
+    margin-bottom: 10%; /* Remove margin-top for the first thought item */
 }
 
 .thought-item p {
