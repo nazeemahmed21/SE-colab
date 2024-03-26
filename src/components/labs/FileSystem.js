@@ -202,7 +202,7 @@ function FileSystem() {
                 {fileUrls.map(({ url, name, isFolder }, index) => (
                   !isFolder && // Only display files, not folders
                   <div key={index} className="file-tile" onClick={() => openFile(url)}>
-                    <div className="fi fi-file"></div> 
+                    
                     <span>{name.replace(/_[^.]+$/, '')}</span>
                   </div>
                 ))}

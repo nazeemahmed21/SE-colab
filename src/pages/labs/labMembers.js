@@ -1,8 +1,8 @@
 import '../../styles/labsnew.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
-import { db } from '../../firebase'; // Assuming your Firestore instance is in 'firebase.js'
+import { collection, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
+import { db, auth } from '../../firebase'; // Assuming your Firestore instance is in 'firebase.js'
 import { useOutletContext } from 'react-router-dom';
 
 const LabMembers = () => {
@@ -12,7 +12,19 @@ const LabMembers = () => {
     const [error, setError] = useState(null);
     const { labId } = useParams();
     const [currentPageName,setCurrentPageName] = useOutletContext();
+    const [isRemoving, setIsRemoving] = useState(false); 
+    const [removeError, setRemoveError] = useState(null);
+    const [labOwnerId, setLabOwnerId] = useState(''); 
+    const [userId, setUserId] = useState('');
     
+    useEffect(() => {
+        const currentUser = auth.currentUser;
+        if (currentUser) {
+          setUserId(currentUser.uid);
+        } else {
+          //nav
+        }
+      }, []);
 
     const fetchLabMembersAndData = async () => {
         setIsLoading(true);
@@ -36,6 +48,7 @@ const LabMembers = () => {
                   ...member,
                   isOwner: member.id === labSnap.data().ownerID,
               }));
+              setLabOwnerId(labSnap.data().ownerID);
               if (memberDataWithOwner.some(member => member.isOwner)) { // Check if an owner exists
                 console.log('Lab Owner Found:', memberDataWithOwner.find(member => member.isOwner)); 
             }
@@ -84,6 +97,24 @@ const LabMembers = () => {
         }
 
     }
+    async function handleRemoveMember(userId) {
+        setIsRemoving(true);
+        setRemoveError(null);
+
+        try {
+            const membersRef = collection(db, 'labs', labId, 'members');
+            const memberDocRef = doc(membersRef, userId);
+            await deleteDoc(memberDocRef); 
+
+            // Update members state locally
+            setMembers(members.filter(member => member.id !== userId));
+        } catch (error) {
+            console.error('Error removing member:', error);
+            setRemoveError('Failed to remove member. Try again.');
+        } finally {
+            setIsRemoving(false);
+        }
+    }
 
   return (
     <div>
@@ -94,7 +125,7 @@ const LabMembers = () => {
                 {members.length > 0 ? (
                     <div className="members-list"> {/* Add a container */}
                         {members.map((member) => (
-                             <div className={`member-card ${member.isOwner ? 'owner' : ''}`} 
+                             <div className={`member-card ${member.isOwner ? 'labOwner' : ''}`} 
                              key={member.id}>
                                 <img 
                                   src={member.pfPic} // Get picture URL
@@ -102,7 +133,14 @@ const LabMembers = () => {
                                   className="member-profile-picture"
                                 />
                                 <p className="member-name">{member.name}</p>
-                                {member.isOwner && <p className="owner-label">Owner</p>}  
+                                { (userId === labOwnerId) && (!member.isOwner) && <button className='removeLabMemberButton'
+                                onClick={() => handleRemoveMember(member.id)}
+                                disabled={isRemoving} 
+                            >
+                                {isRemoving ? 'Removing...' : 'Remove'} 
+                            </button>}
+                            {removeError  && <p className="error-message">{removeError}</p>}
+                            {member.isOwner && <p className="owner-label">Owner</p>}  
                             </div>
                         ))}
                     </div>

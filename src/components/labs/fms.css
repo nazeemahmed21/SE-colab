@@ -98,7 +98,7 @@
   
   .folder-tiles {
     display: flex;
-    flex-wrap: wrap;
+
   }
   
   .folder-tile {
@@ -108,6 +108,11 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
+    width: 150px; /* Fixed width */
+    height: 100px; /* Fixed height */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
   }
   
   .folder-tile:hover {
@@ -125,7 +130,7 @@
   
   .file-tiles {
     display: flex;
-    flex-wrap: wrap;
+
   }
   
   .file-tile {
@@ -135,12 +140,19 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
+    width: 150px; /* Fixed width */
+    height: 100px; /* Fixed height */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
   }
   
   .file-tile:hover {
     background-color: #f0f0f0;
   }
-  
+  .fi-fi-file{
+    font-size: 15px;
+  }
   .file-icon {
     width: 20px;
     height: 20px;

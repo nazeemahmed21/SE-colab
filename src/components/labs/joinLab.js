@@ -22,6 +22,7 @@ const JoinLab = () => {
     const navigate = useNavigate(); 
     const [userId, setUserId] = useState(''); // Updated: Store just the userId
     const [alreadyMember, setAlreadyMember] = useState(false);
+    const [noLabFound, setNoLabFound] = useState(false);
 
     useEffect(() => {
         const currentUser = auth.currentUser;
@@ -41,7 +42,8 @@ const JoinLab = () => {
             const querySnapshot = await getDocs(labsQuery);
 
             if (querySnapshot.empty) {
-                console.error('Lab not found'); 
+                console.error('Lab not found');
+                setNoLabFound(true); 
                 // Handle the case where no lab matches the Join ID
             } else {
                 const labDoc = querySnapshot.docs[0]; 
@@ -131,6 +133,13 @@ const JoinLab = () => {
                                 <div className='modalSubmit'><button type="submit">Join Lab</button></div>
                             </Stack>
                         </form>
+                        {noLabFound && (
+                            <p style={{ color: 'red', fontSize: '14px' , paddingY: '2px'}}>Lab not found.</p> 
+                        )}
+
+                        {alreadyMember && (
+                            <p style={{ color: 'red', fontSize: '14px' , paddingY: '2px'}}>You are already a member of this lab.</p> 
+                        )}
                     </DialogContent>
                 </ModalDialog>
             </Modal>
