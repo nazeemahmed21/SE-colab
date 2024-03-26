@@ -64,12 +64,12 @@ function ThoughtsComp() {
         <button className="createThoughtBtn" onClick={() => setShowPopup(true)}>Create Thought</button>
         {thoughts.map((thought) => (
           <div key={thought.id} className="thought-item">
-            <h3>{thought.title}</h3>
-            <p>{thought.postText}</p>
+            <h1>{thought.title}</h1>
+            <h2>{thought.postText}</h2>
             {thought.author ? (
-              <p>Posted by: {thought.author.name}</p>
+              <h3>Posted by: {thought.author.name}</h3>
             ) : (
-              <p>Posted by: Unknown</p>
+              <h3>Posted by: Unknown</h3>
             )}
             <p>Posted on: {thought.timestamp ? thought.timestamp.toDate().toLocaleString() : "N/A"}</p>
             {thought.imageUrl && <img src={thought.imageUrl} alt="Thought Image" />}
