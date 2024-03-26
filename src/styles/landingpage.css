@@ -1,17 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
-body, html {
+/* body, html {
   margin: 0;
   padding: 0;
   overflow: hidden;
   height: 100vh;
-}
+} */
 
 .landing-p-wrapper {
   position: absolute;
   width: 100%;
   min-height: 100vh;
   background-color: #fea059;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
 }
 
 /* Adjust button styles for better positioning */

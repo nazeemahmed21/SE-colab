@@ -13,7 +13,6 @@ import Video from "./components/Video.jsx";
 import { Navigate } from "react-router";
 import { AuthContext } from "./Context/AuthContext.jsx";
 import UserProfile from "./pages/user-Profile.js";
-import VerifyEmail from "./pages/verifyEmail.js";
 import Settings from "./pages/setting.js";
 import FileSystem from './pages/FileSystem.js';
 import Meditation1 from "./pages/meditation1.js";
@@ -64,7 +63,6 @@ const Rout = () => {
       <Route path="/calendar" element={<ProtectedRoute><CalendarApp /></ProtectedRoute>} />
       <Route path="/interest" element={<ProtectedRoute><Interests /></ProtectedRoute>} />
       <Route path="/video" element={<Video />} />
-      <Route path="/verify-email" element={<VerifyEmail />} />
       <Route path="/user-prof" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
       <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
       <Route path="/meditationPlayer/:title" element={<ProtectedRoute><MeditationPlayer /></ProtectedRoute>} />
