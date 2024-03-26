@@ -15,12 +15,13 @@ import Link from '@mui/material/Link';
 
 const Messages = ({ message }) => {
   const [messages, setMessages] = useState([]);
-  const { data } = useContext(ChatContext);
+  const { data, userIdNameMap } = useContext(ChatContext);
+  const { currentUser } = useContext(AuthContext);
   const [messageOptions, setMessageOptions] = useState({});
   const [showForwardDialog, setShowForwardDialog] = useState(false);
   const [selectedMessageId, setSelectedMessageId] = useState(null);
   const [likedMessages, setLikedMessages] = useState([]);
-  const { currentUser } = useContext(AuthContext);
+
   const handleToggleOptions = (messageId) => {
     setMessageOptions((prevOptions) => ({
       ...prevOptions,
@@ -95,7 +96,7 @@ const Messages = ({ message }) => {
   const handleDelete = async (messageId) => {
     try {
       // Delete the message from the Firestore database
-      await deleteDoc(doc(db, 'chats', data.chatId, 'messages', messageId));
+      await deleteDoc(doc(db, 'chatMessages', data.chatId, 'messages', messageId));
       console.log('Message deleted successfully');
   
       // If you're using local state to manage messages, update it accordingly
@@ -134,7 +135,7 @@ const Messages = ({ message }) => {
         setLikedMessages([...likedMessages, messageId]);
       }
 
-      const messageRef = doc(db, 'chats', data.chatId, 'messages', messageId);
+      const messageRef = doc(db, 'chatsMessages', data.chatId, 'messages', messageId);
       const messageSnapshot = await getDoc(messageRef);
 
       if (messageSnapshot.exists()) {
@@ -156,7 +157,7 @@ const Messages = ({ message }) => {
   
   
   useEffect(() => {
-    const unSub = onSnapshot(doc(db, 'chats', data.chatId), (doc) => {
+    const unSub = onSnapshot(doc(db, 'chatMessages', data.chatId), (doc) => {
       doc.exists() && setMessages(doc.data().messages);
     });
 
@@ -165,26 +166,25 @@ const Messages = ({ message }) => {
     };
   }, [data.chatId]);
 
+  console.log("UserNameIDMPA", userIdNameMap);
   return (
-    <div className="messages" style={{ maxHeight: 'calc(100vh - 250px)'}}>
+    <div className="messages" 
+    // style={{ maxHeight: 'calc(100vh - 250px)'}}
+    >
       {messages.map((m) => (
-        //  <Message message={m} key={m.id} />
-        // <div message={m} key={m.id} className={`message ${m.owner ? 'owner' : ''}`}>
-        // <div message={m} key={m.id} className={`message ${m.owner ? 'owner' : ''}`} style={{ backgroundColor: (m.owner==m.id) ? 'green' : 'white' }}>
-        <div
+
+<div
   message={m}
   key={m.id}
   className={`message ${m.owner ? 'owner' : ''}`}
   style={{
     backgroundColor: m.senderId != currentUser.uid ? 'white' : 'lightgreen',
     marginLeft: m.senderId != currentUser.uid ? '0' : 'auto', // Pushes the message to the right if the owner is the current user
-    marginRight: m.senderId != currentUser.uid ? 'auto' : '0', color:'black' }}
+    marginRight: m.senderId != currentUser.uid ? 'auto' : '0',  }}
 >
         {/* names */}
           <React.Fragment>
-          <div style={
-            { backgroundColor: m.owner ? 'lightgreen' : 'white' }
-            }>
+            <div >
               {m.text}
             </div>  
             <div style={{margin: 5}}>
@@ -195,7 +195,6 @@ const Messages = ({ message }) => {
                 {m.senderId != currentUser.uid ? <p>{userIdNameMap[m.senderId]}</p> : ''}
               </Typography>
             </div>        
-
             <span className="like-icon" onClick={() => handleLike(m.id)}>
               {m.likes > 0 && likedMessages.includes(m.id) && (
                 <img src={heart} alt="Like" />
@@ -214,9 +213,9 @@ const Messages = ({ message }) => {
                 <div className="option" onClick={() => handleDelete(m.id)}>
                   Delete
                 </div>
-                <div className="option" onClick={() => handleForward(m.id)}>
+                {/* <div className="option" onClick={() => handleForward(m.id)}>
                   Forward
-                </div>
+                </div> */}
                 <div className="option" onClick={() => handleLike(m.id)}>
                   Like
                 </div>
