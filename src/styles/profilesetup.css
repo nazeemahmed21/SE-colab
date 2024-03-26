@@ -34,12 +34,13 @@
 
 .upload_input {
   width: 150px;
-  height: 60px;
-  padding: 10px;
-  margin-top: 50px;
+  /* height: 60px; */
+  padding: 20px;
+  margin-top: 20px;
   border: 3px solid black;
   border-radius: 20px;
   font-size: 20px;
+  justify-content: center;
   text-align: center;
   color: #fea059;
   position: relative;
@@ -47,7 +48,10 @@
   margin-right: auto;
   background-color: #fea059;
 }
-
+.upload_input input{
+  align-items: center;
+  justify-content: center;
+}
 .upload_button {
   width: 20%;
   margin-bottom: 20px;
