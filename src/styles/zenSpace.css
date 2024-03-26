@@ -5,6 +5,7 @@
     justify-content: center;
     height: 100vh;
 }
+
 .titleZenSpace {
     font-size: 28px;
     margin-bottom: 20px;
@@ -121,7 +122,7 @@
         flex-direction: column;
     }
 
-    .boxes-containerZenSpace  {
+    .boxes-containerZenSpace {
         flex-direction: column;
         gap: 0px;
     }
@@ -144,7 +145,7 @@
         flex-direction: column;
     }
 
-    .boxes-containerZenSpace  {
+    .boxes-containerZenSpace {
         flex-direction: column;
         gap: 0px;
     }
@@ -167,7 +168,7 @@
         flex-direction: column;
     }
 
-    .boxes-containerZenSpace  {
+    .boxes-containerZenSpace {
         flex-direction: column;
         gap: 0px;
     }
@@ -191,7 +192,7 @@
         flex-direction: column;
     }
 
-    .boxes-containerZenSpace  {
+    .boxes-containerZenSpace {
         flex-direction: column;
         gap: 0px;
     }
@@ -214,7 +215,7 @@
         flex-direction: column;
     }
 
-    .boxes-containerZenSpace  {
+    .boxes-containerZenSpace {
         flex-direction: row;
         gap: 0px;
     }
@@ -262,7 +263,7 @@
         flex-direction: column;
     }
 
-    .boxes-containerZenSpace  {
+    .boxes-containerZenSpace {
         flex-direction: row;
         gap: 0px;
     }
@@ -276,7 +277,7 @@
 
 @media (min-width: 1300px) and (max-width: 1500px) {
     .content-containerZenSpace {
-        /* margin-top: -40%; */
+        margin-top: -5%;
         margin-left: 25%;
     }
 
@@ -285,7 +286,7 @@
         margin-bottom: 20px;
     }
 
-    .boxes-containerZenSpace  {
+    .boxes-containerZenSpace {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -301,7 +302,7 @@
 
 @media (min-width: 1501px) and (max-width: 1700px) {
     .content-containerZenSpace {
-        /* margin-top: -35%; */
+        margin-top: -5%;
         margin-left: 25%;
     }
 
@@ -310,7 +311,7 @@
         margin-bottom: 20px;
     }
 
-    .boxes-containerZenSpace  {
+    .boxes-containerZenSpace {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -326,7 +327,7 @@
 
 @media (min-width: 1701px) and (max-width: 2000px) {
     .content-containerZenSpace {
-        /* margin-top: -30%; */
+        margin-top: -5%;
         margin-left: 20%;
     }
 
@@ -335,7 +336,7 @@
         margin-bottom: 20px;
     }
 
-    .boxes-containerZenSpace  {
+    .boxes-containerZenSpace {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -351,7 +352,7 @@
 
 @media (min-width: 2001px) and (max-width: 2500px) {
     .content-containerZenSpace {
-        /* margin-top: -25%; */
+        margin-top: -5%;
         margin-left: 15%;
     }
 

@@ -8,9 +8,9 @@ import gameIcon from '../images/gamingZenSpace.png';
 const ZenSpace = () => {
     return (
         <div>
-            <div className="NavbarZenSpaceContainer">
+            {/* <div className="NavbarZenSpaceContainer"> */}
                 <Navbar />
-            </div>
+            {/* </div> */}
             <div className="content-containerZenSpace">
                 <h1 className="titleZenSpace">How do you want to relax?</h1>
                 <div className="boxes-containerZenSpace">

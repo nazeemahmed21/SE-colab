@@ -55,21 +55,21 @@
   position: absolute;
   top: 18%;
   left: 45%;
-  animation: fadein 3s ease 2s forwards;
+  animation: fadein 2.5s ease 2s forwards;
 }
 
 #two {
   position: absolute;
   top: 26.5%;
   left: 63.1%;
-  animation: fadein 3s ease 2s forwards;
+  animation: fadein 2.5s ease 2s forwards;
 }
 
 #three {
   position: absolute;
   top: 51%;
   left: 71.5%;
-  animation: fadein 3s ease 2s forwards;
+  animation: fadein 2.5s ease 2s forwards;
 }
 
 #four {
@@ -184,49 +184,47 @@
   #one {
     top: 89%;
     left: 35%;
-    animation: none;
   }
 
   #two {
     top: 89%;
     left: 64%;
-    animation: none;
   }
 
   #three {
     top: 125%;
     left: 50%;
-    animation: none;
+
   }
 
   #four {
     top: 89%;
     left: 8%;
-    animation: none;
+
   }
 
   #five {
     top: 125%;
     left: 22%;
-    animation: none;
+
   }
 
   #six {
     top: 161%;
     left: 8%;
-    animation: none;
+
   }
 
   #seven {
     top: 161%;
     left: 35%;
-    animation: none;
+
   }
 
   #eight {
     top: 161%;
     left: 64%;
-    animation: none;
+
   }
 }
 
@@ -249,49 +247,49 @@
   #one {
     top: 89%;
     left: 35%;
-    animation: none;
+
   }
 
   #two {
     top: 89%;
     left: 64%;
-    animation: none;
+
   }
 
   #three {
     top: 125%;
     left: 50%;
-    animation: none;
+
   }
 
   #four {
     top: 89%;
     left: 8%;
-    animation: none;
+
   }
 
   #five {
     top: 125%;
     left: 22%;
-    animation: none;
+
   }
 
   #six {
     top: 161%;
     left: 8%;
-    animation: none;
+
   }
 
   #seven {
     top: 161%;
     left: 35%;
-    animation: none;
+
   }
 
   #eight {
     top: 161%;
     left: 64%;
-    animation: none;
+
   }
 }
 
@@ -314,49 +312,49 @@
   #one {
     top: 89%;
     left: 35%;
-    animation: none;
+
   }
 
   #two {
     top: 89%;
     left: 64%;
-    animation: none;
+
   }
 
   #three {
     top: 135%;
     left: 50%;
-    animation: none;
+
   }
 
   #four {
     top: 89%;
     left: 8%;
-    animation: none;
+
   }
 
   #five {
     top: 135%;
     left: 22%;
-    animation: none;
+
   }
 
   #six {
     top: 181%;
     left: 8%;
-    animation: none;
+
   }
 
   #seven {
     top: 181%;
     left: 35%;
-    animation: none;
+
   }
 
   #eight {
     top: 181%;
     left: 64%;
-    animation: none;
+
   }
 }
 
@@ -379,49 +377,49 @@
   #one {
     top: 89%;
     left: 35%;
-    animation: none;
+
   }
 
   #two {
     top: 89%;
     left: 64%;
-    animation: none;
+
   }
 
   #three {
     top: 135%;
     left: 50%;
-    animation: none;
+
   }
 
   #four {
     top: 89%;
     left: 8%;
-    animation: none;
+
   }
 
   #five {
     top: 135%;
     left: 22%;
-    animation: none;
+
   }
 
   #six {
     top: 181%;
     left: 8%;
-    animation: none;
+
   }
 
   #seven {
     top: 181%;
     left: 35%;
-    animation: none;
+
   }
 
   #eight {
     top: 181%;
     left: 64%;
-    animation: none;
+
   }
 }
 
@@ -567,49 +565,49 @@
   #one {
     top: 89%;
     left: 46%;
-    animation: none;
+
   }
 
   #two {
     top: 89%;
     left: 80%;
-    animation: none;
+
   }
 
   #three {
     top: 135%;
     left: 66%;
-    animation: none;
+
   }
 
   #four {
     top: 89%;
     left: 12%;
-    animation: none;
+
   }
 
   #five {
     top: 135%;
     left: 28%;
-    animation: none;
+
   }
 
   #six {
     top: 181%;
     left: 12%;
-    animation: none;
+
   }
 
   #seven {
     top: 181%;
     left: 46%;
-    animation: none;
+
   }
 
   #eight {
     top: 181%;
     left: 80%;
-    animation: none;
+
   }
 }
 
