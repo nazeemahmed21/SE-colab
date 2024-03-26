@@ -14,7 +14,7 @@ const ZenSpace = () => {
             <div className="content-containerZenSpace">
                 <h1 className="titleZenSpace">How do you want to relax?</h1>
                 <div className="boxes-containerZenSpace">
-                    <Link to="/games" className="boxZenSpace">
+                    <Link to="https://ansongeo.github.io/wordgame" className="boxZenSpace">
                         <img src={gameIcon} alt="games icon" className="box-iconZen" />
                         <h2>Games</h2>
                     </Link>
