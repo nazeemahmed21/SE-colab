@@ -12,8 +12,8 @@ const ZenSpace = () => {
                 <Navbar />
             {/* </div> */}
             <div className="content-containerZenSpace">
-                <h1 className="title">How do you want to relax?</h1>
-                <div className="boxes-container">
+                <h1 className="zs_title">How do you want to relax?</h1>
+                <div className="zs_boxes-container">
                     <Link to="/games" className="boxZenSpace">
                         <img src={gameIcon} alt="games icon" className="box-icon" />
                         <h2>Games</h2>
