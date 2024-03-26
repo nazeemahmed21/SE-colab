@@ -9,7 +9,7 @@
     margin-left: 25%;
 }
 
-.title {
+.zs_title {
     font-size: 28px;
     margin-bottom: 20px;
     /* Add spacing between the title and boxes */
@@ -19,7 +19,7 @@
     position: fixed;
 }
 
-.boxes-container {
+.zs_boxes-container {
     display: flex;
     justify-content: center;
     align-items: center;

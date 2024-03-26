@@ -26,6 +26,7 @@ body {
   align-items: center;
   z-index: 1001;
 }
+
 .nb-nav-text svg{
   font-size: 25px;
 }
@@ -34,6 +35,7 @@ body {
   position: relative;
   left: 80vw;
 }
+
 
 .menu-bars {
   margin-left: 2rem;
@@ -53,14 +55,10 @@ body {
   left: 0%;
   transition: 850ms;
 }
-
-
-
 .nav-menu.active {
   left: 0;
   transition: 450ms;
 }
-
 .nb-nav-text {
   display: flex;
   justify-content: flex-start;
@@ -82,22 +80,18 @@ body {
   padding: 0 10px;
   border-radius: 4px;
 }
-
 .nb-nav-text svg{
   font-size: 24px;
 }
-
 .nb-nav-text a:hover {
   background-color: white;
   padding-top: 30px;
   padding-bottom: 30px;
   /* font-size: 2em; */
 }
-
 .nav-menu-items {
   width: 80%;
 }
-
 .navbar-toggle {
   width: 90%;
   height: 100px;
@@ -237,7 +231,6 @@ span {
   font-size: 18px;
   color: #333;
 }
-
 /* .sign-out-icon:hover svg {
   background-color: white;
   fill: black; /* Change the icon color to black when hovering */
@@ -309,6 +302,8 @@ span {
   top: 50px;
 }
 
+
+
 /* .prof-name {
   position: absolute;
   left: 78vw;
@@ -336,11 +331,9 @@ span {
 .sign-out-for-mobile {
   opacity: 0;
 }
-
 .mob_select_menu {
   opacity: 0;
 }
-
 @media screen and (min-width: 280px) and (max-width: 300px) {
   .nav-menu {
     text-align: center;
@@ -384,13 +377,11 @@ span {
     width: 80%;
     margin-right: 0;
   }
-
   .mob-notif {
     position: absolute;
     top: 15px;
     left: 58%;
   }
-
   .sign-out-for-mobile {
     opacity: 1;
     position: absolute;
@@ -401,7 +392,6 @@ span {
     padding-left: 0px;
     padding-right: 0px;
   }
-
   .sign-out-for-mobile button {
     background-color: transparent;
     display: inline;
@@ -409,11 +399,9 @@ span {
     margin-top: 0px;
     margin-left: 0px;
   }
-
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -542,7 +530,6 @@ span {
     width: 80%;
     margin-right: 0;
   }
-
   .mob-notif {
     position: absolute;
     top: 15px;
@@ -571,7 +558,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -702,7 +688,6 @@ span {
     width: 80%;
     margin-right: 0;
   }
-
   .mob-notif {
     position: absolute;
     top: 15px;
@@ -816,7 +801,6 @@ span {
     display: none;
   }
 }
-
 @media screen and (min-width: 341px) and (max-width: 360px) {
   .nav-menu {
     text-align: center;
@@ -899,7 +883,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -983,7 +966,6 @@ span {
     display: none;
   }
 }
-
 @media screen and (min-width: 361px) and (max-width: 380px) {
   .nav-menu {
     text-align: center;
@@ -1066,7 +1048,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -1150,7 +1131,6 @@ span {
     display: none;
   }
 }
-
 @media screen and (min-width: 381px) and (max-width: 400px) {
   .nav-menu {
     text-align: center;
@@ -1234,7 +1214,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -1318,7 +1297,6 @@ span {
     display: none;
   }
 }
-
 @media screen and (min-width: 400px) and (max-width: 420px) {
   .nav-menu {
     text-align: center;
@@ -1486,7 +1464,6 @@ span {
     display: none;
   }
 }
-
 @media screen and (min-width: 421px) and (max-width: 440px) {
   .nav-menu {
     text-align: center;
@@ -2230,7 +2207,6 @@ span {
     padding-left: 2px;
     padding-right: 0px;
   }
-
   .sign-out-for-mobile button {
     background-color: transparent;
     display: inline;
@@ -2410,7 +2386,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -2578,7 +2553,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -2746,7 +2720,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -3754,7 +3727,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -3922,7 +3894,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -4090,7 +4061,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -4258,7 +4228,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -4426,7 +4395,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -4594,7 +4562,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -4762,7 +4729,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -4930,7 +4896,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
