@@ -20,15 +20,15 @@
 
 .lp-loginandregis {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -20px;
+  right: 10px;
   padding: 20px;
 
 }
 
 /* Adjust button styles for better positioning */
 .landing-p-login {
-  padding: 14px 28px;
+  padding: 14px 14px;
   font-weight: bold;
   position: relative;
   font-family: sans-serif;
@@ -36,7 +36,7 @@
   background-color: inherit;
   border: 1px solid transparent;
   border-radius: 4px;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   color: black;
   cursor: pointer;
   margin-right: 0%;
@@ -44,7 +44,7 @@
 }
 
 .landing-p-register {
-  padding: 14px 28px;
+  padding: 14px 14px;
   font-weight: bold;
   position: relative;
   font-family: sans-serif;
@@ -52,7 +52,7 @@
   background-color: inherit;
   border: 1px solid transparent;
   border-radius: 4px;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   color: black;
   cursor: pointer;
   margin-left: 100px;
@@ -84,7 +84,7 @@
 }
 
 .lp-main-h {
-  top: 30%;
+  top: 25%;
   font-size: 100px;
   left: 5%;
 }

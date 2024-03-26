@@ -164,7 +164,7 @@ span {
 .nav_select_menu {
   position: relative;
   left: 82vw;
-  top: -1vh;
+  top: -15px;
   fill: #29ada0;
 }
 
@@ -197,7 +197,7 @@ span {
 }
 
 .nav_select_menu.active {
-  top:  4.8vh;
+  top:  3.9vh;
 }
 
 .nav_select_menu.active .nav_options {

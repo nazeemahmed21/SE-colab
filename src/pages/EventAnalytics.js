@@ -10,6 +10,7 @@ import {
 } from "firebase/firestore";
 import { db, auth } from "../firebase";
 import "../styles/events.css";
+import { TbReportAnalytics } from "react-icons/tb";
 
 function EventAnalytics() {
   const [events, setEvents] = useState([]);
@@ -94,9 +95,11 @@ function EventAnalytics() {
 
   return (
     <div className="event-analytics-container">
-      <button className="toggle-analytics-button" onClick={handleShowAnalytics}>
-        {showAnalytics ? "Hide Event Analytics" : "Show Event Analytics"}
-      </button>
+      <div className="ta-btn-container">
+        <button className="toggle-analytics-button" onClick={handleShowAnalytics}>
+          {showAnalytics ? <TbReportAnalytics size={30}/>: <TbReportAnalytics size={30}/> }
+        </button>
+      </div>
       {showAnalytics && (
         <div className="event-analytics">
           <h2>Your Event Analytics</h2>

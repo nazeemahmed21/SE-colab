@@ -21,8 +21,10 @@ import Notification from "./Notification";
 import EventAnalytics from "./EventAnalytics";
 import "../styles/events.css";
 import Searchbar from "./Searchbar";
-import { IoNotificationsCircle } from "react-icons/io5";
+import { TbReportAnalytics } from "react-icons/tb";
 import toast, { Toaster } from "react-hot-toast";
+import { IoIosNotifications } from "react-icons/io";
+import { AiFillPlusCircle } from "react-icons/ai";
 
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
@@ -256,13 +258,16 @@ function Home({ isAuth }) {
       </div>
       <div className="homePage">
         <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <button className="CreateEvent" onClick={() => setButtonPopup(true)}>
-          Create Event
-        </button>
-
-        <button className="notif" onClick={handleToggleNotifications}>
-          Show Notifications <br></br>
-        </button>
+        <div className="create_event">
+          <button className="CreateEvent" onClick={() => setButtonPopup(true)}>
+            <AiFillPlusCircle size={30}/>
+          </button>
+        </div>
+        <div className="notif_events_btn">
+          <button className="notif" onClick={handleToggleNotifications}>
+            <IoIosNotifications size={30}/>
+          </button>
+        </div>
         <Popup
           trigger={buttonPopup}
           setTrigger={setButtonPopup}
@@ -290,42 +295,46 @@ function Home({ isAuth }) {
           <div className="post" key={post.id}>
             <div className="postHeader">
               <div className="title">
-                <h1>{post.title}</h1>
+                <h1>Title: {post.title}</h1>
               </div>
             </div>
             <div className="dateFrom">
-              <h3>From {post.dateFrom}</h3>
+              <h3>From: {post.dateFrom}</h3>
             </div>
             <div className="dateTo">
-              <h3> To {post.dateTo}</h3>
+              <h3> To: {post.dateTo}</h3>
             </div>
-            <div className="location">
-              <h3>At {post.location}</h3>
+            <div className="postLocation">
+              <h3>At: {post.location}</h3>
             </div>
             <div className="postTextContainer">
               <br />
+              <p>Description:</p>
               {post.postText}
             </div>
             <br />
             {post.imageUrl && <img src={post.imageUrl} alt="Post Image" />}
             <div className="postCategory">
-              <h2>{post.category}</h2>
+              <h2>Category: {post.category}</h2>
             </div>
-            <h3>{post.author.name}</h3>
+            <div className="postAuthorName">
+              <h3>Username: {post.author.name}</h3>
+            </div>
             <div className="userEmail">
-              <p className="emailText">{userEmail}</p>{" "}
+              <p className="emailText">Email: {userEmail}</p>{" "}
               {/* Display user's email */}
             </div>
-            <button onClick={() => rsvpAlert(post)}>
-              {rsvpStatus[post.id] ? "Cancel RSVP" : "RSVP"}
-            </button>
-            <span>{post.rsvpCount || 0} RSVPs</span>
+            <div className="home_Events_RSVP">
+              <button onClick={() => rsvpAlert(post)}>
+                {rsvpStatus[post.id] ? "Cancel RSVP" : "RSVP"}
+              </button>
+            </div>
+            <span className="numRSVPattendees">{post.rsvpCount || 0} RSVPs</span>
             <br />
-            <p>Limit of Attendees:</p>
-            <span>{post.maxAttendees ? post.maxAttendees : ""}</span>{" "}
+            <p style={{fontSize:"30px"}}>Limit of Attendees: {post.maxAttendees ? post.maxAttendees : ""}{" "}</p>
             {/* Display max attendees */}
             <div className="postInfo">
-              <p>
+              <p style={{fontSize:"30px"}}>
                 Posted on:{" "}
                 {post.timestamp
                   ? new Date(post.timestamp.seconds * 1000).toLocaleString()
@@ -333,7 +342,7 @@ function Home({ isAuth }) {
               </p>
             </div>
             {post.author.id === auth.currentUser.uid && (
-              <div>
+              <div className="updPostBtns">
                 <button className="EditBtn" onClick={() => editPost(post.id)}>
                   Edit
                 </button>
