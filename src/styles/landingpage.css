@@ -28,7 +28,7 @@
 
 /* Adjust button styles for better positioning */
 .landing-p-login {
-  padding: 14px 28px;
+  padding: 10px 20px;
   font-weight: bold;
   position: relative;
   font-family: sans-serif;
@@ -36,15 +36,16 @@
   background-color: inherit;
   border: 1px solid transparent;
   border-radius: 4px;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: black;
   cursor: pointer;
   margin-right: 0%;
-  margin-left: 100px;
+  margin-left: 50px;
+  margin-top: 0px;
 }
 
 .landing-p-register {
-  padding: 14px 28px;
+  padding: 10px 20px;
   font-weight: bold;
   position: relative;
   font-family: sans-serif;
@@ -52,10 +53,11 @@
   background-color: inherit;
   border: 1px solid transparent;
   border-radius: 4px;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: black;
   cursor: pointer;
-  margin-left: 100px;
+  margin-left: 50px;
+  margin-top: 0px;
 }
 
 /* Hover effect for buttons */
@@ -79,19 +81,23 @@
 } */
 
 .lp-logo {
-  position: fixed;
-  width: 10%;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 3%;
+  left: 3%;
+  transition: transform 0.3s;
 }
 
 .lp-main-h {
-  top: 30%;
-  font-size: 100px;
+  top: 18%;
+  font-size: 90px;
   left: 5%;
 }
 
 .lp-sh-1, .lp-sh-2 {
   font-size: 50px;
-  top: 45%;
+  top: 40%;
   left: 5%;
 }
 
@@ -116,26 +122,21 @@
 }
 
 .lp-img-1 {
-  width: 19%;
-  top: 30%;
-  right: 17%;
-  border-radius: 150px;
+  top: 5%;
+  right: 1%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
   position: absolute;
 }
 
 .lp-img-2 {
-  width: 30%;
-  top: 35%;
-  right: 10%;
-  border-radius: 150px;
+  top: 5%;
+  right: 1%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-}
-
-.lp-logo {
-  top: 3%;
-  left: 5%;
-  width: 6%;
-  transition: transform 0.3s;
 }
 
 .lp-logo:hover {
@@ -161,21 +162,36 @@
   animation: fadeOut 5s forwards;
 }
 
-@media (max-width: 730px) {
-  .landing-p-register {
-    margin-left: 20px;
+@media (max-width: 820px) {
+  .lp-desc {
+    font-size: 20px;
   }
-  .landing-p-login {
-    margin-left: 20px;
+  .lp-main-h {
+    font-size: 70px;
   }
-}
-
-@media (max-width: 730px) {
-  .landing-p-register {
-    margin-left: 0px;
-  }
-  .landing-p-login {
-    margin-left: 0px;
+  .lp-sh-1, .lp-sh-2 {
+    font-size: 40px;
   }
 }
 
+@media (max-width: 460px) {
+  .lp-desc {
+    font-size: 15px;
+  }
+  .lp-main-h {
+    font-size: 60px;
+  }
+  .lp-sh-1, .lp-sh-2 {
+    font-size: 30px;
+  }
+  .landing-p-register {
+    margin-left: 0px;
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+  .landing-p-login {
+    margin-left: 0px;
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}

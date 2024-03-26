@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles/landingpage.css";
 import { useNavigate } from "react-router-dom";
-import blob from "../images/blob.svg";
-import lp1 from "../images/lp-img-1.jpg";
+import blob from "../images/blob (copy).svg";
+import lp1 from "../images/lp-img-1.png";
 import lp2 from "../images/lp-img-2.png";
 import lplogo from "../images/logo.png";
 
@@ -33,8 +33,10 @@ const Landingpage = () => {
             {words[wordIndex]}
           </h1>
           <p className="lp-desc">
-            Co-lab is your virtual collaborative tool that helps you <br></br>
-            empower yourself in order to learn and connect with others.<br></br>
+            Co-lab is your virtual collaborative tool<br></br>that helps you
+            empower yourself in order to<br></br>learn and connect with others.
+            <br></br>
+            <br></br>
             Learn to use a different set of features that will <br></br>
             help you professionally.
           </p>
