@@ -161,10 +161,13 @@ select {
   align-items: center;
   padding-top: 20px;
   height: 100%;
+  left: 10px;
 }
 
 .homePage .post {
-  width: 80%;
+  position: relative;
+  left: 90px;
+  width: 40%;
   max-width: 800px;
   margin: 20px auto;
   background-color: #ffffff;
@@ -284,7 +287,8 @@ select {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-size: large;
   cursor: pointer;
-  left: 75%;
+  left: 64%;
+  top: 20px;
   position: absolute;
   justify-content: center;
   padding: 10px;
@@ -293,6 +297,8 @@ select {
 /* Events search bar styles */
 
 .eventsSearchBar {
+  position: relative;
+  left: 30px;
   display: grid;
   width : 35%
 }
@@ -455,3 +461,129 @@ select {
 .select-wrapper select:focus + ::after {
   color: #007bff;
 }
+
+@media screen and (min-width: 1201px) and (max-width: 1300px){
+  .homePage .post {
+    width: 60vw;
+    max-width: 800px;
+    min-width: 600px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (min-width: 1101px) and (max-width: 1200px){
+  .homePage .post {
+    width: 60vw;
+    max-width: 700px;
+    min-width: 500px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1100px){
+    .homePage .post {
+      width: 60vw;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
+  @media screen and (min-width: 999px) and (max-width: 1000px){
+    .homePage .post {
+      width: 60vw;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
+  @media screen and (min-width: 897px) and (max-width: 998px){
+    .homePage .post {
+      width: 60vw;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
+  @media screen and (min-width: 800px) and (max-width: 896px){
+    .homePage .post {
+      width: 60vw;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
+  @media screen and (min-width: 700px) and (max-width: 799px){
+    .homePage .post {
+      width: 60vw;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
+  @media screen and (min-width: 600px) and (max-width: 699px){
+    .homePage .post {
+      width: 60vw;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
+  @media screen and (min-width: 500px) and (max-width: 599px){
+    .homePage .post {
+      width: 60vw;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
+  @media screen and (min-width: 400px) and (max-width: 499px){
+    .homePage .post {
+      width: 60vw;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
+  @media screen and (min-width: 300px) and (max-width: 399px){
+    .homePage .post {
+      width: 270px;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
