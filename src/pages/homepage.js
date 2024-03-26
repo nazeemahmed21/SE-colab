@@ -23,6 +23,7 @@ function Home() {
   return (
     <>
       <div>
+        <button className="backHomebtnHome">Go back to Homepage</button>
         <Link to="/thoughts">
           <button className="thoughtsBtn">Go to Thoughts</button>
         </Link>

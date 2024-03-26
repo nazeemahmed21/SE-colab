@@ -93,21 +93,131 @@
 @media (min-height: 653px) and (min-width: 280px) {
   .halfreminders {
     width: 70%;
-    margin-left: 17%;
+    margin-left: 10%;
   }
 
   .reminderstitle {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    margin-bottom: 2%;
   }
 
   .refbuttonreminders {
-    width: 50%;
+    width: 75%;
   }
 }
 
 @media (min-height: 667px) and (min-width: 375px) {
   .halfreminders {
-    width: 70%;
+    width: 60%;
+    margin-left: 10%;
+  }
+
+  .reminderstitle {
+    font-size: 2rem;
+    margin-left: 15%;
+  }
+
+  .refbuttonreminders {
+    width: 65%;
+  }
+}
+
+@media (min-height: 720px) and (min-width: 540px) {
+  .halfreminders {
+    width: 60%;
+    margin-left: 12%;
+  }
+
+  .reminderstitle {
+    font-size: 2rem;
+    margin-left: 15%;
+  }
+
+  .refbuttonreminders {
+    width: 45%;
+  }
+}
+
+@media (min-height: 896px) and (min-width: 414px) {
+  .halfreminders {
+    width: 60%;
+    margin-left: 11%;
+  }
+
+  .reminderstitle {
+    font-size: 2.5rem;
+  }
+
+  .refbuttonreminders {
+    width: 65%;
+  }
+}
+
+@media (min-height: 915px) and (min-width: 412px) {
+  .halfreminders {
+    width: 60%;
+    margin-left: 13%;
+  }
+
+  .reminderstitle {
+    font-size: 2.5rem;
+  }
+
+  .refbuttonreminders {
+    width: 65%;
+  }
+}
+
+@media (min-height: 932px) and (min-width: 430px) {
+  .halfreminders {
+    width: 60%;
+    margin-left: 12%;
+  }
+
+  .reminderstitle {
+    font-size: 2.5rem;
+  }
+
+  .refbuttonreminders {
+    width: 65%;
+  }
+}
+
+@media (min-height: 740px) and (min-width: 360px) {
+  .halfreminders {
+    width: 60%;
+    margin-left: 12%;
+  }
+
+  .reminderstitle {
+    font-size: 2rem;
+    margin-left: 15%;
+  }
+
+  .refbuttonreminders {
+    width: 65%;
+  }
+}
+
+@media (min-height: 1024px) and (min-width: 768px) {
+  .halfreminders {
+    width: 60%;
+    margin-left: 15%;
+  }
+
+  .reminderstitle {
+    font-size: 3.5rem;
+    margin-left: 10%;
+  }
+
+  .refbuttonreminders {
+    width: 35%;
+  }
+}
+
+@media (min-height: 1366px) and (min-width: 1024px) {
+  .halfreminders {
+    width: 60%;
     margin-left: 15%;
   }
 
@@ -116,95 +226,19 @@
   }
 
   .refbuttonreminders {
-    width: 40%;
-  }
-}
-
-@media (min-height: 896px) and (min-width: 414px) {
-  .halfreminders {
-    width: 60%;
-    margin-left: 20%;
-  }
-
-  .reminderstitle {
-    font-size: 4rem;
-  }
-
-  .refbuttonreminders {
-    width: 40%;
-  }
-}
-
-@media (min-height: 915px) and (min-width: 412px) {
-  .halfreminders {
-    width: 60%;
-    margin-left: 18%;
-  }
-
-  .reminderstitle {
-    font-size: 3.5rem;
-  }
-
-  .refbuttonreminders {
-    width: 40%;
-  }
-}
-
-@media (min-height: 1024px) and (min-width: 768px) {
-  .halfreminders {
-    width: 60%;
-    margin-left: 18%;
-  }
-
-  .reminderstitle {
-    font-size: 4rem;
-  }
-
-  .refbuttonreminders {
     width: 30%;
-  }
-}
-
-@media (min-height: 1366px) and (min-width: 1024px) {
-  .halfreminders {
-    width: 60%;
-    margin-left: 18%;
-  }
-
-  .reminderstitle {
-    font-size: 4.5rem;
-  }
-
-  .refbuttonreminders {
-    width: 20%;
   }
 }
 
 @media (min-height: 600px) and (min-width: 1024px) {
   .halfreminders {
     width: 60%;
-    margin-left: 18%;
+    margin-left: 16%;
   }
 
   .reminderstitle {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 0rem;
-  }
-
-  .refbuttonreminders {
-    width: 20%;
-  }
-}
-
-@media (min-width: 1300px) and (max-width: 1500px) {
-  .reminderstitle {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .halfreminders {
-    width: 30%;
-    margin-left: 42%;
   }
 
   .refbuttonreminders {
@@ -212,50 +246,68 @@
   }
 }
 
-@media (min-width: 1501px) and (max-width: 1700px) {
+@media (min-width: 1300px) and (max-width: 1500px) {
   .reminderstitle {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
 
   .halfreminders {
-    width: 30%;
+    width: 26%;
     margin-left: 42%;
   }
 
   .refbuttonreminders {
-    width: 23%;
+    width: 42%;
+  }
+}
+
+@media (min-width: 1501px) and (max-width: 1700px) {
+  .reminderstitle {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .halfreminders {
+    width: 26%;
+    margin-left: 42%;
+  }
+
+  .refbuttonreminders {
+    width: 38%;
   }
 }
 
 @media (min-width: 1701px) and (max-width: 2000px) {
   .reminderstitle {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-left: 7%;
   }
 
   .halfreminders {
-    width: 30%;
+    width: 27%;
     margin-left: 42%;
   }
 
   .refbuttonreminders {
-    width: 21%;
+    width: 30%;
   }
 }
 
 @media (min-width: 2001px) and (max-width: 2500px) {
   .reminderstitle {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-left: 7%;
   }
 
   .halfreminders {
-    width: 30%;
+    width: 27%;
     margin-left: 42%;
   }
 
   .refbuttonreminders {
-    width: 18%;
+    width: 30%;
   }
 }
