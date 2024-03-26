@@ -115,3 +115,23 @@
     font-size: 0.8rem;
     color: #888;
 }
+
+.thoughtDelete {
+    background-color: #29ada0;
+    color: white;
+    width: 200px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 400px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: large;
+    cursor: pointer;
+    justify-content: center;
+    padding: 10px;
+}
+
+.thoughtDelete:hover {
+    background-color: #1c8c81;
+}

@@ -134,7 +134,7 @@ function ThoughtsComp() {
                 <img src={thought.imageUrl} alt="Thought Image" />
               )}
               {currentUser && thought.author.id === currentUser.uid && (
-                <button onClick={() => deleteThought(thought.id)}>Delete</button>
+                <button className="thoughtDelete" onClick={() => deleteThought(thought.id)}>Delete</button>
               )}
             </div>
           ))
