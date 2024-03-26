@@ -19,7 +19,6 @@ import FileSystem from './pages/FileSystem.js';
 import Meditation1 from "./pages/meditation1.js";
 import MeditationPlayer from './pages/meditationPlayer.js';
 import ZenSpace from './pages/zenSpace.js';
-import Games from './pages/games.js';
 import BreathingTechniquesPage from './pages/breathingTech.js';
 import LabMembers from './pages/labs/labMembers.js';
 import LabLayout from "./pages/labs/labLayout.js";
@@ -70,7 +69,6 @@ const Rout = () => {
       <Route path="/meditationPlayer/:title" element={<ProtectedRoute><MeditationPlayer /></ProtectedRoute>} />
       <Route path="/meditation1" element={<ProtectedRoute><Meditation1 /></ProtectedRoute>} />
       <Route path="/zenSpace" element={<ProtectedRoute><ZenSpace /></ProtectedRoute>} />
-      <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
       <Route path="/medBreath" element={<ProtectedRoute><BreathingTechniquesPage /></ProtectedRoute>} />
       <Route path="/thoughts" element={<ProtectedRoute><Thoughts /></ProtectedRoute>} />
       <Route path="/imageAnnotation" element={<ImageAnnotator />}></Route>
