@@ -18,9 +18,9 @@ function Thoughts() {
   return (
     <>
     <div>
-      <button className="thoughtsBtnThoughts">Go to Thoughts</button>
+      <button className="thoughtsBtnThoughts">Thoughts</button>
       <Link to="/home">
-        <button className="backHomebtn">Go back to Homepage</button>
+        <button className="backHomebtn">Go back to Events</button>
       </Link>
     </div>
     <ThoughtsComp />
