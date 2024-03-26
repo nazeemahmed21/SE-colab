@@ -12,6 +12,8 @@ import styles from "../styles/todo.module.css";
 import Navbar from "./Navbar";
 import { db } from "../firebase";
 import { AuthContext } from "../Context/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -31,6 +33,7 @@ function CalendarApp() {
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
   const [allEvents, setAllEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(getFirestore(), "CalendarEvents"), (snapshot) => {
@@ -117,28 +120,37 @@ function CalendarApp() {
 
   const handleSelectEvent = (event) => {
     setSelectedEvent(event);
+    toast.info(
+      <div>
+        <h3>{event.title}</h3>
+        <p>Start Date: {event.start.toString()}</p>
+        <p>End Date: {event.end.toString()}</p>
+      </div>,
+      {
+        closeButton: true,
+      }
+    );
   };
 
   return (
-    <div className="App" style={{ color: "#181D27", width: '1450px', padding: '0px', margin: '0px' }}>
-      <Navbar />
-      <div className={styles.container}>
-        <div className={styles.form}>
+    <div className="App" style={{ color: "#181D27", width: '100%', padding: '0px', margin: '0px', position: 'relative', minHeight: '100vh' }}>
+      <div className={styles.container} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '0rem' }}>
+        <div className={styles.form} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <input
             type="text"
             placeholder="Add Title"
             style={{
-              width: "20%",
-              marginLeft: "700px",
-              marginTop: "100px",
-              marginRight: "5px",
+              width: "80%",
+              marginBottom: "0rem",
+              maxWidth: "300px",
+              marginTop: "85px"
             }}
             value={newEvent.title}
             onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
           />
           <DatePicker
             placeholderText="Start Date"
-            style={{ marginLeft: "10px" }}
+            className={`${styles.datePicker} ${styles.large}`} // Apply custom styles
             selected={newEvent.start}
             onChange={(start) => setNewEvent({ ...newEvent, start })}
             showTimeSelect
@@ -146,16 +158,17 @@ function CalendarApp() {
           />
           <DatePicker
             placeholderText="End Date"
+            className={`${styles.datePicker} ${styles.large}`} // Apply custom styles
             selected={newEvent.end}
-            onChange={(end) => setNewEvent({ ...newEvent, end })}
+            onChange={(end) => setNewEvent({ ...newEvent, end })} 
             showTimeSelect
             dateFormat="Pp"
-            style={{ position: "absolute", left: "1000px", margin: "30px" }}
           />
+          
           <button
             className={`${styles.button} ${styles.button__primary}`}
             onClick={handleAddEvent}
-            style={{ position: "absolute", left: "750px", marginTop: "130px" }}
+            style={{ width: "70%", marginBottom: "1rem", maxWidth: "300px", alignSelf: 'flex-end', height: "20px", fontSize: "12px", marginTop: "0rem"}}
           >
             Add Event
           </button>
@@ -163,21 +176,25 @@ function CalendarApp() {
             <button
               className={`${styles.button} ${styles.button__secondary}`}
               onClick={handleDeleteSelectedEvent}
-              style={{ position: "absolute", left: "695px", marginTop: "200px" }}
+              style={{ width: "70%", marginBottom: "1rem", maxWidth: "300px", alignSelf: 'flex-end', height: "40px", fontSize: "12px", marginTop:'-0.7rem'}}
             >
               Delete Selected Event
             </button>
           )}
         </div>
       </div>
-      <Calendar
-        localizer={localizer}
-        events={allEvents}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: 650, width: 1300, margin: "100px", position: "absolute", marginLeft: "35px", left: "360px", bottom: "50 px", marginTop: "150px" }}
-        onSelectEvent={handleSelectEvent}
-      />
+      <div style={{ width: '100%', maxWidth: '700px', margin: '0 auto', position: 'relative', left: "0px"}}>
+        <Calendar
+          localizer={localizer}
+          events={allEvents}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: '55vh', width: '100%' }}
+          onSelectEvent={handleSelectEvent}
+        />
+      </div>
+      {showNavbar && <Navbar style={{ position: 'absolute', bottom: 0, left: 0, width: '100%' }} />}
+      <ToastContainer />
     </div> 
   );
 }

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 // import * as FaIcons from "react-icons/fa";
 // import * as AiIcons from "react-icons/ai";
 import { Link } from 'react-router-dom';
@@ -58,7 +58,7 @@ function Navbar() {
             ProfPic: userData.pfpURL,
             Role: userData.role || '',
           });
-        
+
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -112,67 +112,76 @@ function Navbar() {
     <>
       <div className='nav-body'>
         {/* <img src={navbg} alt=''/> */}
-    <IconContext.Provider value={{ color: '#000 '}}>
-        <div className='navbar'>
-          {/* <p>First Name: {userInfo.firstname}</p>
+        <IconContext.Provider value={{ color: '#000 ' }}>
+          <div className='navbar'>
+            {/* <p>First Name: {userInfo.firstname}</p>
           <p>Last Name: {userInfo.secondname}</p>
           <p>Role: {userInfo.Role}</p>   */}
-      {/* <Link to = '#' className='menu-bars'>
+            {/* <Link to = '#' className='menu-bars'>
         <FaIcons.FaBars onClick={showSidebar}/>
       </Link> */}
           </div>
           <form onSubmit={handleSearchSubmit} className="search-bar">
-              <input
-                type="text"
-                placeholder="Search..."
-                value={search}
-                onChange={handleSearchChange}
-                className="search-input"
+            <input
+              type="text"
+              placeholder="Search..."
+              value={search}
+              onChange={handleSearchChange}
+              className="search-input"
             />
-            <div className='search-button'><CiSearch size={25}/></div>
+            <div className='search-button'><CiSearch size={25} /></div>
           </form>
-      <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-        <ul className='nav-menu-items' onClick={showSidebar}>
-          <li className='navbar-toggle'>
-            {/* <Link to="#" className='menu-bars'>
+          <div className='sign-out-for-mobile'>
+            <button className='lonely' onClick={handleSignOut}><FaSignOutAlt size={30} color='black' background-color="transparent" /></button>
+          </div>
+          <div className='mob-logo'>
+            <img src={logo} alt='logo' />
+          </div>
+          <div className='mob-notif'>
+            <IoNotificationsCircle size={50} color='#29ada0' />
+          </div>
+          <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+            <ul className='nav-menu-items' onClick={showSidebar}>
+              <li className='navbar-toggle'>
+                {/* <Link to="#" className='menu-bars'>
               <FaIcons.FaBars />  
             </Link> */}
-            <div className='nav-logo'>
-                <img src={logo} alt='logo' />
-            </div>
-            <div className='pfp-logo'>
-              <img className='profile-pic' src={userInfo.ProfPic} alt='profile pic' /> 
-            </div>
-            <div className='prof-name'>      
-              <p className='userInformation1'>{userInfo.firstname},</p>
-            </div>
-            <div className='prof-role'>    
-              <p className='userInformation'>{userInfo.Role}</p>
-            </div>
-            <div className='prof-notif'>
-              <IoNotificationsCircle size={50} color='#29ada0'/>    
-            </div>    
+                <div className='nav-logo'>
+                  <img src={logo} alt='logo' />
+                </div>
+                <div className='pfp-logo'>
+                  <img className='profile-pic' src={userInfo.ProfPic} alt='profile pic' />
+                </div>
+                <div className='prof-name'>
+                  <p className='userInformation1'>{userInfo.firstname},</p>
+                </div>
+                <div className='prof-role'>
+                  <p className='userInformation'>{userInfo.Role}</p>
+                </div>
+                <div className='prof-notif'>
+                  <IoNotificationsCircle size={50} color='#29ada0' />
+                </div>
               </li>
-            <div className='sign-out-box'>
-            <div className='sign-out-icon'>
-              <FaSignOutAlt size={25} color='white' />
-            </div>
+              <div className='sign-out-box'>
+                <div className='sign-out-icon'>
+                  <FaSignOutAlt size={25} color='white' />
+                </div>
                 <button className='sign-out-button' onClick={handleSignOut}>Sign Out</button>
-            </div>
-          {SidebarData.map((item, index) => {
-            return (
-              <li key={index} className={item.cName}>
-                <Link to={item.path} className='icon-items'>
-                  <span className="icon-wrapper">{item.icon}</span>
-                  <span>{item.title}</span>
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
-          </nav> 
+              </div>
+              {SidebarData.map((item, index) => {
+                return (
+                  <li key={index} className={item.cName}>
+                    <Link to={item.path} className='icon-items'>
+                      <span className="icon-wrapper">{item.icon}</span>
+                      <span className="icon-title">{item.title}</span>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
         </IconContext.Provider>
-        </div>
+      </div>
     </>
   )
 }
