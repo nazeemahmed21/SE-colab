@@ -1,78 +1,134 @@
 .up-user-profile-container {
-  position: absolute;
+  position: relative;
   top: 20%;
-  left: 50%;
+  right: 5%;
   text-align: center;
-  padding: 20px;
+  padding: 40px;
 }
 
 .up-profile-pic {
-  position: absolute;
-  left: 5%;
-  width: 200px;
-  height: 200px;
+  position: relative;
+  left: 0%;
+  top: -25%;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-bottom: 20px;
+  border: 5px solid #fea059;
 }
-.user-profile-container h2{
+.up-currentname{
+  position: absolute;
+  left: 58vw;
+  top: 10vh;
+  font-size: 20px;
+  margin-bottom: 20px;
+
+}
+.up-currentrole{  
+  position: absolute;
+  left: 2vw;
+  top: 30vh;
+  font-size: 15px;
+  margin-bottom: 20px;
+
+}
+/* .user-profile-container h2{
   position: fixed;
   top: 49%;
   left: 52.5%;
   font-size: 40px;
-}
+} */
 /* .user-profile-container p{
   position: absolute;
   left: 10%;
   font-size: 20px;
 } */
-.user-profile-container img{
+/* .user-profile-container img{
   border: 5px solid black;
-}
+} */
 .up-edit-name{
   position: fixed;
-  top: 54vh;
-  right: 44vw;
+  top: 40vh;
+  left: 34.2vw;
 }
 .up-edit-name button{
-  width: 7vw;
-  height: 7vh;
+  width: 8vw;
+  height: 8vh;
   font-size: 14px;
 }
 .up-file{
   position: fixed;
-  top: 69.5vh;
+  top: 65.5vh;
   left: 58vw;
   width: 10vw;
 }
+.up-edit-role{
+  position: fixed;
+  top: 61vh;
+  left: 34.2vw;
+}
+.up-edit-role button{
+  width: 8vw;
+  height: 8vh;
+  font-size: 14px;
+}
 .up-update-img{
   position: fixed;
-  top: 63vh;
-  right: 44vw;
+  top: 50vh;
+  left: 34.2vw;
 }
 .up-update-img button{
-  width: 7vw;
-  height: 7vh;
-  font-size: 10px;
+  width: 8vw;
+  height: 8vh;
+  font-size: 12px;
 }
 .up-file-inp-boxes{
   position: fixed;
   top: 75vh;
-  left: 70vw;
+  left: 75vw;
 }
-.up-name{
-  position: fixed;
-  top: 58.3vh;
-  left: 58vw;
+.up-name1{
+  position: relative;
+  top: 1vh;
+  left: 12vw;
+}
+.up_name2{
+  position: relative;
+  top: -5.5vh;
+  left: 12vw;
 }
 .up-save{
-  position: fixed;
+  position: relative;
   top: 77vh;
   left: 43vw;
   width: 20vw;
 }
 .up-roles{
-  position: fixed;
-  top: 75%;
-  left: 57.99%;
-
+  position: relative;
+  top: 6vh;
+  left: 9.3vw;
+}
+.up-file{
+  top: 55.8vh;
+  left: 51.5vw;
+}
+.up_del_acc{
+  position: relative;
+  top: 10vh;
+  left: 4vw;
+}
+.up_delete_acc_btn {
+  position: relative;
+  font-size: 20px;
+  background-color: rgba(255, 0, 0, 0.522);
+  color: white;
+  /* border: solid 2px black; */
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.up_delete_acc_btn:hover {
+  background-color: rgba(255, 0, 0, 0.805);
 }

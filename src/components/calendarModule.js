@@ -10,7 +10,6 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import styles from "../styles/todo.module.css";
 import Navbar from "./Navbar";
-import { db } from "../firebase";
 import { AuthContext } from "../Context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -63,55 +62,63 @@ function CalendarApp() {
     };
   }, [currentUser]); // Include currentUser as a dependency to re-run the effect when it changes
 
+  useEffect(() => {
+    // Listen for the custom event triggered from Home.js to add RSVP and create event
+    const handleAddRSVPAndEvent = (event) => {
+      // Add RSVP logic here if needed
+
+      // Create event on the calendar
+      setNewEvent({
+        title: event.detail.title,
+        start: event.detail.start,
+        end: event.detail.end,
+      });
+    };
+
+    window.addEventListener('addRSVPAndEvent', handleAddRSVPAndEvent);
+
+    return () => {
+      window.removeEventListener('addRSVPAndEvent', handleAddRSVPAndEvent);
+    };
+  }, [allEvents]); // Include allEvents as dependency to re-run the effect when it changes
+
   const handleAddEvent = async () => {
-    // Ensure that newEvent.start and newEvent.end are valid Date objects
     if (!(newEvent.start instanceof Date) || !(newEvent.end instanceof Date)) {
-      // Handle invalid date format (optional)
       console.error("Invalid date format");
       return;
     }
-  
-    // Check if start date is before the current date
+
     if (newEvent.start < new Date()) {
       console.error("Start date must be equal to or after the current date");
-      // Display an error message (you can use a toast library or other UI notification)
       return;
     }
-  
-    // Check if end date is before the start date
+
     if (newEvent.end < newEvent.start) {
       console.error("End date must be equal to or after the start date");
-      // Display an error message (you can use a toast library or other UI notification)
       return;
     }
-  
-    // Add the new event to Firestore
+
     const docRef = await addDoc(collection(getFirestore(), "CalendarEvents"), {
       Title: newEvent.title,
-      "Start Date": newEvent.start, // Use the user-entered start date
-      "End Date": newEvent.end,     // Use the user-entered end date
+      "Start Date": newEvent.start,
+      "End Date": newEvent.end,
       "uid": currentUser.uid,
     });
-  
-    // Update the local state with the new event including the document ID
+
     setAllEvents([...allEvents, {
       title: newEvent.title,
       start: newEvent.start,
       end: newEvent.end,
       id: docRef.id,
     }]);
-  
-    // Clear the input fields after adding an event
+
     setNewEvent({ title: "", start: "", end: "" });
   };
 
   const handleDeleteSelectedEvent = async () => {
     if (selectedEvent) {
-      // Delete the event from Firestore
-      // Use the document ID to identify the event in the Firestore collection
       await deleteDoc(doc(getFirestore(), "CalendarEvents", selectedEvent.id));
 
-      // Update the local state by filtering out the selected event
       const updatedEvents = allEvents.filter((event) => event !== selectedEvent);
       setAllEvents(updatedEvents);
       setSelectedEvent(null);
@@ -200,4 +207,3 @@ function CalendarApp() {
 }
 
 export default CalendarApp;
-

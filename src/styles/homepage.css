@@ -1,3 +1,17 @@
+.thoughtsBtn {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  z-index: 9999; /* Set a higher z-index value */
+}
+
+.backHomebtn {
+  position: absolute;
+  top: 1%;
+  right: 50%;
+  z-index: 9999; /* Set a higher z-index value */
+}
+
 .events {
   display: flex;
   flex-direction: column;
@@ -5,14 +19,14 @@
   position: fixed;
   top: 47%;
   margin-top: 100px;
-  left: 42%;
+  left: 37%;
   transform: translate(-50%, -50%);
   font-size: 55px;
   color: black;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bold;
   height: 90%; /* Adjust as needed */
-  width: 1000px;
+  width: 1800px;
   padding: 20px; /* Add padding for spacing between events */
   overflow-y: auto; /* Enable vertical scrolling */
   max-height: 90vh; /* Limit the maximum height */

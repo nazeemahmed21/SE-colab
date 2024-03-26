@@ -13,7 +13,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Rout />
-      <AuthDetails onAuthStateChanged={updateAuthState} />
+      {/* <AuthDetails onAuthStateChanged={updateAuthState} /> */}
     </BrowserRouter>
   );
 };

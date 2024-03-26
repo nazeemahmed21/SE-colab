@@ -1,237 +1,174 @@
 /* labs.css */
 
-.LabsContainer {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 80px;/* Adjust the left padding as needed */
-  }
-  
-  .labBox {
-border-radius: 5px;
-    color: black;
-    width: 250px; /* Adjust the width of the rectangle boxes */
-    height: 200px; /* Adjust the height of the rectangle boxes */
-    background-size: cover;
-    margin: 10px;
-    border: 1px solid #ccc; /* Add a border for better visibility */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff; /* Set text color to white, adjust as needed */
-  }
-  
-  .labBox p {
-    color: black;
-    margin: 0;
-    font-size: 30px;
-    text-decoration: none;
-  }
-  
-.LabsPage{
-    margin-top: 100px;
-    padding-left: 250px;
-}
-
-.LabsPage h1{
-    margin-top: 100px;
-    padding-left: 120px;
-    font-size: 35px;
-    text-decoration: none;
-}
 
 button{
-    display: inline;
-    color: white;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-left: 120px;
-    padding: 15px;
-    background-color: #29ada0 ;
-    border-radius: 5px;
+  display: inline;
+  color: white;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-left: 120px;
+  padding: 15px;
+  background-color: #29ada0 ;
+  border-radius: 5px;
 }
 
 
 /* Add these styles to your labs.css */
 
 .folder-box {
-    width: 150px;
-  height: 80px;
-  background-color: #3498db;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  user-select: none; /* Standard syntax */
-  }
-  
-  .animate {
-    animation: folderAnimation 1s ease-in-out;
-  }
-  
-  @keyframes folderAnimation {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(180deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+  width: 150px;
+height: 80px;
+background-color: #3498db;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+-webkit-user-select: none; /* Chrome/Safari */
+-moz-user-select: none; /* Firefox */
+user-select: none; /* Standard syntax */
+}
 
-  .labA h3{
-    margin-top: 100px;
-    padding-left: 150px;
-    font-size: 35px;
+.animate {
+  animation: folderAnimation 1s ease-in-out;
+}
+
+@keyframes folderAnimation {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  
-  /* labs.css */
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.labA h3{
+  margin-top: 100px;
+  padding-left: 150px;
+  font-size: 35px;
+}
+
+
+/* labs.css */
 
 .LabsPageAnnouncement {
-  /* align-items: center; */
-  margin-top: 100px;
-  display: flex;
+/* align-items: center; */
+margin-top: 100px;
+display: flex;
 }
 
 .labSideBar {
-  border-radius: 8px;
-  height: 60vh;
-  margin-top: 100px;
-  margin-left: 390px;
-  width: 260px;
-  background-color: #29ada0 ; /* Add a background color for the sidebar */
-  color: white;
+border-radius: 8px;
+height: 60vh;
+margin-top: 100px;
+margin-left: 390px;
+width: 260px;
+background-color: #29ada0 ; /* Add a background color for the sidebar */
+color: white;
 }
 
 .labSideBarText {
 
-  margin-top: 70px;
-  padding: 20px;
+margin-top: 70px;
+padding: 20px;
 }
 
 .labSideBar ul {
-  align-items: space-between;
-  list-style-type: none;
-  padding: 0;
+align-items: space-between;
+list-style-type: none;
+padding: 0;
 }
 
 .labSideBar p {
-  align-items: space-evenly;
-  font-size: 20px;
-  margin-bottom: 10px;
+align-items: space-evenly;
+font-size: 20px;
+margin-bottom: 10px;
 }
 
-.LabsContent {
-  flex: 1;
-  padding: 20px;
-  margin-left: 10px;
-}
 
 .labAnncMessage {
-  border-radius: 8px;
-  margin-top: 50px;
-  margin-left: 30px;
-  background-color: #29ada0 ;
-  padding: 10px;
-  margin-bottom: 10px;
-  color: white;
-  border-radius: 5px;
-  width: 70%;
+border-radius: 8px;
+margin-top: 50px;
+margin-left: 30px;
+background-color: #29ada0 ;
+padding: 10px;
+margin-bottom: 10px;
+color: white;
+border-radius: 5px;
+width: 70%;
 }
 
 .labAnncMessage h1 {
-  
-  margin-bottom: 5px;
+
+margin-bottom: 5px;
 }
 
 .labAnncMessage p {
-  align-self: right;
-  margin-top: 5px;
-  font-size: 16px;
+align-self: right;
+margin-top: 5px;
+font-size: 16px;
 }
 
-.LabsContent span {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
+
 
 .labFolderContainer {
-  margin-top: 70px;
-  display: flex;
-  gap: 120px; /* Adjust the value to set the desired space between images */
+margin-top: 70px;
+display: flex;
+gap: 120px; /* Adjust the value to set the desired space between images */
 }
 
 .labFolderContainer img {
-  max-width: 100%; /* Ensure images don't exceed their chatsContainer's width */
-  height: auto; /* Maintain aspect ratio */
+max-width: 100%; /* Ensure images don't exceed their chatsContainer's width */
+height: auto; /* Maintain aspect ratio */
 }
 
 .labsImageContainer {
-  text-align: center; /* Center the content within the container */
+text-align: center; /* Center the content within the container */
 }
 
 .labsImageContainer img {
-  max-width: 100%; /* Ensure images don't exceed their container's width */
-  height: auto; /* Maintain aspect ratio */
+max-width: 100%; /* Ensure images don't exceed their container's width */
+height: auto; /* Maintain aspect ratio */
 }
 
 .labsImageContainer p {
 font-size: 20px;
-  margin-top: 5px; /* Adjust the value to set the space between image and description */
-}
-
-.labsArrowContainer {
-  margin-top: 100px;
-  margin-left: 350px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
-.labsBack-arrow {
-  color: #29ada0;
-  font-size: 30px;
+margin-top: 5px; /* Adjust the value to set the space between image and description */
 }
 
 a {
-  text-decoration: none;
-  color: white;
+text-decoration: none;
+color: white;
 }
 
 
-.LabsContent h1{
-  margin-left: 30px;
-  font-size: 36px;
-}
 
 .LabsButtons{
-  align-items: center;
+align-items: center;
 }
 /* Add this to your labs.css */
 
 .labsImageContainer {
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.4s ease-in-out;
+position: relative;
+cursor: pointer;
+transition: transform 0.4s ease-in-out;
 }
 
 
 @keyframes slideOutFromFolder {
-  from {
-    transform: translateX(-50%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(90%);
-    opacity: 1;
-  }
+from {
+  transform: translateX(-50%);
+  opacity: 0;
+}
+to {
+  transform: translateX(90%);
+  opacity: 1;
+}
 }
 
 .slideOutFromFolderAnimation {
-  animation: slideOutFromFolder 1s ease-in-out forwards; /* Adjust the animation duration as needed */
+animation: slideOutFromFolder 1s ease-in-out forwards; /* Adjust the animation duration as needed */
 }

@@ -1,21 +1,62 @@
-import { doc, onSnapshot } from "firebase/firestore";
+import { collection, documentId, doc, getDoc, onSnapshot, where, query } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { ChatContext } from "../Context/ChatContext";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 
 //new_user@gmail.com , new_user 
 const Chats = () => {
   const [chats, setChats] = useState([]);
+  const [userInfo, setUserInfo] = useState({
+    firstname: "",
+    secondname: "",
+    ProfPic: "", // Corrected to match the fetched user data
+    Role: "",
+  });
   const [loading, setLoading] = useState(true);
 
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
 
   useEffect(() => {
-    const getChats = () => {
-      const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
-        setChats(doc.data());
+    const fetchUserData = async () => {
+      const currentUser = auth.currentUser;
+      if (currentUser) {
+        const userId = currentUser.uid;
+        const userRef = doc(db, "Users", userId);
+
+        try {
+          const userDoc = await getDoc(userRef);
+          if (userDoc.exists()) {
+            const userData = userDoc.data();
+            setUserInfo({
+              firstname: userData.firstName || "",
+              secondname: userData.lastName || "",
+              ProfPic: userData.pfpURL || "",
+              Role: userData.role || "",
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  useEffect(() => {
+    const getChats = async () => {
+      const userChats = await getDoc(doc(db, "userChatMapping", currentUser.uid)).then(doc => doc.data()?.chats);
+
+      const q = query(collection(db, "chatMetadata"), where(documentId(), 'in', userChats==undefined ? ["test"] : userChats));
+      const unsub = onSnapshot(q, (querySnapshot) => {
+        const chatsArray = [];
+        
+        querySnapshot.forEach((doc) => {
+          chatsArray.push([doc.id, doc.data()]);
+        })
+        setChats(chatsArray);
         setLoading(false);
       });
 
@@ -27,28 +68,31 @@ const Chats = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
 
-  console.log("gyat",chats);
-  const handleSelect = (u) => {
-    dispatch({ type: "CHANGE_USER", payload: u });
+  console.log("at",chats);
+  const handleSelect = (user, chatId) => {
+    dispatch({ type: "CHANGE_USER", payload: { user, chatId } });
   };
 
   // console.log(chats)
-  // console.log(Object.entries(chats))
+  // console.log(Object.entries(Users))
   return (
     <div className="chats">
        {loading ? (
         // Render a loading indicator, e.g., a spinner
         <div>Loading...</div>
       ) : (
-      Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
+      chats?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
         <div
           className="userChat"
           key={chat[0]}
-          onClick={() => handleSelect(chat[1].userInfo)}
+          onClick={() => handleSelect(chat[1].userInfo, chat[0])}
         >
+         
           {chat[1]?.userInfo && (
             <>
-          <img src={chat[1].userInfo.pfpURL} alt="" />
+         {/* { chat[1].userInfo.pfpURL && ( */}
+          <img src={userInfo.ProfPic} alt="" />
+{/* )}  */}
           <div className="userChatInfo">
             <span>{chat[1].userInfo.displayName}</span>
             <p>{chat[1].lastMessage?.text}</p>
@@ -58,8 +102,11 @@ const Chats = () => {
         </div>
       ))
       )}
+      
     </div>
+    
   );
+  
 };
 
 export default Chats;

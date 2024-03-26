@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
-import { auth } from '../firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
-import '../styles/login.css'; // Adjust the CSS import path
-import logo from '../images/logo.png'
-import { fetchid } from '../components/firebaseforreminder';
+import React, { useRef } from "react";
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import styles from "../styles/login.module.css"; // Adjust the CSS import path
+import logo from "../images/logo.png";
+import { fetchid } from "../components/firebaseforreminder";
 
 function Login() {
   // const currentUser = useAuth();
@@ -29,8 +29,8 @@ function Login() {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredentials) => {
+    signInWithEmailAndPassword(auth, email, password).then(
+      (userCredentials) => {
         const user = userCredentials.user;
         console.log("hi");
         // Check if the user exists and their email is verified
@@ -41,29 +41,47 @@ function Login() {
           // setErrMsg("Please verify your email before logging in.")
           console.log("Please verify your email before logging in.");
         }
-      })
-      .catch((error) => {
-        const errorMessage = `Error creating user: ${error}`;
-        // setErrMsg(errorMessage);
-        // setFail(true);
-        console.log(errorMessage);
-      });
+      }
+    );
+    fetchid().catch((error) => {
+      const errorMessage = `Error creating user: ${error}`;
+      // setErrMsg(errorMessage);
+      // setFail(true);
+      console.log(errorMessage);
+    });
   };
   return (
-    <div className='login-container'>
-      <div className='l-form-container'>
+    <div className={styles.login_container}>
+      <div className={styles.login_form_container}>
         <h3>Enter your Email Address</h3>
-        <input ref={emailRef} className='email' type='email' placeholder='Email...' />
+        <input
+          ref={emailRef}
+          className="email"
+          type="email"
+          placeholder="Email..."
+        />
         <h3>Enter your Password</h3>
-        <input ref={passwordRef} className='password' type='password' placeholder='Password...' />
+        <input
+          ref={passwordRef}
+          className="password"
+          type="password"
+          placeholder="Password..."
+        />
         <br></br>
-        <Link to="/signup" className='link-to-signin'>Don't have an account? Sign Up Now.</Link>
+        <span className={styles.login_no_underline}>
+          Don't have an account?{" "}
+        </span>
+        <Link to="/signup" className={styles.link_to_signin}>
+          Sign Up Now.
+        </Link>
         <br></br>
-        <button className='login_button' onClick={handleLogin}>Login</button>
+        <button className={styles.login_button} onClick={handleLogin}>
+          Login
+        </button>
         <br></br>
       </div>
-      <div className='l-image-container'>
-        <img src={logo} alt='logo' />
+      <div className={styles.l_image_container}>
+        <img src={logo} alt="logo" />
       </div>
     </div>
   );
