@@ -122,18 +122,20 @@
 }
 
 .lp-img-1 {
-  width: 19%;
-  top: 30%;
-  right: 17%;
-  border-radius: 150px;
+  top: 5%;
+  right: 1%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
   position: absolute;
 }
 
 .lp-img-2 {
-  width: 30%;
-  top: 35%;
-  right: 10%;
-  border-radius: 150px;
+  top: 5%;
+  right: 1%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
   position: absolute;
 }
 
