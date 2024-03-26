@@ -31,7 +31,7 @@ const Toolbox = () => {
 
         <a href="https://www.blackbox.ai/agent/Co-LabChatbotJS0yczR" target="_blank" rel="noreferrer" class="toolboxbtn" id="three">
           <Icon class="tlbx8icons" icon="eos-icons:ai" height="40px" />
-          <p></p>AI Help
+          AI Help
         </a>
 
         <a href="https://imaadmmi.github.io/Diagram-Editor/" target="_blank" rel="noreferrer" class="toolboxbtn" id="four">
