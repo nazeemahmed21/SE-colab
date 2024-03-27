@@ -66,6 +66,7 @@ export const  ImageAnnotator = () => {
           <Navbar/>
           <div className=' chatsHome'>
             <div className='chatsContainer'>
+              {/* comment */}
               <Typography variant='h5'>
                 Click the image below to annotate it.
               </Typography>
