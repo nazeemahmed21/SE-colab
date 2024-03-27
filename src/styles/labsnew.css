@@ -1,8 +1,12 @@
 .labsPageMain{
     margin-left: 300px;
-    margin-top: 5px;
+    margin-top:90px;
     padding: 10px;
     margin-bottom: 0.01px;
+  }
+  .labsPageMain button{
+    color: white;
+    border-radius: 5px;
   }
 
   .labsArrowContainer {
@@ -439,3 +443,4 @@
     min-width: 250px; /* Set width for each card */
   }
 }
+

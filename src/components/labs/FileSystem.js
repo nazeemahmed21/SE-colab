@@ -3,10 +3,10 @@ import "./labStyles/fms.css";
 import './labStyles/ffolders.min.css'; // Import the FFolders.css library
 import "./labStyles/css-file-icons.css"; // Import the css-file-icons.css file
 import { useState, useEffect, useCallback } from "react";
-import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL, listAll, deleteObject } from "firebase/storage";
 import { storage, db, auth } from "../../firebase";
 import { v4 } from "uuid";
-import { collection, getDocs, addDoc, doc } from "firebase/firestore";
+import { collection, getDocs, addDoc, doc, deleteDoc, getDoc, updateDoc } from "firebase/firestore";
 import { useParams } from 'react-router-dom'; 
 
 function FileSystem() {
@@ -20,6 +20,8 @@ function FileSystem() {
   const [userId, setUserId] =  useState('');
   const [labId, setLabId] = useState('');
   const { labId: urlLabId } = useParams();
+  const [isLabOwner, setIsLabOwner] = useState(false);
+  
 
 
   useEffect(() => {
@@ -34,6 +36,30 @@ function FileSystem() {
     }
   }, [labId, urlLabId]);
 
+  useEffect(() => {
+    const fetchLabOwnership = async () => {
+      if (labId && userId) {
+        const isOwner = await isLabOwnerFunc(labId, userId); // Assuming you have the isLabOwner function implemented
+        setIsLabOwner(isOwner);
+      }
+    }
+
+    fetchLabOwnership(); 
+  }, [labId, userId]); 
+
+  async function isLabOwnerFunc(labId, userId) {
+    // 1. Fetch lab data from Firestore
+    const labRef = doc(db, "labs", labId);
+    const labDoc = await getDoc(labRef);
+
+    // 2. Check if the lab exists
+    if (!labDoc.exists()) {
+        return false; // Lab doesn't exist
+    }
+
+    // 3. Check ownership
+    return labDoc.data().ownerID === userId; 
+}
 
   const fetchLabFiles = useCallback(async () => {
     try {
@@ -98,13 +124,15 @@ function FileSystem() {
         name: fileUpload.name,
         folder: currentFolder.name,
         isFolder: false,
+        uploadedBy: userId,
       });
 
       const url = await uploadFileToStorage(
         fileUpload,
         currentFolder.name,
-        fileUpload.name + v4()
+        fileUpload.name + '_'+ newFileDoc.id
       );
+
 
       setFileUrls((prev) => [
         ...prev,
@@ -115,6 +143,7 @@ function FileSystem() {
       console.error("Error uploading file:", error);
     } finally {
       setLoading(false);
+      navigateIntoFolder(currentFolder);
     }
   };
 
@@ -125,11 +154,6 @@ function FileSystem() {
     return url;
   };
 
- 
-
-  useEffect(() => {
-    fetchLabFiles();
-  },[fetchLabFiles]);
 
   const navigateBack = async () => {
     try {
@@ -157,7 +181,7 @@ function FileSystem() {
       setFileUrls(files);
       setCurrentFolder(folder);
     } catch (error) {
-      setError("Error fetching folder contents. Please try again.");
+      //setError("Error fetching folder contents. Please try again.");
       console.error("Error fetching folder contents:", error);
     }
   };
@@ -166,6 +190,68 @@ function FileSystem() {
     window.open(url, "_blank");
   };
 
+  const deleteFile = async (file) => {
+    try {
+      const docOfFile = file.name.split('_')[1];
+      console.log('docId:', docOfFile);
+      // Confirmation Alert
+      if (!window.confirm(`Are you sure you want to delete the file ${file.name}?`)) {
+        return; 
+      }
+  
+      // 1. Delete the file from Firebase Storage
+      const fileRef = ref(storage, `folders/${file.folder}/${file.name}`);
+      await deleteObject(fileRef);
+  
+      // 2. Delete file's record from the Firestore database
+      const labRef = doc(db, "labs", labId);
+      const fileDocRef = doc(db, "labs", labId, "files", docOfFile);
+      await deleteDoc(fileDocRef);
+  
+      // 3. Remove the file from the fileUrls state
+      setFileUrls((prevFiles) => prevFiles.filter((f) => f !== file.id));
+      alert("File deleted successfully!");
+    } catch (error) {
+      setError("Error deleting file. Please try again.");
+      console.error("Error deleting file:", error);
+    }
+  };
+  
+  const deleteFolder = async (folder) => {
+    try {
+      // Authorization Check - Implement your logic here
+      if (!isLabOwner) {
+        throw new Error("You are not authorized to delete this folder.");
+      }
+      
+      // Confirmation Alert
+      if (!window.confirm(`Are you sure you want to delete the folder ${folder.name} and all its contents?`)) {
+        return; 
+      }
+  
+      // 1. Recursively delete files within the folder 
+      const folderRef = ref(storage, `folders/${folder.name}`);
+      const filesResponse = await listAll(folderRef);
+      await Promise.all(filesResponse.items.map((item) => deleteFile({ name: item.name, folder: folder.name })));
+  
+      // 2. Delete the folder's record from Firestore
+      const labRef = doc(db, "labs", labId);
+      const folderDocRef = doc(collection(labRef, "folders"), folder.id); 
+      await deleteDoc(folderDocRef);
+  
+      // 3. Remove the folder from the folders state
+      setFolders(prevFolders => prevFolders.filter(f => f !== folder));
+    } catch (error) {
+      setError("Error deleting folder. Please try again.");
+      console.error("Error deleting folder:", error);
+    }
+  };
+
+  
+  useEffect(() => {
+    fetchLabFiles();
+    navigateIntoFolder(currentFolder);
+  },[fetchLabFiles]);
 
 
   return (
@@ -181,7 +267,7 @@ function FileSystem() {
       </div>
 
       {loading && <p>Loading...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {!loading && error && <p style={{ color: "red" }}>{error}</p>}
       {currentFolder ? (
         <>
           <h2>{currentFolder.name} Folder:</h2>
@@ -199,12 +285,16 @@ function FileSystem() {
             <div className="file-container">
               <h2>Files:</h2>
               <div className="file-tiles">
-                {fileUrls.map(({ url, name, isFolder }, index) => (
+                {fileUrls.map(({ url, name, isFolder, folder, user }, index) => (
                   !isFolder && // Only display files, not folders
-                  <div key={index} className="file-tile" onClick={() => openFile(url)}>
-                    
-                    <span>{name.replace(/_[^.]+$/, '')}</span>
+                  <div key={index} className="file-tile"> {/* No onClick here */}
+                  <div className="file-name" onClick={() => openFile(url)}> 
+                    <span>{name.split('.')[0] +'.'+ name.split('.')[1].split('_')[0]}</span>
                   </div>
+                  {isLabOwner && (
+                    <button className="labFilesDelete" onClick={(event) => deleteFile({ url, name, isFolder, folder, user })}>Delete</button> 
+                  )} 
+                </div>
                 ))}
               </div>
             </div>
