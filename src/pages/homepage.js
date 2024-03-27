@@ -24,7 +24,7 @@ function Home() {
   return (
     <>
       <div>
-        <button className="backHomebtnHome">Events</button>
+        {/* <button className="backHomebtnHome">Events</button> */}
         <Link to="/thoughts">
           <button className="thoughtsBtn">Go to Thoughts</button>
         </Link>
