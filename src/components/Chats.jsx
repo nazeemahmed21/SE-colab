@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { ChatContext } from "../Context/ChatContext";
 import { db, auth } from "../firebase";
+import userChatsProfPic from "../images/userChatsProfPic.png";
 
 //new_user@gmail.com , new_user 
 const Chats = () => {
@@ -90,8 +91,9 @@ const Chats = () => {
          
           {chat[1]?.userInfo && (
             <>
+            {/* <a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Smashicons - Flaticon</a> */}
          {/* { chat[1].userInfo.pfpURL && ( */}
-          <img src={userInfo.ProfPic} alt="" />
+          <img src={userChatsProfPic} alt="" />
 {/* )}  */}
           <div className="userChatInfo">
             <span>{chat[1].userInfo.displayName}</span>

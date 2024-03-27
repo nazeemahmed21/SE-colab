@@ -27,6 +27,7 @@
   
   /* Style for the sidebar */
   .sidebar {
+    box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.4);
     /* z-index: 1; */
     flex: 0.7;
     background-color: #ffffff; /* WhatsApp green */
@@ -77,6 +78,7 @@
   }
   
   .sidebar .userChat {
+    gap: 10px;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -84,6 +86,7 @@
     cursor: pointer;
     border-bottom: 0.8px solid #f2f0f0; /* Add grey divider */
   }
+
   
   .sidebar .userChat:hover {
     background-color: #19b6a3; /* Darker shade of green on hover */
@@ -116,20 +119,31 @@
   }
   
   .chatInfo{
+    align-items: center;
+    justify-content: space-between;
+    background-color:#149082; 
+    color: white;
+    font-size: 26px; /* Adjust font size */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 8px; /* Add border radius for a nicer look */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for depth */
+
+
    position: fixed;
    /* left: 100; */
    width: 63%;
-   background-color: #075e54;
+   /* background-color: #12ab99; */
    color: white;
    font-size: 25px;
    height: 60px;
-   margin-bottom: 10px;
+   margin-bottom: 12px;
   }
 
   .chatIcons {
     /* position: fixed; */
     display: flex;
     gap: 15px;
+    margin-right: 20px;
   }
   
   /* .chat .messages {
@@ -343,6 +357,7 @@
   }
   
   .sidebar {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
     flex: 1; /* Occupy full width */
     width: 100%; /* Occupy full width */
     padding: 10px; /* Adjust padding */

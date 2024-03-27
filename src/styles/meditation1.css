@@ -3,7 +3,6 @@
     display: flex;
   }
 .Meditation1Page{
-  overflow-y: auto; 
   max-height: calc(100vh - 110px);
     display: flex;
     flex-direction: column;
@@ -11,15 +10,13 @@
     margin-left: 150px;  
     /* overflow-y: auto; */
     height: 740px;
-    /* position: relative; Add relative positioning */
-    /* position: sticky;
-    top: 50px;  */
 }
 
 .NavbarMeditatation1{
   position: sticky;
   z-index: 100; /* Ensure the header stays above other content */
 }
+
 .Meditation1Page h1{
   font-size: 28px;
   color: black;
@@ -110,11 +107,6 @@ background-color: #29ada0;;
 }
   .content-tile {
     flex: 0 0 calc(33.33% - 20px); /* Adjust the width as needed */
-    /* margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    color: black; */
   }
 
   
@@ -171,8 +163,6 @@ background-color: #29ada0;;
   .content-description {
     margin-top: 5px;
   }
-
-  
   
  
   
