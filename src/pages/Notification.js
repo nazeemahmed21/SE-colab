@@ -57,7 +57,7 @@ const Notification = ({ userId }) => {
 
   return (
     <div className="notification-container">
-      <h2>Notifications</h2>
+      <h3>Notifications :</h3>
       <br></br>
       <div className="notifButton"><button onClick={handleClearNotifications}>Clear Notifications</button></div>
       

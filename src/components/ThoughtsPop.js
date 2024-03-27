@@ -17,7 +17,7 @@ import toast, { Toaster } from "react-hot-toast";
 //============================================================
 //DISCLAIMER, READ THE FOLLOWING LIST OF WORDS AT YOUR OWN RISK, ONLY USED FOR THE PURPOSE OF TESTING AND FILTERING OUT VULGAR WORDS
 //============================================================
-const vulgarWords = []; // Taken from https://www.cs.cmu.edu/~biglou/resources/bad-words.txt
+const vulgarWords = ["vulgar", "offensive", "bad", "harmful", "hate", "controversial"]; // Taken from https://www.cs.cmu.edu/~biglou/resources/bad-words.txt
 
 function containsVulgarWords(text) {
   const lowerCaseText = text.toLowerCase();
@@ -32,6 +32,7 @@ function ThoughtsPopup({
 }) {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
+  const [category, setCategory] = useState("");
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
@@ -40,6 +41,7 @@ function ThoughtsPopup({
     if (editThoughtData) {
       setTitle(editThoughtData.title || "");
       setPostText(editThoughtData.postText || "");
+      setCategory(editThoughtData.category || "");
       setImageUrl(editThoughtData.imageUrl || null);
     }
   }, [editThoughtData]);
@@ -49,6 +51,7 @@ function ThoughtsPopup({
     // Reset the state variables after closing the popup
     setTitle("");
     setPostText("");
+    setCategory("");
     setImageUrl(null);
     setEditThoughtData(null); // Reset editThoughtData
   };
@@ -97,6 +100,7 @@ function ThoughtsPopup({
           title,
           postText,
           imageUrl,
+          category,
           author: {
             name: authorName,
             id: userId,
@@ -147,6 +151,7 @@ function ThoughtsPopup({
         await updateDoc(postRef, {
           title,
           postText,
+          category,
           imageUrl,
         });
 
@@ -182,7 +187,7 @@ function ThoughtsPopup({
           </button>
           <div className="createPostPage">
             <div className="cpContainer">
-              <h1>{editThoughtData ? "Edit Event" : "Create Event"}</h1>{" "}
+              <h1>{editThoughtData ? "Edit Event" : "Post Thought"}</h1>{" "}
               {/* Display appropriate title based on editPostData */}
               <div className="inputGp">
                 <label>Title: </label>
@@ -200,6 +205,22 @@ function ThoughtsPopup({
                   onChange={(event) => setPostText(event.target.value)}
                 />
               </div>
+
+              <div className="inputGp">
+                <label>Type: </label>
+                <select value={category} onChange={(event) => setCategory(event.target.value)}>
+                  <option value="">Select Type</option>
+                  <option value="fun">Fun</option>
+                  <option value="technology">Technology</option>
+                  <option value="art">Art</option>
+                  <option value="education">Education</option>
+                  <option value="gaming">Gaming</option>
+                  <option value="business">Business</option>
+                  <option value="general science">General Science</option>
+                  <option value="maths">Maths</option>
+                </select>
+              </div>
+
               <div className="inputGp">
                 <input
                   type="file"

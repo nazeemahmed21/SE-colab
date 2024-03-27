@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { AiOutlineFile } from 'react-icons/ai';
 import { ChatContext } from '../Context/ChatContext';
 import { AuthContext } from '../Context/AuthContext';
 import { db, storage } from '../firebase';
 import { doc, updateDoc, arrayUnion, serverTimestamp, Timestamp } from 'firebase/firestore';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 import EmojiPicker from 'emoji-picker-react'; // Import the emoji picker library
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,8 @@ const Input = () => {
   const navigate = useNavigate();
   const [text, setText] = useState('');
   const [img, setImg] = useState(null);
+  const [file, setFile] = useState(null);
+  const fileRef = useRef("");
   const [gif, setGif] = useState(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false); 
   // const badWords = require('./bad-words-in-array.txt').split('\n');
@@ -40,40 +42,34 @@ const Input = () => {
         owner: true, // Set the owner flag to true for the messages you send
       };
 
-    if (img) {
+    if (file) {
       const storageRef = ref(storage, uuid());
 
-      const uploadTask = uploadBytesResumable(storageRef, img);
-
-      uploadTask.on(
-        (error) => {
-          console.error("Error uploading image:", error); 
-        },
-        async () => {
+      uploadBytes(storageRef, file).then(async (snapshot) => {
           try {
             // Wait for a short duration to ensure that the download URL is available
             await new Promise(resolve => setTimeout(resolve, 1000));
 
-            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-
+            const downloadURL = await getDownloadURL(snapshot.ref);
 
             await updateDoc(doc(db, "chatMessages", data.chatId), {
               messages: arrayUnion({
                 id: uuid(),
-                text,
+                text: text == "" ? "File" : text,
                 senderId: currentUser.uid,
                 date: Timestamp.now(),
-                img: downloadURL,
+                file: downloadURL,
               }),
             });
           } catch (error) {
             console.error("Error getting download URL:", error);
           } finally {
-            
+            fileRef.current.value = ""
+            setFile(null);
           }
         }
       );
-    } else if (gif) {
+    }  else if (gif) {
       await updateDoc(doc(db, "chatMessages", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
@@ -137,7 +133,11 @@ const handleSelectGif = async (searchTerm) => {
   
   const handleUploadImage = (event) => {
     const files = event.target.files;
-    navigate("/imageAnnotation", {state: URL.createObjectURL(files[0])});
+    if (files[0].type.includes("image")){
+      navigate("/imageAnnotation", {state: URL.createObjectURL(files[0])});
+    } else {
+      setFile(files[0]);
+    }
   };
 
   return (
@@ -170,7 +170,7 @@ const handleSelectGif = async (searchTerm) => {
     <div className="send">
       <label htmlFor="file">
         <AiOutlineFile className='icons' size={25} />
-        <input type="file" onChange={(e) => handleUploadImage(e)} />
+        <input type="file" ref={fileRef} onChange={(e) => handleUploadImage(e)} />
       </label>
       <span className='icons' style={{ fontSize: '25px' }} onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
         😀

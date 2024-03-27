@@ -190,6 +190,9 @@ const Messages = ({ message }) => {
             <div style={{margin: 5}}>
               {m.img ? <Link target="_blank" href={m.img} underline="hover">Click to view image</Link> : <></>}
             </div>
+            <div style={{margin: 5}}>
+              {m.file ? <Link target="_blank" href={m.file} underline="hover">Click to view file</Link> : <></>}
+            </div>
             <div>
               <Typography variant='body2'>
                 {m.senderId != currentUser.uid ? <p>{userIdNameMap[m.senderId]}</p> : ''}

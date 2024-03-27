@@ -36,7 +36,6 @@ export const  ImageAnnotator = () => {
 
     const handleSend = async () => {
       const storageRef = ref(storage, uuid());
-
       const imageBlob = await fetch(imgRef.current.src).then(res => res.blob());
 
       uploadBytes(storageRef, imageBlob).then(async (snapshot) => {
