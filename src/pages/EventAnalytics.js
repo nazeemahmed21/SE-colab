@@ -102,7 +102,7 @@ function EventAnalytics() {
       </div>
       {showAnalytics && (
         <div className="event-analytics">
-          <h2>Your Event Analytics</h2>
+          <h5>Your Event Analytics</h5>
           <div className="AnalyticsSearchBar">
             <input
               type="text"
@@ -113,7 +113,7 @@ function EventAnalytics() {
           </div>
           {filteredEvents.map((event) => (
             <div key={event.id} className="event-analytics-item">
-              <h3>{event.title}</h3>
+              <h5>{event.title}</h5>
               <p>Attendees: {event.rsvpCount}</p>
               <button onClick={() => handleShowRSVPs(event.rsvpNames)}>
                 Show RSVPs

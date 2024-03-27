@@ -6,7 +6,10 @@
   left: 15%;
   z-index: 99; /* Ensure the container is above other elements */
 }
-
+.event-analytics-container .event-analytics{
+  position: relative;
+  left: 500px;
+}
 /* Adjust the position and width of the search input */
 .event-analytics input[type="text"] {
   width: 20%; /* Take up full width */
@@ -55,11 +58,12 @@
   max-height: 800px; /* Limit height and add scrollbar if necessary */
   left: 10%; /* Center the container */
   width: 500px;
-  height: 800px;
+  height: 400px;
 }
 
 .AnalyticsSearchBar {
-  position: absolute;
+  position: relative;
+  bottom: 80px;
   width: 100%; /* Make it take full width of the parent container */
   padding-bottom: 30px;
   z-index: 1000;
@@ -72,22 +76,26 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
-
-.event-analytics h2 {
-  margin-bottom: 10px;
+.event-analytics p{
+  position: relative;
+  bottom: 250px;
+  font-size: 30px;
+  margin-bottom: -100px;
 }
-
 .event-analytics-item {
-  margin-bottom: 20px;
+  /* margin-bottom: 2px; */
+  position: relative;
 }
 
-.event-analytics-item h3 {
-  margin-bottom: 5px;
-  margin-top: 100px;
+.event-analytics-item h5 {
+  position: relative;
+  bottom: 180px;
 }
 
 .event-analytics-item button {
+  position: relative;
+  right: 57px;
+  bottom: 150px;
   background-color: #27ae60;
   color: white;
   border: none;
@@ -143,14 +151,29 @@
 .rsvp-users-container button:hover {
   background-color: #c0392b;
 }
-@media screen and (min-width: 1101px) and (max-width: 1300px){
+@media screen and (min-width: 1201px) and (max-width: 1300px){
   .ta-btn-container button{
     width: 50px;
     height: 50px;
     border-radius: 50px;
     position: relative;
-    left: 645%;
+    left: 865%;
     top: -10px;
+  }
+}
+@media screen and (min-width: 1101px) and (max-width: 1200px){
+  .ta-btn-container button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    left: 885%;
+    top: -10px;
+  }
+  .event-analytics-container .event-analytics{
+    position: relative;
+    left: 500px;
+    width: 400px;
   }
 }
 @media screen and (min-width: 1001px) and (max-width: 1100px){
@@ -159,8 +182,63 @@
     height: 50px;
     border-radius: 50px;
     position: relative;
-    left: 655%;
+    left: 850%;
     top: -10px;
+  }
+  .event-analytics-container .event-analytics{
+    position: relative;
+    left: 500px;
+    width: 330px;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 999px){
+  .ta-btn-container button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    left: 870%;
+    top: -11px;
+  }
+  .event-analytics-container .event-analytics{
+    position: relative;
+    left: 440px;
+    width: 330px;
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 899px){
+  .ta-btn-container button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    left: 460px;
+    top: -11px;
+  }
+  .event-analytics-container .event-analytics{
+    position: relative;
+    left: 420px;
+    width: 300px;
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 799px){
+  .ta-btn-container button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    left: 785%;
+    top: -11px;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 499px){
+  .ta-btn-container button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    left: 550%;
+    top: -11px;
   }
 }
 @media screen and (min-width: 300px) and (max-width: 399px){
@@ -169,7 +247,12 @@
     height: 50px;
     border-radius: 50px;
     position: relative;
-    left: 465%;
+    left: 250px;
     top: -11px;
+  }
+  .event-analytics-container .event-analytics{
+    position: relative;
+    left: 170px;
+    width: 330px;
   }
 }
