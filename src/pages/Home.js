@@ -22,7 +22,7 @@ import EventAnalytics from "./EventAnalytics";
 import "../styles/events.css";
 import Searchbar from "./Searchbar";
 import { TbReportAnalytics } from "react-icons/tb";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { IoIosNotifications } from "react-icons/io";
 import { AiFillPlusCircle } from "react-icons/ai";
 
@@ -246,26 +246,16 @@ function Home({ isAuth }) {
 
   return (
     <>
-      <div>
-        <Toaster
-          position="bottom-right"
-          toastOptions={{
-            style: {
-              fontSize: "1.75rem",
-            },
-          }}
-        />
-      </div>
       <div className="homePage">
         <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <div className="create_event">
           <button className="CreateEvent" onClick={() => setButtonPopup(true)}>
-            <AiFillPlusCircle size={30}/>
+            <AiFillPlusCircle size={30} />
           </button>
         </div>
         <div className="notif_events_btn">
           <button className="notif" onClick={handleToggleNotifications}>
-            <IoIosNotifications size={30}/>
+            <IoIosNotifications size={30} />
           </button>
         </div>
         <Popup
@@ -329,12 +319,16 @@ function Home({ isAuth }) {
                 {rsvpStatus[post.id] ? "Cancel RSVP" : "RSVP"}
               </button>
             </div>
-            <span className="numRSVPattendees">{post.rsvpCount || 0} RSVPs</span>
+            <span className="numRSVPattendees">
+              {post.rsvpCount || 0} RSVPs
+            </span>
             <br />
-            <p style={{fontSize:"30px"}}>Limit of Attendees: {post.maxAttendees ? post.maxAttendees : ""}{" "}</p>
+            <p style={{ fontSize: "30px" }}>
+              Limit of Attendees: {post.maxAttendees ? post.maxAttendees : ""}{" "}
+            </p>
             {/* Display max attendees */}
             <div className="postInfo">
-              <p style={{fontSize:"30px"}}>
+              <p style={{ fontSize: "30px" }}>
                 Posted on:{" "}
                 {post.timestamp
                   ? new Date(post.timestamp.seconds * 1000).toLocaleString()

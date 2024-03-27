@@ -7,6 +7,7 @@ import EventAnalytics from "./EventAnalytics";
 import "../styles/eventAnalytics.css";
 import Searchbar from "./Searchbar";
 import { Link } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 function Home() {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -27,6 +28,14 @@ function Home() {
         <Link to="/thoughts">
           <button className="thoughtsBtn">Go to Thoughts</button>
         </Link>
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              fontSize: "1.75rem",
+            },
+          }}
+        />
         <div className="events">
           <Event />
           <EventAnalytics />
@@ -36,7 +45,6 @@ function Home() {
         <div>
           <Navbar />
         </div>
-        
 
         {/* Render Popup component conditionally */}
         {isPopupVisible && <Popup onClose={hidePopup} />}
