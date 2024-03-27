@@ -1,15 +1,16 @@
 /* Main container styles */
-body {
+/* body {
   background-color: #fbf9ed;
   margin: 0;
-  display: flex; /* Add display flex to the body */
-  justify-content: flex-end; /* Align content to the right (flex-end) */
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  min-height: 100vh; /* Set a minimum height to occupy the full vertical space */
-}
+  min-height: 100vh;
+} */
 
 .main-container {
-  flex: 0 0 50%; /* Take 50% of the available space on the right */
+  flex: 0 0 50%;
+  /* Take 50% of the available space on the right */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +25,8 @@ body {
 .main-container input[type='file'],
 .main-container button {
   width: 30%;
-  margin-bottom: 20px; /* Increase the margin-bottom for spacing */
+  margin-bottom: 20px;
+  /* Increase the margin-bottom for spacing */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -34,7 +36,8 @@ body {
 
 /* Decrease the margin between "Choose File" and "Upload Image" */
 .main-container input[type='file'] {
-  margin-bottom: 10px; /* Adjust the margin-bottom to fine-tune spacing */
+  margin-bottom: 10px;
+  /* Adjust the margin-bottom to fine-tune spacing */
   font-size: 20px;
 }
 
@@ -68,14 +71,18 @@ body {
 /* User information styles */
 .main-container .user-info p {
   position: relative;
-  top: -20px; /* Increase the top value for more spacing */
+  top: -20px;
+  /* Increase the top value for more spacing */
   margin: 0;
-  margin-bottom: 20px; /* Increase the margin-bottom for spacing */
+  margin-bottom: 20px;
+  /* Increase the margin-bottom for spacing */
   font-size: 25px;
 }
-.main-container .confirm-btn button{
+
+.main-container .confirm-btn button {
   width: 100px;
 }
+
 /* ProfileSetup.css */
 
 .profile-setup-container {
@@ -147,12 +154,16 @@ body {
 
 .pfp-image-container {
   /* Determine the correct positioning for the logo */
-  position: absolute; /* Example - you can use fixed, absolute, relative based on your needs */
-  left: 50%; /* Adjust as needed */
-  transform: translateX(-50%); /* Adjust as needed */
-  bottom: 10px; /* Adjust as needed */
+  position: absolute;
+  /* Example - you can use fixed, absolute, relative based on your needs */
+  left: 50%;
+  /* Adjust as needed */
+  transform: translateX(-50%);
+  /* Adjust as needed */
+  bottom: 10px;
+  /* Adjust as needed */
 }
 
 /* .pfp-image-container img {
   /* You can add styles for the image here if needed */
-/* } */ 
+/* } */

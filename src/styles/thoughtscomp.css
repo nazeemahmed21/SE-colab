@@ -1,25 +1,84 @@
 /* thoughts-container styles */
+
+.thoughtsBtnThoughts {
+    position: absolute;
+    top: 0.35%;
+    left: 37%;
+    z-index: 99; /* Set a higher z-index value */
+    background-color: #1c8c81;
+    color: white;
+    width: 350px;
+    height: 160px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: large;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .backHomebtn {
+    position: absolute;
+    top: 0.35%;
+    left: 47%;
+    z-index: 99; /* Set a higher z-index value */
+    background-color: #29ada0;
+    color: white;
+    width: 350px;
+    height: 160px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: large;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .backHomebtn:hover {
+    background-color: #1c8c81;
+  }
+
 .thoughts-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    padding: 20px;
-    overflow-y: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    position: fixed;
+    top: 47%;
+    margin-top: 280px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 55px;
+    color: black;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-weight: bold;
+    height: 90%; /* Adjust as needed */
+    width: 100%;
+    padding: 20px; /* Add padding for spacing between events */
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 90vh; /* Limit the maximum height */
+    padding-bottom: 200px;
 }
 
 .createThoughtBtn {
-    display: inline;
+    background-color: #29ada0;
     color: white;
-    font-size: 20px;
-    margin-top: 30px;
-    margin-left: 120px;
-    padding: 15px;
-    background-color: #29ada0 ;
-    border-radius: 5px;
-    left: 10%;
+    width: 200px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 400px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: large;
+    cursor: pointer;
+    justify-content: center;
+    padding: 10px;
+}
+
+.createThoughtBtn:hover {
+    background-color: #1c8c81;
 }
 
 /* thought-item styles */
@@ -39,7 +98,7 @@
 }
 
 .thought-item:last-child {
-    margin-bottom: 5%; /* Remove margin-top for the first thought item */
+    margin-bottom: 10%; /* Remove margin-top for the first thought item */
 }
 
 .thought-item p {
@@ -66,3 +125,196 @@
     font-size: 0.8rem;
     color: #888;
 }
+
+.thoughtDelete {
+    background-color: #29ada0;
+    color: white;
+    width: 200px;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 400px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: large;
+    cursor: pointer;
+    justify-content: center;
+    padding: 10px;
+}
+
+.thoughtDelete:hover {
+    background-color: #1c8c81;
+}
+
+
+    /* Style for dropdown menu */
+.filter-wrapper {
+    position: relative;
+  }
+  
+.filter-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 200px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .filter-wrapper select:focus {
+    border-color: #007bff;
+  }
+  
+  /* Arrow icon */
+  .filter-wrapper::after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    font-size: 12px;
+    color: #555;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  /* Hover effect */
+  .filter-wrapper:hover::after {
+    color: #333;
+  }
+  
+  /* Focus effect */
+  .filter-wrapper select:focus + ::after {
+    color: #007bff;
+  }
+
+  @media screen and (min-width: 1201px) and (max-width: 1300px){
+    .thought-item {
+      width: 60vw;
+      max-width: 800px;
+      min-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
+  
+  @media screen and (min-width: 1101px) and (max-width: 1200px){
+    .thought-item {
+      width: 60vw;
+      max-width: 700px;
+      min-width: 500px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+  }
+  
+  @media screen and (min-width: 1001px) and (max-width: 1100px){
+      .thought-item {
+        width: 60vw;
+        max-width: 700px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 999px) and (max-width: 1000px){
+      .thought-item {
+        width: 60vw;
+        max-width: 700px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 897px) and (max-width: 998px){
+      .thought-item {
+        width: 60vw;
+        max-width: 700px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 800px) and (max-width: 896px){
+      .thought-item {
+        width: 60vw;
+        max-width: 700px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 700px) and (max-width: 799px){
+      .thought-item {
+        width: 60vw;
+        max-width: 700px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 600px) and (max-width: 699px){
+      .thought-item {
+        width: 60vw;
+        max-width: 700px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 500px) and (max-width: 599px){
+      .thought-item {
+        width: 60vw;
+        max-width: 700px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 400px) and (max-width: 499px){
+      .thought-item {
+        width: 60vw;
+        max-width: 700px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 300px) and (max-width: 399px){
+      .thought-item {
+        width: 270px;
+        max-width: 700px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+      }
+    }
+  

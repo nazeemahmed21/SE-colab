@@ -14,14 +14,15 @@
   }
   /* Style for the main container */
   .chatsContainer {
+    top: 10px;
     /* z-index: 99; */
-    bottom: 0;
+    bottom: 15px;
     position: fixed;
     padding-top: 120px;
     display: flex;
-    height: 99vh;
+    height: 70vh;
     width: 90%;
-    left: 350px;
+    left: 280px;
   }
   
   /* Style for the sidebar */
@@ -168,6 +169,7 @@
   .message {
     font-size: 24px;
     /* display: inline-block; */
+    max-width: -moz-fit-content;
     max-width:fit-content;
     padding: 10px;
     border-radius: 10px;
@@ -322,4 +324,138 @@
   width: 250px;
   padding-right: 50px;
   /* overflow-y: auto; */
+}
+
+/* Add media query for screens with a maximum width of 768px */
+@media only screen and (max-width: 1278px) {
+  /* General adjustments */
+  /* html,
+  body {
+    font-size: 14px; 
+  } */
+
+  /* Adjustments for chats container and sidebar */
+  .chatsContainer {
+    margin-bottom: 100px;
+    flex-direction: column; /* Change flex direction to stack items vertically */
+    width: 100%; /* Occupy full width */
+    left: 0; /* Remove fixed left position */
+  }
+  
+  .sidebar {
+    flex: 1; /* Occupy full width */
+    width: 100%; /* Occupy full width */
+    padding: 10px; /* Adjust padding */
+    overflow-x: auto; /* Add horizontal scroll for small screens */
+    margin-top: -20px; 
+  }
+ 
+  .ChatNavbar{
+    top: 90px;
+    position: fixed;
+  }
+  /* Adjustments for chat area */
+  .chat {
+    width: 100%; /* Occupy full width */
+    height: auto; /* Adjust height */
+  }
+
+  .chatInfo{
+    position: fixed;
+    /* left: 100; */
+    background-color: #075e54;
+    color: white;
+    font-size: 20px;
+    height: 40px;
+    margin-bottom: 10px;
+   }
+  .chatInfo {
+    width: 100%; /* Occupy full width */
+  }
+
+  .messages {
+    width: 100%; /* Occupy full width */
+  }
+
+  /* Adjustments for input area */
+  .input {
+    width: 100%;
+    margin-bottom: 160px;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Distribute space between items */
+    padding: 10px; /* Adjust padding */
+  }
+
+  /* Adjustments for emoji picker container */
+  .emoji-picker-container {
+    
+    flex: 1; /* Occupy remaining space */
+    padding-right: 10px; /* Add some spacing */
+    max-width: 100px; /* Limit maximum width */
+  }
+
+    
+  .userChatName{
+    font-size: 18px;
+  }
+
+  .ChatNavbar span{
+ 
+    font-size: 18px;
+  }
+  /* Adjustments for input text field */
+  .input input {
+    flex: 1; /* Occupy remaining space */
+    margin-right: 10px; /* Add some spacing between input and emoji picker */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  /* Adjustments for send button and emoji icon */
+  .send {
+    flex: 1; /* Occupy remaining space */
+    display: flex; /* Use flexbox */
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Align items vertically */
+  }
+
+  .send .icons {
+    margin-right: 0; /* Remove right margin */
+    margin-left: 5px; /* Add left margin */
+    display: flex;
+    /* margin-bottom: 160px; */
+    font-size: 20px; /* Adjust emoji icon size */
+    cursor: pointer;
+      }
+
+  /* Adjustments for send button */
+  .send button {
+    margin-right: 0; /* Remove right margin */
+    margin-left: 5px; /* Add left margin */
+    padding: 10px 20px; /* Adjust button padding */
+    border-radius: 5px; /* Adjust button border radius */
+  }
+
+  .send label{
+    width: 60%;
+  }
+  
+  .search{
+    top: 105px;
+    width: auto;
+    position: fixed;
+  }
+
+  .message.owner {
+    margin-right: 30px;
+    font-size: 12px;
+    background-color: lightgreen;
+    text-align: right; /* Align text to the right for owner messages */
+  }
+
+  .chats{
+    margin-top: 18px;
+    top: 100px;
+  }
 }

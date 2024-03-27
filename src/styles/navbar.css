@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-body {
+/* body {
   background-color: #dfe8dd;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Lato", sans-serif;
-}
+} */
 
 .home,
 .reports,
@@ -66,7 +66,7 @@ body {
   padding: 8px 0px 8px 16px;
   list-style: none;
   height: 50px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .nb-nav-text a {
@@ -85,8 +85,8 @@ body {
 }
 .nb-nav-text a:hover {
   background-color: white;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   /* font-size: 2em; */
 }
 .nav-menu-items {
@@ -164,7 +164,7 @@ span {
 .nav_select_menu {
   position: relative;
   left: 82vw;
-  top: -1vh;
+  top: -15px;
   fill: #29ada0;
 }
 
@@ -197,7 +197,7 @@ span {
 }
 
 .nav_select_menu.active {
-  top:  4.8vh;
+  top:  3.9vh;
 }
 
 .nav_select_menu.active .nav_options {

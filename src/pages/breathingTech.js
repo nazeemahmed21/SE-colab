@@ -1,10 +1,18 @@
 import React from "react";
 import MedBreathingComponent from "../components/med_breath";
+import "../styles/med_breath.css";
 
 const BreathingTechniquesPage = () => {
+  const goBack = () => {
+    window.history.back();
+  };
+
+  //woof
   return (
     <div>
-      <h1>Breathing Techniques</h1>
+      <button className="med_button_to_go_back" onClick={goBack}>
+        Go Back
+      </button>
       <MedBreathingComponent />
     </div>
   );

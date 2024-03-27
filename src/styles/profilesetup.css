@@ -27,19 +27,20 @@
   border: 5px solid grey;
   border-radius: 50%;
   position: relative;
-  margin-bottom: 50%;
+  margin-bottom: 20%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .upload_input {
   width: 150px;
-  height: 60px;
-  padding: 10px;
-  margin-top: 50px;
+  /* height: 60px; */
+  padding: 20px;
+  margin-top: 20px;
   border: 3px solid black;
   border-radius: 20px;
-  font-size: 20px;
+  font-size: 18px;
+  justify-content: center;
   text-align: center;
   color: #fea059;
   position: relative;
@@ -47,14 +48,17 @@
   margin-right: auto;
   background-color: #fea059;
 }
-
+.upload_input input{
+  align-items: center;
+  justify-content: center;
+}
 .upload_button {
   width: 20%;
   margin-bottom: 20px;
   padding: 10px;
   border: 3px solid black;
   border-radius: 20px;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   color: white;
   position: relative;
@@ -64,7 +68,7 @@
 }
 
 .user_info {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: white;
   padding: 20px;
@@ -81,7 +85,7 @@
   color: white;
   cursor: pointer;
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   width: 120px;
   height: 60px;
   border: 3px solid black;
@@ -94,10 +98,11 @@
 
 .skip_button {
   background-color: #fea059;
+  font-size: 18px;
   color: white;
   cursor: pointer;
   margin: 0;
-  padding: 20px;
+  padding: 18px;
   height: 60px;
   width: 100px;
   text-align: center;
@@ -166,58 +171,56 @@
   }
 }
 
-@media (max-height: 930px) and (max-width: 1100px) {
-  .profile_pic {
-    margin-bottom: 40%;
-  }
-}
-
-@media (max-height: 910px) and (max-width: 1100px) {
-  .profile_pic {
-    margin-bottom: 30%;
-  }
-}
-
-@media (max-height: 900px) and (max-width: 1100px) {
-  .profile_pic {
-    margin-bottom: 20%;
-  }
-}
-
-@media (max-height: 885px) and (max-width: 1100px) {
+@media (max-height: 990px) and (max-width: 1100px) {
   .profile_pic {
     margin-bottom: 10%;
   }
-  .upload_input {
-    margin-top: 30px;
+}
+
+@media (max-height: 970px) and (max-width: 1100px) {
+  .profile_pic {
+    margin-bottom: 5%;
   }
 }
 
-@media (max-height: 860px) and (max-width: 1100px) {
+@media (max-height: 950px) and (max-width: 1100px) {
+  .profile_pic {
+    margin-bottom: 0%;
+  }
+  .upload_button {
+    margin-bottom: 0px;
+    padding: 5px;
+}
+}
+
+@media (max-height: 900px) and (max-width: 1100px) {
+  .upload_input {
+    margin-top: 0px;
+  }
+}
+
+@media (max-height: 890px) and (max-width: 1100px) {
   .profile_pic {
     height: 180px;
     width: 180px;
   }
 }
 
-@media (max-height: 835px) and (max-width: 1100px) {
+@media (max-height: 865px) and (max-width: 1100px) {
   .profile_pic {
     height: 160px;
     width: 160px;
   }
 }
 
-@media (max-height: 790px) and (max-width: 1100px) {
+@media (max-height: 840px) and (max-width: 1100px) {
   .profile_pic {
     height: 140px;
     width: 140px;
   }
-  .upload_input {
-    margin-top: 20px;
-  }
 }
 
-@media (max-height: 750px) and (max-width: 1100px) {
+@media (max-height: 820px) and (max-width: 1100px) {
   .profile_pic {
     height: 120px;
     width: 120px;
@@ -230,37 +233,63 @@
   }
 }
 
-@media (max-height: 710px) and (max-width: 1100px) {
+@media (max-height: 790px) and (max-width: 1100px) {
   .profile_pic {
     height: 100px;
     width: 100px;
   }
   .skip_button {
-    margin-bottom: 1px;
+    margin-bottom: 0px;
+    padding: 5px;
+    height: 50px;
   }
   .next_button {
-    margin-bottom: 1px;
+    margin-bottom: 0px;
+    padding: 5px;
+    height: 50px;
   }
 }
 
-@media (max-height: 685px) and (max-width: 1100px) {
+@media (max-height: 750px) and (max-width: 1100px) {
   .upload_button {
     margin-bottom: 5px;
-    margin-top: 20px;
+    margin-top: 5px;
   }
-}
-
-@media (max-height: 660px) and (max-width: 1100px) {
   .profile_pic {
     height: 80px;
     width: 80px;
   }
 }
 
+@media (max-height: 720px) and (max-width: 1100px) {
+  .upload_input {
+    margin-top: 5px;
+    padding: 10px;
+  }
+  .upload_button {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .user_info {
+    font-size: 15px;
+  }
+  .skip_button {
+    margin-bottom: 0px;
+    height: 40px;
+  }
+  .next_button {
+    margin-bottom: 0px;
+    height: 40px;
+  }
+}
 @media (max-height: 960px) and (min-width: 1100px) {
   .upload_button {
     margin-bottom: 5px;
     margin-top: 20px;
+  }
+  .profile_pic {
+    width: 170px;
+    height: 170px;
   }
 }
 
@@ -271,56 +300,40 @@
   .next_button {
     margin-bottom: 5px;
   }
+  .profile_pic {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 10px;
+  }
 }
 
 @media (max-height: 870px) and (min-width: 1100px) {
   .profile_pic {
-    margin-bottom: 40%;
-  }
-}
-
-@media (max-height: 850px) and (min-width: 1100px) {
-  .profile_pic {
-    margin-bottom: 30%;
+    margin-bottom: 5px;
   }
 }
 
 @media (max-height: 830px) and (min-width: 1100px) {
   .profile_pic {
-    margin-bottom: 20%;
-  }
-}
-
-@media (max-height: 810px) and (min-width: 1100px) {
-  .profile_pic {
-    margin-bottom: 10%;
-  }
-}
-
-@media (max-height: 750px) and (min-width: 1100px) {
-  .profile_pic {
-    height: 180px;
-    width: 180px;
-  }
-}
-
-@media (max-height: 715px) and (min-width: 1100px) {
-  .profile_pic {
-    height: 160px;
-    width: 160px;
-  }
-}
-
-@media (max-height: 700px) and (min-width: 1100px) {
-  .profile_pic {
-    height: 140px;
-    width: 140px;
-  }
-}
-
-@media (max-height: 675px) and (min-width: 1100px) {
-  .profile_pic {
-    height: 120px;
     width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-height: 800px) and (min-width: 1100px) {
+  .profile_pic {
+    width: 100px;
+    height: 100px;
+  }
+  .upload_input {
+    margin-top: 5px;
+    padding: 10px;
+  }
+  .upload_button {
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .user_info {
+    font-size: 15px;
   }
 }
