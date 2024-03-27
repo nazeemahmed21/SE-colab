@@ -6,6 +6,7 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import logo from "../images/logo.png";
 import { useNavigate } from "react-router-dom";
 import "../styles/profilesetup.css";
+import toast, { Toaster } from "react-hot-toast";
 
 // Placeholder image URL
 const placeholderImageUrl =
@@ -61,7 +62,12 @@ const ProfileSetup = () => {
 
     try {
       await uploadBytes(imageRef, imageUpload);
-      alert("Image Uploaded");
+      // alert("Image Uploaded");
+      toast.success("Image Uploaded");
+
+      setTimeout(() => {
+        navigate("/interest");
+      }, 3000);
 
       const url = await getDownloadURL(imageRef);
       const userRef = doc(db, "Users", userId);
@@ -86,6 +92,16 @@ const ProfileSetup = () => {
   // };
   return (
     <>
+      <div>
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: {
+              fontSize: "1.75rem",
+            },
+          }}
+        />
+      </div>
       <div className="profile_setup_container">
         <div className="profile_setup_content">
           <div className="user_pfp">

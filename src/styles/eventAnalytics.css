@@ -3,8 +3,8 @@
   text-align: center;
   width: 6%; /* Ensure the container spans the full width */
   position: absolute;
-  left: 8%;
-  z-index: 1000; /* Ensure the container is above other elements */
+  left: 15%;
+  z-index: 99; /* Ensure the container is above other elements */
 }
 
 /* Adjust the position and width of the search input */
@@ -17,14 +17,14 @@
 }
 
 .toggle-analytics-button {
-  background-color: #3498db;
+  background-color: #29ada0;
   color: white;
   border: none;
   border-radius: 15px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  
+  width: 150px;
 }
 
 .toggle-analytics-button:hover {

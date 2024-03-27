@@ -4,22 +4,17 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    /* Set the height to 100% of the viewport height */
-    margin-top: -35%;
-    margin-left: 25%;
 }
-
-.title {
+.titleZenSpace {
     font-size: 28px;
     margin-bottom: 20px;
-    /* Add spacing between the title and boxes */
 }
 
 .NavbarZenSpaceContainer {
     position: fixed;
 }
 
-.boxes-container {
+.boxes-containerZenSpace {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,44 +23,91 @@
 
 .boxZenSpace {
     width: 300px;
-    /* Adjust the width of the boxes as needed */
     height: 300px;
-    /* Adjust the height of the boxes as needed */
     margin: 20px;
-    /* Add margin between the boxes */
     background-color: #29ada0;
     color: white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    /* Align content vertically */
     justify-content: center;
-    /* Center content vertically */
     align-items: center;
-    /* Center content horizontally */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    /* Add a shadow to the boxes */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
 }
 
 .boxZenSpace:hover {
     background-color: #2ebbad;
-    /* Change the background color on hover */
 }
 
 .boxZenSpace h2 {
     font-size: 24px;
     color: white;
-    /* Set the color of the text */
+    margin-bottom: 10px;
 }
 
-.box-icon {
+.box-iconZen {
     width: 80px;
-    /* Adjust the width of the images */
     height: auto;
-    /* Maintain aspect ratio */
     margin-bottom: 10px;
-    /* Add spacing between the image and text */
 }
+
+
+
+.content-containerZenSpace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.titleZenSpace {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.NavbarZenSpaceContainer {
+    position: fixed;
+}
+
+.boxes-containerZenSpace {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.boxZenSpace {
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    background-color: #29ada0;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+}
+
+.boxZenSpace:hover {
+    background-color: #2ebbad;
+}
+
+.boxZenSpace h2 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.box-iconZen {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
 
 @media (min-height: 653px) and (min-width: 280px) {
     .content-containerZenSpace {
@@ -79,12 +121,12 @@
         flex-direction: column;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace  {
         flex-direction: column;
         gap: 0px;
     }
 
-    .title {
+    .titleZenSpace {
         margin-bottom: 15px;
         margin-left: 10px;
     }
@@ -102,12 +144,12 @@
         flex-direction: column;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace  {
         flex-direction: column;
         gap: 0px;
     }
 
-    .title {
+    .titleZenSpace {
         margin-bottom: 15px;
         margin-left: 30px;
     }
@@ -125,12 +167,12 @@
         flex-direction: column;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace  {
         flex-direction: column;
         gap: 0px;
     }
 
-    .title {
+    .titleZenSpace {
         font-size: 28px;
         margin-bottom: 15px;
         /* margin-left: 30px; */
@@ -149,12 +191,12 @@
         flex-direction: column;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace  {
         flex-direction: column;
         gap: 0px;
     }
 
-    .title {
+    .titleZenSpace {
         font-size: 28px;
         margin-bottom: 15px;
     }
@@ -172,12 +214,12 @@
         flex-direction: column;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace  {
         flex-direction: row;
         gap: 0px;
     }
 
-    .title {
+    .titleZenSpace {
         font-size: 28px;
         margin-bottom: 15px;
         /* margin-left: 30px; */
@@ -196,12 +238,12 @@
         flex-direction: column;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace {
         flex-direction: row;
         gap: 0px;
     }
 
-    .title {
+    .titleZenSpace {
         font-size: 28px;
         margin-bottom: 15px;
         /* margin-left: 30px; */
@@ -220,12 +262,12 @@
         flex-direction: column;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace  {
         flex-direction: row;
         gap: 0px;
     }
 
-    .title {
+    .titleZenSpace {
         font-size: 28px;
         margin-bottom: 15px;
         /* margin-left: 30px; */
@@ -234,16 +276,16 @@
 
 @media (min-width: 1300px) and (max-width: 1500px) {
     .content-containerZenSpace {
-        margin-top: -40%;
+        /* margin-top: -40%; */
         margin-left: 25%;
     }
 
-    .title {
+    .titleZenSpace {
         font-size: 28px;
         margin-bottom: 20px;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace  {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -259,16 +301,16 @@
 
 @media (min-width: 1501px) and (max-width: 1700px) {
     .content-containerZenSpace {
-        margin-top: -35%;
+        /* margin-top: -35%; */
         margin-left: 25%;
     }
 
-    .title {
+    .titleZenSpace {
         font-size: 28px;
         margin-bottom: 20px;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace  {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -284,16 +326,16 @@
 
 @media (min-width: 1701px) and (max-width: 2000px) {
     .content-containerZenSpace {
-        margin-top: -30%;
+        /* margin-top: -30%; */
         margin-left: 20%;
     }
 
-    .title {
+    .titleZenSpace {
         font-size: 28px;
         margin-bottom: 20px;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace  {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -309,16 +351,16 @@
 
 @media (min-width: 2001px) and (max-width: 2500px) {
     .content-containerZenSpace {
-        margin-top: -25%;
+        /* margin-top: -25%; */
         margin-left: 15%;
     }
 
-    .title {
+    .titleZenSpace {
         font-size: 28px;
         margin-bottom: 20px;
     }
 
-    .boxes-container {
+    .boxes-containerZenSpace {
         display: flex;
         justify-content: center;
         align-items: center;

@@ -22,10 +22,12 @@
 }
 .Meditation1Page h1{
   font-size: 28px;
+  color: black;
 }
 
 .Meditation1Page h2{
   font-size: 24px;
+  color: black;
 }
 /* .Meditation1 {
     display: flex;
@@ -284,7 +286,12 @@ background-color: #29ada0;;
 /* labs.css */
 /* Responsiveness for meditation player */
 @media screen and (max-width: 1368px) {
+  
+  .Meditation1Page{
+margin-left: 10px;
+  }
   .meditationPlayerPage {
+
     justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
     /* Adjust margin for smaller screens */
@@ -294,7 +301,7 @@ background-color: #29ada0;;
 
   .meditationPlayerTitle {
     /* Adjust margin for smaller screens */
-    font-size: 25px; /* Adjust font size for smaller screens */
+    font-size: 23px; /* Adjust font size for smaller screens */
     position: fixed; /* Reset position */
     text-align: center; /* Center align for smaller screens */
   }
@@ -313,7 +320,7 @@ background-color: #29ada0;;
     align-self: center;
     margin: 0;
     padding: 0;
-    font-size: 15px;
+    font-size: 13px;
   }
   
 
@@ -349,5 +356,9 @@ background-color: #29ada0;;
     top: 10px; /* Adjust top position for smaller screens */
     left: 10px; /* Adjust left position for smaller screens */
     font-size: 25px; /* Adjust font size for smaller screens */
+  }
+
+  .content-tile{
+    font-size: 14px;
   }
 }

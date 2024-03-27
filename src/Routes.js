@@ -18,6 +18,7 @@ import Settings from "./pages/setting.js";
 import Meditation1 from "./pages/meditation1.js";
 import MeditationPlayer from './pages/meditationPlayer.js';
 import ZenSpace from './pages/zenSpace.js';
+import BreathingTechniquesPage from './pages/breathingTech.js';
 import LabMembers from './pages/labs/labMembers.js';
 import LabLayout from "./pages/labs/labLayout.js";
 import LabSettings from "./pages/labs/labSettings.js";
@@ -26,7 +27,10 @@ import LabsAnnouncements from "./pages/labs/labsAnnouncement.js";
 import Labs from "./pages/labsHome.js";
 // import medBreath from '../src/components/med_breath.js';
 // import MedBreathingComponent from "./MedBreathingComponent";
-import Games from './pages/games.js';
+import { ImageAnnotator } from "./components/ImageAnnotation.jsx";
+import Thoughts from './pages/Thoughts.js';
+import Todo from './pages/todopage.js';
+
 
 const Rout = () => {
   const { currentUser } = useContext(AuthContext);
@@ -48,7 +52,7 @@ const Rout = () => {
       <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
       <Route path="/messages" element={<Messages />} />
       <Route path="/labs" element={<ProtectedRoute><Labs /></ProtectedRoute>}></Route>
-      <Route path="/labs/:labId" element={<LabLayout />}> 
+      <Route path="/labs/:labId" element={<LabLayout />}>
         <Route index element={<LabsAnnouncements />} />
         <Route path="files" element={<LabDetails />} />
         <Route path="members" element={<LabMembers />} />
@@ -62,13 +66,12 @@ const Rout = () => {
       <Route path="/user-prof" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
       <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
       <Route path="/meditationPlayer/:title" element={<ProtectedRoute><MeditationPlayer /></ProtectedRoute>} />
-      {/* <Route path="/player/:title" component={MeditationPlayer} /> */}
       <Route path="/meditation1" element={<ProtectedRoute><Meditation1 /></ProtectedRoute>} />
       <Route path="/zenSpace" element={<ProtectedRoute><ZenSpace /></ProtectedRoute>} />
-
-      <Route path="/games" element={<ProtectedRoute><Games /></ProtectedRoute>} />
-      <Route path="/medBreath" element={<ProtectedRoute><medBreath /></ProtectedRoute>} />
-
+      <Route path="/medBreath" element={<ProtectedRoute><BreathingTechniquesPage /></ProtectedRoute>} />
+      <Route path="/thoughts" element={<ProtectedRoute><Thoughts /></ProtectedRoute>} />
+      <Route path="/imageAnnotation" element={<ImageAnnotator />}></Route>
+      <Route path="/todo" element={<ProtectedRoute><Todo /></ProtectedRoute>} />
     </Routes>
   );
 };

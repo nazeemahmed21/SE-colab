@@ -8,21 +8,19 @@ import gameIcon from '../images/gamingZenSpace.png';
 const ZenSpace = () => {
     return (
         <div>
-            {/* <div className="NavbarZenSpaceContainer"> */}
+            <div className="NavbarZenSpaceContainer">
                 <Navbar />
-            {/* </div> */}
+            </div>
             <div className="content-containerZenSpace">
-                <h1 className="title">How do you want to relax?</h1>
-                <div className="boxes-container">
-                    <Link to="/games" className="boxZenSpace">
-                        <img src={gameIcon} alt="games icon" className="box-icon" />
+                <h1 className="titleZenSpace">How do you want to relax?</h1>
+                <div className="boxes-containerZenSpace">
+                    <Link to="https://ansongeo.github.io/wordgame" target="_blank" className="boxZenSpace">
+                        <img src={gameIcon} alt="games icon" className="box-iconZen" />
                         <h2>Games</h2>
-                        {/* Add content for games */}
                     </Link>
                     <Link to="/meditation1" className="boxZenSpace">
-                        <img src={meditateIcon} alt="meditation icon" className="box-icon" />
+                        <img src={meditateIcon} alt="meditation icon" className="box-iconZen" />
                         <h2>Meditation</h2>
-                        {/* Add content for meditation */}
                     </Link>
                 </div>
             </div>

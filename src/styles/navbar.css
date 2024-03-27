@@ -26,6 +26,7 @@ body {
   align-items: center;
   z-index: 1001;
 }
+
 .nb-nav-text svg{
   font-size: 25px;
 }
@@ -34,6 +35,7 @@ body {
   position: relative;
   left: 80vw;
 }
+
 
 .menu-bars {
   margin-left: 2rem;
@@ -53,14 +55,10 @@ body {
   left: 0%;
   transition: 850ms;
 }
-
-
-
 .nav-menu.active {
   left: 0;
   transition: 450ms;
 }
-
 .nb-nav-text {
   display: flex;
   justify-content: flex-start;
@@ -82,22 +80,18 @@ body {
   padding: 0 10px;
   border-radius: 4px;
 }
-
 .nb-nav-text svg{
   font-size: 24px;
 }
-
 .nb-nav-text a:hover {
   background-color: white;
   padding-top: 30px;
   padding-bottom: 30px;
   /* font-size: 2em; */
 }
-
 .nav-menu-items {
   width: 80%;
 }
-
 .navbar-toggle {
   width: 90%;
   height: 100px;
@@ -168,19 +162,21 @@ span {
 }
 
 .nav_select_menu {
-  position: absolute;
-  left: 84vw;
-  top: 3.75vh;
+  position: relative;
+  left: 82vw;
+  top: -1vh;
   fill: #29ada0;
 }
 
 .nav_select_menu .nav_select_btn {
   display: flex;
   height: 10vh;
+  width: 5vw;
   /* background: #fff; */
   font-size: 18px;
   font-weight: 400;
-  border-radius: 8px;
+  border-radius: 50px;
+  border: 3px solid #fea059;
   align-items: center;
   cursor: pointer;
   justify-content: space-between;
@@ -201,7 +197,7 @@ span {
 }
 
 .nav_select_menu.active {
-  top: 3.75vh;
+  top:  4.8vh;
 }
 
 .nav_select_menu.active .nav_options {
@@ -235,7 +231,6 @@ span {
   font-size: 18px;
   color: #333;
 }
-
 /* .sign-out-icon:hover svg {
   background-color: white;
   fill: black; /* Change the icon color to black when hovering */
@@ -307,6 +302,8 @@ span {
   top: 50px;
 }
 
+
+
 /* .prof-name {
   position: absolute;
   left: 78vw;
@@ -334,11 +331,9 @@ span {
 .sign-out-for-mobile {
   opacity: 0;
 }
-
 .mob_select_menu {
   opacity: 0;
 }
-
 @media screen and (min-width: 280px) and (max-width: 300px) {
   .nav-menu {
     text-align: center;
@@ -382,13 +377,11 @@ span {
     width: 80%;
     margin-right: 0;
   }
-
   .mob-notif {
     position: absolute;
     top: 15px;
     left: 58%;
   }
-
   .sign-out-for-mobile {
     opacity: 1;
     position: absolute;
@@ -399,7 +392,6 @@ span {
     padding-left: 0px;
     padding-right: 0px;
   }
-
   .sign-out-for-mobile button {
     background-color: transparent;
     display: inline;
@@ -407,26 +399,24 @@ span {
     margin-top: 0px;
     margin-left: 0px;
   }
-
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 73.5%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6cm;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -447,7 +437,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -540,7 +530,6 @@ span {
     width: 80%;
     margin-right: 0;
   }
-
   .mob-notif {
     position: absolute;
     top: 15px;
@@ -569,22 +558,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 72%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -605,7 +593,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -700,7 +688,6 @@ span {
     width: 80%;
     margin-right: 0;
   }
-
   .mob-notif {
     position: absolute;
     top: 15px;
@@ -734,17 +721,17 @@ span {
     opacity: 1;
     position: absolute;
     left: 72%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -765,7 +752,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -814,7 +801,6 @@ span {
     display: none;
   }
 }
-
 @media screen and (min-width: 341px) and (max-width: 360px) {
   .nav-menu {
     text-align: center;
@@ -897,22 +883,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 74%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -933,7 +918,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -981,7 +966,6 @@ span {
     display: none;
   }
 }
-
 @media screen and (min-width: 361px) and (max-width: 380px) {
   .nav-menu {
     text-align: center;
@@ -1064,22 +1048,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 75%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -1100,7 +1083,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -1148,7 +1131,6 @@ span {
     display: none;
   }
 }
-
 @media screen and (min-width: 381px) and (max-width: 400px) {
   .nav-menu {
     text-align: center;
@@ -1232,22 +1214,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 75.5%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -1268,7 +1249,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -1316,7 +1297,6 @@ span {
     display: none;
   }
 }
-
 @media screen and (min-width: 400px) and (max-width: 420px) {
   .nav-menu {
     text-align: center;
@@ -1405,17 +1385,17 @@ span {
     opacity: 1;
     position: absolute;
     left: 76%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -1436,7 +1416,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -1484,7 +1464,6 @@ span {
     display: none;
   }
 }
-
 @media screen and (min-width: 421px) and (max-width: 440px) {
   .nav-menu {
     text-align: center;
@@ -1573,17 +1552,17 @@ span {
     opacity: 1;
     position: absolute;
     left: 76%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -1604,7 +1583,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -1741,17 +1720,17 @@ span {
     opacity: 1;
     position: absolute;
     left: 76%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -1772,7 +1751,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -1909,17 +1888,17 @@ span {
     opacity: 1;
     position: absolute;
     left: 76%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -1940,7 +1919,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -2077,13 +2056,13 @@ span {
     opacity: 1;
     position: absolute;
     left: 76%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
@@ -2108,7 +2087,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -2228,7 +2207,6 @@ span {
     padding-left: 2px;
     padding-right: 0px;
   }
-
   .sign-out-for-mobile button {
     background-color: transparent;
     display: inline;
@@ -2245,17 +2223,17 @@ span {
     opacity: 1;
     position: absolute;
     left: 76%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -2276,7 +2254,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -2408,22 +2386,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 80%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -2444,7 +2421,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -2576,22 +2553,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 80%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -2612,7 +2588,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -2744,22 +2720,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 80%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -2780,7 +2755,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -2917,17 +2892,17 @@ span {
     opacity: 1;
     position: absolute;
     left: 80%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -2948,7 +2923,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -3085,17 +3060,17 @@ span {
     opacity: 1;
     position: absolute;
     left: 80%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -3116,7 +3091,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -3253,17 +3228,17 @@ span {
     opacity: 1;
     position: absolute;
     left: 80%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -3284,7 +3259,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -3427,11 +3402,11 @@ span {
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -3452,7 +3427,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -3589,17 +3564,17 @@ span {
     opacity: 1;
     position: absolute;
     left: 82%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -3620,7 +3595,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -3733,7 +3708,7 @@ span {
   .sign-out-for-mobile {
     opacity: 1;
     position: absolute;
-    top: 10px;
+    top: 17px;
     left: 88%;
     background-color: transparent;
     margin: 0px;
@@ -3752,7 +3727,6 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
@@ -3763,11 +3737,11 @@ span {
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -3788,7 +3762,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -3920,22 +3894,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 85%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -3956,7 +3929,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -4088,22 +4061,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 85%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -4118,13 +4090,13 @@ span {
     position: relative;
     padding: 20px;
     margin-top: 10px;
-    border-radius: 8px;
+    border-radius: 50px;
     background: #fff;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -4256,22 +4228,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 85%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -4292,7 +4263,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -4424,22 +4395,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 85%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -4460,7 +4430,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -4592,22 +4562,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 88%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -4628,7 +4597,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -4760,22 +4729,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 88%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -4796,7 +4764,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
@@ -4928,22 +4896,21 @@ span {
   .nb-nav-text a:hover {
     background-color: transparent;
   }
-
   .mob_select_menu {
     opacity: 1;
     position: absolute;
     left: 90%;
-    top: 6px;
+    top: 17px;
     fill: #29ada0;
   }
 
   .mob_select_menu .nav_select_btn {
     display: flex;
-    height: 10vh;
+    height: 6vh;
     /* background: #fff; */
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
+    border-radius: 50px;
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
@@ -4964,7 +4931,7 @@ span {
   }
 
   .mob_select_menu.active {
-    top: 6px;
+    top: 17px;
   }
 
   .mob_select_menu.active .nav_options {
