@@ -1,7 +1,7 @@
 /* App.css */
 
 .App {
-    width: 100%;
+    width: 90%;
     display:flex;
     min-height:50vh ;
     flex-direction: column;

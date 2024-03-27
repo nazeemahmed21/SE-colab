@@ -25,9 +25,9 @@ function Home() {
     <>
       <div>
         {/* <button className="backHomebtnHome">Events</button> */}
-        <Link to="/thoughts">
+        {/* <Link to="/thoughts">
           <button className="thoughtsBtn">Go to Thoughts</button>
-        </Link>
+        </Link> */}
         <Toaster
           position="bottom-right"
           toastOptions={{
