@@ -1,8 +1,12 @@
 .labsPageMain{
     margin-left: 300px;
-    margin-top: 5px;
+    margin-top:90px;
     padding: 10px;
     margin-bottom: 0.01px;
+  }
+  .labsPageMain button{
+    color: white;
+    border-radius: 5px;
   }
 
   .labsArrowContainer {
@@ -97,7 +101,7 @@
     font-size: medium;
   }
   
-  .member-card.owner { /* Styles when a member is the owner */
+  .member-card.labOwner { /* Styles when a member is the owner */
     border: 2px solid orange;
   }
   
@@ -223,6 +227,7 @@
 .announcement-card p {
   font-size: 14px;
   color: #555;
+  word-wrap: break-word;
 }
 
 .announcement-card .creator {
@@ -231,7 +236,7 @@
   text-align: right;
 }
 .announcement-card .timestamp {
-  font-size: 11px;
+  font-size: 12px;
   color: #555;
   text-align: right;
 }
@@ -296,6 +301,17 @@
 }
 .labsTitle h1{
   font-size: 32px;
+}
+/*remove member*/
+.removeLabMemberButton {
+  font-size: 1.1rem;  /* Adjust as needed */
+  padding: 5px 8px;    /* Adjust as needed */
+  background-color: red; 
+  color: white;
+  border: none;
+  margin-left: auto;
+  border-radius: 5px;  /* Adjust as needed */
+  cursor: pointer;     /* Optional: Provides a pointer cursor on hover */
 }
 
 
@@ -427,3 +443,4 @@
     min-width: 250px; /* Set width for each card */
   }
 }
+

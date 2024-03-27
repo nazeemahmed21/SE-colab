@@ -104,10 +104,15 @@
   .folder-tile {
     margin-right: 10px;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
+    display:block;
+  }
+  .folder-tile span{
+    display:block;
+    margin-left:0;
   }
   
   .folder-tile:hover {
@@ -116,6 +121,8 @@
   
   .folder-tile .ffolder {
     margin-right: 5px;
+    width: 20px;
+    height: 20px;
   }
   
   /* New styles for file tiles and file icon placeholder */
@@ -135,6 +142,12 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
+    min-width: 50vw;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    display: flex;
   }
   
   .file-tile:hover {
@@ -149,3 +162,18 @@
     margin-right: 10px;
   }
   
+  .file-tile button{
+    font-size: 12px;
+    background-color: #fa0000;
+    padding: 5px;
+    border:1px;
+    margin-left: auto;
+  }
+
+  .file-tile button:hover{
+    font-size: 12px;
+    background-color: white;
+    color:red;
+    padding: 5px;
+
+  }
