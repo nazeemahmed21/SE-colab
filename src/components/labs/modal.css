@@ -48,20 +48,23 @@
 
   .modalSubmit button{
     padding: 5px 30px;
-    background-color: #7F00AD;
+    background-color: #773344;
+    color:white;
     font-size:14px;
     border:none;
     margin: 0 auto;
     cursor: pointer;
+    border-radius: 5px;
   }
 
   #submitModal{
     padding: 5px 30px;
-    background-color: #824670;
+    background-color: #773344;
     font-size:12px;
     border:none;
     margin: 0 auto;
     cursor: pointer;
+    border-radius: 5px;
   }
 
   #labCreateAnnouncement{

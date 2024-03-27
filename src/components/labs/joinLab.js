@@ -10,7 +10,7 @@ import ModalDialog from '@mui/joy/ModalDialog';
 import DialogTitle from '@mui/joy/DialogTitle';
 import DialogContent from '@mui/joy/DialogContent';
 import Stack from '@mui/joy/Stack';
-import '../../styles/labs.css'; 
+import '../../styles/labsnew.css'; 
 import { collection } from 'firebase/firestore';
 import ModalClose from '@mui/joy/ModalClose';
 import { db } from '../../firebase';
@@ -63,6 +63,7 @@ const JoinLab = () => {
                         isOwner: false,
                         isModerator: false
                     });
+
                     const userDocRef = doc(db, 'Users', userId);
                     console.log('User ID:', userId);
                     console.log('Lab Ref:', labRef); 

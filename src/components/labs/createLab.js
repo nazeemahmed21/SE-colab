@@ -13,7 +13,7 @@ import ModalDialog from '@mui/joy/ModalDialog';
 import DialogTitle from '@mui/joy/DialogTitle';
 import DialogContent from '@mui/joy/DialogContent';
 import Stack from '@mui/joy/Stack';
-import '../../styles/labs.css'; 
+import '../../styles/labsnew.css'; 
 import { collection, arrayUnion } from 'firebase/firestore';
 import ModalClose from '@mui/joy/ModalClose';
 import './modal.css';
