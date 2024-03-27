@@ -66,25 +66,25 @@ function CalendarApp() {
   const handleAddEvent = async () => {
     // Ensure that newEvent.start and newEvent.end are valid Date objects
     if (!(newEvent.start instanceof Date) || !(newEvent.end instanceof Date)) {
-      // Handle invalid date format (optional)
-      console.error("Invalid date format");
+      // Display toast message for invalid date format
+      toast.error("Invalid date format");
       return;
     }
-  
+
     // Check if start date is before the current date
     if (newEvent.start < new Date()) {
-      console.error("Start date must be equal to or after the current date");
-      // Display an error message (you can use a toast library or other UI notification)
+      // Display toast message for start date before the current date
+      toast.error("Start date must be equal to or after the current date");
       return;
     }
-  
+
     // Check if end date is before the start date
     if (newEvent.end < newEvent.start) {
-      console.error("End date must be equal to or after the start date");
-      // Display an error message (you can use a toast library or other UI notification)
+      // Display toast message for end date before start date
+      toast.error("End date must be equal to or after the start date");
       return;
     }
-  
+
     // Add the new event to Firestore
     const docRef = await addDoc(collection(getFirestore(), "CalendarEvents"), {
       Title: newEvent.title,
@@ -92,7 +92,7 @@ function CalendarApp() {
       "End Date": newEvent.end,     // Use the user-entered end date
       "uid": currentUser.uid,
     });
-  
+
     // Update the local state with the new event including the document ID
     setAllEvents([...allEvents, {
       title: newEvent.title,
@@ -100,9 +100,12 @@ function CalendarApp() {
       end: newEvent.end,
       id: docRef.id,
     }]);
-  
+
     // Clear the input fields after adding an event
     setNewEvent({ title: "", start: "", end: "" });
+
+    // Display toast message for successful event addition
+    toast.success("Event added successfully");
   };
 
   const handleDeleteSelectedEvent = async () => {
@@ -141,9 +144,9 @@ function CalendarApp() {
             placeholder="Add Title"
             style={{
               width: "80%",
-              marginBottom: "0rem",
+              marginBottom: "-0.5rem",
               maxWidth: "300px",
-              marginTop: "85px"
+              marginTop: "15px"
             }}
             value={newEvent.title}
             onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
@@ -168,22 +171,22 @@ function CalendarApp() {
           <button
             className={`${styles.button} ${styles.button__primary}`}
             onClick={handleAddEvent}
-            style={{ width: "70%", marginBottom: "1rem", maxWidth: "300px", alignSelf: 'flex-end', height: "20px", fontSize: "12px", marginTop: "0rem"}}
+            style={{ width: "70%", marginBottom: "1rem", maxWidth: "300px", alignSelf: 'flex-end', height: "20px", fontSize: "12px", marginTop: "-1rem"}}
           >
             Add Event
           </button>
           {selectedEvent && (
             <button
-              className={`${styles.button} ${styles.button__secondary}`}
+              className={`${styles.button} ${styles              .button__secondary}`}
               onClick={handleDeleteSelectedEvent}
-              style={{ width: "70%", marginBottom: "1rem", maxWidth: "300px", alignSelf: 'flex-end', height: "40px", fontSize: "12px", marginTop:'-0.7rem'}}
+              style={{ width: "70%", marginBottom: "5rem", maxWidth: "300px", alignSelf: 'flex-end', height: "40px", fontSize: "12px", marginTop:'-0.8rem'}}
             >
               Delete Selected Event
             </button>
           )}
         </div>
       </div>
-      <div style={{ width: '100%', maxWidth: '700px', margin: '0 auto', position: 'relative', left: "0px"}}>
+      <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', position: 'relative', left: "0px"}}>
         <Calendar
           localizer={localizer}
           events={allEvents}
@@ -200,5 +203,4 @@ function CalendarApp() {
 }
 
 export default CalendarApp;
-
 
