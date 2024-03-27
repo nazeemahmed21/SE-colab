@@ -1,40 +1,6 @@
 /* thoughts-container styles */
 
-.thoughtsBtnThoughts {
-    position: absolute;
-    top: 0.35%;
-    left: 37%;
-    z-index: 99; /* Set a higher z-index value */
-    background-color: #1c8c81;
-    color: white;
-    width: 350px;
-    height: 160px;
-    font-family: 'Roboto', sans-serif;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: large;
-    cursor: pointer;
-    padding: 10px;
-  }
-  
-  .backHomebtn {
-    position: absolute;
-    top: 0.35%;
-    left: 47%;
-    z-index: 99; /* Set a higher z-index value */
-    background-color: #29ada0;
-    color: white;
-    width: 350px;
-    height: 160px;
-    font-family: 'Roboto', sans-serif;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: large;
-    cursor: pointer;
-    padding: 10px;
-  }
+
   
   .backHomebtn:hover {
     background-color: #1c8c81;
