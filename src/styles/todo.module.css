@@ -339,4 +339,66 @@
   background-color: #dedfe1;
 }
 
+@media (max-width: 1300px) {
+  .todo_half {
+    width: 100%;
+    margin-left: 0;
+  }
+  .todo_app__wrapper {
+    max-width: 70%;
+  }
+  .todo_title {
+    font-size: 56px;
+  }
+}
 
+@media (max-width: 700px) {
+  .todo_app__wrapper {
+    max-width: 70%;
+  }
+
+  .todo_button {
+    margin-left: 0;
+  }
+
+  .todo_item {
+    padding: 0.5rem;
+  }
+
+  .todo_svgBox {
+    flex-basis: 20px;
+    height: 20px;
+  }
+
+  .todo_svgBox:hover {
+    flex-basis: 20px;
+    height: 20px;
+  }
+
+  .todo_texts {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .todo_todoText {
+    font-size: 0.9rem;
+  }
+
+  .todo_time {
+    font-size: 0.7rem;
+  }
+
+  .todo_icon {
+    font-size: 0.9rem;
+  }
+  .todo_title {
+    font-size: 2rem;
+  }
+  .todo_button__select {
+    width: 90px;
+  }
+  .todo_button {
+    padding: 0.5rem 1rem;
+  }
+}
