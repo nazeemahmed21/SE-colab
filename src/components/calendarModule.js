@@ -169,9 +169,9 @@ function CalendarApp() {
           />
           
           <button
-            className={`${styles.button} ${styles.button__primary}`}
+            className={`${styles.calendar_button} ${styles.calendar_button__primary}`}
             onClick={handleAddEvent}
-            style={{ width: "70%", marginBottom: "1rem", maxWidth: "300px", alignSelf: 'flex-end', height: "20px", fontSize: "12px", marginTop: "-1rem"}}
+            
           >
             Add Event
           </button>
@@ -179,20 +179,20 @@ function CalendarApp() {
             <button
               className={`${styles.button} ${styles              .button__secondary}`}
               onClick={handleDeleteSelectedEvent}
-              style={{ width: "70%", marginBottom: "5rem", maxWidth: "300px", alignSelf: 'flex-end', height: "40px", fontSize: "12px", marginTop:'-0.8rem'}}
+            
             >
               Delete Selected Event
             </button>
           )}
         </div>
       </div>
-      <div style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', position: 'relative', left: "0px"}}>
+      <div style={{ width: '100%', maxWidth: '900px', margin: '0 auto', position: 'relative', left: "0px"}}>
         <Calendar
           localizer={localizer}
           events={allEvents}
           startAccessor="start"
           endAccessor="end"
-          style={{ height: '55vh', width: '100%' }}
+          style={{ height: '60vh', width: '100%' }}
           onSelectEvent={handleSelectEvent}
         />
       </div>
