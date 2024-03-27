@@ -10,6 +10,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { ChatContext } from '../Context/ChatContext';
 import { AuthContext } from '../Context/AuthContext';
 import { useNavigate } from "react-router-dom";
+import '../chatStyle.css'
 
 export const  ImageAnnotator = () => {
     const { state } = useLocation();
@@ -65,12 +66,26 @@ export const  ImageAnnotator = () => {
           <Navbar/>
           <div className=' chatsHome'>
             <div className='chatsContainer'>
-              <Typography variant='h3'>
+              <Typography variant='h5'>
                 Click the image below to annotate it.
               </Typography>
               <img ref={imgRef} style={{ margin: 100, maxHeight: "50%", maxWidth: "50%" }} src={state} onClick={() => showMarkerArea()} />
-              <button style={{maxHeight: "5%"}} onClick={handleSend}>Send Image</button>
-            </div>
+              <button
+  className="annotationSendButton"
+  style={{
+    maxHeight: "5%",
+    padding: "10px 20px", // Adjust button padding
+    borderRadius: "5px", // Adjust button border radius
+    backgroundColor: "#12ab99", // Background color
+    color: "white", // Text color
+    fontSize: "16px", // Font size
+    border: "none", // Remove button border
+    cursor: "pointer" // Add pointer cursor on hover
+  }}
+  onClick={handleSend}
+>
+  Send Image
+</button> </div>
         </div>
         </div>
     );
