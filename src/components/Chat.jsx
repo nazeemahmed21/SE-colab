@@ -44,10 +44,10 @@ const Chat = () => {
         <span>{data.user?.displayName}</span>
         <div className="chatIcons">
         <Link to="/video" target="_blank"> 
-        <img src={Cam} className='chatImage' alt='chatImage' style={{ width: '60px', height: '60px', marginRight:'20px', marginLeft:'70px' }} />
+        <img src={Cam} className='chatImage' alt='chatImage' style={{ width: '45px', height: '45px', marginRight:'20px', marginLeft:'10px',marginTop:'10px' }} />
         </Link>
-          <img src={Add} alt="" onClick={handleOpen} />
-          <img src={More} alt="" />
+          <img src={Add} alt="" style={{ width: '43px', height: '40px', marginRight:'20px', marginLeft:'10px', marginTop:'13px'}} onClick={handleOpen} />
+          <img src={More}  style={{ width: '55px', height: '50px', marginRight:'20px', marginLeft:'10px', marginTop:'13px' }} alt="" />
         </div>
       
       </div>

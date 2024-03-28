@@ -26,9 +26,12 @@
     left: 280px;
   }
   
+  .sidebar > * {
+    margin-bottom: 20px; /* Add space below each child element */
+  }
   /* Style for the sidebar */
   .sidebar {
-    box-shadow: 4px 2px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.4); /* Shadow on the right side */
     /* z-index: 1; */
     flex: 0.7;
     background-color: #ffffff; /* WhatsApp green */
@@ -37,8 +40,8 @@
     /* margin-left: 350px; */
     width: 40px;
     color: black;
-
   }
+  
   
   
   .sidebar .ChatNavbar {
@@ -72,11 +75,12 @@
   .sidebar .search input {
     width: 100%;
     padding: 8px;
-    border: none;
+    border: 1px solid rgb(119, 119, 119); /* Set border color to black */
     border-radius: 20px;
-    background-color: #128c7e; /* Darker shade of green */
-    color: white;
+    background-color: #e2e2e2; /* Darker shade of green */
+    color: black;
   }
+  
   
   .sidebar .userChat {
     gap: 10px;
@@ -136,7 +140,7 @@
    /* background-color: #12ab99; */
    color: white;
    font-size: 25px;
-   height: 60px;
+   height: 42px;
    margin-bottom: 12px;
   }
 
@@ -177,24 +181,43 @@
   .message {
     /* width:140px; */
     display: flex;
+    flex-direction: column;
     /* align-items: flex-end; */
     margin-bottom: 20px;
   }
   
   .message {
-    font-size: 24px;
-    /* display: inline-block; */
-    max-width: -moz-fit-content;
-    max-width:fit-content;
-    padding: 10px;
+    font-size: 21px;
+    max-width:fit-content; /* Adjust the maximum width as needed */
+    padding: 5px;
     border-radius: 10px;
     background-color: white;
-
+    word-wrap: break-word; /* Ensure long words break to fit within the container */
+    margin-bottom: 10px; /* Add some space between messages */
   }
   
+  .mtext{
+    font-size: 17px;
+
+  }
+
+.senderName{
+  font-weight: bold;
+  font-size: 22px;
+}
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start of the container */
+  }
+
+  .message-containerBig {
+    display: flex;
+    flex-direction: row;
+  }
 .owner {
     background-color: #dcf8c6;
-    font-size: 24px; /* Light green for own messages */
+    font-size: 20px; /* Light green for own messages */
     text-align: right;
     justify-content: flex-end;
   }
@@ -260,8 +283,19 @@
     font-size: 22px;
   }
 
+   .userChatInfo p{
+   margin-left: 16px;
+    font-size: 14px;
+  }
+
+  .userChatInfo span{
+    font-weight: bold;
+  }
+
+
   .ChatNavbar span{
-    font-size: 22px;
+    font-weight: bold;
+    font-size: 28px;
   }
 
   .options-menu {
@@ -382,7 +416,7 @@
     background-color: #075e54;
     color: white;
     font-size: 20px;
-    height: 40px;
+    height: 30px;
     margin-bottom: 10px;
    }
   .chatInfo {
@@ -458,6 +492,8 @@
   }
   
   .search{
+    border: 1px solid rgb(119, 119, 119);
+    margin-bottom: 20px;
     top: 105px;
     width: auto;
     position: fixed;
