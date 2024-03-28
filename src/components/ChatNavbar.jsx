@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div className='ChatNavbar'>
-      <span className='logo'>Co-Lab Chats</span>
+      <span className='logo'>Chats</span>
       <div className='user'>
         {/* <img src={currentUser.photoURL} alt="" /> */}
         <span className='userChatName'> {currentUser.displayName } </span>
