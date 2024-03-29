@@ -62,10 +62,10 @@ export const  ImageAnnotator = () => {
     }
 
     return (
-        <div className='homeContainer'>
+        <div className='homeContainerAnnotate'>
           <Navbar/>
-          <div className=' chatsHome'>
-            <div className='chatsContainer'>
+          <div className=' chatsHomeAnnotate'>
+            <div className='chatsContainerAnnotate'>
               {/* comment */}
               <Typography variant='h5'>
                 Click the image below to annotate it.
@@ -74,6 +74,8 @@ export const  ImageAnnotator = () => {
               <button
   className="annotationSendButton"
   style={{
+    marginLeft: "auto", // Align to center horizontally
+    marginRight: "auto", // Align to center horizontally
     maxHeight: "5%",
     padding: "10px 20px", // Adjust button padding
     borderRadius: "5px", // Adjust button border radius
@@ -86,7 +88,8 @@ export const  ImageAnnotator = () => {
   onClick={handleSend}
 >
   Send Image
-</button> </div>
+</button>
+ </div>
         </div>
         </div>
     );

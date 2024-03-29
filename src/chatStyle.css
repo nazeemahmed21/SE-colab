@@ -197,13 +197,13 @@
   }
   
   .mtext{
-    font-size: 17px;
-
+    margin-top: -5px;
+    font-size: 18px;
   }
 
-.senderName{
-  font-weight: bold;
-  font-size: 22px;
+.senderName p{
+  font-weight: 500;
+  font-size: 12px; /* Adjust font size as needed */
 }
   .message-container {
     display: flex;
@@ -237,15 +237,19 @@
     right:0;
   }
 
+
+
+
+
   /* Style for the input area */
   .input {
-    height:80px;
+    height:50px;
     width: 63%;
     position: fixed;
     bottom: 0;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     padding: 20px;
     gap: 10px;
     background-color: white;
@@ -274,6 +278,31 @@
     cursor: pointer;
   }
 
+  
+  
+  .send .icons {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  
+  .send .fileAnnotationInput + label {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #f0f2f5; /* Background color */
+    color: #128c7e; /* Text color */
+    border: 1px solid #128c7e; /* Border color */
+    cursor: pointer;
+  }
+  
+  .send .fileAnnotationInput + label:hover {
+    background-color: #128c7e; /* Hover background color */
+    color: white; /* Hover text color */
+  }
+  
+
+  .fileAnnotationInput {
+    width: 80px;
+  }
   .chatNameBar{
     position:fixed;
   }
@@ -292,18 +321,35 @@
     font-weight: bold;
   }
 
+  .chatInfo span{
+    font-size: 25px;
+    font-weight: 700;}
 
   .ChatNavbar span{
     font-weight: bold;
     font-size: 28px;
   }
 
+
   .options-menu {
+    width: 100px;
     position:relative;
+    top: -60px;
+    left: 220px;
     background-color: #ffffff;
     border: 1px solid #ccc;
     padding: 1px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .options-menu-owner {
+    width: 100px;
+    position:relative;
+    right: 5px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 1px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Additional styles for when the message owner is you */
   }
   
   .option {
@@ -463,12 +509,7 @@
   }
 
   /* Adjustments for send button and emoji icon */
-  .send {
-    flex: 1; /* Occupy remaining space */
-    display: flex; /* Use flexbox */
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center; /* Align items vertically */
-  }
+
 
   .send .icons {
     margin-right: 0; /* Remove right margin */
@@ -480,16 +521,7 @@
       }
 
   /* Adjustments for send button */
-  .send button {
-    margin-right: 0; /* Remove right margin */
-    margin-left: 5px; /* Add left margin */
-    padding: 10px 20px; /* Adjust button padding */
-    border-radius: 5px; /* Adjust button border radius */
-  }
 
-  .send label{
-    width: 60%;
-  }
   
   .search{
     border: 1px solid rgb(119, 119, 119);
@@ -499,6 +531,7 @@
     position: fixed;
   }
 
+  
   .message.owner {
     margin-right: 30px;
     font-size: 12px;
@@ -507,11 +540,50 @@
   }
 
   .chats{
+    max-height: calc(10vh);
+    overflow-y: auto;
     margin-top: 18px;
     top: 100px;
   }
+  .homeContainerAnnotate {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .chatsHomeAnnotate {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center the container horizontally */
+  }
+  
+  .chatsContainerAnnotate {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center the container horizontally */
+  }
+  
+  .chatsContainerAnnotate img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: block; /* Ensure the image is displayed as a block-level element */
+  }
+  
 
+  .MuiTypography-h5 {
+    text-align: center; /* Center the text horizontally */
+    margin-top: 20px; /* Add some space at the top */
+  }
+  
   .annotationSendButton {
+    margin-top: 20px;
+    margin-left: -50px;
     max-height: 5%;
     padding: 10px 20px; /* Adjust button padding */
     border-radius: 5px; /* Adjust button border radius */
