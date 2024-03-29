@@ -368,7 +368,8 @@ select {
   text-decoration: none;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  margin: 10px;
+  /* margin: 10px; */
+  margin-bottom: 10px;
   font-size: 25px;
 }
 
@@ -486,13 +487,12 @@ select {
 .select-wrapper select {
   appearance: none;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: transparent;
+  background-color: rgba(41, 173, 160, 0.5);
   border: 1px solid #ccc;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;
-  width: 200px;
+  /* width: 200px; */
   outline: none;
   cursor: pointer;
 }

@@ -141,7 +141,8 @@ span {
 .sign-out-button {
   position: absolute;
   font-size: 25px;
-  left: 1vw;
+  right: 5%;
+  left: 5%;
   top: 86.5%;
   padding: 5px;
   border-radius: 10px;
@@ -160,6 +161,10 @@ span {
   transition: fill 0.2s;
   /* Add a transition for a smooth color change */
 }
+
+/* .sign-out-box {
+
+} */
 
 .nav_select_menu {
   position: relative;
