@@ -1,3 +1,23 @@
+.thoughts-searchbar {
+  position: relative;
+  /* left: 30px; */
+  margin-left: 2%;
+  margin-bottom: 10px;
+  display: grid;
+  width: 50%;
+}
+
+.thoughts-searchbar input {
+  width: 100%;
+  height: 60px;
+  justify-self: center;
+  text-decoration: none;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  /* margin: 10px; */
+  font-size: 25px;
+}
+
 /* thoughts-container styles */
 
 .thoughtsBtnThoughts {
@@ -250,6 +270,9 @@
       border-radius: 15px;
       font-size: 20px;
     }
+    .thoughts-searchbar input {
+      font-size: 20px;
+    }
   }
   @media screen and (min-width: 800px) and (max-width: 896px){
     .thought-item {
@@ -261,10 +284,12 @@
       padding: 20px;
       border-radius: 15px;
       font-size: 20px;
-      
+    }
+    .thoughts-searchbar input {
+      font-size: 20px;
     }
   }
-  @media screen and (min-width: 700px) and (max-width: 799px){
+  @media screen and (min-width: 700px) and (max-width: 800px){
     .thought-item {
       /* width: 60vw; */
       max-width: 700px;
@@ -275,8 +300,11 @@
       border-radius: 15px;
       font-size: 20px;
     }
+    .thoughts-searchbar input {
+      font-size: 20px;
+    }
   }
-  @media screen and (min-width: 600px) and (max-width: 699px){
+  @media screen and (min-width: 600px) and (max-width: 700px){
     .thought-item {
       /* width: 60vw; */
       max-width: 700px;
@@ -289,6 +317,12 @@
     }
     .backHomebtn {
       margin-left: 30%;
+    }
+    .thoughts-searchbar input {
+      font-size: 20px;
+    }
+    .thoughts-searchbar {
+      width: 70%;
     }
   }
   @media screen and (min-width: 500px) and (max-width: 600px){
@@ -303,11 +337,15 @@
       font-size: 20px;
     }
     .backHomebtn {
-      
-      margin-top: 10%;
       margin-left: 30%;
       width: 200px;
       height: 80px;
+    }
+    .thoughts-searchbar input {
+      font-size: 20px;
+    }
+    .thoughts-searchbar {
+      width: 70%;
     }
   }
   @media screen and (min-width: 400px) and (max-width: 500px){
@@ -327,6 +365,12 @@
       width: 180px;
       height: 80px;
     }
+    .thoughts-searchbar input {
+      font-size: 15px;
+    }
+    .thoughts-searchbar {
+      width: 70%;
+    }
   }
   @media screen and (min-width: 300px) and (max-width: 400px){
     .thought-item {
@@ -345,5 +389,11 @@
       margin-left: 28%;
       width: 150px;
       height: 70px;
+    }
+    .thoughts-searchbar input {
+      font-size: 15px;
+    }
+    .thoughts-searchbar {
+      width: 70%;
     }
   }
