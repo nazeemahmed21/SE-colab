@@ -191,7 +191,7 @@ const Messages = ({ message }) => {
                 {m.senderId != currentUser.uid ? <p>{userIdNameMap[m.senderId]}</p> : ''}
               </Typography>
             </div>
-            <div className='mtext'>
+            <div className='mtext'  style={{ marginTop: m.senderId !== currentUser.uid ? '-5px' : '10', fontSize: '18px' }}>
               {m.text}
             </div>  
             <div style={{margin: 5}}>
@@ -218,7 +218,8 @@ const Messages = ({ message }) => {
             </span>
             </div>
             {messageOptions[m.id] && (
-              <div className="options-menu" m>
+             <div className={m.senderId === currentUser.uid ? "options-menu-owner" : "options-menu"}>
+ 
                 <div className="option" onClick={() => handleDelete(m.id)}>
                   Delete
                 </div>
