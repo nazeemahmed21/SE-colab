@@ -1,6 +1,6 @@
 // ThoughtsSearchbar.js
 import React from "react";
-import "../styles/thoughtsSearch.css"
+import "../styles/thoughtscomp.css";
 
 function ThoughtsSearchbar({ searchQuery, setSearchQuery }) {
   return (
