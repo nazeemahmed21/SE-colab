@@ -18,18 +18,18 @@ function Thoughts() {
   return (
     <>
       <div>
-        <div className="thoughtsBtnThoughts">
-      <button>Thoughts</button>
+        <div >
+      
       </div>
         <Link to="/home">
-      <div className="backHomebtn">
-        <button>Go back to Events</button>
+      <div >
+        <button className="backHomebtn">Go back to Events</button>
       </div>
       </Link>
     </div>
     <ThoughtsComp />
     <div>
-     <Navbar /> 
+      <Navbar /> 
   </div>
   
     </>

@@ -164,7 +164,7 @@ select {
   left: 10px;
 }
 
-.homePage .post {
+/* .homePage .post {
   position: relative;
   left: 100px;
   width: 70%;
@@ -175,7 +175,19 @@ select {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: 20px;
   border-radius: 15px;
+} */
+
+.homePage .post {
+  width: 90%; /* Adjust the width as needed */
+  max-width: 600px; /* Set a maximum width for larger screens */
+  margin: 20px auto;
+  background-color: #cecdcd;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 15px;
 }
+
+
 .post .dateFrom, .dateTo, .postLocation{ 
   font-size: 20px;
 }
