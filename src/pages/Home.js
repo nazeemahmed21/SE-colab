@@ -346,6 +346,11 @@ function Home({ isAuth }) {
             <IoIosNotifications size={30} />
           </button>
         </div>
+        <div className="ta-btn-container">
+        <button className="toggle-analytics-button" onClick={handleShowAnalytics}>
+          {showAnalytics ? <TbReportAnalytics size={30}/>: <TbReportAnalytics size={30}/> }
+        </button>
+      </div>
         <Popup
           trigger={buttonPopup}
           setTrigger={setButtonPopup}
@@ -372,48 +377,40 @@ function Home({ isAuth }) {
         {/* Event Analytics HTML code starts here */}
 
         <div className="event-analytics-container">
-      <div className="ta-btn-container">
-        <button className="toggle-analytics-button" onClick={handleShowAnalytics}>
-          {showAnalytics ? <TbReportAnalytics size={30}/>: <TbReportAnalytics size={30}/> }
-        </button>
-      </div>
-      {showAnalytics && (
-        <div className="event-analytics">
-          <h5>Your Event Analytics</h5>
-          <div className="AnalyticsSearchBar">
-            <input
-              type="text"
-              placeholder="Search events..."
-              value={searchQueryE}
-              onChange={(e) => setSearchQueryE(e.target.value)}
-            />
-          </div>
-          {filteredEvents.map((event) => (
-            <div key={event.id} className="event-analytics-item">
-              <h5>{event.title}</h5>
-              <p>Attendees: {event.rsvpCount}</p>
-              <button onClick={() => handleShowRSVPs(event.rsvpNames)}>
-                Show RSVPs
-              </button>
+          {showAnalytics && (
+            <div className="event-analytics">
+              <h3>Your Event Analytics</h3>
+              <div className="AnalyticsSearchBar">
+                <input
+                  type="text"
+                  placeholder="Search events..."
+                  value={searchQueryE}
+                  onChange={(e) => setSearchQueryE(e.target.value)}
+                />
+              </div>
+              {filteredEvents.map((event) => (
+                <div key={event.id} className="event-analytics-item">
+                  <h5>{event.title}</h5>
+                  <p>Attendees: {event.rsvpCount}</p>
+                  <button onClick={() => handleShowRSVPs(event.rsvpNames)}>
+                    Show RSVPs
+                  </button>
+                </div>
+              ))}
             </div>
-          ))}
+          )}
+          {showRsvpBox && (
+            <div className="rsvp-users-container">
+              <h2>RSVPed Users:</h2>
+              <ul>
+                {rsvpUsers.map((user, index) => (
+                  <li key={index}>{user}</li>
+                ))}
+              </ul>
+              <button onClick={handleCloseRsvpBox}>Close</button>
+            </div>
+          )}
         </div>
-      )}
-      {showRsvpBox && (
-        <div className="rsvp-users-container">
-          <h2>RSVPed Users:</h2>
-          <ul>
-            {rsvpUsers.map((user, index) => (
-              <li key={index}>{user}</li>
-            ))}
-          </ul>
-          <button onClick={handleCloseRsvpBox}>Close</button>
-        </div>
-      )}
-    </div>
-
-        {/* Event Analytics HTML code ends here */}
-
         {postLists.map((post) => (
           <div className="post" key={post.id}>
             <div className="postHeader">
