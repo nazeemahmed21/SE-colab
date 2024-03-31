@@ -501,6 +501,9 @@
     font-size: 14px; 
   } */
 
+
+
+
   /* Adjustments for chats container and sidebar */
   .chatsContainer {
     margin-bottom: 100px;
@@ -510,12 +513,12 @@
   }
   
   .sidebar {
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);
     flex: 1; /* Occupy full width */
     width: 100%; /* Occupy full width */
     padding: 10px; /* Adjust padding */
     overflow-x: auto; /* Add horizontal scroll for small screens */
-    margin-top: -20px; 
+    margin-top: -45px; 
   }
  
   .ChatNavbar{
@@ -528,12 +531,13 @@
     height: auto; /* Adjust height */
   }
 
+  .chatInfo span{font-size: 14px;}
   .chatInfo{
     position: fixed;
     /* left: 100; */
     background-color: #075e54;
     color: white;
-    font-size: 20px;
+    font-size: 14px;
     height: 30px;
     margin-bottom: 10px;
    }
@@ -546,21 +550,11 @@
   }
 
   /* Adjustments for input area */
-  .input {
-    width: 100%;
-    margin-bottom: 160px;
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
-    align-items: center; /* Align items vertically */
-    justify-content: space-between; /* Distribute space between items */
-    padding: 10px; /* Adjust padding */
-  }
 
   /* Adjustments for emoji picker container */
   .emoji-picker-container {
-    
+
     flex: 1; /* Occupy remaining space */
-    padding-right: 10px; /* Add some spacing */
     max-width: 100px; /* Limit maximum width */
   }
 
@@ -575,22 +569,54 @@
   }
   /* Adjustments for input text field */
   .input input {
-    flex: 1; /* Occupy remaining space */
-    margin-right: 10px; /* Add some spacing between input and emoji picker */
+    bottom: 100px;
+    width: 90%;
+    margin-right:0px; /* Add some spacing between input and emoji picker */
     font-size: 14px; /* Adjust font size */
   }
 
   /* Adjustments for send button and emoji icon */
-
-
-  .send .icons {
-    margin-right: 0; /* Remove right margin */
-    margin-left: 5px; /* Add left margin */
+  .input-container {
+    height: 70px;
+    position: fixed;
+    bottom: 60px; /* Positioned 50px from the bottom */
     display: flex;
-    /* margin-bottom: 160px; */
-    font-size: 20px; /* Adjust emoji icon size */
+    width: 100%;
+    padding: 0 0px; /* Adjust padding as necessary */
+    background-color: white;
+    border-top: 1px solid #ccc;
+  }
+  
+  .input {
+    background-color: white;
+    bottom: 65px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .send {
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    position: fixed;
+    bottom: 75px;
+  right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.send label {
+  display: flex;
+}
+
+  
+  .icons {
+    background-color: white;
+    bottom: 70px;
     cursor: pointer;
-      }
+  }
+  
 
   /* Adjustments for send button */
 
@@ -668,5 +694,50 @@
   .annotationSendButton:hover {
     background-color: #0e8e78; /* Darker background color on hover */
   }
+
+  
+
+  /* Style for the input area */
+  .input {
+    height: 65px; /* Adjust height if needed */
+    width: 99%;
+    position: fixed;
+    display: inline;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    bottom: 55px; /* Positioned 50px from the bottom */
+}
+
+.searchForm {
+  display: none;
+}
+
+.messagesType {
+    flex: 1; /* Take up remaining space */
+    margin-right: 10px; /* Add some space between input and emoji picker */
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f0f2f5; /* WhatsApp chat background color */
+}
+
+.send {
+    display: flex;
+    align-items: center;
+}
+
+.icons {
+    cursor: pointer;
+}
+
+  .sidebar {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);}
+  .input input::placeholder {
+    color: #999;
+  }
+  
   
 }

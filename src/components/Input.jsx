@@ -162,11 +162,15 @@ const handleSelectGif = async (searchTerm) => {
         pickerClassName="custom-emoji-picker"
       />
     </div>
-    <input type="text" placeholder='Type Something...' onChange={e => setText(e.target.value)} value={text} />
-    <div className="send">
+    <input className='messagesType' type="text" placeholder='Type Something...' onChange={e => setText(e.target.value)} value={text} style={{marginTop: '-10px'}} />
+    <div className="send" >
       <label htmlFor="file">
-        <AiOutlineFile className='icons' size={25} />
-        <input type="file" className='fileAnnotationInput' ref={fileRef} onChange={(e) => handleUploadImage(e)} />
+      <label htmlFor="file">
+  <input type="file" className='fileAnnotationInput' ref={fileRef} onChange={(e) => handleUploadImage(e)} />
+</label>
+
+        {/* <AiOutlineFile className='icons' size={25} />
+        <input type="file" className='fileAnnotationInput' ref={fileRef} onChange={(e) => handleUploadImage(e)} /> */}
       </label>
       <span className='icons' style={{ fontSize: '25px' }} onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
         😀
