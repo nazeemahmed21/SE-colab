@@ -102,7 +102,7 @@ function EventAnalytics() {
       </div>
       {showAnalytics && (
         <div className="event-analytics">
-          <h5>Your Event Analytics</h5>
+          <h3>Your Event Analytics</h3>
           <div className="AnalyticsSearchBar">
             <input
               type="text"
