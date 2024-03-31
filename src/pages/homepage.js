@@ -38,7 +38,7 @@ function Home() {
         />
         <div className="events">
           <Event />
-          <EventAnalytics />
+          
           <br></br>
         </div>
 
