@@ -34,6 +34,7 @@ function CalendarApp() {
   const [allEvents, setAllEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [showNavbar, setShowNavbar] = useState(true);
+  const [showAddEventPopup, setShowAddEventPopup] = useState(false); // State to control the visibility of the add event popup
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(getFirestore(), "CalendarEvents"), (snapshot) => {
@@ -106,6 +107,7 @@ function CalendarApp() {
 
     // Display toast message for successful event addition
     toast.success("Event added successfully");
+    setShowAddEventPopup(false); // Hide the add event popup after successful addition
   };
 
   const handleDeleteSelectedEvent = async () => {
@@ -123,84 +125,83 @@ function CalendarApp() {
 
   const handleSelectEvent = (event) => {
     setSelectedEvent(event);
-    toast.info(
-      <div>
-        <h3>{event.title}</h3>
-        <p>Start Date: {event.start.toString()}</p>
-        <p>End Date: {event.end.toString()}</p>
-      </div>,
-      {
-        closeButton: true,
-      }
-    );
   };
 
   return (
     <div className="CalendarApp" style={{backgroundColor: '#ffffff', color: "#181D27", width: '100%', padding: '0px', margin: '0px', position: 'relative', minHeight: '100vh' }}>
-      <div className={styles.container} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '0rem' }}>
-        <div className={styles.form} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <input
-            type="text"
-            placeholder="Add Title"
-            style={{
-              width: "80%",
-              marginBottom: "-0.5rem",
-              maxWidth: "300px",
-              marginTop: "15px"
-            }}
-            value={newEvent.title}
-            onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-          />
-          <DatePicker
-            placeholderText="Start Date"
-            className={`${styles.datePicker} ${styles.large}`} // Apply custom styles
-            selected={newEvent.start}
-            onChange={(start) => setNewEvent({ ...newEvent, start })}
-            showTimeSelect
-            dateFormat="Pp"
-          />
-          <DatePicker
-            placeholderText="End Date"
-            className={`${styles.datePicker} ${styles.large}`} // Apply custom styles
-            selected={newEvent.end}
-            onChange={(end) => setNewEvent({ ...newEvent, end })} 
-            showTimeSelect
-            dateFormat="Pp"
-          />
-          
-          <button
-            className={`${styles.calendar_button} ${styles.calendar_button__primary}`}
-            onClick={handleAddEvent}
-            
-          >
-            Add Event
-          </button>
-          {selectedEvent && (
-            <button
-              className={`${styles.button} ${styles              .button__secondary}`}
-              onClick={handleDeleteSelectedEvent}
-            
-            >
-              Delete Selected Event
-            </button>
-          )}
-        </div>
-      </div>
-      <div style={{ width: '100%', maxWidth: '900px', margin: '0 auto', position: 'relative', left: "0px"}}>
+      {/* Navbar */}
+      <Navbar style={{ position: 'absolute', top: 0, left: 0, width: '100%' }} />
+
+      {/* Calendar */}
+      <div style={{ width: '100%', maxWidth: '850px', margin: '0 auto', position: 'relative', left: "0px", top: "100px"}}>
         <Calendar
           localizer={localizer}
           events={allEvents}
           startAccessor="start"
           endAccessor="end"
-          style={{ height: '60vh', width: '100%' }}
+          style={{ height: '70vh', width: '100%' }}
           onSelectEvent={handleSelectEvent}
         />
       </div>
-      {showNavbar && <Navbar style={{ position: 'absolute', bottom: 0, left: 0, width: '100%' }} />}
+
+      {/* Add Event Button */}
+      <button
+        style={{ position: 'absolute', zIndex: '999', top: '40px', left: '50%',borderRadius: '10px', transform: 'translate(-50%, -50%)', width:"150px", height: "50px", fontSize: "20px", backgroundColor: "#29ada0", color:"#fff"}}
+        onClick={() => setShowAddEventPopup(true)}
+      >
+        Add Event
+      </button>
+
+      {/* Blur background for popups */}
+      {(showAddEventPopup || selectedEvent) && (
+        <div className="blur-background" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', zIndex: '999', backdropFilter: 'blur(5px)', WebkitBackdropFilter: 'blur(5px)' }}></div>
+      )}
+
+      {/* Add Event Popup */}
+      {showAddEventPopup && (
+        <div className="add-event-popup" style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',  fontSize: "20px", backgroundColor: "#29ada0", color:"#fff", padding: '20px', borderRadius: '10px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', zIndex: '1000' }}>
+          <h3>Enter the following:</h3>
+          <input
+            type="text"
+            placeholder="Title"
+            value={newEvent.title}
+            onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+            style={{marginLeft: "200px"}}
+          />
+          <DatePicker
+            selected={newEvent.start}
+            placeholderText="Start Date"
+            onChange={(date) => setNewEvent({ ...newEvent, start: date })}
+            showTimeSelect
+            dateFormat="Pp"
+          />
+          <DatePicker
+            selected={newEvent.end}
+            placeholderText="End Date"
+            onChange={(date) => setNewEvent({ ...newEvent, end: date })}
+            showTimeSelect
+            dateFormat="Pp"
+          />
+          <button onClick={handleAddEvent}>Add</button>
+          <button onClick={() => setShowAddEventPopup(false)}>Cancel</button>
+        </div>
+      )}
+      
+      {/* Selected Event Popup */}
+      {selectedEvent && (
+        <div className="selected-event-popup" style={{position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',  fontSize: "20px", backgroundColor: "#29ada0", color:"#fff", padding: '20px', borderRadius: '10px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', zIndex: '1000' }}>
+          <h3>{selectedEvent.title}</h3>
+          <p>Start Date: {selectedEvent.start.toString()}</p>
+          <p>End Date: {selectedEvent.end.toString()}</p>
+          <button onClick={handleDeleteSelectedEvent}>Delete Event</button>
+          <button onClick={() => setSelectedEvent(null)}>Close</button>
+        </div>
+      )}
+
+      {/* Toast Container */}
       <ToastContainer />
-    </div> 
+    </div>
   );
 }
 
 export default CalendarApp;
-
