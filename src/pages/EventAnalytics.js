@@ -18,7 +18,7 @@ function EventAnalytics() {
   const [showAnalytics, setShowAnalytics] = useState(false);
   const [showRsvpBox, setShowRsvpBox] = useState(false);
   const [rsvpUsers, setRsvpUsers] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQueryE, setSearchQueryE] = useState("");
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -62,10 +62,10 @@ function EventAnalytics() {
 
   useEffect(() => {
     const filteredEvents = events.filter((event) =>
-      event.title.toLowerCase().includes(searchQuery.toLowerCase())
+      event.title.toLowerCase().includes(searchQueryE.toLowerCase())
     );
     setFilteredEvents(filteredEvents);
-  }, [searchQuery, events]);
+  }, [searchQueryE, events]);
 
   const getRsvpNames = async (postId, rsvps) => {
     const rsvpNames = [];
@@ -107,8 +107,8 @@ function EventAnalytics() {
             <input
               type="text"
               placeholder="Search events..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              value={searchQueryE}
+              onChange={(e) => setSearchQueryE(e.target.value)}
             />
           </div>
           {filteredEvents.map((event) => (

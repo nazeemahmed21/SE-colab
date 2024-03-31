@@ -26,6 +26,7 @@ import toast from "react-hot-toast";
 import { IoIosNotifications } from "react-icons/io";
 import { AiFillPlusCircle } from "react-icons/ai";
 
+
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -41,6 +42,93 @@ function Home({ isAuth }) {
   const postsCollectionRef = collection(db, "posts");
   const notificationsCollectionRef = collection(db, "notifications");
   const navigate = useNavigate();
+
+  // Event Analytics code:
+  const [events, setEvents] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [showAnalytics, setShowAnalytics] = useState(false);
+  const [showRsvpBox, setShowRsvpBox] = useState(false);
+  const [rsvpUsers, setRsvpUsers] = useState([]);
+  const [searchQueryE, setSearchQueryE] = useState("");
+
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const user = auth.currentUser;
+      if (!user) return;
+
+      const q = query(
+        collection(db, "posts"),
+        where("author.id", "==", user.uid)
+      );
+
+      const querySnapshot = await getDocs(q);
+      const eventList = [];
+
+      querySnapshot.forEach(async (doc) => {
+        const data = doc.data();
+        const postId = doc.id;
+        if (postId && data.title) {
+          const rsvps = data.rsvps || [];
+          const rsvpNames = await getRsvpNames(postId, rsvps);
+
+          eventList.push({
+            id: postId,
+            title: data.title,
+            rsvpCount: data.rsvpCount || 0,
+            rsvpNames: rsvpNames,
+          });
+        }
+      });
+
+      setEvents(eventList);
+      setFilteredEvents(eventList);
+    };
+
+    const unsubscribe = onSnapshot(collection(db, "posts"), (snapshot) => {
+      fetchEvents();
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const filteredEvents = events.filter((event) =>
+      event.title.toLowerCase().includes(searchQueryE.toLowerCase())
+    );
+    setFilteredEvents(filteredEvents);
+  }, [searchQueryE, events]);
+
+  const getRsvpNames = async (postId, rsvps) => {
+    const rsvpNames = [];
+    for (const userId of rsvps) {
+      const userDoc = await getDoc(doc(db, "Users", userId));
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        const userName = `${userData.firstName} ${userData.lastName}`;
+        rsvpNames.push(userName);
+      }
+    }
+    return rsvpNames;
+  };
+
+  const handleShowAnalytics = () => {
+    setShowAnalytics(!showAnalytics);
+  };
+
+  const handleShowRSVPs = (rsvpNames) => {
+    setRsvpUsers(rsvpNames);
+    setShowRsvpBox(true);
+  };
+
+  const handleCloseRsvpBox = () => {
+    setShowRsvpBox(false);
+  };
+
+
+
+  // Event Analytics code ends here
+
 
   const rsvpAlert = (post) => {
     if (post.rsvpCount >= post.maxAttendees) {
@@ -280,6 +368,51 @@ function Home({ isAuth }) {
         </div>
 
         {showNotifications && <Notification userId={auth.currentUser.uid} />}
+
+        {/* Event Analytics HTML code starts here */}
+
+        <div className="event-analytics-container">
+      <div className="ta-btn-container">
+        <button className="toggle-analytics-button" onClick={handleShowAnalytics}>
+          {showAnalytics ? <TbReportAnalytics size={30}/>: <TbReportAnalytics size={30}/> }
+        </button>
+      </div>
+      {showAnalytics && (
+        <div className="event-analytics">
+          <h5>Your Event Analytics</h5>
+          <div className="AnalyticsSearchBar">
+            <input
+              type="text"
+              placeholder="Search events..."
+              value={searchQueryE}
+              onChange={(e) => setSearchQueryE(e.target.value)}
+            />
+          </div>
+          {filteredEvents.map((event) => (
+            <div key={event.id} className="event-analytics-item">
+              <h5>{event.title}</h5>
+              <p>Attendees: {event.rsvpCount}</p>
+              <button onClick={() => handleShowRSVPs(event.rsvpNames)}>
+                Show RSVPs
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+      {showRsvpBox && (
+        <div className="rsvp-users-container">
+          <h2>RSVPed Users:</h2>
+          <ul>
+            {rsvpUsers.map((user, index) => (
+              <li key={index}>{user}</li>
+            ))}
+          </ul>
+          <button onClick={handleCloseRsvpBox}>Close</button>
+        </div>
+      )}
+    </div>
+
+        {/* Event Analytics HTML code ends here */}
 
         {postLists.map((post) => (
           <div className="post" key={post.id}>
