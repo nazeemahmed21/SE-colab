@@ -1,0 +1,63 @@
+import React from 'react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom'; // for custom jest matchers
+import { AuthContext } from '../Context/AuthContext';
+import { ChatContext } from '../Context/ChatContext';
+import Message from './Message';
+
+// Mock the AuthContext
+jest.mock('../Context/AuthContext', () => ({
+  __esModule: true,
+  useContext: jest.fn(),
+}));
+
+// Mock the ChatContext
+jest.mock('../Context/ChatContext', () => ({
+  __esModule: true,
+  useContext: jest.fn(),
+}));
+
+describe('Message Component', () => {
+  // Mock data for currentUser and data
+  const mockCurrentUser = {
+    uid: 'mockUserId',
+    photoURL: 'mockPhotoURL',
+  };
+
+  const mockData = {
+    user: {
+      photoURL: 'mockUserPhotoURL',
+    },
+  };
+
+  // Mock the useContext hook
+  beforeEach(() => {
+    AuthContext.useContext.mockReturnValue({ currentUser: mockCurrentUser });
+    ChatContext.useContext.mockReturnValue({ data: mockData });
+  });
+
+  it('renders message correctly', () => {
+    const message = {
+      senderId: 'mockUserId',
+      text: 'Hello, Jest!',
+    };
+
+    const { getByText, getByAltText } = render(<Message message={message} />);
+
+    // Assertions based on your component structure
+    expect(getByText('Hello, Jest!')).toBeInTheDocument();
+    expect(getByAltText('')).toHaveAttribute('src', 'mockPhotoURL');
+  });
+
+  it('renders owner message correctly', () => {
+    const message = {
+      senderId: 'mockUserId',
+      text: 'Hello, Jest!',
+    };
+
+    const { container } = render(<Message message={message} />);
+
+    // Assertions for owner class
+    expect(container.firstChild).toHaveClass('owner');
+  });
+});

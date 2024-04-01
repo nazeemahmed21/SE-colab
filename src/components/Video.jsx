@@ -6,7 +6,7 @@ import { ZegoSuperBoardManager } from "zego-superboard-web";
 import '../Style.css';
 import Navbar from './Navbar';
 
-function randomID(len) {
+export function randomID(len) {
   let result = '';
   if (result) return result;
   var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',

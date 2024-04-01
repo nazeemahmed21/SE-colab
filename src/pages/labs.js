@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 const Labs = () => {
   return (
     <div>
-      <Navbar />
 
       <div className='LabsPage'>
  
