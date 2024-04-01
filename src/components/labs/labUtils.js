@@ -36,37 +36,38 @@ export const DeleteLab = async (labId, navigate) => {
 
 
 export const LeaveLab = async (labId, currentUserId, navigate) => {
-    if (window.confirm('Are you sure you want to leave this lab?')) {
+  if (window.confirm('Are you sure you want to leave this lab?')) {
       try {
-        const labRef = doc(db, 'labs', labId);
-        const membersRef = collection(labRef, 'members');
-  
-        // 1. Find the current user's member document
-        const currentUserMemberQuery = query(membersRef, where('userId', '==', currentUserId));
-        const currentUserMemberSnapshot = await getDocs(currentUserMemberQuery);
-  
-        if (currentUserMemberSnapshot.empty) {
-          console.error('Current user not found in lab members');
-          return; 
-        }
-  
-        const currentUserMemberDoc = currentUserMemberSnapshot.docs[0]; // Assuming only one matching member document
-  
-        // 2. Delete the current user's member document
-        await deleteDoc(currentUserMemberDoc.ref);
-  
-        // 3. Remove the lab from the current user's 'myLabs' array
-        const userDocRef = doc(db, 'Users', currentUserId);
-        await updateDoc(userDocRef, {
-          myLabs: arrayRemove(labRef) 
-        });
-  
-        console.log('User removed from lab successfully!');
-        navigate('/labs');
-  
-      } catch (error) {
-        console.error("Error deleting user from lab:", error);
-      }
-    }
-  };
+          const membersRef = collection(db, 'labs', labId, 'members');
 
+          // Check Membership
+          const memberQuery = query(membersRef, where("userId", "==", currentUserId));
+          const memberSnapshot = await getDocs(memberQuery);
+
+          if (memberSnapshot.empty) {
+
+              const userDocRef = doc(db, 'Users', currentUserId);
+              await updateDoc(userDocRef, {
+                  myLabs: arrayRemove(doc(db, 'labs', labId)) // Update to use doc()
+              });
+              console.log('Lab removed successfully');
+              navigate('/labs');
+          } else {
+              // User is a member, perform the normal steps
+              const currentUserMemberDoc = memberSnapshot.docs[0];
+              await deleteDoc(currentUserMemberDoc.ref);
+
+              const userDocRef = doc(db, 'Users', currentUserId);
+              await updateDoc(userDocRef, {
+                  myLabs: arrayRemove(doc(db, 'labs', labId)) // Update to use doc()
+              });
+
+              console.log('User removed from lab successfully!');
+              navigate('/labs');
+          }
+
+      } catch (error) {
+          console.error("Error deleting user from lab:", error);
+      }
+  }
+};

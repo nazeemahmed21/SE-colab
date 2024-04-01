@@ -1,7 +1,7 @@
 /* App.css */
 
 .App {
-    width: 100%;
+    width: 90%;
     display:flex;
     min-height:50vh ;
     flex-direction: column;
@@ -108,7 +108,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    display:block;
+    display:flex;
   }
   .folder-tile span{
     display:block;
@@ -123,6 +123,10 @@
     margin-right: 5px;
     width: 20px;
     height: 20px;
+  }
+
+  .folder-tile .folder-info{
+    display:block;
   }
   
   /* New styles for file tiles and file icon placeholder */
@@ -177,3 +181,42 @@
     padding: 5px;
 
   }
+.App input[type="text"],
+.App input[type="file"] {
+  border: 1px solid #ccc;
+  margin-bottom: 15px; 
+  border-radius: 3px;
+}
+
+.App input[type="text"]{
+  padding: 10px;
+}
+
+.App ::file-selector-button{
+  background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin:5px;
+
+}
+.folder-tile button{ 
+  background-color: red; 
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  
+}  
+
+.ffolder{
+  z-index: 0;
+}
