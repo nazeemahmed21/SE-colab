@@ -36,6 +36,27 @@ function CalendarApp() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [showAddEventPopup, setShowAddEventPopup] = useState(false); // State to control the visibility of the add event popup
 
+
+  useEffect(() => {
+    // Listen for the custom event triggered from Home.js to add RSVP and create event
+    const handleAddRSVPAndEvent = (event) => {
+      // Add RSVP logic here if needed
+
+      // Create event on the calendar
+      setNewEvent({
+        title: event.detail.title,
+        start: event.detail.start,
+        end: event.detail.end,
+      });
+    };
+
+    window.addEventListener('addRSVPAndEvent', handleAddRSVPAndEvent);
+
+    return () => {
+      window.removeEventListener('addRSVPAndEvent', handleAddRSVPAndEvent);
+    };
+  }, [allEvents]); // Include allEvents as dependency to re-run the effect when it changes
+
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(getFirestore(), "CalendarEvents"), (snapshot) => {
       const eventsFromFirestore = snapshot.docs.map((doc) => {
