@@ -17,4 +17,5 @@ test('renders Sidebar component', () => {
   expect(screen.getByTestId('mockChats')).toBeInTheDocument();
 
   // Add more specific assertions as needed
+  //one more comment
 });
