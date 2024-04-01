@@ -8,6 +8,7 @@
     font-family: Arial, sans-serif; 
   } */
   
+  /* comment */
   .message .m.owner{
     text-align: right;
     font-weight: 500;
@@ -25,8 +26,12 @@
     left: 280px;
   }
   
+  .sidebar > * {
+    margin-bottom: 20px; /* Add space below each child element */
+  }
   /* Style for the sidebar */
   .sidebar {
+    box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.4); /* Shadow on the right side */
     /* z-index: 1; */
     flex: 0.7;
     background-color: #ffffff; /* WhatsApp green */
@@ -35,8 +40,8 @@
     /* margin-left: 350px; */
     width: 40px;
     color: black;
-
   }
+  
   
   
   .sidebar .ChatNavbar {
@@ -58,7 +63,7 @@
     align-items: center;
     /* gap: 10px; */
   }
-  
+
 
 
   .ChatNavbar .user img {
@@ -70,13 +75,15 @@
   .sidebar .search input {
     width: 100%;
     padding: 8px;
-    border: none;
+    border: 1px solid rgb(119, 119, 119); /* Set border color to black */
     border-radius: 20px;
-    background-color: #128c7e; /* Darker shade of green */
-    color: white;
+    background-color: #e2e2e2; /* Darker shade of green */
+    color: black;
   }
   
+  
   .sidebar .userChat {
+    gap: 10px;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -84,6 +91,7 @@
     cursor: pointer;
     border-bottom: 0.8px solid #f2f0f0; /* Add grey divider */
   }
+
   
   .sidebar .userChat:hover {
     background-color: #19b6a3; /* Darker shade of green on hover */
@@ -116,20 +124,31 @@
   }
   
   .chatInfo{
+    align-items: center;
+    justify-content: space-between;
+    background-color:#149082; 
+    color: white;
+    font-size: 26px; /* Adjust font size */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 8px; /* Add border radius for a nicer look */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for depth */
+
+
    position: fixed;
    /* left: 100; */
    width: 63%;
-   background-color: #075e54;
+   /* background-color: #12ab99; */
    color: white;
    font-size: 25px;
-   height: 60px;
-   margin-bottom: 10px;
+   height: 42px;
+   margin-bottom: 12px;
   }
 
   .chatIcons {
     /* position: fixed; */
     display: flex;
     gap: 15px;
+    margin-right: 20px;
   }
   
   /* .chat .messages {
@@ -162,24 +181,43 @@
   .message {
     /* width:140px; */
     display: flex;
+    flex-direction: column;
     /* align-items: flex-end; */
     margin-bottom: 20px;
   }
   
   .message {
-    font-size: 24px;
-    /* display: inline-block; */
-    max-width: -moz-fit-content;
-    max-width:fit-content;
-    padding: 10px;
+    font-size: 21px;
+    max-width:fit-content; /* Adjust the maximum width as needed */
+    padding: 5px;
     border-radius: 10px;
     background-color: white;
-
+    word-wrap: break-word; /* Ensure long words break to fit within the container */
+    margin-bottom: 10px; /* Add some space between messages */
   }
   
+  .mtext{
+    margin-top: -5px;
+    font-size: 18px;
+  }
+
+.senderName p{
+  font-weight: 500;
+  font-size: 12px; /* Adjust font size as needed */
+}
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start of the container */
+  }
+
+  .message-containerBig {
+    display: flex;
+    flex-direction: row;
+  }
 .owner {
     background-color: #dcf8c6;
-    font-size: 24px; /* Light green for own messages */
+    font-size: 20px; /* Light green for own messages */
     text-align: right;
     justify-content: flex-end;
   }
@@ -199,15 +237,19 @@
     right:0;
   }
 
+
+
+
+
   /* Style for the input area */
   .input {
-    height:80px;
+    height:50px;
     width: 63%;
     position: fixed;
     bottom: 0;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     padding: 20px;
     gap: 10px;
     background-color: white;
@@ -236,6 +278,31 @@
     cursor: pointer;
   }
 
+  
+  
+  .send .icons {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  
+  .send .fileAnnotationInput + label {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #f0f2f5; /* Background color */
+    color: #128c7e; /* Text color */
+    border: 1px solid #128c7e; /* Border color */
+    cursor: pointer;
+  }
+  
+  .send .fileAnnotationInput + label:hover {
+    background-color: #128c7e; /* Hover background color */
+    color: white; /* Hover text color */
+  }
+  
+
+  .fileAnnotationInput {
+    width: 80px;
+  }
   .chatNameBar{
     position:fixed;
   }
@@ -245,16 +312,44 @@
     font-size: 22px;
   }
 
-  .ChatNavbar span{
-    font-size: 22px;
+   .userChatInfo p{
+   margin-left: 16px;
+    font-size: 14px;
   }
 
+  .userChatInfo span{
+    font-weight: bold;
+  }
+
+  .chatInfo span{
+    font-size: 25px;
+    font-weight: 700;}
+
+  .ChatNavbar span{
+    font-weight: bold;
+    font-size: 28px;
+  }
+
+
   .options-menu {
+    width: 100px;
     position:relative;
+    top: -60px;
+    left: 220px;
     background-color: #ffffff;
     border: 1px solid #ccc;
     padding: 1px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .options-menu-owner {
+    width: 100px;
+    position:relative;
+    right: 5px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 1px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Additional styles for when the message owner is you */
   }
   
   .option {
@@ -326,6 +421,78 @@
   /* overflow-y: auto; */
 }
 
+
+
+
+.chats{
+  max-height: calc(100vh);
+  overflow-y: auto;
+  margin-top: 18px;
+  top: 100px;
+}
+.homeContainerAnnotate {
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chatsHomeAnnotate {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center the container horizontally */
+}
+
+.chatsContainerAnnotate {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center the container horizontally */
+}
+
+.chatsContainerAnnotate img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  display: block; /* Ensure the image is displayed as a block-level element */
+}
+
+
+.MuiTypography-h5 {
+  text-align: center; /* Center the text horizontally */
+  margin-top: 20px; /* Add some space at the top */
+}
+
+.annotationSendButton {
+  margin-left: -50px;
+  max-height: 5%;
+  padding: 10px 20px; /* Adjust button padding */
+  border-radius: 5px; /* Adjust button border radius */
+  background-color: #12ab99; /* Background color */
+  color: white; /* Text color */
+  font-size: 16px; /* Font size */
+  border: none; /* Remove button border */
+  cursor: pointer; /* Add pointer cursor on hover */
+}
+
+.annotationSendButton:hover {
+  background-color: #0e8e78; /* Darker background color on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* Add media query for screens with a maximum width of 768px */
 @media only screen and (max-width: 1278px) {
   /* General adjustments */
@@ -333,6 +500,9 @@
   body {
     font-size: 14px; 
   } */
+
+
+
 
   /* Adjustments for chats container and sidebar */
   .chatsContainer {
@@ -343,11 +513,12 @@
   }
   
   .sidebar {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);
     flex: 1; /* Occupy full width */
     width: 100%; /* Occupy full width */
     padding: 10px; /* Adjust padding */
     overflow-x: auto; /* Add horizontal scroll for small screens */
-    margin-top: -20px; 
+    margin-top: -45px; 
   }
  
   .ChatNavbar{
@@ -360,13 +531,14 @@
     height: auto; /* Adjust height */
   }
 
+  .chatInfo span{font-size: 14px;}
   .chatInfo{
     position: fixed;
     /* left: 100; */
     background-color: #075e54;
     color: white;
-    font-size: 20px;
-    height: 40px;
+    font-size: 14px;
+    height: 30px;
     margin-bottom: 10px;
    }
   .chatInfo {
@@ -378,21 +550,11 @@
   }
 
   /* Adjustments for input area */
-  .input {
-    width: 100%;
-    margin-bottom: 160px;
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
-    align-items: center; /* Align items vertically */
-    justify-content: space-between; /* Distribute space between items */
-    padding: 10px; /* Adjust padding */
-  }
 
   /* Adjustments for emoji picker container */
   .emoji-picker-container {
-    
+
     flex: 1; /* Occupy remaining space */
-    padding-right: 10px; /* Add some spacing */
     max-width: 100px; /* Limit maximum width */
   }
 
@@ -407,46 +569,67 @@
   }
   /* Adjustments for input text field */
   .input input {
-    flex: 1; /* Occupy remaining space */
-    margin-right: 10px; /* Add some spacing between input and emoji picker */
+    bottom: 100px;
+    width: 90%;
+    margin-right:0px; /* Add some spacing between input and emoji picker */
     font-size: 14px; /* Adjust font size */
   }
 
   /* Adjustments for send button and emoji icon */
-  .send {
-    flex: 1; /* Occupy remaining space */
-    display: flex; /* Use flexbox */
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center; /* Align items vertically */
-  }
-
-  .send .icons {
-    margin-right: 0; /* Remove right margin */
-    margin-left: 5px; /* Add left margin */
+  .input-container {
+    height: 70px;
+    position: fixed;
+    bottom: 60px; /* Positioned 50px from the bottom */
     display: flex;
-    /* margin-bottom: 160px; */
-    font-size: 20px; /* Adjust emoji icon size */
-    cursor: pointer;
-      }
-
-  /* Adjustments for send button */
-  .send button {
-    margin-right: 0; /* Remove right margin */
-    margin-left: 5px; /* Add left margin */
-    padding: 10px 20px; /* Adjust button padding */
-    border-radius: 5px; /* Adjust button border radius */
-  }
-
-  .send label{
-    width: 60%;
+    width: 100%;
+    padding: 0 0px; /* Adjust padding as necessary */
+    background-color: white;
+    border-top: 1px solid #ccc;
   }
   
+  .input {
+    background-color: white;
+    bottom: 65px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .send {
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    position: fixed;
+    bottom: 75px;
+  right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.send label {
+  display: flex;
+}
+
+  
+  .icons {
+    background-color: white;
+    bottom: 70px;
+    cursor: pointer;
+  }
+  
+
+  /* Adjustments for send button */
+
+  
   .search{
+    border: 1px solid rgb(119, 119, 119);
+    margin-bottom: 20px;
     top: 105px;
     width: auto;
     position: fixed;
   }
 
+  
   .message.owner {
     margin-right: 30px;
     font-size: 12px;
@@ -455,7 +638,106 @@
   }
 
   .chats{
+    max-height: calc(100vh);
+    overflow-y: auto;
     margin-top: 18px;
-    top: 100px;
+    top: 60px;
   }
+  .homeContainerAnnotate {
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .chatsHomeAnnotate {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center the container horizontally */
+  }
+  
+  .chatsContainerAnnotate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center the container horizontally */
+  }
+  
+  .chatsContainerAnnotate img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2px;
+    display: block; /* Ensure the image is displayed as a block-level element */
+  }
+  
+
+  .MuiTypography-h5 {
+    text-align: center; /* Center the text horizontally */
+    margin-top: 5px; /* Add some space at the top */
+  }
+  
+  .annotationSendButton {
+    margin-top: -70px;
+    margin-left: -50px;
+    max-height: 5%;
+    padding: 10px 20px; /* Adjust button padding */
+    border-radius: 5px; /* Adjust button border radius */
+    background-color: #12ab99; /* Background color */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    border: none; /* Remove button border */
+    cursor: pointer; /* Add pointer cursor on hover */
+  }
+  
+  .annotationSendButton:hover {
+    background-color: #0e8e78; /* Darker background color on hover */
+  }
+
+  
+
+  /* Style for the input area */
+  .input {
+    height: 65px; /* Adjust height if needed */
+    width: 99%;
+    position: fixed;
+    display: inline;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    bottom: 55px; /* Positioned 50px from the bottom */
+}
+
+.searchForm {
+  display: none;
+}
+
+.messagesType {
+    flex: 1; /* Take up remaining space */
+    margin-right: 10px; /* Add some space between input and emoji picker */
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f0f2f5; /* WhatsApp chat background color */
+}
+
+.send {
+    display: flex;
+    align-items: center;
+}
+
+.icons {
+    cursor: pointer;
+}
+
+  .sidebar {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);}
+  .input input::placeholder {
+    color: #999;
+  }
+  
+  
 }

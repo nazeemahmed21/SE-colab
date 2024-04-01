@@ -1,13 +1,29 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Navbar from '../components/Navbar';
 import '../styles/zenSpace.css';
 import meditateIcon from '../images/meditationZenSpace.png';
 import gameIcon from '../images/gamingZenSpace.png';
+import Ad from "./ads.js";
+import "../styles/ads.css";
 
 const ZenSpace = () => {
+    const [isPopupVisible, setPopupVisible] = useState(false);
+    const [timedPopup, setTimedPopup] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+          setTimedPopup(true);
+        }, 3000);
+      }, []);
+
     return (
         <div>
+
+        <div className="adPop">
+            <Ad trigger={timedPopup} setTrigger={setTimedPopup}/>
+         </div>
+
             {/* <div className="NavbarZenSpaceContainer"> */}
                 <Navbar />
             {/* </div> */}

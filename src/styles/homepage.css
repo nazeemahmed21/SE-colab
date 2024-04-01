@@ -1,12 +1,12 @@
 .thoughtsBtn {
-  position: absolute;
+  position: relative;
   top: 0.35%;
   left: 37%;
-  z-index: 99; /* Set a higher z-index value */
+  /* z-index: 99; Set a higher z-index value */
   background-color: #29ada0;
   color: white;
-  width: 350px;
-  height: 160px;
+  width: 100px;
+  height: 80px;
   font-family: 'Roboto', sans-serif;
   border: none;
   border-radius: 15px;
@@ -21,14 +21,14 @@
 }
 
 .backHomebtnHome {
-  position: absolute;
-  top: 0.35%;
-  left: 47%;
-  z-index: 99; /* Set a higher z-index value */
+  position: relative;
+  top: 10px;
+  left: 40%;
+  /* z-index: 99; Set a higher z-index value */
   background-color: #1c8c81;
   color: white;
-  width: 350px;
-  height: 160px;
+  width: 100px;
+  height: 80px;
   font-family: 'Roboto', sans-serif;
   border: none;
   border-radius: 15px;
@@ -43,16 +43,15 @@
   align-items: center;
   position: fixed;
   top: 47%;
-  margin-top: 280px;
+  margin-top: 200px;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 55px;
   color: black;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bold;
-  height: 90%; /* Adjust as needed */
+  height: 70%; /* Adjust as needed */
   width: 100%;
-  padding: 20px; /* Add padding for spacing between events */
   overflow-y: auto; /* Enable vertical scrolling */
   max-height: 90vh; /* Limit the maximum height */
   padding-bottom: 200px;

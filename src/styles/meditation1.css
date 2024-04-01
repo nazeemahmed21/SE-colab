@@ -3,23 +3,20 @@
     display: flex;
   }
 .Meditation1Page{
-  overflow-y: auto; 
   max-height: calc(100vh - 110px);
     display: flex;
     flex-direction: column;
     margin-top: 120px;
-    margin-left: 150px;  
+    margin-left: 250px;  
     /* overflow-y: auto; */
     height: 740px;
-    /* position: relative; Add relative positioning */
-    /* position: sticky;
-    top: 50px;  */
 }
 
 .NavbarMeditatation1{
   position: sticky;
   z-index: 100; /* Ensure the header stays above other content */
 }
+
 .Meditation1Page h1{
   font-size: 28px;
   color: black;
@@ -57,6 +54,24 @@
                  1px  1px 0 #ccc; /* Apply light grey outline */
 }
 
+.context-text a{
+
+    color: white; /* Set hyperlink text color to white */
+    text-decoration: none; /* Remove underline */
+  
+}
+
+.content-tile-link {
+  color: white; /* Set hyperlink text color to white */
+  text-decoration: none; /* Remove underline */
+}
+
+.content-tile-link:hover {
+  /* Optionally, you can define styles for when the hyperlink is hovered over */
+  text-decoration: none; /* Remove underline on hover */
+  color: white; /* Set hyperlink text color to white on hover */
+}
+
   .emotion-box {
     width: 120px;
     height: 120px;
@@ -80,18 +95,35 @@
   }
   
 
-  .filter-categories button{
-background-color: #29ada0;;
+  /* .filter-categories button{
+    font: white;
+background-color: #29ada0;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center; 
+  }
+
+  .filter-categories button:hover {
+    opacity: 0.8; 
+  } */
+
+  .filter-categories button {
+    border-radius: 5px; /* Add rounded corners */
+    color: white; /* Set text color to white */
+    background-color: #29ada0;
     border: none;
     margin: 10px;
     cursor: pointer;
     text-align: center; /* Center text */
+    padding: 15px 30px; /* Adjust padding to make the button bigger */
+    font-size: 20px; /* Adjust font size to make the text bigger */
   }
-
+  
   .filter-categories button:hover {
     opacity: 0.8; /* Reduce opacity on hover */
   }
-
+  
   /* meditation1.css */
   .content-tiles {
     display: flex;
@@ -110,11 +142,6 @@ background-color: #29ada0;;
 }
   .content-tile {
     flex: 0 0 calc(33.33% - 20px); /* Adjust the width as needed */
-    /* margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    color: black; */
   }
 
   
@@ -123,6 +150,7 @@ background-color: #29ada0;;
   }
 
   .content-tile {
+    text-decoration: none;
     height: 150px;
     flex: 0 0 calc(33.33% - 20px); /* Adjust the width as needed */
     margin: 10px;
@@ -171,8 +199,6 @@ background-color: #29ada0;;
   .content-description {
     margin-top: 5px;
   }
-
-  
   
  
   

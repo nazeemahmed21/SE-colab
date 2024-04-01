@@ -8,6 +8,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 import EmojiPicker from 'emoji-picker-react'; // Import the emoji picker library
 import { useNavigate } from "react-router-dom";
+import send from '../images/send_mssg.png'
 
 const Input = () => {
   const navigate = useNavigate();
@@ -146,36 +147,35 @@ const handleSelectGif = async (searchTerm) => {
       <EmojiPicker
         onEmojiClick={handleEmojiClick}
         navPosition="none"
-        search={false} // Set search to false to remove the search bar
-        grouped={true} // Set grouped to false to remove grouped categories
-        showSkinTones={false} // Set showSkinTones to false to remove skin tone picker
+        search={false} 
+        grouped={true} 
+        showSkinTones={false} 
       skinTone={null}
         native
         pickerStyle={{
           width: '195px',
           maxHeight: '100px',
           whiteSpace: 'nowrap',
-          // padding: '8px',
-          // borderRadius: '8px',
-          // border: '1px solid #ccc',
-          // backgroundColor: '#fff',
-          // boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
           fontSize: '10px'
         }}
         emojiSize={20}
         pickerClassName="custom-emoji-picker"
       />
     </div>
-    <input type="text" placeholder='Type Something...' onChange={e => setText(e.target.value)} value={text} />
-    <div className="send">
+    <input className='messagesType' type="text" placeholder='Type Something...' onChange={e => setText(e.target.value)} value={text} style={{marginTop: '-10px'}} />
+    <div className="send" >
       <label htmlFor="file">
-        <AiOutlineFile className='icons' size={25} />
-        <input type="file" ref={fileRef} onChange={(e) => handleUploadImage(e)} />
+      <label htmlFor="file">
+  <input type="file" className='fileAnnotationInput' ref={fileRef} onChange={(e) => handleUploadImage(e)} />
+</label>
+
+        {/* <AiOutlineFile className='icons' size={25} />
+        <input type="file" className='fileAnnotationInput' ref={fileRef} onChange={(e) => handleUploadImage(e)} /> */}
       </label>
       <span className='icons' style={{ fontSize: '25px' }} onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
         😀
       </span>
-      <button onClick={handleSend}>Send</button>
+     <img src={send}  alt="Send" style={{ width: '50px', height: '40px',marginTop: '3px' }} onClick={handleSend}/> 
     </div>
   </div>
   

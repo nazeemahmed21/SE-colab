@@ -141,8 +141,8 @@ span {
 .sign-out-button {
   position: absolute;
   font-size: 25px;
-  left: 1vw;
-  top: 86.5%;
+  left: 8vw;
+  top: 91%;
   padding: 5px;
   border-radius: 10px;
   background-color: inherit;
@@ -160,6 +160,10 @@ span {
   transition: fill 0.2s;
   /* Add a transition for a smooth color change */
 }
+
+/* .sign-out-box {
+
+} */
 
 .nav_select_menu {
   position: relative;
@@ -4992,7 +4996,7 @@ span {
 
 @media screen and (min-width: 1401px) and (max-width: 1460px) {
   .search-bar {
-    left: 395px;
+    left: 410px;
   }
 
   .navbar-toggle .prof-notif {

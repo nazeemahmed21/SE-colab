@@ -3,8 +3,9 @@
   text-align: center;
   width: 6%; /* Ensure the container spans the full width */
   position: absolute;
-  left: 15%;
+  right: 105%;
   z-index: 99; /* Ensure the container is above other elements */
+  bottom: 180px;
 }
 .event-analytics-container .event-analytics{
   position: relative;
@@ -18,30 +19,15 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-.ta-btn-container button{
+/* .ta-btn-container button{
   width: 50px;
   height: 50px;
   border-radius: 50px;
   position: relative;
-  left: 675%;
-  top: -10px;
-}
-.toggle-analytics-button {
-  background-color: #29ada0;
-  color: white;
-  /* width: 120px;
-  height: 40px; */
-  font-family: 'Roboto', sans-serif;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  font-size: large;
-  cursor: pointer;
-  /* left: 51%;
-  top: 26px; */
-  justify-content: center;
-  padding: 10px;
-}
+  left: 697px;
+  bottom: 6px;
+} */
+
 
 .toggle-analytics-button:hover {
   background-color: #2980b9;
@@ -151,108 +137,63 @@
 .rsvp-users-container button:hover {
   background-color: #c0392b;
 }
-@media screen and (min-width: 1201px) and (max-width: 1300px){
-  .ta-btn-container button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    position: relative;
-    left: 865%;
-    top: -10px;
+@media (max-width:1300px){
+  .event-analytics-container {
+    bottom: 160px;
+    right: 90%;
   }
-}
-@media screen and (min-width: 1101px) and (max-width: 1200px){
-  .ta-btn-container button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    position: relative;
-    left: 885%;
-    top: -10px;
-  }
-  .event-analytics-container .event-analytics{
-    position: relative;
-    left: 500px;
+  .event-analytics {
     width: 400px;
   }
 }
-@media screen and (min-width: 1001px) and (max-width: 1100px){
-  .ta-btn-container button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    position: relative;
-    left: 850%;
-    top: -10px;
-  }
-  .event-analytics-container .event-analytics{
-    position: relative;
-    left: 500px;
-    width: 330px;
+@media (max-width:1000px){
+  .event-analytics-container {
+    bottom: 160px;
+    right: 105%;
   }
 }
-@media screen and (min-width: 900px) and (max-width: 999px){
-  .ta-btn-container button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    position: relative;
-    left: 870%;
-    top: -11px;
-  }
-  .event-analytics-container .event-analytics{
-    position: relative;
-    left: 440px;
-    width: 330px;
+@media (max-width:850px){
+  .event-analytics-container {
+    bottom: 160px;
+    right: 125%;
   }
 }
-@media screen and (min-width: 800px) and (max-width: 899px){
-  .ta-btn-container button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    position: relative;
-    left: 460px;
-    top: -11px;
+@media (max-width:725px){
+  .event-analytics-container {
+    bottom: 160px;
+    right: 145%;
   }
-  .event-analytics-container .event-analytics{
-    position: relative;
-    left: 420px;
+}
+@media (max-width:640px){
+  .event-analytics-container {
+    bottom: 160px;
+    right: 160%;
+  }
+}
+@media (max-width:575px){
+  .event-analytics-container {
+    bottom: 160px;
+    right: 165%;
+  }
+  .event-analytics {
     width: 300px;
   }
 }
-@media screen and (min-width: 700px) and (max-width: 799px){
-  .ta-btn-container button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    position: relative;
-    left: 785%;
-    top: -11px;
+@media (max-width:500px){
+  .event-analytics-container {
+    bottom: 160px;
+    right: 170%;
   }
 }
-@media screen and (min-width: 400px) and (max-width: 499px){
-  .ta-btn-container button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    position: relative;
-    left: 550%;
-    top: -11px;
+@media (max-width:475px){
+  .event-analytics-container {
+    bottom: 160px;
+    right: 197%;
   }
 }
-@media screen and (min-width: 300px) and (max-width: 399px){
-  .ta-btn-container button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    position: relative;
-    left: 250px;
-    top: -11px;
-  }
-  .event-analytics-container .event-analytics{
-    position: relative;
-    left: 170px;
-    width: 330px;
+@media (max-width:425px){
+  .event-analytics-container {
+    bottom: 160px;
+    right: 215%;
   }
 }

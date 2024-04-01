@@ -13,6 +13,7 @@ import App from "./App.js";
 import { AuthContextProvider } from './Context/AuthContext.jsx';
 import { ChatContextProvider } from './Context/ChatContext.jsx';
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthContextProvider>

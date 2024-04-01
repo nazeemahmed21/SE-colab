@@ -184,7 +184,14 @@ const Messages = ({ message }) => {
 >
         {/* names */}
           <React.Fragment>
-            <div >
+            <div className="message-containerBig">
+          <div className="message-container">
+          <div>
+              <Typography variant='body2' className='senderName'>
+                {m.senderId != currentUser.uid ? <p>{userIdNameMap[m.senderId]}</p> : ''}
+              </Typography>
+            </div>
+            <div className='mtext'  style={{ marginTop: m.senderId !== currentUser.uid ? '-5px' : '10', fontSize: '18px' }}>
               {m.text}
             </div>  
             <div style={{margin: 5}}>
@@ -193,11 +200,9 @@ const Messages = ({ message }) => {
             <div style={{margin: 5}}>
               {m.file ? <Link target="_blank" href={m.file} underline="hover">Click to view file</Link> : <></>}
             </div>
-            <div>
-              <Typography variant='body2'>
-                {m.senderId != currentUser.uid ? <p>{userIdNameMap[m.senderId]}</p> : ''}
-              </Typography>
-            </div>        
+             
+            <div className="message-time">{m.time}</div> {/* Add message time */}
+           </div>
             <span className="like-icon" onClick={() => handleLike(m.id)}>
               {m.likes > 0 && likedMessages.includes(m.id) && (
                 <img src={heart} alt="Like" />
@@ -211,8 +216,10 @@ const Messages = ({ message }) => {
             <span className="three-dots" onClick={() => handleToggleOptions(m.id)}>
               ...
             </span>
+            </div>
             {messageOptions[m.id] && (
-              <div className="options-menu" m>
+             <div className={m.senderId === currentUser.uid ? "options-menu-owner" : "options-menu"}>
+ 
                 <div className="option" onClick={() => handleDelete(m.id)}>
                   Delete
                 </div>
@@ -223,9 +230,11 @@ const Messages = ({ message }) => {
                   Like
                 </div>
               </div>
+            
             )}
           </React.Fragment>
         </div>
+        
       ))}
       {showForwardDialog && (
         <ForwardDialog

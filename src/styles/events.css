@@ -164,7 +164,7 @@ select {
   left: 10px;
 }
 
-.homePage .post {
+/* .homePage .post {
   position: relative;
   left: 100px;
   width: 70%;
@@ -175,7 +175,19 @@ select {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: 20px;
   border-radius: 15px;
+} */
+
+.homePage .post {
+  width: 800px; /* Adjust the width as needed */
+  max-width: 800px; /* Set a maximum width for larger screens */
+  margin: 20px auto;
+  background-color: #cecdcd;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 15px;
 }
+
+
 .post .dateFrom, .dateTo, .postLocation{ 
   font-size: 20px;
 }
@@ -244,7 +256,7 @@ select {
 }
 .home_Events_RSVP{
   position: relative;
-  right: 110px;
+  /* right: 110px; */
 }
 .numRSVPattendees{
   font-size: 30px;
@@ -259,8 +271,8 @@ select {
 }
 .notification-container {
   position: absolute;
-  top: 140px; /* Adjust as needed */
-  right: 50px; /* Adjust as needed */
+  top: 110px; /* Adjust as needed */
+  left: 46%; /* Adjust as needed */
   background-color: white;
   padding: 10px;
   border-radius: 10px;
@@ -268,12 +280,13 @@ select {
   z-index: 99;
   display: grid;
   justify-content: center;
+  width: 400px;
 }
 
-.notification-container h2 {
+.notification-container h3 {
   margin-top: 0;
   justify-self: center;
-  
+  font-size: 30px;
 }
 
 .notification-container button {
@@ -281,6 +294,9 @@ select {
   justify-self: center;
   margin-right: 50%;
   display: grid;
+  position: relative;
+  bottom: 90px;
+  left: 120px;
 }
 
 .notifButton {
@@ -296,6 +312,7 @@ select {
   padding: 0;
   margin: 0;
   margin-top: 20px;
+  font-size: 20px;
 }
 
 .notification-container li {
@@ -324,8 +341,8 @@ select {
   height: 50px;
   border-radius: 50px;
   position: relative;
-  bottom: 180px;
-  left: 100px;
+  bottom: 145px;
+  left: 300px;
 }
 .CreateEvent{
   background-color: #29ada0;
@@ -344,20 +361,45 @@ select {
   justify-content: center;
   padding: 10px;
 }
+.ta-btn-container button{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  position: relative;
+  right: 400px;
+  bottom: 211px;
+}
+.toggle-analytics-button {
+  background-color: #29ada0;
+  color: white;
+  /* width: 120px;
+  height: 40px; */
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: large;
+  cursor: pointer;
+  /* left: 51%;
+  top: 26px; */
+  position: relative;
+  justify-content: center;
+  padding: 10px;
+}
 /* Events search bar styles */
 .create_event button{
   position: relative;
-  bottom: 95px;
-  left: 140%;
+  bottom: 80px;
+  left: 380px;
   border-radius: 50px;
   width: 50px;
   height: 50px;
 }
 .eventsSearchBar {
   position: relative;
-  right: 160px;
+  right: 50px;
   display: grid;
-  width : 35%;
+  width : 40%;
   min-width: 200px;
 }
 
@@ -368,7 +410,8 @@ select {
   text-decoration: none;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  margin: 10px;
+  /* margin: 10px; */
+  margin-bottom: 10px;
   font-size: 25px;
 }
 
@@ -382,19 +425,6 @@ select {
 }
 
 /* Toggle analytics button styles */
-
-.toggle-analytics-button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 20px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  position: relative;
-  left: 800%;
-  top: -15px;
-}
 
 /* Event analytics styles */
 
@@ -486,13 +516,12 @@ select {
 .select-wrapper select {
   appearance: none;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: transparent;
+  background-color: rgba(41, 173, 160, 0.5);
   border: 1px solid #ccc;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;
-  width: 200px;
+  /* width: 200px; */
   outline: none;
   cursor: pointer;
 }
@@ -523,40 +552,26 @@ select {
   color: #007bff;
 }
 
-@media screen and (min-width: 1101px) and (max-width: 1300px){
+@media (max-width: 1300px){
   .homePage .post {
     width: 800px;
     max-width: 800px;
-    /* min-width: 600px; */
-    margin: 20px auto;
-    /* background-color: #ffffff; */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 15px;
-    position: relative;
     left: 20px;
   }
   .notif_events_btn button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    position: relative;
-    bottom: 180px;
-    left: 230px;
+    bottom: 145px;
+    left: 250px;
+  }
+  .ta-btn-container button{
+    left: 340px;
   }
   .create_event button{
-    position: relative;
-    bottom: 95px;
-    left: 225%;
-    border-radius: 50px;
-    width: 50px;
-    height: 50px;
+    bottom: 80px;
+    left: 425px;
   }
   .eventsSearchBar {
-    position: relative;
     right: 90px;
-    display: grid;
-    width : 50%
+    width : 550px;
   }
   .postHeader{
     margin-top: -40px;
@@ -572,22 +587,9 @@ select {
   }
 }
 
-/* @media screen and (min-width: 1101px) and (max-width: 1200px){
+@media (max-width: 1000px){
   .homePage .post {
-    width: 60vw;
-    max-width: 700px;
-    min-width: 500px;
-    margin: 20px auto;
-    background-color: #ffffff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 15px;
-  }
-} */
-
-@media screen and (min-width: 1001px) and (max-width: 1100px){
-  .homePage .post {
-    width: 800px;
+    width: 700px;
     max-width: 800px;
     /* min-width: 600px; */
     margin: 20px auto;
@@ -596,20 +598,23 @@ select {
     padding: 20px;
     border-radius: 15px;
     position: relative;
-    left: 20px;
+    left: 0px;
   }
   .notif_events_btn button{
     width: 50px;
     height: 50px;
     border-radius: 50px;
     position: relative;
-    bottom: 180px;
-    left: 180px;
+    bottom: 145px;
+    left: 205px;
+  }
+  .ta-btn-container button{
+    left: 278px;
   }
   .create_event button{
     position: relative;
-    bottom: 95px;
-    left: 205%;
+    bottom: 80px;
+    left: 350px;
     border-radius: 50px;
     width: 50px;
     height: 50px;
@@ -618,7 +623,7 @@ select {
     position: relative;
     right: 90px;
     display: grid;
-    width : 50%
+    width : 450px;
   }
   .postHeader{
     margin-top: -40px;
@@ -632,390 +637,222 @@ select {
   .postCategory{
     font-size: 40px;
   }
+}
+@media (max-width:800px){
+  .notification-container{
+    left: 25%;
   }
-  @media screen and (min-width: 999px) and (max-width: 1000px){
-    .homePage .post {
-      width: 800px;
-      max-width: 800px;
-      /* min-width: 600px; */
-      margin: 20px auto;
-      /* background-color: #ffffff; */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-      position: relative;
-      left: 20px;
-    }
-    .notif_events_btn button{
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
-      position: relative;
-      bottom: 180px;
-      left: 230px;
-    }
-    .create_event button{
-      position: relative;
-      bottom: 95px;
-      left: 225%;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-    }
-    .eventsSearchBar {
-      position: relative;
-      right: 90px;
-      display: grid;
-      width : 50%
-    }
-    .postHeader{
-      margin-top: -40px;
-      margin-bottom: -40px;
-      font-size: 30px;
-      text-transform: capitalize;
-    }
-    .post .dateFrom, .dateTo, .postLocation{ 
-      font-size: 20px;
-    }
-    .postCategory{
-      font-size: 40px;
-    }
+}
+@media (max-width: 750px){
+  .homePage .post {
+    width: 550px;
+    max-width: 800px;
+    /* min-width: 600px; */
+    margin: 20px auto;
+    /* background-color: #ffffff; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    left: 0px;
   }
-  @media screen and (min-width: 897px) and (max-width: 998px){
-    .homePage .post {
-      width: 800px;
-      max-width: 800px;
-      /* min-width: 600px; */
-      margin: 20px auto;
-      /* background-color: #ffffff; */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-      position: relative;
-      left: 20px;
-    }
-    .notif_events_btn button{
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
-      position: relative;
-      bottom: 180px;
-      left: 180px;
-    }
-    .create_event button{
-      position: relative;
-      bottom: 95px;
-      left: 205%;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-    }
-    .eventsSearchBar {
-      position: relative;
-      right: 90px;
-      display: grid;
-      width : 50%
-    }
-    .postHeader{
-      margin-top: -40px;
-      margin-bottom: -40px;
-      font-size: 30px;
-      text-transform: capitalize;
-    }
-    .post .dateFrom, .dateTo, .postLocation{ 
-      font-size: 20px;
-    }
-    .postCategory{
-      font-size: 40px;
-    }
+  .notif_events_btn button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    bottom: 145px;
+    left: 150px;
   }
-  @media screen and (min-width: 800px) and (max-width: 896px){
-    .homePage .post {
-      width: 700px;
-      max-width: 800px;
-      /* min-width: 600px; */
-      margin: 20px auto;
-      /* background-color: #ffffff; */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-      position: relative;
-      left: 20px;
-    }
-    .notif_events_btn button{
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
-      position: relative;
-      bottom: 180px;
-      left: 130px;
-    }
-    .create_event button{
-      position: relative;
-      bottom: 95px;
-      left: 190%;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-    }
-    .eventsSearchBar {
-      position: relative;
-      right: 90px;
-      display: grid;
-      width : 50%
-    }
-    .postHeader{
-      margin-top: -40px;
-      margin-bottom: -40px;
-      font-size: 30px;
-      text-transform: capitalize;
-    }
-    .post .dateFrom, .dateTo, .postLocation{ 
-      font-size: 20px;
-    }
-    .postCategory{
-      font-size: 40px;
-    }
+  .ta-btn-container button{
+    left: 220px;
   }
-  @media screen and (min-width: 700px) and (max-width: 799px){
-    .homePage .post {
-      width: 590px;
-      max-width: 800px;
-      /* min-width: 600px; */
-      margin: 20px auto;
-      /* background-color: #ffffff; */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-      position: relative;
-      left: 20px;
-    }
-    .notif_events_btn button{
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
-      position: relative;
-      bottom: 180px;
-      left: 100px;
-    }
-    .create_event button{
-      position: relative;
-      bottom: 95px;
-      left: 145%;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-    }
-    .eventsSearchBar {
-      position: relative;
-      right: 90px;
-      display: grid;
-      width : 50%
-    }
-    .postHeader{
-      margin-top: -40px;
-      margin-bottom: -40px;
-      font-size: 30px;
-      text-transform: capitalize;
-    }
-    .post .dateFrom, .dateTo, .postLocation{ 
-      font-size: 20px;
-    }
-    .postCategory{
-      font-size: 40px;
-    }
+  .create_event button{
+    position: relative;
+    bottom: 80px;
+    left: 292px;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
   }
-  @media screen and (min-width: 600px) and (max-width: 699px){
-    .homePage .post {
-      width: 500px;
-      max-width: 800px;
-      /* min-width: 600px; */
-      margin: 20px auto;
-      /* background-color: #ffffff; */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-      position: relative;
-      left: 10px;
-    }
-    .notif_events_btn button{
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
-      position: relative;
-      bottom: 180px;
-      left: 50px;
-    }
-    .create_event button{
-      position: relative;
-      bottom: 95px;
-      left: 110%;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-    }
-    .eventsSearchBar {
-      position: relative;
-      right: 90px;
-      display: grid;
-      width : 50%
-    }
-    .postHeader{
-      margin-top: -40px;
-      margin-bottom: -40px;
-      font-size: 30px;
-      text-transform: capitalize;
-    }
-    .post .dateFrom, .dateTo, .postLocation{ 
-      font-size: 20px;
-    }
-    .postCategory{
-      font-size: 40px;
-    } 
+  .eventsSearchBar {
+    position: relative;
+    right: 90px;
+    display: grid;
+    width : 400px;
   }
-  @media screen and (min-width: 500px) and (max-width: 599px){
-    .homePage .post {
-      width: 450px;
-      max-width: 800px;
-      /* min-width: 600px; */
-      margin: 20px auto;
-      /* background-color: #ffffff; */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-      position: relative;
-      left: 10px;
-    }
-    .notif_events_btn button{
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
-      position: relative;
-      bottom: 180px;
-      left: 50px;
-    }
-    .create_event button{
-      position: relative;
-      bottom: 95px;
-      left: 110%;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-    }
-    .eventsSearchBar {
-      position: relative;
-      right: 90px;
-      display: grid;
-      width : 50%
-    }
-    .postHeader{
-      margin-top: -40px;
-      margin-bottom: -40px;
-      font-size: 30px;
-      text-transform: capitalize;
-    }
-    .post .dateFrom, .dateTo, .postLocation{ 
-      font-size: 20px;
-    }
-    .postCategory{
-      font-size: 40px;
-    } 
+  .postHeader{
+    margin-top: -40px;
+    margin-bottom: -40px;
+    font-size: 30px;
+    text-transform: capitalize;
   }
-  @media screen and (min-width: 400px) and (max-width: 499px){
-    .homePage .post {
-      width: 350px;
-      max-width: 800px;
-      /* min-width: 600px; */
-      margin: 20px auto;
-      /* background-color: #ffffff; */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-      position: relative;
-      left: 10px;
-    }
-    .notif_events_btn button{
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
-      position: relative;
-      bottom: 180px;
-      left: 5px;
-    }
-    .create_event button{
-      position: relative;
-      bottom: 95px;
-      left: 85%;
-      bottom: 96px;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-    }
-    .eventsSearchBar {
-      position: relative;
-      right: 90px;
-      display: grid;
-      width : 44%
-    }
-    .postHeader{
-      margin-top: -40px;
-      margin-bottom: -40px;
-      font-size: 30px;
-      text-transform: capitalize;
-    }
-    .post .dateFrom, .dateTo, .postLocation{ 
-      font-size: 20px;
-    }
-    .postCategory{
-      font-size: 40px;
-    }
+  .post .dateFrom, .dateTo, .postLocation{ 
+    font-size: 20px;
   }
-  @media screen and (min-width: 300px) and (max-width: 399px){
-    .homePage .post {
-      width: 500px;
-      max-width: 800px;
-      /* min-width: 600px; */
-      margin: 20px auto;
-      /* background-color: #ffffff; */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-      position: relative;
-      left: 10px;
-    }
-    .notif_events_btn button{
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
-      position: relative;
-      bottom: 180px;
-      left: 20px;
-    }
-    .create_event button{
-      position: relative;
-      bottom: 95px;
-      left: 170px;
-      bottom: 96px;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-    }
-    .eventsSearchBar {
-      position: relative;
-      right: 110px;
-      display: grid;
-      width : 44%;
-    }
-    .postHeader{
-      margin-top: -40px;
-      margin-bottom: -40px;
-      font-size: 30px;
-      text-transform: capitalize;
-    }
-    .post .dateFrom, .dateTo, .postLocation{ 
-      font-size: 20px;
-    }
-    .postCategory{
-      font-size: 40px;
-    }
+  .postCategory{
+    font-size: 40px;
   }
+}
+@media (max-width: 600px){
+  .homePage .post {
+    width: 400px;
+    max-width: 800px;
+    /* min-width: 600px; */
+    margin: 20px auto;
+    /* background-color: #ffffff; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    left: 0px;
+  }
+  .notif_events_btn button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    bottom: 145px;
+    left: 108px;
+  }
+  .ta-btn-container button{
+    left: 172px;
+  }
+  .create_event button{
+    bottom: 79px;
+    left: 235px;
+  }
+  .eventsSearchBar {
+    position: relative;
+    right: 80px;
+    display: grid;
+    width : 280px;
+  }
+  .postHeader{
+    margin-top: -40px;
+    margin-bottom: -50px;
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+  .post .dateFrom, .dateTo, .postLocation{ 
+    font-size: 20px;
+  }
+  .postTextContainer{
+    font-size: 20px;
+  }
+  .post .postCategory {
+    font-size: 20px;
+  }
+  .postAuthorName{
+    font-size: 20px;
+  }
+  .post .emailText{
+    font-size: 20px;
+  }
+}
+@media (max-width:575px){
+  .notification-container{
+    left: 10%;
+  }
+}
+@media (max-width: 475px){
+  .homePage .post {
+    width: 300px;
+    max-width: 800px;
+    /* min-width: 600px; */
+    margin: 20px auto;
+    /* background-color: #ffffff; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    left: 0px;
+  }
+  .notification-container{
+    left: 10%;
+    width: 300px;
+  }
+  .notif_events_btn button{
+    bottom: 145px;
+    left: 50px;
+  }
+  .ta-btn-container button{
+    left: 115px;
+  }
+  .create_event button{
+    bottom: 78px;
+    left: 180px;
+  }
+  .eventsSearchBar {
+    position: relative;
+    right: 90px;
+    display: grid;
+    width : 200px;
+  }
+  .postHeader{
+    margin-top: -40px;
+    margin-bottom: -50px;
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+  .post .dateFrom, .dateTo, .postLocation{ 
+    font-size: 20px;
+  }
+  .postTextContainer{
+    font-size: 20px;
+  }
+  .post .postCategory {
+    font-size: 20px;
+  }
+  .postAuthorName{
+    font-size: 20px;
+  }
+  .post .emailText{
+    font-size: 20px;
+  }
+}
+@media (max-width:401px){
+  .homePage .post {
+    width: 300px;
+    max-width: 800px;
+    left: 0px;
+  }
+  .notif_events_btn button{
+    bottom: 145px;
+    left: 45px;
+  }
+  .ta-btn-container button{
+    left: 105px;
+  }
+  .create_event button{
+    bottom: 80px;
+    left: 165px;
+  }
+  .eventsSearchBar {
+    position: relative;
+    right: 90px;
+    display: grid;
+    width : 200px;
+  }
+  .postHeader{
+    margin-top: -40px;
+    margin-bottom: -50px;
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+  .post .dateFrom, .dateTo, .postLocation{ 
+    font-size: 20px;
+  }
+  .postTextContainer{
+    font-size: 20px;
+  }
+  .post .postCategory {
+    font-size: 20px;
+  }
+  .postAuthorName{
+    font-size: 20px;
+  }
+  .post .emailText{
+    font-size: 20px;
+  }
+}

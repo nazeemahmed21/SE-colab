@@ -17,15 +17,19 @@ import "../styles/thoughtscomp.css";
 function Thoughts() {
   return (
     <>
-    <div>
-      <button className="thoughtsBtnThoughts">Thoughts</button>
-      <Link to="/home">
+      <div>
+        <div >
+      
+      </div>
+        <Link to="/home">
+      <div >
         <button className="backHomebtn">Go back to Events</button>
+      </div>
       </Link>
     </div>
     <ThoughtsComp />
     <div>
-     <Navbar /> 
+      <Navbar /> 
   </div>
   
     </>

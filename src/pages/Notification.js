@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { collection, doc, getDoc, getDocs, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase";
-
+import "../styles/events.css";
 const Notification = ({ userId }) => {
   const [notifications, setNotifications] = useState([]);
 
