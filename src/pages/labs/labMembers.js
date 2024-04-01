@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { collection, getDocs, doc, getDoc, deleteDoc, query, where, updateDoc, arrayRemove } from 'firebase/firestore';
 import { db, auth } from '../../firebase'; // Assuming your Firestore instance is in 'firebase.js'
 import { useOutletContext } from 'react-router-dom';
-import pfPicimg from '../../images/userChatsProfPic.png';
+import pfPicimg from '../../images/defaultUserPic.png';
 
 const LabMembers = () => {
     const [members, setMembers] = useState([]);
