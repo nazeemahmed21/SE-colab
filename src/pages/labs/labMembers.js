@@ -1,9 +1,10 @@
 import '../../styles/labsnew.css';
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { collection, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc, deleteDoc, query, where, updateDoc, arrayRemove } from 'firebase/firestore';
 import { db, auth } from '../../firebase'; // Assuming your Firestore instance is in 'firebase.js'
 import { useOutletContext } from 'react-router-dom';
+import pfPicimg from '../../images/defaultUserPic.png';
 
 const LabMembers = () => {
     const [members, setMembers] = useState([]);
@@ -71,6 +72,7 @@ const LabMembers = () => {
     }, [labId, setCurrentPageName]); 
 
     async function fetchUserData(userId) {
+        const defaultProfilePic = pfPicimg;
         try {
             const userRef = doc(db, 'Users', userId);
             const userSnap = await getDoc(userRef);
@@ -79,12 +81,13 @@ const LabMembers = () => {
                 return {
                     id: userId,
                     name: userSnap.data().firstName, 
-                    pfPic: userSnap.data().pfpURL
+                    pfPic: userSnap.data().pfpURL || defaultProfilePic
                 };
             } else {
                 return {
                     id: userId,
-                    name: 'Unknown User'
+                    name: 'Unknown User',
+                    pfPic: defaultProfilePic
                 };
             }
 
@@ -103,8 +106,22 @@ const LabMembers = () => {
 
         try {
             const membersRef = collection(db, 'labs', labId, 'members');
-            const memberDocRef = doc(membersRef, userId);
-            await deleteDoc(memberDocRef); 
+            const labRef = doc(db, 'labs', labId);
+            // Create a query to find the document with the matching userId
+            const memberQuery = query(membersRef, where("userId", "==", userId));
+
+            // Get the matching document
+            const querySnapshot = await getDocs(memberQuery);
+
+            // Delete the document (assuming there's only one matching document)
+            querySnapshot.forEach(async (memberDoc) => {
+                await deleteDoc(memberDoc.ref);
+            });
+
+            const userDocRef = doc(db, 'Users', userId);
+            await updateDoc(userDocRef, {
+            myLabs: arrayRemove(labRef) 
+        });
 
             // Update members state locally
             setMembers(members.filter(member => member.id !== userId));

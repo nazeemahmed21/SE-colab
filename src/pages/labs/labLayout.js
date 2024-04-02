@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import { Link, Outlet } from 'react-router-dom';
 import '../../styles/labsnew.css';
 import { useParams } from 'react-router-dom';
-import { doc } from 'firebase/firestore';
+import { doc, getDocs, query, where, collection } from 'firebase/firestore';
 import { db , auth } from '../../firebase';
 import { LabNavbar } from '../../components/labs/LabNavbar';
 import { onSnapshot } from 'firebase/firestore';
@@ -19,6 +19,7 @@ const LabLayout = () => {
   const { labId } = useParams();
   const [isLabOwner, setIsLabOwner]= useState(false);
   const [currentPageName, setCurrentPageName] = useState("Home"); // Default page name
+  const [isMember, setIsMember] = useState(false);
 
   useEffect(() => {
     const currentUser = auth.currentUser;
@@ -65,6 +66,18 @@ const LabLayout = () => {
 
     fetchLabDetails();
 
+    const checkMembership = async () => {
+      if (!currentUserId) return; // Not logged in
+
+      const membersRef = collection(db, 'labs', labId, 'members');
+      const memberQuery = query(membersRef, where("userId", "==", currentUserId));
+      const querySnapshot = await getDocs(memberQuery);
+
+      setIsMember(!querySnapshot.empty); // User is a member if snapshot is not empty
+    };
+
+    checkMembership(); 
+
 
   }, [labId, currentUserId, labData, setIsLabOwner, isLabOwner]);
 
@@ -78,7 +91,7 @@ const LabLayout = () => {
           {isLoading && <p>Loading...</p>}
           {error && <p>Error: {error}</p>}
 
-          {labData && (
+          {labData &&  (
             <div className='labsWrapper'>
               <div className='labNavbarSection'>
                 <div className="labsArrowContainer">
@@ -96,7 +109,9 @@ const LabLayout = () => {
                   <h1>{labData.labName}</h1><h2> ❯&nbsp;&nbsp;&nbsp;{currentPageName}</h2>
                 </div>
                 <div className="labsComponents">
-                <Outlet context = {[currentPageName,setCurrentPageName, isLabOwner, setIsLabOwner]}/>
+                  {isMember ? (<Outlet context = {[currentPageName,setCurrentPageName, isLabOwner, setIsLabOwner]}/>) : (
+                    <div>Access Denied</div> 
+                    )}
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 .labsPageMain{
     margin-left: 300px;
-    margin-top:90px;
+    margin-top:40px;
     padding: 10px;
     margin-bottom: 0.01px;
   }
@@ -17,10 +17,7 @@
     color: #29ada0;
     font-size: 30px;
   }
-  .LabsContent h1{
-    margin-left: 30px;
-    font-size: 36px;
-  }
+
   .LabsContent {
     display:flex;
   }
@@ -46,7 +43,9 @@
 }
 .labInfo h1{
   font-size:32px;
+  margin-left: 30px;
 }
+
 .labInfo h2{
   font-size:20px;
   font-weight: 200;
@@ -138,9 +137,9 @@
   }
 
 .LabsPage h1{
-    font-size: 32px;
+    font-size: 36px;
     text-decoration: none;
-    font-weight: lighter;
+    font-weight: 400;
 }
 
 .LabsPage .MyLabs h2{
@@ -175,7 +174,7 @@
 
 .labSettings input[type="text"],
 .labSettings input[type="file"] {
-  width: 100%; 
+  width: 95%; 
   padding: 10px;
   border: 1px solid #ccc;
   margin-bottom: 15px; 
@@ -189,7 +188,7 @@
   
 }
 
-.labSettings button {
+.labSettings button{
   padding: 10px;
   border-radius: 3px;
   cursor: pointer;
@@ -199,6 +198,15 @@
   cursor: pointer;
   transition: background-color 0.3s ease; /* Smooth hover effect */
 }
+.labSettings ::file-selector-button {
+  border-radius: 3px;
+  padding:6px;
+  border: none;
+  background-color: #FF7A69;
+  color:white;
+  cursor: pointer;
+}
+
 /*Announcement*/
 /* General Container for Announcements */
 .announcements-container {
@@ -318,8 +326,8 @@
 @media screen and (max-width: 1300px) {
   .labsPageMain{
     margin-left: 0px;
-    margin-bottom: 100px;
-    margin-top:100px
+    margin-bottom: 95px;
+    margin-top:60px
     
   }
 

@@ -223,7 +223,7 @@ function FileSystem() {
       if (!isLabOwner) {
         throw new Error("You are not authorized to delete this folder.");
       }
-      
+  
       // Confirmation Alert
       if (!window.confirm(`Are you sure you want to delete the folder ${folder.name} and all its contents?`)) {
         return; 
@@ -232,7 +232,17 @@ function FileSystem() {
       // 1. Recursively delete files within the folder 
       const folderRef = ref(storage, `folders/${folder.name}`);
       const filesResponse = await listAll(folderRef);
-      await Promise.all(filesResponse.items.map((item) => deleteFile({ name: item.name, folder: folder.name })));
+  
+      await Promise.all(filesResponse.items.map((item) => {
+        // Extract docId within loop (assuming file names use the same convention)
+        const fileDocId = item.name.split('_')[1]; 
+  
+        return deleteFile({ 
+          name: item.name,
+          folder: folder.name,
+          docId: fileDocId, 
+        });
+      })); 
   
       // 2. Delete the folder's record from Firestore
       const labRef = doc(db, "labs", labId);
@@ -240,7 +250,8 @@ function FileSystem() {
       await deleteDoc(folderDocRef);
   
       // 3. Remove the folder from the folders state
-      setFolders(prevFolders => prevFolders.filter(f => f !== folder));
+      setFolders(prevFolders => prevFolders.filter(f => f.id !== folder.id)); // Update for ID-based filtering
+  
     } catch (error) {
       setError("Error deleting folder. Please try again.");
       console.error("Error deleting folder:", error);
@@ -308,8 +319,16 @@ function FileSystem() {
               <div className="folder-tiles">
                 {folders.map((folder, index) => (
                   <div key={index} className="folder-tile" onClick={() => navigateIntoFolder(folder)}>
+                    <div className = "folder-info">
                     <div className="ffolder small cyan"></div>
                     <span>{folder.name}</span>
+                    </div>
+                    {isLabOwner && ( 
+                      <button className="labFoldersDelete" onClick={() => deleteFolder(folder)}>
+                        X
+                      </button>
+                    )}
+                   
                   </div>
                 ))}
               </div>
