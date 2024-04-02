@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/landingpage.css";
 import { useNavigate } from "react-router-dom";
-import blob from "../images/blob (copy).svg";
+import blob from "../images/blobcopy.svg";
 import lp1 from "../images/lp-img-1.png";
 import lp2 from "../images/lp-img-2.png";
 import lplogo from "../images/logo.png";

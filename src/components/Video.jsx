@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { ZegoSuperBoardManager } from "zego-superboard-web";
 import '../chatStyle.css';
-import Navbar from './Navbar';
 
-function randomID(len) {
+export function randomID(len) {
   let result = '';
   if (result) return result;
   var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',
